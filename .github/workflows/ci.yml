@@ -165,10 +165,11 @@ jobs:
       - name: Redis connectivity smoke
         # Proves the job's service topology matches infrastructure/compose.dev.yaml:
         # a raw RESP PING must answer +PONG. No data, no persistence — pure reachability.
+        # CR/LF stripped explicitly: command substitution strips trailing LF but NOT CR.
         run: |
           exec 3<>/dev/tcp/127.0.0.1/6379
           printf 'PING\r\n' >&3
-          REPLY="$(head -c 7 <&3)"
+          REPLY="$(head -c 7 <&3 | tr -d '\r\n')"
           exec 3<&- 3>&-
           test "$REPLY" = "+PONG"
 
