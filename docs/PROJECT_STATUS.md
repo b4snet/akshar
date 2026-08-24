@@ -2,20 +2,17 @@
 
 ## Current status
 
-**Stage:** Foundation architecture complete; canonical documentation landed in-repo (`/docs`); Phase 001–003 forensic initialization verified; **Phase 004 (Toolchain Bootstrap) COMPLETE — all gates green locally, CI configured.**
+**Stage:** Foundation architecture complete; canonical documentation landed in-repo (`/docs`); Phases 001–004 verified; **Phase 005 (Project Skeleton) COMPLETE — all gates green locally.**
 
-**Implementation status:** No application features yet. Toolchain only (Phase 004 scope boundary honored).
+**Implementation status:** No application features yet. Canonical skeleton only (Phase 005 scope boundary honored): real Laravel 13 modular-monolith backend, structured React shell frontend, documented ops boundaries.
 
-## Phase 004 verification evidence
+## Phase 005 verification evidence
 
-- Reproducible install: `npm run setup` → npm ci from lockfile + composer install from lock ("Nothing to install, update or remove")
-- Lint: oxlint 0 warnings/0 errors · Pint laravel preset passed
-- Types: `tsc -b` clean (strict) · PHPStan level 6: no errors
-- Tests: Vitest 1/1 passed · PHPUnit 2 tests / 4 assertions OK
-- Build: Vite production build succeeds
-- Formatting: Prettier check + Pint pass
-- Secrets: repository scan clean; gitleaks job in CI
-- CI: `.github/workflows/ci.yml` — valid YAML, jobs frontend/backend/security on push+PR to main
+- Backend: Laravel 13.26.1 skeleton under `/backend` with domain registry (`app/Domain/README.md`, 26 anticipated modules), `app/Support/Api` envelope + error mapper, `/api/v1/health` endpoint, consistent JSON error envelopes for all API exceptions
+- Frontend: restructured `src/` into app shell/routing (`react-router` v8), shared states (`LoadingState`/`EmptyState`/`ErrorState`), platform services (`services/api` typed client implementing the API envelope contract), design tokens (`design-system/tokens.css`)
+- Ops boundaries: `/database`, `/integrations`, `/infrastructure`, `/tests` created with documented purpose only; dependabot configured
+- Gates: oxlint clean · Pint passed · tsc clean · PHPStan L6 (Larastan) 0 errors · Prettier clean · Vitest 10/10 · PHPUnit 6 tests / 33 assertions OK · Vite build OK · secret scan clean
+- Toolchain: Larastan added for Laravel-aware static analysis; composer scripts preserved (`lint`/`analyse`/`test`)
 
 ## Architecture decisions recorded
 
@@ -69,7 +66,7 @@
 
 ## Priority next action
 
-Phase 005 — Project Skeleton (NOT started; requires explicit owner instruction): canonical project layout for frontend, backend/domain services, persistence, integrations, tests, scripts, documentation and operations without adding unnecessary infrastructure.
+Phase 006 — Environment Contract (NOT started; requires explicit owner instruction): canonical environment configuration and provisioning contract for local development (PostgreSQL, Redis) and deployment targets.
 
 ## Definition of done for the foundation
 

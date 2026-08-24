@@ -86,6 +86,53 @@ Decision: toolchain vehicle = minimal runnable harnesses per stack; full skeleto
 Next approved step: STOP after Phase 004 checkpoint. Phase 005 requires explicit owner instruction.
 ```
 
+## Phase 005 — Project Skeleton — 2026-08-24
+
+```text
+Date: 2026-08-24
+Phase: 005 (Project Skeleton) — per docs/AKSHAR_PHASE_001_300_MASTER_EXECUTION_PLAN.md
+Scope: Canonical repository/application layout for frontend, backend/domain services, persistence,
+  integrations, tests, scripts, documentation and operations. No feature implementation.
+Baseline commit: 900d308 (Phase 004 toolchain bootstrap)
+Files changed: backend/ (real Laravel 13.26.1 skeleton via composer create-project; merged toolchain:
+  Pint preset + PHPStan L6 via nunomaduro/larastan ^3.10 + PHPUnit 12 composer scripts; modular-monolith
+  scaffolding: app/Domain/README.md registry anticipating all 26 planned modules, app/Support/{README.md,
+  Api/{ApiResponse,ApiException,ApiErrorMapper}.php}, app/Http/Api/V1/Controllers/HealthController.php,
+  routes/api.php with v1 prefix, routes/web.php reduced to health redirect, bootstrap/app.php registering
+  API routing + canonical JSON error rendering for api/*, config/cors.php env-driven, .env.example aligned
+  to PostgreSQL contract + CORS_ALLOWED_ORIGINS); frontend/ (react-router ^8.3 added; src restructured into
+  app/{router,AppShell,pages/HomePage,pages/NotFoundPage}, components/states/{Loading,Empty,Error}State,
+  services/api/{client,envelope,errors,index}.ts typed fetch client implementing the API envelope contract,
+  services/config.ts, design-system/tokens.css + README, types/env.d.ts, features/README.md convention;
+  removed flat App.tsx/App.test.tsx/assets); database/ integrations/ infrastructure/ tests/ README.md each
+  documenting purpose only; .github/dependabot.yml (npm+composer+actions weekly); root package.json dev:api
+  script; docs/{API_CONTRACTS §12 health endpoint, TESTING_STRATEGY §13 test locations, PROJECT_STATUS,
+  DEVELOPMENT_LOG, root README layout/quickstart}; docs/audits/AKSHAR_PHASE_005_CHECKPOINT.md.
+Database changes: none provisioned. backend/phpunit.xml targets PostgreSQL (akshar_testing) for parity;
+  Laravel default users/cache/jobs migrations retained as framework baseline untouched (identity redesign
+  belongs to its phase).
+Tests: frontend Vitest 10/10 passed (api client envelope/error mapping/network fallback 5, shared states 3,
+  router smoke 2); backend PHPUnit 6 tests / 33 assertions OK (health endpoint success envelope + unknown-route
+  NOT_FOUND envelope over HTTP; ApiErrorMapper coverage incl. ApiException passthrough, VALIDATION_ERROR field
+  details, UNAUTHENTICATED/FORBIDDEN/NOT_FOUND, unmapped→null). Gates: oxlint clean; Pint passed; tsc clean;
+  PHPStan L6 (Larastan) 0 errors; Prettier clean; Vite build OK; npm run secrets clean.
+Security/RLS evidence: no authn/authz implemented yet (belongs to later phases); error envelopes never leak
+  exception internals (mapped messages are fixed strings or ApiException-provided); CORS restricted to explicit
+  origins from env (default http://localhost:5173); .env files gitignored, APP_KEY generated locally only;
+  secret scan clean; dependabot enabled for dependency updates.
+External integrations tested: none.
+Known limitations: PostgreSQL server not yet provisioned locally or in CI (health tests do not touch the DB;
+  environment contract is Phase 006); no CI postgres service until a DB-backed suite exists; E2E suites not yet
+  introduced (tests/ is a documented placeholder); Laravel default web welcome view removed — web surface is a
+  redirect to /api/v1/health; Larastan constraint resolved to ^3.10 by composer (Laravel 13 compatible line).
+Decision: top-level dirs /database, /integrations, /infrastructure, /tests exist as purpose-documented
+  boundaries rather than empty scaffolding elsewhere; business domains live ONLY in backend/app/Domain per the
+  registry; frontend features are bounded slices under src/features with platform concerns centralized in
+  src/services; API error codes stabilized in API_CONTRACTS §12 (BAD_REQUEST…SERVER_ERROR) matching
+  app/Support/Api.
+Next approved step: STOP after Phase 005 checkpoint. Phase 006 requires explicit owner instruction.
+```
+
 ## Logging rule
 
 Every future implementation checkpoint must state exactly what was changed, what was tested and what remains unproven.

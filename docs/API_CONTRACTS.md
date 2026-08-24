@@ -83,3 +83,22 @@ Bulk endpoints report item-level success/failure and use safe asynchronous proce
 ## 11. Webhooks
 
 Webhooks are signed, replay-aware and idempotent. Receivers verify signature and timestamp before processing.
+
+## 12. Health
+
+`GET /api/v1/health` returns the standard success envelope and serves as the liveness probe for the API:
+
+```json
+{
+  "data": {
+    "service": "Akshar",
+    "status": "ok",
+    "environment": "local",
+    "framework": "13.26.1",
+    "time": "2026-08-24T08:00:00+00:00"
+  },
+  "meta": { "apiVersion": "v1" }
+}
+```
+
+All errors under `/api/v1/*` use the error envelope from §2, with stable codes including: `BAD_REQUEST`, `UNAUTHENTICATED`, `FORBIDDEN`, `NOT_FOUND`, `CONFLICT`, `VALIDATION_ERROR`, `RATE_LIMITED`, `METHOD_NOT_ALLOWED`, `SERVER_ERROR`.

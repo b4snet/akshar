@@ -76,3 +76,12 @@ Test peak attendance submission, result publication, fee collection, parent port
 ## 12. Release gates
 
 A release candidate is not complete until relevant automated gates pass and remaining limitations are explicitly recorded.
+
+## 13. Test locations (as built, Phase 005)
+
+- Frontend unit/component tests: colocated `*.test.ts(x)` beside the code under `frontend/src/**` (Vitest + Testing Library).
+- Backend feature/API tests: `backend/tests/Feature/**` (boot the framework, hit `/api/v1/*`).
+- Backend pure-unit tests: `backend/tests/Unit/**` (no framework boot).
+- E2E suites: repository-root `tests/` when their phase introduces them.
+
+Backend tests target PostgreSQL (`akshar_testing`) for parity with production; SQLite is not an accepted test target. Until a database-backed suite exists, a running PostgreSQL is not required to run the suite.

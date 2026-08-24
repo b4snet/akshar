@@ -9,6 +9,7 @@
   "scripts": {
     "setup": "node scripts/setup.mjs",
     "dev": "npm --prefix frontend run dev",
+    "dev:api": "php backend/artisan serve",
     "build": "npm --prefix frontend run build",
     "preview": "npm --prefix frontend run preview",
     "lint": "npm --prefix frontend run lint && node scripts/run-backend.mjs lint",

@@ -1,5 +1,17 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
 parameters:
-    level: 6
+
     paths:
-        - src
+        - app
+        - config
+        - database
+        - routes
         - tests
+
+    # Strict enough to catch real defects while allowing Laravel's dynamic
+    # surface; tighten as modules stabilize.
+    level: 6
+
+    treatPhpDocTypesAsCertain: false
