@@ -86,6 +86,10 @@ jobs:
       DB_DATABASE: akshar_testing
       DB_USERNAME: akshar
       DB_PASSWORD: secret
+      # The real process environment outranks .env files AND phpunit.xml <env>
+      # entries (dotenv precedence + superglobal adapter order), so any value a
+      # test asserts on must be pinned HERE to be authoritative in CI.
+      APP_NAME: Akshar
     services:
       postgres:
         image: postgres:17-alpine

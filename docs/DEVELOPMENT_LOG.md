@@ -224,10 +224,15 @@ INCIDENT RECORD (live-run verification): the first two CI runs on this phase FAI
   so fresh clones lacked the declared Unit testsuite directory entirely ("Test directory
   not found", exit code 2). Reproduced locally by hiding the directory; fix: real content
   added — Tests\Unit\Support\Api\ApiExceptionTest (3 pure-unit tests, no framework boot)
-  covering stable error-code/status contracts of ApiException named constructors. Final
-  run observed green via GitHub API (see checkpoint). Lesson recorded: CI verification of
-  this repository must include a pristine-clone perspective; empty architectural
-  directories are invisible to git by design.
+  covering stable error-code/status contracts of ApiException named constructors.
+  Post-green audit refined the incident-1 root cause: an ambient real-environment
+  APP_NAME outranks dotenv files and even forced phpunit.xml <env> entries at
+  Laravel's env layer (reproduced locally with a hostile value); the authoritative
+  CI pin therefore lives in the workflow job's env block (APP_NAME: Akshar), same
+  pattern as DB_*. Final run observed green via GitHub API — all four jobs success.
+  Lesson recorded: CI verification must include a pristine-clone perspective; empty
+  architectural directories are invisible to git by design, and test-relevant values
+  must be pinned at the strongest available precedence layer.
 Known limitations: authoring host still has no Docker, so compose.dev.yaml itself
   remains unexecuted locally (CI now proves the same topology); migration step's first
   execution happens in CI, not locally; no DB-backed PHPUnit suites yet — migrations +

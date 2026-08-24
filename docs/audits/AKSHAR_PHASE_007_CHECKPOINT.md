@@ -136,6 +136,16 @@ Both defects were found by observing actual CI runs via the public GitHub API
 a standing lesson: verify from a pristine-clone perspective; empty directories do
 not exist for git.
 
+Follow-up root-cause refinement (same phase, post-green audit): the "Laravel"
+leak in incident 1 was reproduced locally with a deliberately hostile ambient
+`APP_NAME` and shown to survive even `force="true"` on the phpunit.xml `<env>`
+entry — the real process environment outranks dotenv files AND PHPUnit-injected
+superglobals at Laravel's env-repository layer. The authoritative pin therefore
+lives at the layer that cannot be outranked inside a job: `APP_NAME: Akshar` in
+the backend job's `env:` block (same pattern already used for `DB_*`).
+phpunit.xml keeps its pins for local hermeticity; CI is now deterministic even
+if runner images ever export conflicting ambient variables.
+
 ## 11. Final test counts after fixes
 
 - Backend: **9 tests / 56 assertions, passed** (6 prior + 3 new Unit tests),
