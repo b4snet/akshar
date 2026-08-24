@@ -39,6 +39,26 @@ The non-negotiables live in [`docs/MASTER_RULES.md`](./docs/MASTER_RULES.md). In
 /docs/                 canonical documentation set + master execution plan
 /docs/audits/          phase audit & checkpoint reports
 /docs/archive/         archival artifacts (non-authoritative)
-/frontend/             React + TypeScript SPA        (Phase 004+)
-/backend/              Laravel modular monolith      (Phase 004+)
+/frontend/             React + TypeScript SPA toolchain        (Phase 004)
+/backend/              backend toolchain (PHP 8.4)              (Phase 004)
 ```
+
+## Quickstart
+
+Prerequisites: Node ≥ 20, PHP ≥ 8.4 (extensions: mbstring, openssl, pdo_pgsql). Composer is fetched automatically to `tools/composer.phar`.
+
+```bash
+npm run setup    # installs frontend deps (npm ci) + backend deps (composer install)
+npm run dev      # Vite dev server for the frontend
+npm run lint         # oxlint (frontend) + Pint (backend)
+npm run typecheck    # tsc (frontend) + PHPStan L6 (backend)
+npm run format:check # Prettier (frontend) + Pint (backend)
+npm run test         # Vitest (frontend) + PHPUnit (backend)
+npm run build        # production build of the frontend
+npm run secrets      # repository secret scan
+npm run reset        # wipe generated artifacts, reinstall from lockfiles
+npm run seed         # stub until the database phase provisions seeding
+```
+
+CI runs the same gates on every push/PR to `main` (`.github/workflows/ci.yml`). Copy `.env.example` before adding local configuration — real `.env` files are gitignored and must never be committed (`docs/DEPLOYMENT.md` §8).
+

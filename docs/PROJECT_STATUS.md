@@ -2,9 +2,20 @@
 
 ## Current status
 
-**Stage:** Foundation architecture complete; canonical documentation landed in-repo (`/docs`); Phase 001–003 forensic initialization verified; Phase 004 (Toolchain Bootstrap) authorized.
+**Stage:** Foundation architecture complete; canonical documentation landed in-repo (`/docs`); Phase 001–003 forensic initialization verified; **Phase 004 (Toolchain Bootstrap) COMPLETE — all gates green locally, CI configured.**
 
-**Implementation status:** No application implementation yet. Toolchain work is the current scope boundary.
+**Implementation status:** No application features yet. Toolchain only (Phase 004 scope boundary honored).
+
+## Phase 004 verification evidence
+
+- Reproducible install: `npm run setup` → npm ci from lockfile + composer install from lock ("Nothing to install, update or remove")
+- Lint: oxlint 0 warnings/0 errors · Pint laravel preset passed
+- Types: `tsc -b` clean (strict) · PHPStan level 6: no errors
+- Tests: Vitest 1/1 passed · PHPUnit 2 tests / 4 assertions OK
+- Build: Vite production build succeeds
+- Formatting: Prettier check + Pint pass
+- Secrets: repository scan clean; gitleaks job in CI
+- CI: `.github/workflows/ci.yml` — valid YAML, jobs frontend/backend/security on push+PR to main
 
 ## Architecture decisions recorded
 
@@ -58,7 +69,7 @@
 
 ## Priority next action
 
-Phase 004 — Toolchain Bootstrap (approved): reproducible install/lint/typecheck/test/build/format/reset/seed/dev commands, environment examples, CI foundation and secret-safe configuration handling. Feature implementation remains out of scope until later phases.
+Phase 005 — Project Skeleton (NOT started; requires explicit owner instruction): canonical project layout for frontend, backend/domain services, persistence, integrations, tests, scripts, documentation and operations without adding unnecessary infrastructure.
 
 ## Definition of done for the foundation
 

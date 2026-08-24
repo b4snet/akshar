@@ -59,6 +59,33 @@ Decision: D1 — Firebase project akshar-nepal is OUT OF SCOPE/DORMANT; canonica
 Next approved step: Phase 004 — Toolchain Bootstrap (owner-approved D4), per docs/AKSHAR_PHASE_001_300_MASTER_EXECUTION_PLAN.md.
 ```
 
+## Phase 004 — Toolchain Bootstrap — 2026-08-24
+
+```text
+Date: 2026-08-24
+Phase: 004 (Toolchain Bootstrap) — per docs/AKSHAR_PHASE_001_300_MASTER_EXECUTION_PLAN.md
+Scope: Reproducible install/lint/typecheck/test/build/format/dev/reset/seed commands; environment
+  contract example; CI foundation; secret-safe configuration handling. No feature implementation.
+Baseline commit: 147b14f (documentation landing)
+Files changed: root package.json, scripts/{setup,reset,run-backend,secret-scan}.mjs,
+  .gitignore, .gitattributes, .editorconfig, .env.example, .github/workflows/ci.yml;
+  frontend/ (Vite 8 + React 19 + TS strict + oxlint + Prettier + Vitest/jsdom + RTL smoke test);
+  backend/ (composer manifest, Pint laravel preset, PHPStan L6, PHPUnit smoke tests);
+  docs/{README quickstart in root README, PROJECT_STATUS.md, DEVELOPMENT_LOG.md};
+  docs/audits/AKSHAR_PHASE_004_CHECKPOINT.md.
+Database changes: none (no database provisioned yet — by design at this phase).
+Tests: frontend Vitest 1 passed (App shell identity); backend PHPUnit 2 tests / 4 assertions OK
+  (runtime contract + autoloading). Exact commands and results recorded in the checkpoint report.
+Security/RLS evidence: no RLS applicable yet; secret scan clean (`npm run secrets`); .env gitignored
+  with !.env.example exception; CI includes gitleaks job; no secrets committed.
+External integrations tested: none (none exist).
+Known limitations: Laravel application skeleton intentionally deferred to Phase 005; `seed` is an
+  explicit stub until a database exists; branch protection on origin/main requires GitHub admin UI;
+  local Node is v26 while CI pins v22 LTS (engines >=20 enforced).
+Decision: toolchain vehicle = minimal runnable harnesses per stack; full skeletons belong to Phase 005.
+Next approved step: STOP after Phase 004 checkpoint. Phase 005 requires explicit owner instruction.
+```
+
 ## Logging rule
 
 Every future implementation checkpoint must state exactly what was changed, what was tested and what remains unproven.
