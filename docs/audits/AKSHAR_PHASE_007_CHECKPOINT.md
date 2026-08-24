@@ -1,168 +1,259 @@
-# PHASE 007 CHECKPOINT REPORT — CI Baseline
+# AKSHAR — PHASE 007 CHECKPOINT
 
-## 1. Phase number and title
-
-Phase 007 — CI Baseline (Workstream 01: Foundation & Forensic Initialization).
-
-Objective: a reliable, reproducible, repository-native CI baseline that makes
-every push/PR to `main` automatically verify the project's engineering gates —
-an executable representation of the quality contract, not decorative YAML.
-
-## 2. Files changed
-
-- `.github/workflows/ci.yml` — rewritten as four isolated jobs:
-  1. **contract** (new): `npm run env:check`, `npm run test:env`,
-     `composer validate --strict --working-dir=backend` — the environment
-     contract from Phase 006 is now enforced on every push/PR.
-  2. **frontend**: unchanged gate chain (`npm ci`, oxlint, Prettier check,
-     tsc strict, Vitest, Vite build).
-  3. **backend**: upgraded with job-scoped services and real database proof:
-     - services: `postgres:17-alpine` + `redis:7-alpine` with healthchecks,
-       exact version parity with `infrastructure/compose.dev.yaml`
-       (contract-mandated versions; not convenience-chosen);
-     - CI-only credentials (`akshar` / `akshar_testing` / `secret`) set at job env;
-     - deterministic database initialization step
-       (`CREATE DATABASE akshar_testing`) mirroring the local init SQL;
-     - full gates: composer validate → install → Pint → PHPStan/Larastan L6 →
-       `php artisan migrate --force` against the disposable instance →
-       PHPUnit → `php artisan route:list --except-vendor` kernel/route smoke.
-  4. **security**: gitleaks over full history (preserved).
-  Hardening applied to all jobs: `concurrency` group with cancel-in-progress,
-  least-privilege `permissions: contents: read`, explicit per-job timeouts.
-- `backend/phpunit.xml` — `APP_NAME` pinned so test assertions are hermetic in
-  environments without a `.env` file (CI condition).
-- `backend/tests/Unit/Support/Api/ApiExceptionTest.php` — real content restoring
-  the git-tracked existence of the declared `Unit` testsuite directory (empty
-  directories are invisible to git), with pure-unit coverage of the stable
-  error-code/status contract.
-- `infrastructure/README.md` — CI layer row updated to "Defined"; added explicit
-  warning that CI service definitions must be kept aligned with compose.dev.yaml.
-- Root `README.md` — CI paragraph now describes the actual pipeline including
-  disposable PostgreSQL/Redis services.
-- `docs/PROJECT_STATUS.md`, `docs/DEVELOPMENT_LOG.md`, this checkpoint.
-
-## 3. Database/data-model changes
-
-- No repository schema changes. For the first time, the committed baseline
-  migrations were executed — but only inside the ephemeral CI job against its
-  own throwaway PostgreSQL instance. Nothing persists beyond the job.
-
-## 4. API changes
-
-None. Route smoke verifies the existing surface exactly:
-`GET /` (redirect) and `GET api/v1/health`.
-
-## 5. UI changes
-
-None.
-
-## 6. Security/authorization impact
-
-- Workflow now declares least-privilege permissions explicitly
-  (`contents: read`; security job scoped identically) instead of inheriting defaults.
-- CI database uses only disposable, job-lifetime credentials inside an ephemeral
-  container — never production, staging, or personal values; Redis service runs
-  unauthenticated, unpersisted, job-bound only.
-- Environment-contract validation in CI actively blocks committed secret material
-  patterns (Phase 006 validator runs on every push/PR now).
-- Gitleaks unchanged; no new secrets introduced; `npm run secrets` clean.
-
-## 7. Tests and exact results
-
-Static verification:
-
-- actionlint 1.7.7 on `.github/workflows/ci.yml`: **clean** (schema, expressions,
-  shell blocks).
-
-Local replication of every non-service step before commit (all green):
-
-- contract job: env:check OK (both templates) · node:test **8/8 passed** ·
-  `composer validate --strict` valid (root-invoked and backend-invoked)
-- backend job: Pint passed · PHPStan L6 0 errors · PHPUnit **6 tests /
-  33 assertions OK** · route:list smoke shows exactly `/` redirect +
-  `api/v1/health`
-- frontend job: npm ci clean · oxlint 0 warnings/0 errors · Prettier clean ·
-  tsc strict clean · Vitest **10/10 passed** · Vite build OK
-- root gates re-run at close: lint/typecheck/format/tests/build/secrets all pass;
-  `git diff --check` clean.
-
-Live verification:
-
-- First real workflow run triggered by this phase's push; result recorded below
-  in §9/§11 addendum if observed before checkpoint close (GitHub API queried for
-  run conclusion). The migrate step's first-ever execution therefore happens in
-  CI itself, as designed.
-
-## 8. Documentation updated
-
-Root README (CI paragraph) · infrastructure/README.md (CI layer + alignment
-warning) · PROJECT_STATUS.md · DEVELOPMENT_LOG.md · this checkpoint.
-
-## 9. Known limitations
-
-- The authoring host still has no Docker; `compose.dev.yaml` remains unexecuted
-  locally. CI now proves the same service topology independently of local Docker.
-- No database-backed PHPUnit suites exist yet (no schema features are in scope);
-  migrations + route smoke are the current database-level proof. RLS/RBAC suites
-  arrive with their owning phases and will run on this same service definition.
-- Dependency-advisory scanning (composer audit / npm audit) intentionally not
-  added: advisory databases change daily and would create non-reproducible
-  failures. Deferred to a later hardening phase as a recorded decision.
-
-## 10. Live-run incident record (verification that CI actually runs)
-
-The authorization required proof the workflow actually executes. It did — and the
-first two live runs FAILED, exposing two real latent defects that static review
-and local runs had missed:
-
-1. **Non-hermetic tests (runs at `a5d2988`, `1efcadd`):** PHPUnit failed because a
-   CI clone has no `backend/.env`; `config('app.name')` defaulted to "Laravel"
-   while `HealthTest` asserts "Akshar". Local passes had depended on an ambient
-   local `.env`. Fix (`ce1d5d7`): `APP_NAME` pinned inside `backend/phpunit.xml`;
-   hermeticity proven locally by running the full suite with `.env` removed.
-
-2. **Git-invisible testsuite directory (run at `ce1d5d7`):** backend migrations
-   against disposable PostgreSQL **succeeded**, but PHPUnit errored (exit 2):
-   `backend/tests/Unit/` was empty locally and therefore never git-tracked, so
-   fresh clones lacked the declared `Unit` testsuite directory entirely
-   ("Test directory not found"). Reproduced locally by hiding the directory.
-   Fix: real suite content added —
-   `tests/Unit/Support/Api/ApiExceptionTest.php` (3 pure-unit tests, no framework
-   boot) locking the stable client-facing code/status contract of
-   `ApiException` named constructors.
-
-Both defects were found by observing actual CI runs via the public GitHub API
-(job/step conclusions), reproducing locally, fixing, and re-running. Recorded as
-a standing lesson: verify from a pristine-clone perspective; empty directories do
-not exist for git.
-
-Follow-up root-cause refinement (same phase, post-green audit): the "Laravel"
-leak in incident 1 was reproduced locally with a deliberately hostile ambient
-`APP_NAME` and shown to survive even `force="true"` on the phpunit.xml `<env>`
-entry — the real process environment outranks dotenv files AND PHPUnit-injected
-superglobals at Laravel's env-repository layer. The authoritative pin therefore
-lives at the layer that cannot be outranked inside a job: `APP_NAME: Akshar` in
-the backend job's `env:` block (same pattern already used for `DB_*`).
-phpunit.xml keeps its pins for local hermeticity; CI is now deterministic even
-if runner images ever export conflicting ambient variables.
-
-## 11. Final test counts after fixes
-
-- Backend: **9 tests / 56 assertions, passed** (6 prior + 3 new Unit tests),
-  verified both with local `.env` present and with `.env` absent (CI condition).
-- actionlint clean · Pint passed · PHPStan L6 0 errors · Vitest 10/10 ·
-  node:test 8/8 · tsc/Prettier/build/secrets clean.
-
-## 12. Git branch/commit/tree state
+## Baseline
 
 - Branch: `main`
-- Phase commits: `1efcadd` (baseline), `ce1d5d7` (hermetic APP_NAME), plus final
-  fix commit restoring the Unit testsuite with real tests (see git log)
-- Working tree after push: clean; origin synchronized.
+- HEAD (phase start): `a5d2988373e4236f2113129b91a369db34286228`
+- Working tree: clean
 
-## 13. Status
+## CI Architecture
 
-**COMPLETE** — CI is an executable quality contract, proven by real execution:
-the pipeline itself surfaced two genuine defects which were fixed and re-verified
-to green on GitHub Actions infrastructure. Stopping per protocol; Phase 008
-requires explicit owner instruction.
+Workflows:
+- `.github/workflows/ci.yml` (only workflow; `name: CI`)
+
+Jobs:
+1. **contract** — "Repository & environment contract": `npm run env:check`,
+   `npm run test:env`, `composer validate --strict --working-dir=backend`
+   (Phase 006 environment contract enforced on every run; composer strict
+   validation also fails on manifest/lockfile disagreement → §10 reproducible
+   install is a hard gate on both ecosystems).
+2. **frontend** — "Frontend (lint · types · tests · build)"
+3. **backend** — "Backend quality (PostgreSQL 17 · Redis 7)"
+4. **security** — "Secret scan" (gitleaks over full history)
+
+Triggers:
+- `push` to `main` and `pull_request` targeting `main`.
+- No path filters, by deliberate choice: trivial path rules could let workflow/
+  backend/security-relevant changes bypass required checks. Every run runs
+  everything; jobs are individually cheap (timeouts 5–15 min).
+
+Concurrency:
+- `group: ci-${{ github.ref }}`, `cancel-in-progress: true`.
+- Rationale: superseded runs on the SAME ref are cancelled to save resources;
+  the newest commit always receives a complete authoritative result including
+  the security job. No release/validation pipeline exists yet that must never
+  be cancelled; when one lands it gets its own non-cancelling group.
+
+## Frontend CI
+
+- Install: `npm ci` (fails on package.json ↔ package-lock.json disagreement).
+- Lint: `npm run lint` (oxlint) and `npm run format:check` (Prettier).
+- Typecheck: `npm run typecheck` (tsc strict).
+- Tests: `npm run test -- --run` (Vitest, non-watch).
+- Build: `npm run build` (Vite production build).
+
+## Backend CI
+
+- Install: `composer validate --strict` then
+  `composer install --prefer-dist --no-interaction --no-progress`
+  (lockfile-driven; Composer cache archives cached via `actions/cache@v4`
+  keyed on `hashFiles('backend/composer.lock')` — downloadable archives only,
+  never vendor state or credentials).
+- Static analysis: `composer analyse` (PHPStan/Larastan level 6, 0 errors),
+  output teed to `/tmp/phpstan.log`; Pint via `composer lint` teed to
+  `/tmp/pint.log`.
+- Tests: `composer test` (= `config:clear` + PHPUnit) teed to `/tmp/phpunit.log`;
+  plus kernel/route smoke (`php artisan route:list --except-vendor`) and an
+  HTTP-level health check (see CI Execution notes): `php artisan serve` started
+  inside the job, canonical envelope asserted with `jq` against the REAL
+  endpoint contract (`data.status == "ok"`, `data.service == "Akshar"`,
+  non-empty `data.framework`, `meta.apiVersion == "v1"`), process always
+  terminated via EXIT trap. Serve process uses hermetic array stores so the
+  HTTP check exercises kernel+HTTP without DB coupling; DB behavior has its
+  own dedicated proof below. The `|| true` constructs exist ONLY in serve
+  teardown; every quality gate hard-fails the job.
+
+## PostgreSQL
+
+- Version: `postgres:17-alpine` — exact parity with
+  `infrastructure/compose.dev.yaml` (contract-mandated version, not
+  convenience-chosen).
+- Service: job-scoped service container, loopback port 5432,
+  `pg_isready -U akshar -d akshar` health gate.
+- Initialization: deterministic `CREATE DATABASE akshar_testing` via psql
+  (mirrors local init SQL); CI-only credentials (`akshar` / `secret`) set at
+  job env, job-lifetime only.
+- Migration test: `php artisan migrate --force` against the disposable
+  instance — first-ever real execution of committed migrations happened here.
+  Framework-baseline migrations only; no invented future Akshar schema.
+
+## Redis
+
+- Version: `redis:7-alpine` — exact compose.dev.yaml parity.
+- Service: job-scoped container, loopback 6379, `redis-cli ping` health gate.
+- Tests: raw RESP connectivity smoke — `PING` written over `/dev/tcp`,
+  answer asserted byte-exact `+PONG`. Reachability/topology proof only;
+  application code does not use Redis yet (documented scope boundary).
+
+## Security
+
+Secret scan:
+- gitleaks (`gitleaks/gitleaks-action@v2`) over full history
+  (`fetch-depth: 0`). Value-based detection distinguishes actual secret values
+  from safe variable names. No findings; no suppressions configured; nothing
+  disabled. Phase 006's env-contract validator additionally blocks committed
+  secret-material patterns on every run.
+
+Dependency scan:
+- Evaluated this phase per authorization §9, run as INFORMATIONAL steps with
+  documented justification (advisory DBs change continuously; hard-gating them
+  would make the baseline non-reproducible day-to-day; enforcement deferred to
+  supply-chain hardening phase). Lockfile integrity remains HARD-enforced
+  elsewhere (see contract/frontend/backend install steps).
+- Results at phase close:
+  - `composer audit --locked`: **no security advisories**; 1 abandoned-package
+    notice — `nunomaduro/larastan` (successor: `larastan/larastan`). Documented
+    and deliberately NOT migrated now: dev-tooling rename would modify the
+    lockfile outside this phase's scope ("no broad dependency modernization").
+  - `npm audit --omit=dev`: **0 vulnerabilities**.
+
+Workflow permissions:
+- Workflow-level least privilege `permissions: contents: read`; security job
+  scoped identically. No write scopes anywhere; no untrusted-PR privilege path
+  (PR runs get read-only token, no secrets beyond that).
+- Line-by-line review (§23): all `run:` blocks are literal commands — no
+  `${{ }}` interpolation into any shell except the concurrency group label
+  (non-shell context) → no shell-injection surface. Checkout pinned to
+  official actions by major tag (@v4); gitleaks/setup-php by @v2. Actions are
+  NOT SHA-pinned yet — recorded as known limitation/hardening candidate since
+  current project standards do not mandate pinning. Gitleaks needs full
+  history checkout (justified). Artifact uploads carry tool outputs only.
+
+Artifact review:
+- On backend failure ONLY: `backend-failure-evidence` artifact
+  (`actions/upload-artifact@v4`, retention 7 days, `if-no-files-found: ignore`)
+  containing pint/phpstan/phpunit logs, serve log, health.json — all
+  secret-free structured evidence. Never uploaded: `.env*`, keys, tokens,
+  cookies, dumps, student data. Frontend gates emit to the run log only (no
+  file-based reporters configured yet — recorded limitation until coverage/
+  reporting tooling arrives).
+
+## Environment
+
+CI variables:
+- Backend job env: `DB_CONNECTION=pgsql`, `DB_HOST=127.0.0.1`,
+  `DB_PORT=5432`, `DB_DATABASE=akshar_testing`, `DB_USERNAME=akshar`,
+  `DB_PASSWORD=secret` (disposable, matches phpunit.xml), plus
+  `APP_NAME=Akshar`.
+- Precedence lesson encoded in workflow comments: the REAL process environment
+  outranks `.env` files AND phpunit.xml `<env>` entries (even `force="true"` —
+  reproduced locally with hostile values), so test-asserted values are pinned
+  at job level where nothing outranks them.
+- Health step additionally pins `CACHE_STORE=array`, `SESSION_DRIVER=array`
+  (step-scoped hermeticity).
+
+Secret handling:
+- Only `secrets.GITHUB_TOKEN` used (read-only, implicit); no repository
+  secrets exist. No value ever echoed: logs print gate summaries and the
+  secret-free health envelope only. PGPASSWORD passed via step env, not
+  command line.
+
+Environment isolation:
+- CI clones contain NO `.env` (gitignored since Phase 004); tests proven
+  hermetic by running the suite locally without `.env` (9/9 both ways). CI
+  services are ephemeral, job-bound, loopback-only; nothing persists.
+
+## CI Execution
+
+Run:
+- Real GitHub-hosted execution observed after every push via the public
+  GitHub API (runs/jobs endpoints) — YAML validation alone explicitly
+  insufficient per authorization.
+
+Commit lineage:
+- `1efcadd` baseline → FAILED (incident 1) → `ce1d5d7` hermetic APP_NAME pin →
+  FAILED (incident 2 exposed by same run class) → `50b442d` Unit-suite
+  restoration → SUCCESS → `0e003c8` job-level APP_NAME precedence fix →
+  SUCCESS → final compliance-hardening commit(s) of this checkpoint → observed
+  result below recorded at close.
+
+Result:
+- All four jobs **success** on GitHub-hosted runners (verified via API after
+  each push; final green run confirmed at close of this checkpoint).
+
+Live-run incident record (condensed; full narrative in DEVELOPMENT_LOG):
+1. Runs at `a5d2988`/`1efcadd` failed: no `.env` in CI clone →
+   `config('app.name')` = "Laravel" ≠ asserted "Akshar". Fixed by hermetic
+   pinning; later refined: ambient env outranks dotenv AND forced `<env>`, so
+   the authoritative pin lives in job env (`APP_NAME: Akshar`).
+2. Run at `ce1d5d7` failed (exit 2): `tests/Unit/` empty locally ⇒ never
+   git-tracked ⇒ fresh clones lacked the declared testsuite directory
+   ("Test directory not found"). Reproduced locally by hiding the directory;
+   fixed with real content (`ApiExceptionTest`, 3 pure-unit tests).
+Both defects were surfaced BY the real pipeline — exactly the failure mode
+this phase exists to catch — and were fixed and re-verified to green.
+
+## Local/CI Parity
+
+- Contract gates: identical scripts locally and in CI
+  (`npm run env:check`, `npm run test:env`, `composer validate --strict`).
+- Frontend: identical commands (`npm ci`, `run lint/format:check/typecheck/
+  test/build`) — CI adds `-- --run` to force Vitest non-watch mode.
+- Backend: identical composer scripts (`lint`, `analyse`, `test`) and artisan
+  invocations (`migrate --force`, `route:list`, `serve`+HTTP check simulated
+  locally with equivalent assertions before shipping).
+- Unavoidable differences: service containers (PostgreSQL/Redis) exist only in
+  CI — authoring host has no Docker; migrations therefore execute in CI while
+  local suite stays hermetic (DB-independent by design). OS difference
+  (Windows authoring vs ubuntu-latest) is covered by the hermeticity doctrine
+  (no ambient-env dependence; proven by the APP_NAME incident).
+- Advisory scans run locally with the same commands as CI
+  (`composer audit --locked`, `npm audit --omit=dev`).
+
+## Files Changed
+
+- `.github/workflows/ci.yml` — four-job architecture; npm/composer advisory
+  evaluation steps (informational, documented); Composer archive cache;
+  Redis RESP smoke; teed gate logs; HTTP health-endpoint verification with
+  guaranteed teardown; failure-evidence artifact; concurrency; least-
+  privilege permissions; job-level `APP_NAME` pin with precedence rationale.
+- `backend/phpunit.xml` — `APP_NAME` hermetic pin (local layer).
+- `backend/tests/Unit/Support/Api/ApiExceptionTest.php` — new pure-unit suite
+  restoring git-tracked existence of declared Unit testsuite dir.
+- `infrastructure/README.md` — CI layer row "Defined"; alignment warning
+  between compose.dev.yaml and CI service definitions.
+- Root `README.md` — CI paragraph describing the actual pipeline.
+- `docs/PROJECT_STATUS.md`, `docs/DEVELOPMENT_LOG.md`, this checkpoint.
+
+## Documentation Updated
+
+- `README.md` (CI paragraph) · `infrastructure/README.md` (CI infrastructure
+  authority) · `docs/PROJECT_STATUS.md` (evidence line) ·
+  `docs/DEVELOPMENT_LOG.md` (Phase 007 entry + incident record) · this
+  checkpoint. TESTING_STRATEGY.md reviewed: existing statements remain
+  accurate (suite stays DB-independent; CI owns migration execution) — no
+  change needed. Environment configuration authority remains solely in
+  `/infrastructure/README.md` (no duplication across files).
+
+## Known Limitations
+
+- Authoring host has no Docker: compose.dev.yaml itself remains unexecuted
+  locally; CI proves the same topology instead.
+- No database-backed PHPUnit suites yet (schema features belong to later
+  phases); migrate + HTTP/route smoke are the current database-level proof.
+  No future Akshar schema was invented here.
+- Dependency-advisory steps are informational (rationale above); enforcement
+  deferred to supply-chain hardening phase. Abandoned `nunomaduro/larastan`
+  rename deferred for the same scope reason.
+- External actions pinned by major tag, not SHA — acceptable under current
+  standards; revisit in security hardening.
+- Frontend produces no file-based test reports/coverage artifacts yet; failure
+  evidence there lives in run logs until reporting tooling lands.
+- Branch protection cannot be enabled from this environment (see Owner
+  Actions).
+
+## Owner Actions
+
+- **OWNER ACTION REQUIRED — branch protection (§18):** repository
+  administration is not possible from the current environment (no admin
+  credentials). Required settings once enabled:
+  - Require status checks: `Repository & environment contract`,
+    `Frontend (lint · types · tests · build)`,
+    `Backend quality (PostgreSQL 17 · Redis 7)`, `Secret scan`.
+  - Require branches up to date; include administrators.
+  Until then, `main` accepts direct pushes and CI results are advisory-only —
+  this is honestly recorded rather than claimed as enforced.
+
+## Final Status
+
+PHASE 007 COMPLETE

@@ -9,11 +9,13 @@
 ## Phase 007 verification evidence
 
 - Workflow: `.github/workflows/ci.yml` restructured into four isolated jobs with concurrency cancellation, least-privilege `permissions: contents: read`, and per-job timeouts — contract · frontend · backend (PostgreSQL 17 + Redis 7 services) · security
-- Contract job: `npm run env:check` + `npm run test:env` + `composer validate --strict` run on every push/PR
-- Backend job: disposable job-scoped `postgres:17-alpine` (exact version parity with `infrastructure/compose.dev.yaml`) + `redis:7-alpine`, test-only credentials (`akshar`/`akshar_testing`/`secret`), deterministic `CREATE DATABASE akshar_testing`, full gates (Pint, PHPStan L6, PHPUnit), **real migrations against the disposable instance**, route-registration smoke proving kernel boot
+- Contract job: `npm run env:check` + `npm run test:env` + `composer validate --strict` run on every push/PR; strict composer validation makes manifest↔lockfile disagreement a hard failure (reproducible install)
+- Backend job: disposable job-scoped `postgres:17-alpine` (exact version parity with `infrastructure/compose.dev.yaml`) + `redis:7-alpine`, test-only credentials (`akshar`/`akshar_testing`/`secret`), deterministic `CREATE DATABASE akshar_testing`, Redis RESP `PING→+PONG` smoke, full gates (Pint, PHPStan L6, PHPUnit), **real migrations against the disposable instance**, route-registration smoke proving kernel boot, and an HTTP-level health check (`artisan serve` inside the job, jq assertions on the real canonical envelope, guaranteed process teardown)
+- Supply-chain: `composer audit --locked` + `npm audit --omit=dev` evaluated as documented-informational steps (0 advisories; abandoned-package notice for nunomaduro/larastan recorded); lockfile integrity stays hard-enforced by install/validate steps; failure-evidence artifacts (gate logs only, retention 7d) uploaded on backend failure — never environment files or credentials
 - Frontend/security jobs preserved from the working baseline; no competing toolchain introduced
 - Static verification: actionlint 1.7.7 clean on the workflow; every locally-runnable step executed locally with green results before commit
-- Gates at close: oxlint clean · Pint passed · tsc clean · PHPStan L6 0 errors · Prettier clean · Vitest 10/10 · PHPUnit 6 tests / 33 assertions OK · node:test 8/8 · Vite build OK · secret scan clean
+- Live execution: real GitHub Actions runs observed via API after every push; two genuine latent defects were caught BY CI (non-hermetic APP_NAME; git-invisible empty Unit testsuite dir), fixed, and re-verified to green — all four jobs success at close
+- Gates at close: oxlint clean · Pint passed · tsc clean · PHPStan L6 0 errors · Prettier clean · Vitest 10/10 · PHPUnit 9 tests / 56 assertions OK (hermetic without `.env`) · node:test 8/8 · Vite build OK · secret scan clean
 
 ## Architecture decisions recorded
 

@@ -11,7 +11,7 @@ Local  →  CI  →  Staging  →  Production
 | --- | --- | --- |
 | Local services | `compose.dev.yaml` (this directory) | Defined; requires Docker on the host |
 | Local variables | `.env.example` (root reference) + `backend/.env.example` | Enforced by `npm run env:check` |
-| CI | `.github/workflows/ci.yml` | Defined — job-scoped `postgres:17-alpine` + `redis:7-alpine` services, migrations + route smoke |
+| CI | `.github/workflows/ci.yml` | Defined — job-scoped `postgres:17-alpine` + `redis:7-alpine` services, migrations, Redis RESP smoke, HTTP health check, route smoke, failure-evidence artifact (gate logs only), informational dependency-advisory steps |
 | Staging / production | external secret configuration + deployment pipeline | Later phases per `docs/DEPLOYMENT.md` |
 
 ## Local development topology

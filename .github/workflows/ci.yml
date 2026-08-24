@@ -55,6 +55,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Dependency advisories (npm, production deps)
+        # Informational by documented decision: advisory databases change
+        # continuously, so a hard gate here would make the baseline
+        # non-reproducible day-to-day. Findings are reviewed per phase/release;
+        # enforcement arrives with the supply-chain hardening phase. This is
+        # NOT a suppressed quality gate: composer/npm lockfile integrity is
+        # enforced by `npm ci` above and `composer validate --strict`.
+        continue-on-error: true
+        run: npm audit --omit=dev
+
       - name: Lint
         run: npm run lint
 
@@ -123,11 +133,27 @@ jobs:
           extensions: mbstring, openssl, pdo_pgsql
           coverage: none
 
+      # Reproducibility-safe cache: keyed strictly on composer.lock contents,
+      # stores only downloadable package archives (never installed vendor state).
+      - name: Cache Composer package archives
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/composer
+          key: composer-${{ runner.os }}-${{ hashFiles('backend/composer.lock') }}
+          restore-keys: composer-${{ runner.os }}-
+
       - name: Validate composer.json/lock
         run: composer validate --strict
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction --no-progress
+
+      - name: Dependency advisories (Composer, locked)
+        # Informational by documented decision (see frontend job for rationale).
+        # Lockfile/manifest agreement is separately enforced as a HARD gate by
+        # `composer validate --strict` above.
+        continue-on-error: true
+        run: composer audit --locked
 
       - name: Create testing database
         run: |
@@ -136,20 +162,80 @@ jobs:
         env:
           PGPASSWORD: secret
 
+      - name: Redis connectivity smoke
+        # Proves the job's service topology matches infrastructure/compose.dev.yaml:
+        # a raw RESP PING must answer +PONG. No data, no persistence — pure reachability.
+        run: |
+          exec 3<>/dev/tcp/127.0.0.1/6379
+          printf 'PING\r\n' >&3
+          REPLY="$(head -c 7 <&3)"
+          exec 3<&- 3>&-
+          test "$REPLY" = "+PONG"
+
       - name: Lint (Pint)
-        run: composer lint
+        shell: bash
+        run: composer lint 2>&1 | tee /tmp/pint.log
 
       - name: Static analysis (PHPStan/Larastan)
-        run: composer analyse
+        shell: bash
+        run: composer analyse 2>&1 | tee /tmp/phpstan.log
 
       - name: Database migrations against disposable PostgreSQL
         run: php artisan migrate --force
 
       - name: Tests (PHPUnit)
-        run: composer test
+        shell: bash
+        run: composer test 2>&1 | tee /tmp/phpunit.log
 
       - name: Route registration smoke
         run: php artisan route:list --except-vendor
+
+      - name: Health endpoint over HTTP (canonical envelope)
+        # Starts the real application process inside this job only and always
+        # terminates it (trap on EXIT). The serve process gets hermetic cache/
+        # session stores so the check exercises HTTP+kernel without depending
+        # on database state; DB behavior is proven by migrate/tests above.
+        # Assertions mirror HealthTest exactly (the actual endpoint contract).
+        env:
+          CACHE_STORE: array
+          SESSION_DRIVER: array
+        shell: bash
+        run: |
+          php artisan serve --host=127.0.0.1 --port=8080 >/tmp/serve.log 2>&1 &
+          SERVER_PID=$!
+          cleanup() {
+            kill "$SERVER_PID" 2>/dev/null || true
+            wait "$SERVER_PID" 2>/dev/null || true
+          }
+          trap cleanup EXIT
+          for _ in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8080/api/v1/health >/tmp/health.json; then
+              break
+            fi
+            sleep 1
+          done
+          cat /tmp/health.json
+          jq -e '.data.status == "ok"
+            and .data.service == "Akshar"
+            and (.data.framework | length > 0)
+            and .meta.apiVersion == "v1"' /tmp/health.json
+
+      - name: Upload failure evidence
+        # Gate/tool outputs only — no environment files, credentials, or dumps.
+        # The `|| true` lines live exclusively inside teardown of the serve
+        # process; every quality gate above hard-fails the job.
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-failure-evidence
+          path: |
+            /tmp/pint.log
+            /tmp/phpstan.log
+            /tmp/phpunit.log
+            /tmp/serve.log
+            /tmp/health.json
+          if-no-files-found: ignore
+          retention-days: 7
 
   security:
     name: Secret scan

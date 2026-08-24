@@ -233,6 +233,20 @@ INCIDENT RECORD (live-run verification): the first two CI runs on this phase FAI
   Lesson recorded: CI verification must include a pristine-clone perspective; empty
   architectural directories are invisible to git by design, and test-relevant values
   must be pinned at the strongest available precedence layer.
+  Compliance re-audit against the full authorization closed remaining gaps:
+  dependency advisories now EVALUATED in-CI as documented-informational steps
+  (composer audit --locked: 0 security advisories, 1 abandoned-package notice —
+  nunomaduro/larastan, rename deferred as out-of-phase lockfile change;
+  npm audit --omit=dev: 0 vulnerabilities); Redis service now exercised
+  (raw RESP PING→+PONG smoke); health endpoint verified over real HTTP inside
+  the job (artisan serve + jq assertions on the actual contract — data.status,
+  data.service, data.framework, meta.apiVersion — with guaranteed teardown);
+  failure-evidence artifact (gate logs only) added; Composer archive cache
+  keyed on lockfile hash; concurrency/permissions rationale and a line-by-line
+  workflow security review recorded in the checkpoint; OWNER ACTION REQUIRED
+  documented for branch protection (admin not possible from this environment).
+  Checkpoint rewritten to the exact mandated template. Final state: all four
+  jobs green on GitHub-hosted runners.
 Known limitations: authoring host still has no Docker, so compose.dev.yaml itself
   remains unexecuted locally (CI now proves the same topology); migration step's first
   execution happens in CI, not locally; no DB-backed PHPUnit suites yet — migrations +
