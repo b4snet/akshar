@@ -2,7 +2,7 @@
 
 Akshar is a Nepal-first, multi-tenant School + College Management System designed to operate the complete student, academic, examination and institutional lifecycle — from early/basic education through secondary education, Grades 11–12 (+2) and college/campus operations.
 
-> **Status:** foundation phase. The engineering contract is complete and the canonical project skeleton is in place (Phase 005); feature modules begin arriving in later phases of the execution plan. Nothing in this repository yet claims production readiness.
+> **Status:** authoritative current status lives in [`docs/PROJECT_STATUS.md`](./docs/PROJECT_STATUS.md). Summary: foundation phases through Phase 005 (project skeleton) are complete; feature modules arrive in later phases of the execution plan. Nothing in this repository yet claims production readiness.
 
 ## Canonical architecture (decision D1, 2026-08-24)
 
