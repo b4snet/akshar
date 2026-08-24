@@ -57,9 +57,15 @@ const phar = join(root, "tools", "composer.phar");
 if (!existsSync(phar)) {
   const ok = await downloadComposer(phar);
   if (!ok) {
-    console.warn("setup: skipping backend composer step — install composer or retry with network access.");
-    process.exit(0);
+    // Evidence discipline (MASTER_RULES §10): setup must never report success
+    // when the backend install did not run. Fail loudly with remediation.
+    console.error("setup: could not download tools/composer.phar — backend dependencies NOT installed.");
+    console.error("setup: fix network access or install Composer globally, then re-run `npm run setup`.");
+    process.exit(1);
   }
 }
 code = run("php", [phar, "install", "--working-dir=backend"]);
+if (code !== 0) {
+  console.error("setup: `composer install` failed — see output above; resolve and re-run `npm run setup`.");
+}
 process.exit(code);

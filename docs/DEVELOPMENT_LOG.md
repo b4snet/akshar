@@ -265,6 +265,55 @@ Decision: CI mirrors the approved environment contract versions exactly
 Next approved step: STOP after Phase 007 checkpoint. Phase 008 requires explicit owner instruction.
 ```
 
+## Phase 008 — Local Development Experience — 2026-08-24
+
+```
+Phase: 008 (Local Development Experience) — per docs/AKSHAR_PHASE_001_300_MASTER_EXECUTION_PLAN.md
+Scope: The developer-facing local workflow only: environment preflight, one-command
+  parallel dev stack, actionable migration preflight, and honest setup failure
+  semantics. No feature code; no schema; no CI changes; identity model explicitly
+  remains Phase 012.
+GOVERNANCE NOTE: the phase authorization message titled this phase "IDENTITY MODEL",
+  which conflicts with the canonical plan (line 289: PHASE 008 = LOCAL DEVELOPMENT
+  EXPERIENCE; line 439: PHASE 012 = IDENTITY MODEL). Owner adjudication: plan wins;
+  this entry records that decision as the binding interpretation for the audit trail.
+Files changed: scripts/lib/doctor-checks.mjs + scripts/doctor.mjs (`npm run doctor`:
+  Node>=20 engines check, PHP>=8.4 + mandated extension detection via php -m,
+  composer phar/global availability, advisory Docker/.env/service-reachability
+  hints with hard failure ONLY on toolchain gaps); scripts/dev.mjs (`npm run
+  dev:stack`: parallel Laravel API + Vite with tagged interleaved output, real
+  process-tree teardown on Ctrl-C or first child failure, exit-code propagation;
+  Vite launched via process.execPath — .cmd shims are blocked without a shell on
+  modern Node and an earlier draft orphaned children because of it); scripts/
+  db-migrate.mjs (`db:migrate` now fails fast with `npm run db:up` guidance when
+  PostgreSQL is unreachable instead of surfacing a raw driver error); setup.mjs
+  fixed to exit non-zero when composer download/install fails (was warn+exit(0),
+  violating MASTER_RULES §10 evidence discipline); package.json wires doctor,
+  dev:stack, db:migrate wrapper, test:tooling into the root test chain; README
+  quickstart updated; scripts/test/doctor.test.mjs adds 8 unit tests for the pure
+  predicates (16 total tooling tests together with env-contract).
+Database changes: none. API changes: none. UI changes: none.
+Security impact: no new secrets or network exposure beyond loopback servers that
+  already existed individually; doctor prints variable NAMES and states, never values.
+Verification evidence (all run live on the authoring host): doctor exit 0 with
+  correct advisories (Docker absent, PG/Redis down) and green toolchain; hostile
+  simulation not needed — missing-extension path covered by unit tests;
+  db:migrate preflight exits 1 with remediation text when nothing listens on 5432;
+  dev:stack launched both servers live, [api]/[web]-tagged output observed, GET
+  /api/v1/health returned HTTP 200 canonical envelope through the orchestrated API
+  instance, teardown verified zero remaining listeners on 8000/5173/5174; full gate
+  suite green (env:check, oxlint/Pint, Prettier, tsc, PHPStan L6 0 errors, Vitest,
+  PHPUnit 9/9 56 assertions, env-contract 8/8, tooling 16/16, Vite build, secret
+  scan clean); git diff --check clean; debug-artifact scan of the diff clean.
+Known limitations: Docker still unavailable on the authoring host so db:up itself
+  remains unexecuted locally (unchanged from Phase 007 record); dev.mjs lifecycle
+  was verified manually rather than via automated cross-platform process test —
+  signal semantics differ too much between CI Linux runners and developer hosts to
+  make such a test honest at this stage; doctor service probes are point-in-time
+  TCP reachability checks, not authentication checks (by design, no credentials used).
+Next approved step: STOP after Phase 008 checkpoint. Phase 009 requires explicit owner instruction.
+```
+
 ## Logging rule
 
 Every future implementation checkpoint must state exactly what was changed, what was tested and what remains unproven.

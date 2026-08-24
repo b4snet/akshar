@@ -62,16 +62,18 @@ Prerequisites: Node ≥ 20, PHP ≥ 8.4 (extensions: mbstring, openssl, pdo_pgsq
 
 ```bash
 npm run setup    # installs frontend deps (npm ci) + backend deps (composer install)
+npm run doctor   # verify the local toolchain against the repository contract
 cp backend/.env.example backend/.env && php backend/artisan key:generate
 npm run env:check # validate committed environment templates against the contract
 npm run db:up     # local PostgreSQL 17 + Redis 7 via Docker (infrastructure/compose.dev.yaml)
-npm run db:migrate # run Laravel migrations once the database stack is up
-npm run dev      # Vite dev server for the frontend
-npm run dev:api  # Laravel API on http://localhost:8000 (health: /api/v1/health)
+npm run db:migrate # run migrations; fails fast with a hint when PostgreSQL is unreachable
+npm run dev:stack # Laravel API + Vite together, one terminal, tagged output, shared Ctrl-C
+npm run dev      # Vite dev server only
+npm run dev:api  # Laravel API only on http://localhost:8000 (health: /api/v1/health)
 npm run lint         # oxlint (frontend) + Pint (backend)
 npm run typecheck    # tsc (frontend) + PHPStan L6 via Larastan (backend)
 npm run format:check # Prettier (frontend) + Pint (backend)
-npm run test         # Vitest (frontend) + PHPUnit (backend) + env-contract tests
+npm run test         # Vitest (frontend) + PHPUnit (backend) + env-contract + tooling tests
 npm run build        # production build of the frontend
 npm run secrets      # repository secret scan
 npm run reset        # wipe generated artifacts, reinstall from lockfiles

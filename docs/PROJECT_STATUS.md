@@ -2,9 +2,9 @@
 
 ## Current status
 
-**Stage:** Foundation architecture complete; canonical documentation landed in-repo (`/docs`); Phases 001–004 verified; Phase 005 (Project Skeleton) complete (`docs/audits/AKSHAR_PHASE_005_CHECKPOINT.md`); Phase 006 (Environment Contract) complete (`docs/audits/AKSHAR_PHASE_006_CHECKPOINT.md`); **Phase 007 (CI Baseline) COMPLETE.**
+**Stage:** Foundation architecture complete; canonical documentation landed in-repo (`/docs`); Phases 001–004 verified; Phase 005 (Project Skeleton) complete (`docs/audits/AKSHAR_PHASE_005_CHECKPOINT.md`); Phase 006 (Environment Contract) complete (`docs/audits/AKSHAR_PHASE_006_CHECKPOINT.md`); Phase 007 (CI Baseline) complete (`docs/audits/AKSHAR_PHASE_007_CHECKPOINT.md`); **Phase 008 (Local Development Experience) COMPLETE** (`docs/audits/AKSHAR_PHASE_008_CHECKPOINT.md`).
 
-**Implementation status:** No application features yet. Skeleton, environment contract, and an executable CI quality contract in place (scope boundary honored).
+**Implementation status:** No application features yet. Skeleton, environment contract, executable CI quality contract, and a verified local developer workflow (doctor preflight, parallel dev stack, actionable migrate preflight) are in place (scope boundary honored). Note: the Phase 008 authorization message was titled "Identity Model" but owner adjudication bound this phase to the canonical plan's Local Development Experience scope; identity remains Phase 012.
 
 ## Phase 007 verification evidence
 
