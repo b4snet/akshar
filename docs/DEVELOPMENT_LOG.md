@@ -177,6 +177,55 @@ Decision: /infrastructure is the single authoritative home of the environment co
 Next approved step: STOP after Phase 006 checkpoint. Phase 007 requires explicit owner instruction.
 ```
 
+## Phase 007 — CI Baseline — 2026-08-24
+
+```text
+Date: 2026-08-24
+Phase: 007 (CI Baseline) — per docs/AKSHAR_PHASE_001_300_MASTER_EXECUTION_PLAN.md
+Scope: Executable CI quality contract for every push/PR to main. No feature work; no
+  application behavior invented.
+Baseline commit: a5d2988 (Phase 006 environment contract)
+Files changed: .github/workflows/ci.yml rewritten — four isolated jobs (contract,
+  frontend, backend, security) with concurrency cancellation, permissions
+  contents:read, per-job timeouts; contract job runs npm run env:check + test:env +
+  composer validate --strict on every push/PR; backend job gains job-scoped services
+  postgres:17-alpine (exact parity with infrastructure/compose.dev.yaml) and
+  redis:7-alpine with healthchecks, CI-only credentials, deterministic CREATE DATABASE
+  akshar_testing step mirroring the local init SQL, php artisan migrate --force against
+  the disposable instance, and php artisan route:list smoke proving kernel/route boot;
+  frontend and gitleaks jobs preserved from the working baseline;
+  docs/{README CI paragraph, PROJECT_STATUS, DEVELOPMENT_LOG,
+  audits/AKSHAR_PHASE_007_CHECKPOINT.md}; infrastructure/README.md CI layer row +
+  alignment warning between compose.dev.yaml and CI service definitions.
+Database changes: none in the repository schema; migrations executed for the first time
+  against a real PostgreSQL instance — but only inside the disposable CI job.
+Tests: static workflow verification via actionlint 1.7.7 (clean); local replication of
+  every non-service step before commit: env:check OK both templates, node:test 8/8,
+  composer validate --strict valid (root invocation + backend), Pint passed, PHPStan L6
+  0 errors, PHPUnit 6 tests / 33 assertions OK, route:list smoke shows exactly the two
+  application routes (/ redirect, /api/v1/health), full frontend chain green (npm ci,
+  oxlint clean, Prettier clean, tsc clean, Vitest 10/10, Vite build OK), secret scan
+  clean. First live CI run observed after push via GitHub API (see checkpoint).
+Security/authorization impact: least-privilege workflow (contents: read top-level,
+  security job scoped identically); CI database uses only throwaway credentials
+  (akshar/akshar_testing/secret inside an ephemeral container) — never production,
+  staging or personal values; Redis service has no authentication and no persistence,
+  bound to the job only; no new secrets introduced; gitleaks unchanged.
+External integrations tested: GitHub Actions runtime (workflow dispatch via push);
+  packagist/npm registries used by existing install steps only.
+Known limitations: authoring host still has no Docker, so compose.dev.yaml itself
+  remains unexecuted locally (CI now proves the same topology); migration step's first
+  execution happens in CI, not locally; no DB-backed PHPUnit suites yet — migrations +
+  route smoke are the current database proof; dependency-advisory scanning (composer
+  audit / npm audit) intentionally deferred to avoid flaky external gates — decision
+  recorded for a later hardening phase.
+Decision: CI mirrors the approved environment contract versions exactly
+  (postgres:17-alpine, redis:7-alpine); infrastructure/README.md now warns that CI
+  service definitions must be kept aligned with compose.dev.yaml when versions/ports
+  change; reliability prioritized over advisory-scanning breadth in this phase.
+Next approved step: STOP after Phase 007 checkpoint. Phase 008 requires explicit owner instruction.
+```
+
 ## Logging rule
 
 Every future implementation checkpoint must state exactly what was changed, what was tested and what remains unproven.

@@ -11,7 +11,7 @@ Local  →  CI  →  Staging  →  Production
 | --- | --- | --- |
 | Local services | `compose.dev.yaml` (this directory) | Defined; requires Docker on the host |
 | Local variables | `.env.example` (root reference) + `backend/.env.example` | Enforced by `npm run env:check` |
-| CI | `.github/workflows/ci.yml` | Phase 007 owns service containers/wiring |
+| CI | `.github/workflows/ci.yml` | Defined — job-scoped `postgres:17-alpine` + `redis:7-alpine` services, migrations + route smoke |
 | Staging / production | external secret configuration + deployment pipeline | Later phases per `docs/DEPLOYMENT.md` |
 
 ## Local development topology
@@ -49,7 +49,8 @@ npm run db:down      # stop and remove the local stack
 
 - Containers require Docker on the developer host; this repository's automation
   fails gracefully with a hint when Docker is absent.
-- The compose file has not been executed in CI yet — Phase 007 (CI baseline)
-  owns adding service containers there.
+- CI provisions equivalent services itself (`postgres:17-alpine`, `redis:7-alpine`
+  job-scoped containers with test-only credentials); it does not read this
+  compose file. Keep both definitions aligned when changing versions or ports.
 - Object storage (S3-compatible) intentionally has no local container yet; it
   arrives with its owning phase.

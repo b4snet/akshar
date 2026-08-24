@@ -6,10 +6,39 @@ on:
   pull_request:
     branches: [main]
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
 jobs:
+  contract:
+    name: Repository & environment contract
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate environment templates
+        run: npm run env:check
+
+      - name: Environment contract tests
+        run: npm run test:env
+
+      - name: Validate composer manifest
+        run: composer validate --strict --working-dir=backend
+
   frontend:
     name: Frontend (lint · types · tests · build)
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     defaults:
       run:
         working-directory: frontend
@@ -42,11 +71,44 @@ jobs:
         run: npm run build
 
   backend:
-    name: Backend (lint · static analysis · tests)
+    name: Backend quality (PostgreSQL 17 · Redis 7)
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     defaults:
       run:
         working-directory: backend
+    env:
+      # Disposable CI-only database matching infrastructure/compose.dev.yaml
+      # and backend/phpunit.xml. Never production or staging values.
+      DB_CONNECTION: pgsql
+      DB_HOST: 127.0.0.1
+      DB_PORT: '5432'
+      DB_DATABASE: akshar_testing
+      DB_USERNAME: akshar
+      DB_PASSWORD: secret
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_DB: akshar
+          POSTGRES_USER: akshar
+          POSTGRES_PASSWORD: secret
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U akshar -d akshar"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 12
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 12
     steps:
       - uses: actions/checkout@v4
 
@@ -54,6 +116,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.4'
+          extensions: mbstring, openssl, pdo_pgsql
           coverage: none
 
       - name: Validate composer.json/lock
@@ -62,18 +125,34 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction --no-progress
 
+      - name: Create testing database
+        run: |
+          psql -h 127.0.0.1 -U akshar -d akshar \
+            -c "CREATE DATABASE akshar_testing"
+        env:
+          PGPASSWORD: secret
+
       - name: Lint (Pint)
         run: composer lint
 
-      - name: Static analysis (PHPStan)
+      - name: Static analysis (PHPStan/Larastan)
         run: composer analyse
+
+      - name: Database migrations against disposable PostgreSQL
+        run: php artisan migrate --force
 
       - name: Tests (PHPUnit)
         run: composer test
 
+      - name: Route registration smoke
+        run: php artisan route:list --except-vendor
+
   security:
     name: Secret scan
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
         with:
