@@ -136,7 +136,7 @@ jobs:
       # Reproducibility-safe cache: keyed strictly on composer.lock contents,
       # stores only downloadable package archives (never installed vendor state).
       - name: Cache Composer package archives
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.cache/composer
           key: composer-${{ runner.os }}-${{ hashFiles('backend/composer.lock') }}
