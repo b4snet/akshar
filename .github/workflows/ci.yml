@@ -226,7 +226,7 @@ jobs:
         # The `|| true` lines live exclusively inside teardown of the serve
         # process; every quality gate above hard-fails the job.
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: backend-failure-evidence
           path: |
