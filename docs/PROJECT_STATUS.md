@@ -2,9 +2,9 @@
 
 ## Current status
 
-**Stage:** Foundation architecture complete; canonical documentation landed in-repo (`/docs`); Phases 001–004 verified; Phase 005 (Project Skeleton) complete (`docs/audits/AKSHAR_PHASE_005_CHECKPOINT.md`); Phase 006 (Environment Contract) complete (`docs/audits/AKSHAR_PHASE_006_CHECKPOINT.md`); Phase 007 (CI Baseline) complete (`docs/audits/AKSHAR_PHASE_007_CHECKPOINT.md`); **Phase 008 (Local Development Experience) COMPLETE** (`docs/audits/AKSHAR_PHASE_008_CHECKPOINT.md`).
+**Stage:** Foundation architecture complete; canonical documentation landed in-repo (`/docs`); Phases 001–008 complete (007 CI Baseline, 008 Local Development Experience); **Phase 012 (Identity Model) COMPLETE — executed out of sequence by explicit owner authorization** (`docs/audits/AKSHAR_PHASE_012_CHECKPOINT.md`); Phases 009–011 pending.
 
-**Implementation status:** No application features yet. Skeleton, environment contract, executable CI quality contract, and a verified local developer workflow (doctor preflight, parallel dev stack, actionable migrate preflight) are in place (scope boundary honored). Note: the Phase 008 authorization message was titled "Identity Model" but owner adjudication bound this phase to the canonical plan's Local Development Experience scope; identity remains Phase 012.
+**Implementation status:** Canonical identity data model in place (people / accounts / domain-identity registry with enforced lifecycles and uniqueness), plus skeleton, environment contract, executable CI quality contract, and a verified local developer workflow. No authentication workflows yet (Phase 011); no RBAC/tenancy (016–018). Backend tests now run against real PostgreSQL locally (portable 17.10 cluster) matching the CI engine major version.
 
 ## Phase 007 verification evidence
 
@@ -69,7 +69,7 @@
 
 ## Priority next action
 
-Phase 008 — Local Development Experience (NOT started; requires explicit owner instruction).
+Phases 009–011 (Initial Quality Gates, Environment & Configuration Hardening, Authentication Foundation) — pending explicit owner instruction. Phase 012 (Identity Model) was completed out of sequence under owner authorization.
 
 ## Definition of done for the foundation
 

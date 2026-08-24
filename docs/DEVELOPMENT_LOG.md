@@ -314,6 +314,72 @@ Known limitations: Docker still unavailable on the authoring host so db:up itsel
 Next approved step: STOP after Phase 008 checkpoint. Phase 009 requires explicit owner instruction.
 ```
 
+## Phase 012 (executed out of sequence) — Identity Model — 2026-08-24
+
+```
+Phase: 012 (Identity Model) per canonical plan line 439; executed early under
+  explicit owner authorization. The authorization message arrived titled
+  "PHASE 008 - IDENTITY MODEL" while Phase 008 (Local Development Experience)
+  was already complete and checkpointed; owner adjudicated: build now as
+  out-of-sequence Phase 012, preserving the Phase 008 record, with Phases
+  009-011 remaining pending. This entry is the governance record of that
+  deviation.
+Scope honored: canonical identity RELATIONSHIP model only - no authentication
+  workflows (Phase 011 owns login/sessions), no RBAC/scopes (Phases 016-018),
+  no organization/institution tenancy (Phase 013), no student/guardian business
+  logic (their owning modules). No identity API endpoints were exposed.
+Schema: users rewritten in place (fresh-clone doctrine; decision documented in
+  the migration): UUID PK, unique person_id FK RESTRICT to people, unique email,
+  nullable hash-only password (Phase 011 fills credentials), status CHECK +
+  default active, last_login_at, sessions.user_id converted to foreignUuid;
+  people added: display/legal/Nepali names (name_ne), contact boundary
+  (nullable non-unique email/phone), optional date_of_birth, status CHECK,
+  jsonb metadata, NO invented national identifiers; domain_identities added:
+  unique (person_id, type), type + status CHECK constraints. All deletions
+  RESTRICTed; ARCHIVED is terminal; ordinary deactivation is a status change.
+Code: App\Domain\Identity\{Enums\RecordStatus,Enums\IdentityType,
+  Concerns\GuardsLifecycle,Models\Person,Models\User,Models\DomainIdentity,
+  Actions\RegisterDomainIdentity}; legacy App\Models\User and its factory
+  removed; config/auth.php provider repointed to the domain User; domain
+  registry Identity row marked In progress. ApiException reused for CONFLICT
+  envelopes (shared-service rule; no duplicate error engine).
+Tests: backend suite grew 9 -> 24 tests (107 assertions), all passing against
+  REAL PostgreSQL 17.10 on the authoring host AND in CI's postgres:17-alpine:
+  RecordStatus transition-matrix unit tests; adversarial feature tests covering
+  duplicate account email (unique violation), one-account-per-person, duplicate
+  domain identity (CONFLICT envelope), invalid identity type rejected by schema
+  CHECK, ARCHIVED terminality via lifecycle guard, person deletion RESTRICTed,
+  explicit deactivation-not-deletion, sensitive-field serialization (password/
+  remember_token hidden, hash never plaintext), and absence of any identity API
+  surface (404 + NOT_FOUND envelope, no data leakage).
+LOCAL PARITY MILESTONE: portable PostgreSQL 17.10 (zonky binaries unpacked to
+  %TEMP%\opencode\pgsql17, outside the repository) was initialized UTF8,
+  provisioned with the CI-shaped role/database, and used to run migrations plus
+  the full DB-backed suite locally for the first time - closing the Docker-
+  unavailability gap recorded since Phase 007/008; local engine major version
+  now matches the contract exactly.
+Defects caught by local verification: (1) initdb defaulted to WIN1252 encoding,
+  breaking Nepali text storage - cluster recreated with UTF8; (2) users
+  migration originally declared its people FK inline but runs before the people
+  table exists - FK moved into the relationship-layer migration; (3) new models
+  lacked in-memory status defaults, making lifecycle guards null-safe failures -
+  $attributes defaults added.
+Docs: DATABASE.md People section implementation note; PROJECT_STATUS updated;
+  app/Domain README registry updated; this entry; checkpoint at
+  docs/audits/AKSHAR_PHASE_012_CHECKPOINT.md.
+Known limitations: password nullable until Phase 011 wires credentials; no
+  audit event emission yet (platform audit phase owns emission; requirements
+  for identity events are recorded in the phase checkpoint); person-level
+  deduplication beyond account email awaits the identifier policy owned by
+  People/Student Lifecycle phases.
+Gates at close: env:check OK x2; oxlint/Prettier/tsc clean; Pint clean;
+  PHPStan L6 0 errors; Vitest 10/10; PHPUnit 24/24 (107 assertions) vs real
+  PG 17.10 local and CI PG17 service; env-contract 8/8; tooling 16/16; Vite
+  build OK; secret scan clean; git diff --check clean.
+Next approved step: STOP after Phase 012 checkpoint. Phases 009-011 require
+  explicit owner instruction.
+```
+
 ## Logging rule
 
 Every future implementation checkpoint must state exactly what was changed, what was tested and what remains unproven.

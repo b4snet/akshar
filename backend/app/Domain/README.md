@@ -27,7 +27,7 @@ app/Domain/<Name>/
 | Module | Namespace | Scope | Status |
 | --- | --- | --- | --- |
 | Platform | `App\Domain\Platform` | Cross-cutting platform primitives (tenancy context, audit trail, settings) shared by all modules. | Not started |
-| Identity | `App\Domain\Identity` | Users, credentials, sessions, roles, permissions, API tokens. | Not started |
+| Identity | `App\Domain\Identity` | Users, credentials, sessions, roles, permissions, API tokens. Canonical identity relationship model in place (people / accounts / domain-identity registry, Phase 012); authentication workflows (Phase 011) and RBAC (016–018) pending. | In progress |
 | Organizations | `App\Domain\Organizations` | Tenant root: organizations owning institutions, subscription state. | Not started |
 | Institutions | `App\Domain\Institutions` | Institutions (schools) within an organization. | Not started |
 | Campuses | `App\Domain\Campuses` | Campuses within institutions; campus-scoped resource boundaries. | Not started |

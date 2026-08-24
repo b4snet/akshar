@@ -23,6 +23,14 @@
 ### People
 `users`, `people`, `students`, `guardians`, `staff`, `teachers`, `student_guardians`
 
+> Phase 012 implementation note: the canonical identity relationship layer is
+> in place as `people` (one row per human) + `users` (login account, unique
+> `person_id`) + `domain_identities` (unique `(person_id, type)` registry for
+> staff/teacher/student/guardian with a shared ACTIVE/INACTIVE/SUSPENDED/
+> ARCHIVED lifecycle; ARCHIVED is terminal). Rich per-domain profile tables
+> (`staff`, `teachers`, `students`, `guardians`, `student_guardians`) remain
+> owned by their future modules and will reference `people`.
+
 ### Lifecycle
 `applications`, `admissions`, `enrollments`, `transfers`, `promotions`, `withdrawals`, `graduations`
 
