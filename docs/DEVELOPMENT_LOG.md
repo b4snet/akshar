@@ -213,6 +213,21 @@ Security/authorization impact: least-privilege workflow (contents: read top-leve
   bound to the job only; no new secrets introduced; gitleaks unchanged.
 External integrations tested: GitHub Actions runtime (workflow dispatch via push);
   packagist/npm registries used by existing install steps only.
+INCIDENT RECORD (live-run verification): the first two CI runs on this phase FAILED,
+  which is exactly why the roadmap demands real execution rather than plausible YAML:
+  (1) run at a5d2988/1efcadd — PHPUnit failed because CI clones have no backend/.env, so
+  config('app.name') defaulted to "Laravel" while HealthTest asserts "Akshar"; local runs
+  had passed only due to an ambient local .env. Fix: APP_NAME pinned inside
+  backend/phpunit.xml making tests hermetic (suite re-verified locally with .env removed).
+  (2) run at ce1d5d7 — migrations against disposable PostgreSQL SUCCEEDED but PHPUnit
+  errored again: backend/tests/Unit existed locally yet was not git-tracked (empty dir),
+  so fresh clones lacked the declared Unit testsuite directory entirely ("Test directory
+  not found", exit code 2). Reproduced locally by hiding the directory; fix: real content
+  added — Tests\Unit\Support\Api\ApiExceptionTest (3 pure-unit tests, no framework boot)
+  covering stable error-code/status contracts of ApiException named constructors. Final
+  run observed green via GitHub API (see checkpoint). Lesson recorded: CI verification of
+  this repository must include a pristine-clone perspective; empty architectural
+  directories are invisible to git by design.
 Known limitations: authoring host still has no Docker, so compose.dev.yaml itself
   remains unexecuted locally (CI now proves the same topology); migration step's first
   execution happens in CI, not locally; no DB-backed PHPUnit suites yet — migrations +

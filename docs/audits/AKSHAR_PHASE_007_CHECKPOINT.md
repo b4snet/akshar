@@ -29,6 +29,12 @@ an executable representation of the quality contract, not decorative YAML.
   4. **security**: gitleaks over full history (preserved).
   Hardening applied to all jobs: `concurrency` group with cancel-in-progress,
   least-privilege `permissions: contents: read`, explicit per-job timeouts.
+- `backend/phpunit.xml` — `APP_NAME` pinned so test assertions are hermetic in
+  environments without a `.env` file (CI condition).
+- `backend/tests/Unit/Support/Api/ApiExceptionTest.php` — real content restoring
+  the git-tracked existence of the declared `Unit` testsuite directory (empty
+  directories are invisible to git), with pure-unit coverage of the stable
+  error-code/status contract.
 - `infrastructure/README.md` — CI layer row updated to "Defined"; added explicit
   warning that CI service definitions must be kept aligned with compose.dev.yaml.
 - Root `README.md` — CI paragraph now describes the actual pipeline including
@@ -103,15 +109,50 @@ warning) · PROJECT_STATUS.md · DEVELOPMENT_LOG.md · this checkpoint.
   added: advisory databases change daily and would create non-reproducible
   failures. Deferred to a later hardening phase as a recorded decision.
 
-## 10. Git branch/commit/tree state
+## 10. Live-run incident record (verification that CI actually runs)
+
+The authorization required proof the workflow actually executes. It did — and the
+first two live runs FAILED, exposing two real latent defects that static review
+and local runs had missed:
+
+1. **Non-hermetic tests (runs at `a5d2988`, `1efcadd`):** PHPUnit failed because a
+   CI clone has no `backend/.env`; `config('app.name')` defaulted to "Laravel"
+   while `HealthTest` asserts "Akshar". Local passes had depended on an ambient
+   local `.env`. Fix (`ce1d5d7`): `APP_NAME` pinned inside `backend/phpunit.xml`;
+   hermeticity proven locally by running the full suite with `.env` removed.
+
+2. **Git-invisible testsuite directory (run at `ce1d5d7`):** backend migrations
+   against disposable PostgreSQL **succeeded**, but PHPUnit errored (exit 2):
+   `backend/tests/Unit/` was empty locally and therefore never git-tracked, so
+   fresh clones lacked the declared `Unit` testsuite directory entirely
+   ("Test directory not found"). Reproduced locally by hiding the directory.
+   Fix: real suite content added —
+   `tests/Unit/Support/Api/ApiExceptionTest.php` (3 pure-unit tests, no framework
+   boot) locking the stable client-facing code/status contract of
+   `ApiException` named constructors.
+
+Both defects were found by observing actual CI runs via the public GitHub API
+(job/step conclusions), reproducing locally, fixing, and re-running. Recorded as
+a standing lesson: verify from a pristine-clone perspective; empty directories do
+not exist for git.
+
+## 11. Final test counts after fixes
+
+- Backend: **9 tests / 56 assertions, passed** (6 prior + 3 new Unit tests),
+  verified both with local `.env` present and with `.env` absent (CI condition).
+- actionlint clean · Pint passed · PHPStan L6 0 errors · Vitest 10/10 ·
+  node:test 8/8 · tsc/Prettier/build/secrets clean.
+
+## 12. Git branch/commit/tree state
 
 - Branch: `main`
-- Baseline commit at phase start: `a5d2988373e4236f2113129b91a369db34286228`
-- This phase: single focused commit pushed to origin; working tree clean after push.
+- Phase commits: `1efcadd` (baseline), `ce1d5d7` (hermetic APP_NAME), plus final
+  fix commit restoring the Unit testsuite with real tests (see git log)
+- Working tree after push: clean; origin synchronized.
 
-## 11. Status
+## 13. Status
 
-**COMPLETE** — CI is now an executable quality contract: repository/environment
-validation, frontend gates, backend gates on disposable PostgreSQL 17 + Redis 7,
-real migrations, kernel smoke, secret scanning. Stopping per protocol; Phase 008
+**COMPLETE** — CI is an executable quality contract, proven by real execution:
+the pipeline itself surfaced two genuine defects which were fixed and re-verified
+to green on GitHub Actions infrastructure. Stopping per protocol; Phase 008
 requires explicit owner instruction.
