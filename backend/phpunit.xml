@@ -19,6 +19,9 @@
     </source>
     <php>
         <env name="APP_ENV" value="testing"/>
+        <!-- Tests must be hermetic: no .env file exists in CI, so every value
+             an assertion depends on is pinned here rather than inherited. -->
+        <env name="APP_NAME" value="Akshar"/>
         <env name="APP_MAINTENANCE_DRIVER" value="file"/>
         <env name="BCRYPT_ROUNDS" value="4"/>
         <env name="BROADCAST_CONNECTION" value="null"/>
