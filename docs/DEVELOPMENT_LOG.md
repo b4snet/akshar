@@ -245,8 +245,13 @@ INCIDENT RECORD (live-run verification): the first two CI runs on this phase FAI
   keyed on lockfile hash; concurrency/permissions rationale and a line-by-line
   workflow security review recorded in the checkpoint; OWNER ACTION REQUIRED
   documented for branch protection (admin not possible from this environment).
-  Checkpoint rewritten to the exact mandated template. Final state: all four
-  jobs green on GitHub-hosted runners.
+  Checkpoint rewritten to the exact mandated template. Third live incident
+  during compliance hardening: the new Redis RESP smoke failed in CI because
+  command substitution strips trailing LF but not CR ("+PONG\r" ≠ "+PONG");
+  diagnosed from step-level job data, fixed with explicit tr -d '\r\n'
+  (365a5a1). Final state at 365a5a1: ALL FOUR JOBS GREEN on GitHub-hosted
+  runners with step-level verification that every new check (advisories,
+  Redis smoke, migrations, HTTP health endpoint) actually executed.
 Known limitations: authoring host still has no Docker, so compose.dev.yaml itself
   remains unexecuted locally (CI now proves the same topology); migration step's first
   execution happens in CI, not locally; no DB-backed PHPUnit suites yet — migrations +

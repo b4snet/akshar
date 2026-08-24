@@ -14,7 +14,7 @@
 - Supply-chain: `composer audit --locked` + `npm audit --omit=dev` evaluated as documented-informational steps (0 advisories; abandoned-package notice for nunomaduro/larastan recorded); lockfile integrity stays hard-enforced by install/validate steps; failure-evidence artifacts (gate logs only, retention 7d) uploaded on backend failure — never environment files or credentials
 - Frontend/security jobs preserved from the working baseline; no competing toolchain introduced
 - Static verification: actionlint 1.7.7 clean on the workflow; every locally-runnable step executed locally with green results before commit
-- Live execution: real GitHub Actions runs observed via API after every push; two genuine latent defects were caught BY CI (non-hermetic APP_NAME; git-invisible empty Unit testsuite dir), fixed, and re-verified to green — all four jobs success at close
+- Live execution: real GitHub Actions runs observed via API after every push; three genuine latent defects were caught BY CI (non-hermetic APP_NAME; git-invisible empty Unit testsuite dir; CR-retaining RESP comparison in the Redis smoke), fixed, and re-verified — all four jobs success at `365a5a1` with step-level confirmation that every gate executed
 - Gates at close: oxlint clean · Pint passed · tsc clean · PHPStan L6 0 errors · Prettier clean · Vitest 10/10 · PHPUnit 9 tests / 56 assertions OK (hermetic without `.env`) · node:test 8/8 · Vite build OK · secret scan clean
 
 ## Architecture decisions recorded

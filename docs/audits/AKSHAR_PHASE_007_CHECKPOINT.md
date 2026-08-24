@@ -164,12 +164,14 @@ Commit lineage:
 - `1efcadd` baseline → FAILED (incident 1) → `ce1d5d7` hermetic APP_NAME pin →
   FAILED (incident 2 exposed by same run class) → `50b442d` Unit-suite
   restoration → SUCCESS → `0e003c8` job-level APP_NAME precedence fix →
-  SUCCESS → final compliance-hardening commit(s) of this checkpoint → observed
-  result below recorded at close.
+  SUCCESS → `556f26f` compliance hardening → FAILED (incident 3) →
+  `365a5a1` Redis smoke CR fix → **SUCCESS — all four jobs green**.
 
 Result:
-- All four jobs **success** on GitHub-hosted runners (verified via API after
-  each push; final green run confirmed at close of this checkpoint).
+- All four jobs **success** on GitHub-hosted runners at `365a5a1`, verified via
+  the jobs API with step-level conclusions: every backend step ran green,
+  including Dependency advisories, Redis connectivity smoke, real migrations,
+  PHPUnit, route smoke, and Health endpoint over HTTP.
 
 Live-run incident record (condensed; full narrative in DEVELOPMENT_LOG):
 1. Runs at `a5d2988`/`1efcadd` failed: no `.env` in CI clone →
@@ -180,7 +182,12 @@ Live-run incident record (condensed; full narrative in DEVELOPMENT_LOG):
    git-tracked ⇒ fresh clones lacked the declared testsuite directory
    ("Test directory not found"). Reproduced locally by hiding the directory;
    fixed with real content (`ApiExceptionTest`, 3 pure-unit tests).
-Both defects were surfaced BY the real pipeline — exactly the failure mode
+3. Run at `556f26f` failed in the new Redis smoke: RESP answers `+PONG\r\n`,
+   but command substitution strips trailing LF while RETAINING the CR, so the
+   byte comparison `"$(...)" = "+PONG"` compared `+PONG<CR>` and failed.
+   Identified from step-level API data; fixed by explicit `tr -d '\r\n'`
+   before comparison; no local Redis exists to have caught this pre-push.
+All defects were surfaced BY the real pipeline — exactly the failure mode
 this phase exists to catch — and were fixed and re-verified to green.
 
 ## Local/CI Parity
