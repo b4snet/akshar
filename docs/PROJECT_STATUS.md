@@ -2,7 +2,7 @@
 
 ## Current status
 
-**Stage:** Foundation architecture complete; canonical documentation landed in-repo (`/docs`); Phases 001–008 complete (007 CI Baseline, 008 Local Development Experience); **Phase 012 (Identity Model) COMPLETE — executed out of sequence by explicit owner authorization** (`docs/audits/AKSHAR_PHASE_012_CHECKPOINT.md`); Phases 009–011 pending.
+**Stage:** Foundation architecture complete; canonical documentation landed in-repo (`/docs`); Phases 001–008 complete (007 CI Baseline, 008 Local Development Experience); **Phase 012 (Identity Model) COMPLETE — executed out of sequence by explicit owner authorization** (`docs/audits/AKSHAR_PHASE_012_CHECKPOINT.md`); **Phase 009 (Initial Quality Gates) COMPLETE** (`docs/audits/AKSHAR_PHASE_009_CHECKPOINT.md`): canonical `npm run gates` orchestrates environment/dependencies/format/lint/types/tests/build/security/artifact/diff checks with honest failure semantics; Phases 010–011 pending.
 
 **Implementation status:** Canonical identity data model in place (people / accounts / domain-identity registry with enforced lifecycles and uniqueness), plus skeleton, environment contract, executable CI quality contract, and a verified local developer workflow. No authentication workflows yet (Phase 011); no RBAC/tenancy (016–018). Backend tests now run against real PostgreSQL locally (portable 17.10 cluster) matching the CI engine major version.
 
@@ -69,7 +69,7 @@
 
 ## Priority next action
 
-Phases 009–011 (Initial Quality Gates, Environment & Configuration Hardening, Authentication Foundation) — pending explicit owner instruction. Phase 012 (Identity Model) was completed out of sequence under owner authorization.
+Phase 010 — Foundation Checkpoint (NOT started; requires explicit owner instruction). Phase 012 (Identity Model) was completed out of sequence under owner authorization; Phase 009 (Initial Quality Gates) is complete.
 
 ## Definition of done for the foundation
 

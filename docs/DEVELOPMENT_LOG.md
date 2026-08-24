@@ -380,6 +380,64 @@ Next approved step: STOP after Phase 012 checkpoint. Phases 009-011 require
   explicit owner instruction.
 ```
 
+## Phase 009 — Initial Quality Gates — 2026-08-24
+
+```
+Phase: 009 (Initial Quality Gates) per canonical plan; authorized after the
+  completed out-of-sequence Phase 012, with the explicit instruction to build
+  only quality-gate infrastructure and not touch identity/feature work.
+Scope honored: one orchestrated quality gate over EXISTING commands; no second
+  quality system; no feature development of any kind.
+Canonical command: npm run gates -> scripts/quality-gates.mjs. Gate contract
+  (authoritative description in docs/TESTING_STRATEGY.md §12): environment
+  (env-check) -> dependencies (NEW scripts/check-deps.mjs: local install
+  presence, no network) -> formatting -> lint -> typecheck+PHPStan ->
+  frontend tests -> backend tests -> build -> secret scan -> artifact scan
+  (NEW scripts/artifact-scan.mjs: tracked-file debug/temp sweep formalizing
+  the per-phase manual scans) -> git diff --check.
+Semantics: exit 0 all pass / 1 any mandatory gate failed / 2 usage-launch
+  error; stop-on-first-failure default with [SKIP] reporting, --keep-going
+  collects all failures and still exits non-zero; failures never downgraded
+  to warnings; failing gate prints command + real exit code + last 30 output
+  lines (never environment values); options --only/--list/--verbose.
+Security posture: gate table is STATIC constants executed via spawnSync
+  (shell only on win32 for npm resolution) - no shell string construction,
+  no env interpolation into command lines, no elevated permissions, no
+  credentials introduced. Artifact-scan rules are deliberately narrow
+  (.env tracked but .example allowed; dd( only with literal argument;
+  console.log in tooling NOT flagged as it is legitimate CLI output).
+Tests: NEW scripts/test/quality-gates.test.mjs - 8 tests (all-green,
+  fail-fast + SKIP marking, failure output shape incl. command/exit/tail,
+  keep-going collection still non-zero, subset selection + unknown-gate
+  rejection, launch-error counts as failure, canonical order pinned,
+  INTEGRATION: real orchestrator executing real repository commands).
+  Tooling suite grew 16 -> 24 tests.
+NEGATIVE VERIFICATION (§15): trailing whitespace injected into README.md;
+  `npm run gates -- --only diff-check` exited 1 with RESULT: FAIL; file
+  reverted via git checkout; re-run PASS. Repository left unmodified.
+Incident record (honesty discipline): while adding the "gates" script via a
+  PowerShell ConvertFrom-Json/ConvertTo-Json round-trip, package.json was
+  rewritten with a UTF-8 BOM and mojibake in the description field; detected
+  immediately by JSON parse check, restored via git checkout, change applied
+  surgically with a text edit instead. Verified: JSON parses, description
+  intact, gates script present. No commit ever contained the damaged file.
+Full local gate run: 11/11 PASS (exit 0) on the authoring host including the
+  two new validators; CI observed green post-push (schema-bearing backend job
+  unchanged from Phase 012 state).
+Known limitations: orchestrator runs gates sequentially by design
+  (deterministic, honest output ordering; parallelization deferred until a
+  need is proven); dependency gate checks presence, not freshness (npm ci /
+  composer install integrity is setup's concern); artifact scan covers
+  tracked files only (untracked local junk is out of scope by definition);
+  CI keeps provider-specific steps (service containers, npm audit) as
+  workflow steps for infrastructure reasons, documented in TESTING_STRATEGY.
+Docs: TESTING_STRATEGY §12 authoritative contract; README quickstart line;
+  PROJECT_STATUS stage/priority; this entry; checkpoint at
+  docs/audits/AKSHAR_PHASE_009_CHECKPOINT.md.
+Next approved step: STOP after Phase 009 checkpoint. Phase 010 requires
+  explicit owner instruction.
+```
+
 ## Logging rule
 
 Every future implementation checkpoint must state exactly what was changed, what was tested and what remains unproven.

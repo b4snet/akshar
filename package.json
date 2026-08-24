@@ -27,6 +27,7 @@
     "test:be": "node scripts/run-backend.mjs test",
     "test:env": "node --test scripts/test/env-contract.test.mjs",
     "test:tooling": "node --test \"scripts/test/*.test.mjs\"",
+    "gates": "node scripts/quality-gates.mjs",
     "secrets": "node scripts/secret-scan.mjs",
     "env:check": "node scripts/env-check.mjs",
     "db:up": "docker compose -f infrastructure/compose.dev.yaml up -d --wait",

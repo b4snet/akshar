@@ -77,6 +77,38 @@ Test peak attendance submission, result publication, fee collection, parent port
 
 A release candidate is not complete until relevant automated gates pass and remaining limitations are explicitly recorded.
 
+### Canonical quality-gate contract (Phase 009)
+
+The repository has ONE orchestrated quality gate; it invokes the established project commands and does not reimplement any check. This section is the authoritative description — other documents link here rather than duplicating definitions.
+
+Command: `npm run gates` (implementation: `scripts/quality-gates.mjs`).
+
+Gate sequence (mandatory, in order):
+
+1. Environment — `node scripts/env-check.mjs`
+2. Dependencies — `node scripts/check-deps.mjs` (local install presence only; no network)
+3. Formatting — `npm run format:check`
+4. Lint — `npm run lint`
+5. Typecheck & Static Analysis — `npm run typecheck` (frontend tsc + backend PHPStan L6)
+6. Frontend Tests — `npm run test:fe`
+7. Backend Tests — `npm run test:be` (PostgreSQL target)
+8. Build — `npm run build`
+9. Secret Scan — `npm run secrets`
+10. Artifact Scan — `node scripts/artifact-scan.mjs` (tracked-file debug/temp artifact sweep)
+11. Diff Check — `git diff --check`
+
+Failure semantics:
+
+- Exit 0 = all executed gates passed; exit 1 = at least one mandatory gate failed; exit 2 = usage/launch error.
+- Default policy is stop-on-first-failure; later gates are reported `[SKIP]`. `--keep-going` executes every gate and still exits non-zero if any failed.
+- Failures are never downgraded to warnings; a failing gate always produces a non-zero exit.
+- Output quotes each failing gate's command, real exit code and the last 30 output lines; it never prints environment values or secrets (underlying commands are themselves secret-safe).
+- Options: `--only <ids>` subset (dev/debug), `--list`, `--verbose`.
+
+Local/CI parity: CI runs the same logical gates as discrete workflow steps over the same underlying commands (plus provider-specific steps such as service containers and `npm audit`, which are CI-only for infrastructure reasons and documented in the workflow). The orchestrator is the local developer experience and can be reused in CI wholesale.
+
+The orchestrator itself is tested (`scripts/test/quality-gates.test.mjs`): injected-runner unit tests prove fail-fast, keep-going collection, launch-error handling, unknown-gate rejection and output shape; one integration test executes the real orchestrator against real repository commands.
+
 ## 13. Test locations (as built, Phase 005)
 
 - Frontend unit/component tests: colocated `*.test.ts(x)` beside the code under `frontend/src/**` (Vitest + Testing Library).

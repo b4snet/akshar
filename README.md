@@ -76,9 +76,12 @@ npm run format:check # Prettier (frontend) + Pint (backend)
 npm run test         # Vitest (frontend) + PHPUnit (backend) + env-contract + tooling tests
 npm run build        # production build of the frontend
 npm run secrets      # repository secret scan
+npm run gates        # canonical quality gates: every check above, one command, honest exit codes
 npm run reset        # wipe generated artifacts, reinstall from lockfiles
 npm run seed         # stub until the database phase provisions seeding
 ```
+
+The quality-gate contract (gate order, failure semantics, options) is documented authoritatively in [`docs/TESTING_STRATEGY.md`](./docs/TESTING_STRATEGY.md) §12.
 
 The authoritative environment contract (variables, services, secrets policy) lives in [`infrastructure/README.md`](./infrastructure/README.md). CI (`.github/workflows/ci.yml`) enforces the quality contract on every push/PR to `main`: repository/environment-contract validation, frontend lint/types/tests/build, backend lint/static-analysis/tests against a disposable PostgreSQL 17 instance (with Redis 7 available) including real migrations and a route-registration smoke, plus secret scanning. Copy `.env` files from their `.example` templates before adding local configuration — real `.env` files are gitignored and must never be committed (`docs/DEPLOYMENT.md` §8). Tests target PostgreSQL for parity with production; a running PostgreSQL is only required once database-backed suites exist (`docs/TESTING_STRATEGY.md`).
 
