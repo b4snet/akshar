@@ -2,17 +2,18 @@
 
 ## Current status
 
-**Stage:** Foundation architecture complete; canonical documentation landed in-repo (`/docs`); Phases 001–004 verified; **Phase 005 (Project Skeleton) COMPLETE — all gates green locally.**
+**Stage:** Foundation architecture complete; canonical documentation landed in-repo (`/docs`); Phases 001–004 verified; Phase 005 (Project Skeleton) complete (`docs/audits/AKSHAR_PHASE_005_CHECKPOINT.md`); **Phase 006 (Environment Contract) COMPLETE — all gates green locally.**
 
-**Implementation status:** No application features yet. Canonical skeleton only (Phase 005 scope boundary honored): real Laravel 13 modular-monolith backend, structured React shell frontend, documented ops boundaries.
+**Implementation status:** No application features yet. Canonical skeleton plus environment contract only (scope boundary honored): real Laravel 13 modular-monolith backend, structured React shell frontend, documented ops boundaries, Docker-based local service topology, machine-enforced environment variable contract.
 
-## Phase 005 verification evidence
+## Phase 006 verification evidence
 
-- Backend: Laravel 13.26.1 skeleton under `/backend` with domain registry (`app/Domain/README.md`, 26 anticipated modules), `app/Support/Api` envelope + error mapper, `/api/v1/health` endpoint, consistent JSON error envelopes for all API exceptions
-- Frontend: restructured `src/` into app shell/routing (`react-router` v8), shared states (`LoadingState`/`EmptyState`/`ErrorState`), platform services (`services/api` typed client implementing the API envelope contract), design tokens (`design-system/tokens.css`)
-- Ops boundaries: `/database`, `/integrations`, `/infrastructure`, `/tests` created with documented purpose only; dependabot configured
-- Gates: oxlint clean · Pint passed · tsc clean · PHPStan L6 (Larastan) 0 errors · Prettier clean · Vitest 10/10 · PHPUnit 6 tests / 33 assertions OK · Vite build OK · secret scan clean
-- Toolchain: Larastan added for Laravel-aware static analysis; composer scripts preserved (`lint`/`analyse`/`test`)
+- Local topology: `infrastructure/compose.dev.yaml` — PostgreSQL 17 + Redis 7 on loopback ports, dev-only credentials matching `.env.example`, healthchecks, first-init provisioning of the `akshar_testing` database via `infrastructure/postgres/init/01-databases.sql`
+- Environment contract: `scripts/env-contract.mjs` is the single machine-readable definition; `npm run env:check` validates committed templates live (both OK); `npm run test:env` covers the validator (8/8 passing incl. drift/forbidden-secret detection)
+- Template alignment: root `.env.example` rewritten as annotated stack-wide reference (stale "nothing reads them yet" text removed; DB password drift fixed); backend template unchanged and enforced
+- Automation wired: `env:check`, `test:env`, `db:up`, `db:down`, `db:migrate`; root `npm run test` now includes the contract suite
+- Gates: oxlint clean · Pint passed · tsc clean · PHPStan L6 (Larastan) 0 errors · Prettier clean · Vitest 10/10 · PHPUnit 6 tests / 33 assertions OK · node:test 8/8 · Vite build OK · secret scan clean
+- Known constraint recorded: no Docker on the authoring host, so the compose topology is defined and validated by inspection but not executed locally yet; CI service containers belong to Phase 007
 
 ## Architecture decisions recorded
 
@@ -66,7 +67,7 @@
 
 ## Priority next action
 
-Phase 006 — Environment Contract (NOT started; requires explicit owner instruction): canonical environment configuration and provisioning contract for local development (PostgreSQL, Redis) and deployment targets.
+Phase 007 — CI Baseline (NOT started; requires explicit owner instruction): wire the same local gates (including environment-contract checks and database service containers) into continuous integration.
 
 ## Definition of done for the foundation
 

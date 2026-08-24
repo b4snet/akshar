@@ -133,6 +133,50 @@ Decision: top-level dirs /database, /integrations, /infrastructure, /tests exist
 Next approved step: STOP after Phase 005 checkpoint. Phase 006 requires explicit owner instruction.
 ```
 
+## Phase 006 — Environment Contract — 2026-08-24
+
+```text
+Date: 2026-08-24
+Phase: 006 (Environment Contract) — per docs/AKSHAR_PHASE_001_300_MASTER_EXECUTION_PLAN.md
+Scope: Canonical environment definitions for local development (services + variables), a
+  machine-enforced environment variable contract, and graceful db lifecycle automation.
+  No feature implementation; CI service wiring deferred to Phase 007 by scope boundary.
+Baseline commit: cfa154f (status-pointer cleanup on top of Phase 005)
+Files changed: infrastructure/compose.dev.yaml (PostgreSQL 17 + Redis 7, loopback ports,
+  healthchecks, env-overridable dev credentials); infrastructure/postgres/init/01-databases.sql
+  (first-init provisioning of akshar_testing); infrastructure/README.md rewritten as THE
+  environment-contract home (layer table, topology, variable rules, constraints);
+  scripts/env-contract.mjs (machine-readable contract definition + validator),
+  scripts/env-check.mjs (CLI, never prints values), scripts/test/env-contract.test.mjs
+  (node:test suite incl. live template assertions); root .env.example rewritten as annotated
+  stack-wide reference (removed stale "nothing reads them yet" claim from Phase 004, fixed
+  DB_PASSWORD drift vs backend template); package.json scripts {env:check, test:env, db:up,
+  db:down, db:migrate} + root test chain now includes contract tests; docs/{README quickstart,
+  PROJECT_STATUS, DEVELOPMENT_LOG}; docs/audits/AKSHAR_PHASE_006_CHECKPOINT.md.
+Database changes: none executed. akshar_testing provisioning DEFINED (init SQL) but not run
+  locally — no Docker/psql/Redis present on the authoring host (verified).
+Tests: npm run env:check → both committed templates OK; node:test 8/8 passed (parser rules,
+  missing-required reporting, value-drift reporting, forbidden-variable reporting, committed
+  secret-pattern detection, empty APP_KEY acceptance, plus live assertions that both real
+  templates satisfy the contract). Full gates re-run green: oxlint clean; Pint passed;
+  tsc clean; PHPStan L6 (Larastan) 0 errors; Prettier clean; Vitest 10/10; PHPUnit 6 tests /
+  33 assertions OK; Vite build OK; secret scan clean.
+Security/RLS evidence: no secrets introduced; validator actively forbids committed
+  "APP_KEY=base64:" material and any listed forbidden variables; env-check prints variable
+  names only (DEPLOYMENT.md §8 honored); compose binds services to 127.0.0.1 only with
+  dev-only defaults documented as non-production; secret scan clean.
+External integrations tested: none.
+Known limitations: Docker unavailable on authoring host → compose file validated by
+  inspection/YAML review but not executed; CI has no postgres/redis service containers yet
+  (Phase 007 owns CI baseline); object storage intentionally absent from local topology until
+  its owning phase; `npm run seed` remains an explicit stub.
+Decision: /infrastructure is the single authoritative home of the environment contract;
+  templates are enforced by machine (scripts/env-contract.mjs) rather than by convention;
+  backend keeps database-backed session/cache/queue drivers as safe local defaults with
+  Redis available via one-line env switches once containers run.
+Next approved step: STOP after Phase 006 checkpoint. Phase 007 requires explicit owner instruction.
+```
+
 ## Logging rule
 
 Every future implementation checkpoint must state exactly what was changed, what was tested and what remains unproven.

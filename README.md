@@ -63,17 +63,20 @@ Prerequisites: Node ≥ 20, PHP ≥ 8.4 (extensions: mbstring, openssl, pdo_pgsq
 ```bash
 npm run setup    # installs frontend deps (npm ci) + backend deps (composer install)
 cp backend/.env.example backend/.env && php backend/artisan key:generate
+npm run env:check # validate committed environment templates against the contract
+npm run db:up     # local PostgreSQL 17 + Redis 7 via Docker (infrastructure/compose.dev.yaml)
+npm run db:migrate # run Laravel migrations once the database stack is up
 npm run dev      # Vite dev server for the frontend
 npm run dev:api  # Laravel API on http://localhost:8000 (health: /api/v1/health)
 npm run lint         # oxlint (frontend) + Pint (backend)
 npm run typecheck    # tsc (frontend) + PHPStan L6 via Larastan (backend)
 npm run format:check # Prettier (frontend) + Pint (backend)
-npm run test         # Vitest (frontend) + PHPUnit (backend)
+npm run test         # Vitest (frontend) + PHPUnit (backend) + env-contract tests
 npm run build        # production build of the frontend
 npm run secrets      # repository secret scan
 npm run reset        # wipe generated artifacts, reinstall from lockfiles
 npm run seed         # stub until the database phase provisions seeding
 ```
 
-CI runs the same gates on every push/PR to `main` (`.github/workflows/ci.yml`). Copy `.env` files from their `.example` templates before adding local configuration — real `.env` files are gitignored and must never be committed (`docs/DEPLOYMENT.md` §8). Tests target PostgreSQL for parity with production; no database-backed suite exists yet, so a running PostgreSQL is not required for `npm run test` today (`docs/TESTING_STRATEGY.md`).
+The authoritative environment contract (variables, services, secrets policy) lives in [`infrastructure/README.md`](./infrastructure/README.md). CI runs the same gates on every push/PR to `main` (`.github/workflows/ci.yml`). Copy `.env` files from their `.example` templates before adding local configuration — real `.env` files are gitignored and must never be committed (`docs/DEPLOYMENT.md` §8). Tests target PostgreSQL for parity with production; a running PostgreSQL is only required once database-backed suites exist (`docs/TESTING_STRATEGY.md`).
 
