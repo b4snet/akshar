@@ -448,20 +448,26 @@ Scope: comprehensive audit proving all foundation phases (001-009) are genuinely
   Tenancy, RBAC). Plus the out-of-sequence Phase 012 Identity Model.
 Verification performed: full quality gate (npm run gates) 11/11 green; full
   test suite (PHPUnit 24/24, Vitest passing, tooling 24/24, env-contract 8/8);
-  CI observed green on HEAD (6bccd57, all four jobs success); checkpoint file
-  inventory (all foundation phases 004-012 have checkpoint files in
-  docs/audits/; phases 001-003 are pre-code forensic/documentation work with
-  evidence in docs/archive/); documentation consistency check (DEVELOPMENT_LOG
-  entries match checkpoints, PROJECT_STATUS reflects actual state, domain
-  registry Identity row accurate).
-Self-healing fix: artifact-scan.mjs was matching its own content rules
-  (var_dump(, dd(' patterns) as self-referencing false positives. Added
-  CONTENT_SKIP_FILES exclusion set (narrow, documented, in-file). Confirmed
-  artifact-scan clean; full gate restored.
+  CI observed green on the Phase 010 commits (d1a15c4, dd8b954, a380cba; all
+  four jobs success each); checkpoint file inventory (all foundation phases
+  004-012 have checkpoint files in docs/audits/; phases 001-003 are pre-code
+  forensic/documentation work with evidence in docs/archive/); documentation
+  consistency check (DEVELOPMENT_LOG entries match checkpoints, PROJECT_STATUS
+  reflects actual state, domain registry Identity row accurate).
+Self-healing fix (corrected at phase close): artifact-scan.mjs content rules
+  initially matched their own pattern strings (var_dump(, dd(' patterns) and
+  any documentation mentioning the rule names. The interim CONTENT_SKIP_FILES
+  file-skip approach proved fragile (every new documentation mention would
+  require a new exclusion). Final fix: content rules scoped to source-code
+  extensions only (SOURCE_CODE_EXTENSIONS: .php/.js/.mjs/.ts/.tsx/.jsx/.vue),
+  with a single-file skip for the rules file itself. Documentation no longer
+  triggers content rules. Verified clean; full gate 11/11 PASS; committed at
+  dd8b954.
 Infrastructure: portable PostgreSQL 17.10 cluster re-established from zonky
   binaries (previous temp cleaned); UTF8 encoding; migrations applied; full
   DB-backed suite passing locally.
-Docs: this entry; checkpoint at docs/audits/AKSHAR_PHASE_010_CHECKPOINT.md.
+Docs: this entry; checkpoint at docs/audits/AKSHAR_PHASE_010_CHECKPOINT.md;
+  executive summary report at docs/audits/AKSHAR_PHASE_010_FOUNDATION_REPORT.md.
 Next approved step: STOP after Phase 010 checkpoint. Phase 011 requires
   explicit owner instruction.
 ```
