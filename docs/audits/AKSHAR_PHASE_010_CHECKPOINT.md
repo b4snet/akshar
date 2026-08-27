@@ -73,7 +73,7 @@ Observed via GitHub API on final commit — all four jobs green.
 3. **CI observation:** all four jobs success on HEAD.
 4. **Checkpoint file inventory:** every foundation phase (004–009, 012) has a checkpoint file in docs/audits/; phases 001–003 produced the canonical docs archive set.
 5. **Documentation consistency:** DEVELOPMENT_LOG entries match checkpoint files; PROJECT_STATUS reflects actual state; domain registry Identity row is "In progress" with accurate scope description.
-6. **Artifact-scan self-reference fix:** artifact-scan.mjs's content rules matched themselves (var_dump(, dd(' patterns). Added CONTENT_SKIP_FILES exclusion for the rule-definition file — narrow, documented, in-file. Confirmed artifact-scan clean.
+6. **Artifact-scan self-reference fix:** artifact-scan.mjs's content rules matched themselves (var_dump(, dd(' patterns) and also matched documentation mentioning the rules. Initially used CONTENT_SKIP_FILES (fragile); corrected to sustainable approach: content rules now apply only to source-code extensions (.php/.js/.mjs/.ts/.tsx/.jsx/.vue) via SOURCE_CODE_EXTENSIONS, excluding documentation by extension. The only file exempted by name is the rules file itself.
 7. **Infrastructure re-provisioned:** portable PostgreSQL 17.10 cluster re-established from zonky binaries (temp was cleaned); UTF8 encoding confirmed; migrations applied; full DB-backed suite passing.
 
 ## Self-Healing Fix (Honest Incident Record)
@@ -88,7 +88,7 @@ Observed via GitHub API on final commit — all four jobs green.
 
 ## Files Changed (Phase 010 only)
 
-- `scripts/artifact-scan.mjs` — added CONTENT_SKIP_FILES exclusion (3 lines)
+- `scripts/artifact-scan.mjs` — source-code-only content rules (SOURCE_CODE_EXTENSIONS), minimal CONTENT_SKIP_FILES for the rules file itself
 - `docs/audits/AKSHAR_PHASE_010_CHECKPOINT.md` (new) — this document
 - `docs/DEVELOPMENT_LOG.md` — Phase 010 entry
 
@@ -104,7 +104,7 @@ Observed via GitHub API on final commit — all four jobs green.
 ## Known Limitations
 - Phases 001–003 (forensic/documentation) did not produce individual checkpoint files because they were pure documentation work completed before the codebase existed in its current form; their evidence lives in docs/archive/.
 - Phase 011 (Authentication Foundation) is pending — it is the next workstream-02 phase after this foundation checkpoint.
-- The artifact-scan CONTENT_SKIP_FILES exclusion is a pragmatic narrow fix; if future rule-definition files are added, they should be added to the set with documented rationale.
+- The artifact-scan CONTENT_SKIP_FILES exclusion is limited to the rule-definition file itself; content rules are scoped to source-code extensions and documentation files are excluded by extension, so no growing skip list is needed.
 
 ## Git
 Branch: `main`
