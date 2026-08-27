@@ -32,6 +32,12 @@ const CONTENT_RULES = [
   { name: "dd('...') debug dump", re: /(^|[^\w])dd\(\s*['"]/ },
 ];
 
+// Files whose content legitimately contains the rule pattern strings
+// (definitions/documentation) and must not self-match.
+const CONTENT_SKIP_FILES = new Set([
+  "scripts/artifact-scan.mjs",
+]);
+
 const TEXT_EXT_SKIP = new Set([
   ".png", ".jpg", ".jpeg", ".gif", ".ico", ".webp", ".woff", ".woff2",
   ".ttf", ".eot", ".pdf", ".zip", ".gz", ".phar", ".lock",
@@ -60,6 +66,7 @@ for (const rel of git.stdout.split("\0")) {
   }
   const ext = normalized.slice(normalized.lastIndexOf(".")).toLowerCase();
   if (TEXT_EXT_SKIP.has(ext)) continue;
+  if (CONTENT_SKIP_FILES.has(normalized)) continue;
   let content;
   try {
     content = readFileSync(normalized, "utf8");
