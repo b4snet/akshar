@@ -1,21 +1,19 @@
 import { Suspense } from "react";
-import AppShell from "@/components/AppShell";
-import AuthForm from "@/components/AuthForm";
-import { getSupabaseConfig, type SupabaseConfig } from "@/lib/supabase/config";
+import { redirect } from "next/navigation";
 
-type LoginContentProps = {
+type LoginRedirectProps = {
   searchParams: Promise<{ reason?: string; next?: string }>;
-  config: SupabaseConfig | null;
 };
 
-async function LoginContent({ searchParams, config }: LoginContentProps) {
+async function LoginRedirect({ searchParams }: LoginRedirectProps): Promise<never> {
   const { reason, next } = await searchParams;
-  const initialNotice = reason === "confirmation" ? "The confirmation link could not be verified. Request a fresh sign-up email and check the allowed redirect URLs in Supabase Auth settings." : undefined;
-  const redirectTo = next?.startsWith("/") && !next.startsWith("//") && !next.includes("\\") ? next : undefined;
-  return <AuthForm mode="login" initialNotice={initialNotice} config={config} redirectTo={redirectTo} />;
+  const params = new URLSearchParams();
+  if (reason) params.set("reason", reason);
+  if (next) params.set("next", next);
+  const query = params.toString();
+  redirect(`/auth/login${query ? `?${query}` : ""}`);
 }
 
-export default function LoginPage({ searchParams }: { searchParams: Promise<{ reason?: string; next?: string }> }) {
-  const config = getSupabaseConfig();
-  return <AppShell active="account"><div className="auth-page"><Suspense fallback={<div className="route-loading" role="status">Loading account…</div>}><LoginContent searchParams={searchParams} config={config} /></Suspense></div></AppShell>;
+export default function LoginPage({ searchParams }: LoginRedirectProps) {
+  return <Suspense fallback={null}><LoginRedirect searchParams={searchParams} /></Suspense>;
 }

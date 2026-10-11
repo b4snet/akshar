@@ -1,11 +1,7 @@
 'use client';
 import Link from "next/link";
 import type { ReactNode } from "react";
-import dynamic from "next/dynamic";
-  const SessionControls = dynamic(() => import('@/components/SessionControls'), {
-    ssr: false,
-    loading: () => <div className="auth-controls" role="status">Checking session…</div>,
-  });
+import SessionControls from '@/components/SessionControls';
 import { getSupabaseConfig } from "@/lib/supabase/config";
 
 const navigation = [
