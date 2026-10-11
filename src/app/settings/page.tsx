@@ -8,13 +8,13 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 async function SettingsContent() {
   const supabase = await createSupabaseServerClient();
   if (!supabase) {
-    return <div className="settings-state" role="alert"><strong>Supabase is not configured.</strong><p>Account settings require a configured Supabase project. Add the API URL and publishable key to `.env.local` and restart the app.</p><Link href="/login">Go to login</Link></div>;
+    return <div className="settings-state" role="alert"><strong>Supabase is not configured.</strong><p>Account settings require a configured Supabase project. Add the API URL and publishable key to `.env.local` and restart the app.</p><Link href="/auth/login">Go to login</Link></div>;
   }
 
   const { data, error } = await supabase.auth.getUser();
-  if (error?.name === "AuthSessionMissingError" || (!error && !data.user)) redirect("/login?next=%2Fsettings");
+  if (error?.name === "AuthSessionMissingError" || (!error && !data.user)) redirect("/auth/login?next=%2Fsettings");
   if (error || !data.user) {
-    return <div className="settings-state" role="alert"><strong>Session could not be verified.</strong><p>Reload the page or log in again to access account settings.</p><Link href="/login?next=%2Fsettings">Log in</Link></div>;
+    return <div className="settings-state" role="alert"><strong>Session could not be verified.</strong><p>Reload the page or log in again to access account settings.</p><Link href="/auth/login?next=%2Fsettings">Log in</Link></div>;
   }
 
   const { data: profile, error: profileError } = await supabase.from("profiles").select("email, display_name").eq("id", data.user.id).maybeSingle();

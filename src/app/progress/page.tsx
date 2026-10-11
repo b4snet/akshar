@@ -1,7 +1,12 @@
+import { requireUser } from "@/lib/supabase/server";
 import AppShell from "@/components/AppShell";
 import LearningProgressPanel from "@/components/LearningProgressPanel";
 
-export default function ProgressPage() {
+// Session-gated: renders per request after the proxy + requireUser() verify it.
+export const instant = false;
+
+export default async function ProgressPage() {
+  await requireUser("/progress");
   return (
     <AppShell active="progress">
       <section className="route-intro" aria-labelledby="progress-title">

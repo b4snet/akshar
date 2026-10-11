@@ -1,6 +1,10 @@
+import { requireUser } from "@/lib/supabase/server";
 import AppShell from "@/components/AppShell";
 import DashboardLearning from "@/components/DashboardLearning";
 import Link from "next/link";
+
+// Session-gated: renders per request after the proxy + requireUser() verify it.
+export const instant = false;
 
 const tracks = [
   {
@@ -48,7 +52,8 @@ const lessons = [
   { id: "10000000-0000-4000-8000-000000000004", subject: "Biology", title: "Cell structure and function", unit: "Cell biology · Sample lesson 3", progress: 14, minutes: 20, tint: "rose", mark: "B" },
 ];
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  await requireUser("/dashboard");
   return (
     <AppShell active="dashboard">
           <section className="welcome-section" aria-labelledby="welcome-title">

@@ -1,8 +1,13 @@
+import { requireUser } from "@/lib/supabase/server";
 import AppShell from "@/components/AppShell";
 import PracticeExperience from "@/components/PracticeExperience";
 import { getPublicQuizTracks } from "@/lib/quizData";
 
-export default function PracticePage() {
+// Session-gated: renders per request after the proxy + requireUser() verify it.
+export const instant = false;
+
+export default async function PracticePage() {
+  await requireUser("/practice");
   const tracks = getPublicQuizTracks();
 
   return (

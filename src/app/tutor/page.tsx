@@ -1,7 +1,12 @@
+import { requireUser } from "@/lib/supabase/server";
 import AppShell from "@/components/AppShell";
 import TutorDemo from "@/components/TutorDemo";
 
-export default function TutorPage() {
+// Session-gated: renders per request after the proxy + requireUser() verify it.
+export const instant = false;
+
+export default async function TutorPage() {
+  await requireUser("/tutor");
   return (
     <AppShell active="tutor">
       <section className="route-intro" aria-labelledby="tutor-title">

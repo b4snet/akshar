@@ -1,7 +1,11 @@
 import { Suspense } from "react";
+import { requireUser } from "@/lib/supabase/server";
 import AppShell from "@/components/AppShell";
 import LearnBrowser from "@/components/LearnBrowser";
 import LessonLibrary from "@/components/LessonLibrary";
+
+// Session-gated: renders per request after the proxy + requireUser() verify it.
+export const instant = false;
 
 type LearnPageProps = {
   searchParams: Promise<{ grade?: string }>;
@@ -24,7 +28,8 @@ async function LearnContent({ searchParams }: LearnPageProps) {
   );
 }
 
-export default function LearnPage(props: LearnPageProps) {
+export default async function LearnPage(props: LearnPageProps) {
+  await requireUser("/learn");
   return (
     <AppShell active="learn">
       <Suspense fallback={<div className="route-loading" role="status">Loading subjects…</div>}>

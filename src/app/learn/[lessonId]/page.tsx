@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { requireUser } from "@/lib/supabase/server";
 import AppShell from "@/components/AppShell";
 import LessonReader from "@/components/LessonReader";
 
@@ -8,6 +9,7 @@ type LessonPageProps = {
 
 async function LessonContent({ params }: LessonPageProps) {
   const { lessonId } = await params;
+  await requireUser(`/learn/${lessonId}`);
   return <LessonReader lessonId={lessonId} />;
 }
 
