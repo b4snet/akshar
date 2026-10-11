@@ -47,19 +47,21 @@ export default function CurriculumHome() {
   return (
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-2xl font-bold mb-4">Curriculum</h1>
+      <p className="mb-4 text-sm text-gray-600">
+        Choose a curriculum to open the matching subjects in your learning workspace.
+        Subjects are filtered server-side for your saved grade and stream selection.
+      </p>
       {loading && <p className="text-gray-500">Loading...</p>}
       {error && <p className="text-red-500">{error}</p>}
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {levels.map((lvl) => (
           <Link
             key={lvl.id}
-            href={`/curriculum/${lvl.id}`}
+            href={`/learn?level=${encodeURIComponent(lvl.name)}`}
             className="block p-4 bg-white rounded-lg shadow hover:shadow-lg transition"
           >
             <h2 className="text-lg font-medium text-gray-800">{lvl.name}</h2>
-            {lvl.display_order !== undefined && (
-              <p className="text-sm text-gray-500">Order: {lvl.display_order}</p>
-            )}
+            <p className="text-sm text-gray-500">Browse subjects →</p>
           </Link>
         ))}
       </div>

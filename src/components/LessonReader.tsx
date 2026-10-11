@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { loadPublishedLesson, saveLessonProgress } from "@/app/actions/learning";
+import StudyAidsPanel from "@/components/StudyAidsPanel";
 
 type LessonState = Awaited<ReturnType<typeof loadPublishedLesson>>;
 type LoadedLesson = Extract<LessonState, { status: "ready" }>;
@@ -75,6 +76,7 @@ export default function LessonReader({ lessonId }: { lessonId: string }) {
       {content.sections.map((section, index) => <section className="lesson-content-section" key={`${lesson.id}-${index}`}><h2>{section.heading}</h2><p>{section.body}</p></section>)}
       <aside className="lesson-key-idea"><span className="section-kicker">KEY IDEA</span><p>{content.keyIdea}</p></aside>
     </div>
+    <StudyAidsPanel lessonId={lesson.id} />
     <div className="lesson-completion-panel"><div><span className="section-kicker">YOUR PROGRESS</span><strong>{lesson.progressPercent === 100 ? "Completed" : lesson.progressPercent > 0 ? `${lesson.progressPercent}% complete` : "Not completed yet"}</strong><span>{lesson.progressPercent === 100 ? "This completion is saved to your account." : "Mark this lesson complete to save your progress."}</span></div><button className="button button-primary" type="button" onClick={markComplete} disabled={isSaving || lesson.progressPercent === 100}>{isSaving ? "Saving…" : lesson.progressPercent === 100 ? "Completed" : "Mark as complete"}{lesson.progressPercent !== 100 && <span aria-hidden="true">✓</span>}</button></div>
     {feedback && <p className={feedbackIsError ? "lesson-feedback error" : "lesson-feedback success"} role={feedbackIsError ? "alert" : "status"}>{feedback}</p>}
   </article>;

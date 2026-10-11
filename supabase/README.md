@@ -13,6 +13,8 @@ The app shows an unconfigured state when either value is absent or the URL is in
 
 ## Apply The Migration
 
+Migrations `202610110006` (AI study-aid tables with owner-only RLS) and `202610110007` (subject eligibility columns, student selections, compulsory/entrance seeds) were applied to the linked project with the Supabase CLI on 2026-10-11: `supabase db push` applies any pending files from `migrations/` in order and records them in the remote history. Rerunning it is safe; each migration runs once and the seeds use fixed IDs with `on conflict do nothing`, so repeats create no duplicates.
+
 The repository does not require the Supabase CLI. To apply the schema manually:
 
 1. Open the Supabase project dashboard and go to **SQL Editor**.

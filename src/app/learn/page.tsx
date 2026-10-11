@@ -2,28 +2,27 @@ import { Suspense } from "react";
 import { requireUser } from "@/lib/supabase/server";
 import AppShell from "@/components/AppShell";
 import LearnBrowser from "@/components/LearnBrowser";
-import LessonLibrary from "@/components/LessonLibrary";
 
 // Session-gated: renders per request after the proxy + requireUser() verify it.
 export const instant = false;
 
 type LearnPageProps = {
-  searchParams: Promise<{ grade?: string }>;
+  searchParams: Promise<{ grade?: string; level?: string }>;
 };
 
 async function LearnContent({ searchParams }: LearnPageProps) {
-  const { grade } = await searchParams;
+  const { grade, level } = await searchParams;
   const initialGrade = grade === "12" ? "12" : "11";
+  const initialLevel = typeof level === "string" && level.length <= 120 ? level : undefined;
 
   return (
     <>
       <section className="route-intro" aria-labelledby="learn-title">
-        <div className="section-kicker">NEB LEARNING</div>
+        <div className="section-kicker">SUBJECTS &amp; ENTRANCE</div>
         <h1 id="learn-title">Find your next subject.</h1>
-        <p>Browse sample subject descriptions for Grade 11 and Grade 12. Content is illustrative and has not been verified against the official curriculum.</p>
+        <p>Browse the subjects that match your saved grade, stream, and curriculum selection. Compulsory subjects follow the CDC Grade 11–12 curriculum; entrance tracks follow the official IOE and MEC syllabi.</p>
       </section>
-      <LearnBrowser initialGrade={initialGrade} />
-      <LessonLibrary />
+      <LearnBrowser initialGrade={initialGrade} initialLevel={initialLevel} />
     </>
   );
 }

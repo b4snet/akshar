@@ -15,7 +15,7 @@ export default async function TutorPage() {
         <p>Write what you are wondering about and get a simple starting point. Try an example prompt or ask in your own words.</p>
       </section>
       <TutorDemo />
-      <footer className="page-footer"><a className="footer-brand" href="/dashboard"><span className="brand-symbol" aria-hidden="true">अ</span> akshar<span className="wordmark-period">.</span></a><span>Demo responses only · no AI provider connected</span><a href="#top">Back to top ↑</a></footer>
+      <footer className="page-footer"><a className="footer-brand" href="/dashboard"><span className="brand-symbol" aria-hidden="true">अ</span> akshar<span className="wordmark-period">.</span></a><span>AI answers when a provider is configured · sample fallback otherwise</span><a href="#top">Back to top ↑</a></footer>
     </AppShell>
   );
 }

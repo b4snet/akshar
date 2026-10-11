@@ -11,18 +11,21 @@ function getLessonMark(subject: string) {
   return subject.slice(0, 1).toUpperCase();
 }
 
-export default function LessonLibrary() {
+export default function LessonLibrary({ selection }: { selection?: { educationLevel: string; grade: string; stream: string | null } }) {
   const [result, setResult] = useState<LessonListState | null>(null);
+  const selectionKey = selection ? `${selection.educationLevel}||${selection.grade}||${selection.stream ?? ""}` : "";
 
   useEffect(() => {
     let isMounted = true;
-    void loadPublishedLessons().then((response) => {
+    void loadPublishedLessons(selection).then((response) => {
       if (isMounted) setResult(response);
     }).catch(() => {
       if (isMounted) setResult({ status: "database-error" });
     });
     return () => { isMounted = false; };
-  }, []);
+    // Refetch when the student's selection changes; filtering happens server-side.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectionKey]);
 
   let content;
   if (!result) {
@@ -46,12 +49,12 @@ export default function LessonLibrary() {
         <div className="published-lesson-progress"><span>{lesson.progressPercent === 100 ? "Completed" : lesson.progressPercent > 0 ? `${lesson.progressPercent}% complete` : "Not started"}</span><div className="progress-track"><span style={{ width: `${lesson.progressPercent}%` }} /></div></div>
         {lesson.content ? <Link className="published-lesson-link" href={`/learn/${lesson.id}`}>Open lesson <span aria-hidden="true">→</span></Link> : <span className="lesson-content-unavailable">Lesson content is not available yet.</span>}
       </article>)}
-    </div> : <div className="lesson-library-state"><strong>No published lessons yet.</strong><p>Published lessons will appear here after they are added to the lessons table.</p></div>;
+    </div> : <div className="lesson-library-state"><strong>No published lessons match your selection yet.</strong><p>Lessons published for your grade and stream appear here as soon as they are added. Published lessons are independent of AI availability.</p></div>;
   }
 
   return <section className="lesson-library" aria-labelledby="published-lessons-heading">
     <div className="section-heading"><div><div className="section-kicker">PUBLISHED LESSONS</div><h2 id="published-lessons-heading">Learn at your own pace</h2></div><span className="sample-tag">DATABASE CONTENT</span></div>
-    <p className="lesson-library-intro">Only lessons published in Supabase are listed here. Sample lesson content is illustrative and is not verified against the official NEB syllabus.</p>
+    <p className="lesson-library-intro">Only lessons published in Supabase that match your selected grade and stream are listed here. Sample lesson content is illustrative and is not verified against the official NEB syllabus.</p>
     {content}
   </section>;
 }

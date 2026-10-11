@@ -1,45 +1,12 @@
 "use server";
 
-import type { User } from "@supabase/supabase-js";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { getAuthenticatedContext } from "@/lib/supabase/auth-context";
 import { demoLessons } from "@/lib/demoLessons";
+import { fetchCurriculumCatalog } from "@/lib/curriculum/catalog";
+import { normalizeSelection, eligibleSubjects } from "@/lib/curriculum/eligibility";
 import { quizTracks } from "@/lib/quizData";
+import { parseLessonContent } from "@/lib/lessons/content";
 import type { QuizId } from "@/lib/quizTypes";
-
-type LessonContent = {
-  introduction: string;
-  sections: { heading: string; body: string }[];
-  keyIdea: string;
-};
-
-type AuthContext =
-  | { status: "ready"; supabase: NonNullable<Awaited<ReturnType<typeof createSupabaseServerClient>>>; user: User }
-  | { status: "unconfigured" | "signed-out" | "auth-error" };
-
-async function getAuthenticatedContext(): Promise<AuthContext> {
-  const supabase = await createSupabaseServerClient();
-  if (!supabase) return { status: "unconfigured" };
-
-  const { data, error } = await supabase.auth.getUser();
-  if (error && error.name !== "AuthSessionMissingError") return { status: "auth-error" };
-  if (!data.user) return { status: "signed-out" };
-  return { status: "ready", supabase, user: data.user };
-}
-
-function parseLessonContent(value: unknown): LessonContent | null {
-  if (!value || typeof value !== "object") return null;
-  const content = value as Record<string, unknown>;
-  if (typeof content.introduction !== "string" || typeof content.keyIdea !== "string" || !Array.isArray(content.sections)) return null;
-
-  const sections = content.sections.filter((section): section is { heading: string; body: string } => {
-    return !!section && typeof section === "object" &&
-      typeof (section as Record<string, unknown>).heading === "string" &&
-      typeof (section as Record<string, unknown>).body === "string";
-  });
-  if (sections.length !== content.sections.length) return null;
-
-  return { introduction: content.introduction, sections, keyIdea: content.keyIdea };
-}
 
 function mapPublishedLesson(row: {
   id: string;
@@ -64,7 +31,7 @@ function mapPublishedLesson(row: {
   };
 }
 
-export async function loadPublishedLessons() {
+export async function loadPublishedLessons(selectionOverride?: { educationLevel: string; grade: string; stream: string | null }) {
   const context = await getAuthenticatedContext();
   if (context.status !== "ready") return { status: context.status } as const;
 
@@ -75,10 +42,26 @@ export async function loadPublishedLessons() {
 
   if (lessonResult.error || progressResult.error) return { status: "database-error" } as const;
 
+  // Server-side eligibility: when the caller passes the student's selection,
+  // only lessons whose subject+grade are eligible for that selection are
+  // returned. The selection is validated against the catalog, never trusted.
+  let rows = lessonResult.data ?? [];
+  if (selectionOverride) {
+    const catalog = await fetchCurriculumCatalog(context.supabase);
+    if (!catalog) return { status: "database-error" } as const;
+
+    const selection = normalizeSelection(catalog, selectionOverride);
+    const eligible = eligibleSubjects(catalog, selection);
+    const eligibleNames = new Set(eligible.subjects.map((subject) => subject.name));
+    const selectedGrade = Number(selection.grade);
+    const hasNumericGrade = Number.isFinite(selectedGrade);
+    rows = rows.filter((row) => hasNumericGrade && row.grade === selectedGrade && eligibleNames.has(row.subject));
+  }
+
   const progressByLesson = new Map((progressResult.data ?? []).map((row) => [row.lesson_id, row]));
   return {
     status: "ready" as const,
-    lessons: (lessonResult.data ?? []).map((row) => mapPublishedLesson(row, progressByLesson.get(row.id))),
+    lessons: rows.map((row) => mapPublishedLesson(row, progressByLesson.get(row.id))),
   };
 }
 
