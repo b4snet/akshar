@@ -18,8 +18,9 @@ function getSafeAuthError(error: unknown) {
   if (/invalid login credentials/i.test(message)) return "Email or password is incorrect.";
   if (/email not confirmed/i.test(message)) return "Confirm your email before logging in.";
   if (/already registered|already exists/i.test(message)) return "An account may already use this email. Try logging in instead.";
-  if (/network|fetch failed|failed to fetch/i.test(message)) return "Could not reach Supabase. Check the project URL and your connection.";
-  return "Authentication could not be completed. Check your details and the Supabase Auth settings.";
+  if (/password should be at least/i.test(message)) return "Password must be at least 8 characters.";
+  if (/network|fetch failed|failed to fetch/i.test(message)) return "Could not reach Akshar. Check your connection and try again.";
+  return "Authentication could not be completed. Check your details and try again.";
 }
 
 export default function AuthForm({ mode, initialNotice, config, redirectTo }: AuthFormProps) {
@@ -28,6 +29,7 @@ export default function AuthForm({ mode, initialNotice, config, redirectTo }: Au
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState(initialNotice ?? "");
   const [messageType, setMessageType] = useState<"error" | "notice">(initialNotice ? "notice" : "error");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -38,7 +40,7 @@ export default function AuthForm({ mode, initialNotice, config, redirectTo }: Au
     const supabase = createSupabaseBrowserClient(config);
     if (!supabase) {
       setMessageType("error");
-      setMessage("Supabase is not configured. Set the two public environment variables in the project-root .env.local and restart the app.");
+      setMessage("Akshar is not fully configured yet. Please try again later.");
       return;
     }
 
@@ -62,7 +64,7 @@ export default function AuthForm({ mode, initialNotice, config, redirectTo }: Au
         }
 
         setMessageType("notice");
-        setMessage("Sign-up was accepted by Supabase. Check your email for a confirmation link before logging in.");
+        setMessage("Your account was created. Check your email for a confirmation link, then log in.");
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
@@ -81,19 +83,88 @@ export default function AuthForm({ mode, initialNotice, config, redirectTo }: Au
   const isSignup = mode === "signup";
 
   return (
-    <section className="auth-card" aria-labelledby="auth-heading">
-      <div className="auth-card-heading"><span className="brand-symbol" aria-hidden="true">अ</span><div><div className="section-kicker">AKSHAR ACCOUNT</div><h1 id="auth-heading">{isSignup ? "Create your account" : "Welcome back"}</h1></div></div>
-      <p className="auth-card-description">{isSignup ? "Use your email to create a learning account." : "Log in to your learning account."}</p>
-      {!isConfigured && <div className="auth-config-alert" role="status"><strong>Supabase is not configured.</strong><span>Add a valid project API URL and publishable key to the root .env.local file. The dashboard and demo learning pages remain available.</span></div>}
-      {message && <div className={messageType === "error" ? "auth-message error" : "auth-message notice"} role={messageType === "error" ? "alert" : "status"}>{message}</div>}
-      <form className="auth-form" onSubmit={handleSubmit}>
-        {isSignup && <label htmlFor="auth-display-name">Name <span>Optional</span><input id="auth-display-name" autoComplete="name" value={displayName} onChange={(event) => setDisplayName(event.target.value)} disabled={!isConfigured || isSubmitting} /></label>}
-        <label htmlFor="auth-email">Email address<input id="auth-email" type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} disabled={!isConfigured || isSubmitting} /></label>
-        <label htmlFor="auth-password">Password<input id="auth-password" type="password" autoComplete={isSignup ? "new-password" : "current-password"} minLength={8} required value={password} onChange={(event) => setPassword(event.target.value)} disabled={!isConfigured || isSubmitting} /></label>
-        <button className="button button-primary auth-submit" type="submit" disabled={!isConfigured || isSubmitting}>{isSubmitting ? "Please wait…" : isSignup ? "Create account" : "Log in"}<span aria-hidden="true">→</span></button>
+    <div className="auth-card">
+      <p className="auth-eyebrow">{isSignup ? "Get started" : "Welcome back"}</p>
+      <h1 className="auth-title">{isSignup ? "Create your account" : "Log in to Akshar"}</h1>
+      <p className="auth-description">
+        {isSignup
+          ? "Start organising your NEB studies today. It only takes a moment."
+          : "Continue your learning where you left off."}
+      </p>
+
+      {!isConfigured && (
+        <div className="auth-message notice" role="status">
+          Akshar is not fully configured yet. You can browse the site, but signing in is temporarily unavailable.
+        </div>
+      )}
+      {message && (
+        <div className={`auth-message ${messageType}`} role={messageType === "error" ? "alert" : "status"}>
+          {message}
+        </div>
+      )}
+
+      <form className="auth-form" onSubmit={handleSubmit} noValidate={false}>
+        {isSignup && (
+          <label className="auth-field" htmlFor="auth-display-name">
+            Name <span>Optional</span>
+            <input
+              id="auth-display-name"
+              autoComplete="name"
+              value={displayName}
+              onChange={(event) => setDisplayName(event.target.value)}
+              disabled={!isConfigured || isSubmitting}
+            />
+          </label>
+        )}
+
+        <label className="auth-field" htmlFor="auth-email">
+          Email address
+          <input
+            id="auth-email"
+            type="email"
+            autoComplete="email"
+            required
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            disabled={!isConfigured || isSubmitting}
+          />
+        </label>
+
+        <label className="auth-field" htmlFor="auth-password">
+          Password
+          <span className="auth-input-wrap">
+            <input
+              id="auth-password"
+              type={showPassword ? "text" : "password"}
+              autoComplete={isSignup ? "new-password" : "current-password"}
+              minLength={8}
+              required
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              disabled={!isConfigured || isSubmitting}
+            />
+            <button
+              type="button"
+              className="auth-visibility-toggle"
+              onClick={() => setShowPassword((value) => !value)}
+              aria-label={showPassword ? "Hide password" : "Show password"}
+              aria-pressed={showPassword}
+              disabled={!isConfigured || isSubmitting}
+            >
+              {showPassword ? "Hide" : "Show"}
+            </button>
+          </span>
+        </label>
+
+        <button className="site-btn auth-submit" type="submit" disabled={!isConfigured || isSubmitting}>
+          {isSubmitting ? "Please wait…" : isSignup ? "Create account" : "Log in"}
+        </button>
       </form>
-      <p className="auth-switch">{isSignup ? "Already have an account?" : "New to Akshar?"} <Link href={isSignup ? "/login" : "/signup"}>{isSignup ? "Log in" : "Create an account"}</Link></p>
-      <p className="auth-security-note">Authentication uses your Supabase project and its publishable key. No service-role key is used in the browser.</p>
-    </section>
+
+      <p className="auth-switch">
+        {isSignup ? "Already have an account?" : "New to Akshar?"}{" "}
+        <Link href={isSignup ? "/auth/login" : "/signup"}>{isSignup ? "Log in" : "Create an account"}</Link>
+      </p>
+    </div>
   );
 }

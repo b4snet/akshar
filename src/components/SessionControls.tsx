@@ -61,6 +61,7 @@ export default function SessionControls({ config }: { config: SupabaseConfig | n
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
       setAuthState({ status: "signed-out" });
+      router.replace("/");
       router.refresh();
     } catch {
       setAuthState({ status: "error" });
@@ -70,9 +71,9 @@ export default function SessionControls({ config }: { config: SupabaseConfig | n
   }
 
   if (authState.status === "loading") return <div className="auth-controls" role="status">Checking session…</div>;
-  if (authState.status === "unconfigured") return <div className="auth-controls"><span className="auth-setup-indicator">Supabase not configured</span><Link className="auth-nav-link" href="/login">Account setup</Link></div>;
-  if (authState.status === "error") return <div className="auth-controls"><span className="auth-error-indicator" role="status">Auth connection unavailable</span><Link className="auth-nav-link" href="/login">Try again</Link></div>;
-  if (authState.status === "signed-out") return <div className="auth-controls"><Link className="auth-nav-link" href="/login">Log in</Link><Link className="auth-nav-primary" href="/signup">Create account</Link></div>;
+  if (authState.status === "unconfigured") return <div className="auth-controls"><span className="auth-setup-indicator">Supabase not configured</span><Link className="auth-nav-link" href="/auth/login">Account setup</Link></div>;
+  if (authState.status === "error") return <div className="auth-controls"><span className="auth-error-indicator" role="status">Auth connection unavailable</span><Link className="auth-nav-link" href="/auth/login">Try again</Link></div>;
+  if (authState.status === "signed-out") return <div className="auth-controls"><Link className="auth-nav-link" href="/auth/login">Log in</Link><Link className="auth-nav-primary" href="/signup">Create account</Link></div>;
 
   return <div className="auth-controls"><span className="auth-email" title={authState.email}>{authState.email}</span><button className="auth-nav-link" type="button" onClick={signOut} disabled={isSigningOut}>{isSigningOut ? "Signing out…" : "Log out"}</button></div>;
 }

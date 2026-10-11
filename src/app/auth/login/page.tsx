@@ -2,8 +2,8 @@
 
 import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import AppShell from "@/components/AppShell";
 import AuthForm from "@/components/AuthForm";
+import AuthPanel from "@/components/AuthPanel";
 import { getSupabaseConfig } from "@/lib/supabase/config";
 
 function LoginForm() {
@@ -20,12 +20,10 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <AppShell active="account">
-      <div className="auth-page">
-        <Suspense fallback={<div className="route-loading" role="status">Loading account…</div>}>
-          <LoginForm />
-        </Suspense>
-      </div>
-    </AppShell>
+    <AuthPanel mode="login">
+      <Suspense fallback={<div className="auth-loading" role="status">Loading account…</div>}>
+        <LoginForm />
+      </Suspense>
+    </AuthPanel>
   );
 }
