@@ -4,10 +4,10 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const navLinks = [
-  { label: "Features", href: "#features" },
-  { label: "How it works", href: "#how-it-works" },
+  { label: "Learn", href: "/learn" },
+  { label: "Curriculum", href: "/curriculum" },
+  { label: "Entrance prep", href: "/practice" },
   { label: "About Akshar", href: "#about-akshar" },
-  { label: "About Nepluro", href: "#about-nepluro" },
 ];
 
 export default function Header() {
@@ -46,7 +46,7 @@ export default function Header() {
 
         <nav className="site-nav" aria-label="Primary">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="site-nav-link">{link.label}</a>
+            link.href.startsWith("#") ? <a key={link.href} href={link.href} className="site-nav-link">{link.label}</a> : <Link key={link.href} href={link.href} className="site-nav-link">{link.label}</Link>
           ))}
         </nav>
 
@@ -71,9 +71,7 @@ export default function Header() {
       <div className="site-mobile-panel" id="site-mobile-menu" hidden={!open}>
         <nav aria-label="Mobile">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="site-mobile-link" onClick={() => setOpen(false)}>
-              {link.label}
-            </a>
+            link.href.startsWith("#") ? <a key={link.href} href={link.href} className="site-mobile-link" onClick={() => setOpen(false)}>{link.label}</a> : <Link key={link.href} href={link.href} className="site-mobile-link" onClick={() => setOpen(false)}>{link.label}</Link>
           ))}
           <div className="site-mobile-actions">
             <Link href="/auth/login" className="site-btn site-btn-ghost" onClick={() => setOpen(false)}>Log in</Link>
