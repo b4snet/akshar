@@ -1,0 +1,425 @@
+{
+  "pathway": "neb-mathematics-2078",
+  "sourceId": "src-cdc-part1",
+  "curriculumVersionId": "cv-neb-math-2078",
+  "grade": "11 and 12",
+  "locator": "Secondary Education Curriculum 2078 (Mathematics), Scope and Sequence of Contents",
+  "gradeBlocks": {
+    "11": {
+      "subjectRef": {
+        "level": "NEB",
+        "grade": "11",
+        "stream": "Science",
+        "subject": "Mathematics"
+      },
+      "units": [
+        {
+          "key": "algebra",
+          "title": "Algebra",
+          "sourceNumber": "1",
+          "chapters": [
+            {
+              "key": "ch-1",
+              "sourceNumber": "1",
+              "title": "Logic and Set",
+              "topics": [
+                {
+                  "key": "1-1-logic-and-set",
+                  "sourceNumber": "1.1",
+                  "title": "Logic and Set: connectives, truth pr tables, theorems Pe based on set ob operations."
+                },
+                {
+                  "key": "1-2-real-numbers",
+                  "sourceNumber": "1.2",
+                  "title": "Real numbers: (c Geometric re representation of real ob numbers, interval, th absolute value. Pr"
+                },
+                {
+                  "key": "1-3-function-domain",
+                  "sourceNumber": "1.3",
+                  "title": "Function: Domain and range of a function, Inverse function, composite function, introduction of functions; algebraic (linear, quadratic & cubic), Transcendental (trigonometric, exponential, logarithmic)"
+                },
+                {
+                  "key": "1-4-curve-sketching",
+                  "sourceNumber": "1.4",
+                  "title": "Curve sketching: Odd and even functions, periodicity of a function, symmetry (about origin, X-and Y-axis), monotonicity of a function, sketching the graphs of Quadratic, Cubic and rational functions of the form ax + b where a 0, Trigonometric (asinbx and acosbx), exponential (ex), logarithmic function (lnx)"
+                },
+                {
+                  "key": "1-5-sequence-and-series",
+                  "sourceNumber": "1.5",
+                  "title": "Sequence and series: Arithmetic, geometric, harmonic sequences and series and their properties A.M, G.M, H.M and their relations, sum of infinite geometric series"
+                },
+                {
+                  "key": "1-6-matrices-and",
+                  "sourceNumber": "1.6",
+                  "title": "Matrices and determinants: Transpose of a matrix and its properties, Minors and cofactors, Adjoint, Inverse matrix, Determinant, Properties of determinants (without proof)"
+                },
+                {
+                  "key": "1-7-quadratic-equation",
+                  "sourceNumber": "1.7",
+                  "title": "Quadratic equation: Nature and roots of a quadratic equation, Relation between roots and coefficient. Formation of a quadratic equation, Symmetric roots, one or both roots common."
+                },
+                {
+                  "key": "1-8-complex-number",
+                  "sourceNumber": "1.8",
+                  "title": "Complex number: Imaginary unit, algebra of complex numbers, geometric representation, absolute (Modulus) value and conjugate of a complex numbers and their properties, square root of a complex number."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "trigonometry",
+          "title": "Trigonometry",
+          "sourceNumber": "2",
+          "chapters": [
+            {
+              "key": "ch-2",
+              "sourceNumber": "2",
+              "title": "Inverse circular etry functions.",
+              "topics": [
+                {
+                  "key": "2-1-inverse-circular",
+                  "sourceNumber": "2.1",
+                  "title": "Inverse circular etry functions."
+                },
+                {
+                  "key": "2-2-trigonometric",
+                  "sourceNumber": "2.2",
+                  "title": "Trigonometric equations and general"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "analytic-geometry",
+          "title": "Analytic Geometry",
+          "sourceNumber": "3",
+          "chapters": [
+            {
+              "key": "ch-3",
+              "sourceNumber": "3",
+              "title": "Straight Line",
+              "topics": [
+                {
+                  "key": "3-1-straight-line",
+                  "sourceNumber": "3.1",
+                  "title": "Straight Line: Geometry Length of perpendicular from a given point to a given line, Bisectors of the angles between two straight lines."
+                },
+                {
+                  "key": "3-2-pair-of-straight",
+                  "sourceNumber": "3.2",
+                  "title": "Pair of straight lines: General equation of second degree in x and y, condition for representing a pair of lines, Homogenous second-degree equation in x and y, angle between pair of lines, Bisectors of the angles between pair of lines"
+                },
+                {
+                  "key": "3-3-coordinates-in",
+                  "sourceNumber": "3.3",
+                  "title": "Coordinates in space: Points in space, distance between two points, direction cosines and ratios of a line"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "vectors",
+          "title": "Vectors",
+          "sourceNumber": "4",
+          "chapters": [
+            {
+              "key": "ch-4",
+              "sourceNumber": "4",
+              "title": "Vectors",
+              "topics": [
+                {
+                  "key": "4-1-vectors-collinear",
+                  "sourceNumber": "4.1",
+                  "title": "Vectors: Collinear and non collinear vectors, coplanar and non-coplanar vectors, linear combination of vectors, Linearly dependent and independent"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "statistics-and-probability",
+          "title": "Statistics and Probability",
+          "sourceNumber": "5",
+          "chapters": [
+            {
+              "key": "ch-5",
+              "sourceNumber": "5",
+              "title": "Measure of Probabilit Standard deviation, of variation, Skewness, Karl Pearson's coefficient of skewness",
+              "topics": [
+                {
+                  "key": "5-1-measure-of",
+                  "sourceNumber": "5.1",
+                  "title": "Measure of Probabilit Standard deviation, of variation, Skewness, Karl Pearson's coefficient of skewness"
+                },
+                {
+                  "key": "5-2-probability",
+                  "sourceNumber": "5.2",
+                  "title": "Probability: Independent cases, mathematical and empirical definition of probability, two basic laws of probability (without proof)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "calculus",
+          "title": "Calculus",
+          "sourceNumber": "6",
+          "chapters": [
+            {
+              "key": "ch-6",
+              "sourceNumber": "6",
+              "title": "Limits and continuity",
+              "topics": [
+                {
+                  "key": "6-1-limits-and",
+                  "sourceNumber": "6.1",
+                  "title": "Limits and continuity: Limits of a function, indeterminate forms. algebraic properties of limits (without proof), Basic theorems on limits of algebraic, trigonometric, exponential and logarithmic functions, continuity of a function, types of discontinuity, graphs of discontinuous function."
+                },
+                {
+                  "key": "6-2-derivatives",
+                  "sourceNumber": "6.2",
+                  "title": "Derivatives: Derivative of a function, derivatives of algebraic, trigonometric, inverse of trigonometric, exponential and logarithmic functions by definition (simple forms), rules of differentiation. derivatives of parametric and implicit functions, higher order derivatives, geometric interpretation of derivative, monotonicity of a function, interval of monotonicity, extreme values of a function, concavity, points of inflection."
+                },
+                {
+                  "key": "6-3-anti-derivatives",
+                  "sourceNumber": "6.3",
+                  "title": "Anti-derivatives: Integration using basic integrals, integration by substitution and by parts methods, the definite integral, the definite integral as an area under the given curve, area between two curves."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "computational-methods",
+          "title": "Computational Methods",
+          "sourceNumber": "7",
+          "chapters": [
+            {
+              "key": "ch-7",
+              "sourceNumber": "7",
+              "title": "Numerical computation",
+              "topics": [
+                {
+                  "key": "7-1-numerical",
+                  "sourceNumber": "7.1",
+                  "title": "Numerical computation: Methods Roots of algebraic and transcendental equation (bisection and Newton- Raphson method)"
+                },
+                {
+                  "key": "7-2-numerical",
+                  "sourceNumber": "7.2",
+                  "title": "Numerical integration: Trapezoidal rule Or and Simpson's rule"
+                },
+                {
+                  "key": "7-1-statics-forces-and",
+                  "sourceNumber": "7.1",
+                  "title": "Statics: Forces and parallelogram law of forces, composition and resolution of forces, Resultant of coplanar forces acting on a point."
+                },
+                {
+                  "key": "7-2-dynamics-motion-of",
+                  "sourceNumber": "7.2",
+                  "title": "Dynamics: Motion of particle in a straight line, Motion with uniform acceleration, motion under the gravity, motion down a smooth inclined plane. Total *School must allocate separate classes for pra"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "12": {
+      "subjectRef": {
+        "level": "NEB",
+        "grade": "12",
+        "stream": "Science",
+        "subject": "Mathematics"
+      },
+      "units": [
+        {
+          "key": "algebra",
+          "title": "Algebra",
+          "sourceNumber": "1",
+          "chapters": [
+            {
+              "key": "ch-1",
+              "sourceNumber": "1",
+              "title": "Permutation and inciple of counting, rmutation of (a) set of jects all different (b) set objects not all different ) circular arrangement (d) peated use of the same jects, Combination of ings all different, operties of combination",
+              "topics": [
+                {
+                  "key": "1-1-permutation-and",
+                  "sourceNumber": "1.1",
+                  "title": "Permutation and inciple of counting, rmutation of (a) set of jects all different (b) set objects not all different ) circular arrangement (d) peated use of the same jects, Combination of ings all different, operties of combination"
+                },
+                {
+                  "key": "1-2-binomial-theorem",
+                  "sourceNumber": "1.2",
+                  "title": "Binomial Theorem: Binomial theorem for a positive integer, general term, Binomial coefficient, Binomial theorem for any index (without proof), application to approximation, Euler's number, Expansion of and log(1+x) (without proof)"
+                },
+                {
+                  "key": "1-3-complex-numbers-polar",
+                  "sourceNumber": "1.3",
+                  "title": "Complex numbers: Polar form of complex numbers, De Moivre's theorem and its application in finding the roots of a complex number, properties of cube roots of unity. Euler's formula."
+                },
+                {
+                  "key": "1-4-sequence-and-series",
+                  "sourceNumber": "1.4",
+                  "title": "Sequence and series: Sum of finite natural numbers, sum of squares of first n-natural numbers, Sum of cubes of first n-natural numbers, principle of mathematical induction and use it to find sum."
+                },
+                {
+                  "key": "1-5-matrix-based-system-of",
+                  "sourceNumber": "1.5",
+                  "title": "Matrix based system of linear equation: Solution of a system of linear equations by Cramer's rule and matrix method (row-equivalent and inverse) up to three variables."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "trigonometry",
+          "title": "Trigonometry",
+          "sourceNumber": "2",
+          "chapters": [
+            {
+              "key": "ch-2",
+              "sourceNumber": "2",
+              "title": "Properties of a triangle (Sine law, Cosine law, tangent law, Projection laws, Half angle laws) cases)",
+              "topics": [
+                {
+                  "key": "2-1-properties-of-a-triangle",
+                  "sourceNumber": "2.1",
+                  "title": "Properties of a triangle (Sine law, Cosine law, tangent law, Projection laws, Half angle laws) cases)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "analytic-geometry",
+          "title": "Analytic Geometry",
+          "sourceNumber": "3",
+          "chapters": [
+            {
+              "key": "ch-3",
+              "sourceNumber": "3",
+              "title": "Conic section",
+              "topics": [
+                {
+                  "key": "3-1-conic-section-condition",
+                  "sourceNumber": "3.1",
+                  "title": "Conic section: Condition of tangency of a line at a point to the circle, Tangent and normal to a circle, Standard equation of parabola, equations of tangent and normal to a parabola at a given point, Standard equations of Ellipse and hyperbola."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "vectors",
+          "title": "Vectors",
+          "sourceNumber": "4",
+          "chapters": [
+            {
+              "key": "ch-4",
+              "sourceNumber": "4",
+              "title": "Product of Vectors",
+              "topics": [
+                {
+                  "key": "4-1-product-of-vectors-scal",
+                  "sourceNumber": "4.1",
+                  "title": "Product of Vectors: Scalar product of two vectors, angle between two vectors, geometric interpretation of scalar product, properties of scalar product, application of scalar product in geometry and trigonometry, vector product of two vectors, geometrical interpretation of vector product, properties of vector product, application of vector product in geometry and trigonometry."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "statistics-and-probability",
+          "title": "Statistics and Probability",
+          "sourceNumber": "5",
+          "chapters": [
+            {
+              "key": "ch-5",
+              "sourceNumber": "5",
+              "title": "Correlation and nature of correlation, Karl Pearson's method, interpretation of correlation coefficient, properties of correlation coefficient (without proof), rank correlation (only elementary concept), regression equation, regression line of y on x and x on y.",
+              "topics": [
+                {
+                  "key": "5-1-correlation-and",
+                  "sourceNumber": "5.1",
+                  "title": "Correlation and nature of correlation, Karl Pearson's method, interpretation of correlation coefficient, properties of correlation coefficient (without proof), rank correlation (only elementary concept), regression equation, regression line of y on x and x on y."
+                },
+                {
+                  "key": "5-2-probability-dependent",
+                  "sourceNumber": "5.2",
+                  "title": "Probability: Dependent cases, conditional probability (without proof)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "calculus",
+          "title": "Calculus",
+          "sourceNumber": "6",
+          "chapters": [
+            {
+              "key": "ch-6",
+              "sourceNumber": "6",
+              "title": "Derivatives",
+              "topics": [
+                {
+                  "key": "6-1-derivatives-rules-for",
+                  "sourceNumber": "6.1",
+                  "title": "Derivatives: Rules for differentiating hyperbolic function and inverse hyperbolic function, L'Hospital's rule (0 , ), differentials, tangent and normal, derivative as rate of measure."
+                },
+                {
+                  "key": "6-2-anti-derivatives-anti",
+                  "sourceNumber": "6.2",
+                  "title": "Anti-derivatives: Antiderivatives of standard integrals, integrals reducible to standard forms, integrals of rational function."
+                },
+                {
+                  "key": "6-3-differential-equations",
+                  "sourceNumber": "6.3",
+                  "title": "Differential equations: Differential equation and its order, degree, differential equations of first order and first degree, differential equations with separable variables, homogenous, linear and exact differential equations."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "computational-methods",
+          "title": "Computational Methods",
+          "sourceNumber": "7",
+          "chapters": [
+            {
+              "key": "ch-7",
+              "sourceNumber": "7",
+              "title": "System of linear Elimination Method, Gauss Seidel Method",
+              "topics": [
+                {
+                  "key": "7-1-system-of-linear",
+                  "sourceNumber": "7.1",
+                  "title": "System of linear Elimination Method, Gauss Seidel Method"
+                },
+                {
+                  "key": "7-2-linear-programming",
+                  "sourceNumber": "7.2",
+                  "title": "Linear programming problems (LPP): simplex method (two variables only)"
+                },
+                {
+                  "key": "7-1-statics-triangle-law-of",
+                  "sourceNumber": "7.1",
+                  "title": "Statics: Triangle law"
+                },
+                {
+                  "key": "7-2-dynamics-newton-s-laws",
+                  "sourceNumber": "7.2",
+                  "title": "Dynamics: Newton's laws of motion and projectile. 160 ctical and project activities for students."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

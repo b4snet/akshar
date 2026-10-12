@@ -1,0 +1,789 @@
+{
+  "pathway": "ioe-entrance",
+  "sourceId": "src-ioe-2083",
+  "curriculumVersionId": "cv-ioe-be-2083",
+  "grade": "IOE",
+  "locator": "Detail Syllabus of B.E./B.Arch. Entrance Examination-2083",
+  "gradeBlocks": {
+    "Mathematics": {
+      "subjectRef": {
+        "level": "Entrance Preparation",
+        "grade": "IOE",
+        "stream": "IOE entrance (B.E./B.Arch.)",
+        "subject": "Mathematics"
+      },
+      "units": [
+        {
+          "key": "set-logic-and-functions",
+          "title": "Set, Logic and Functions",
+          "sourceNumber": "1",
+          "chapters": [
+            {
+              "key": "set-logic-and-functions",
+              "sourceNumber": "1",
+              "title": "Set, Logic and Functions",
+              "topics": [
+                {
+                  "key": "1-1",
+                  "sourceNumber": "1.1",
+                  "title": "Set, real number system, intervals, absolute value, logic, connectives, laws of logic"
+                },
+                {
+                  "key": "1-2",
+                  "sourceNumber": "1.2",
+                  "title": "Function, types of functions - injective, surjective, bijective, algebraic, trigonometric, exponential and logarithmic; Inverse of function, composite functions"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "algebra",
+          "title": "Algebra",
+          "sourceNumber": "2",
+          "chapters": [
+            {
+              "key": "algebra",
+              "sourceNumber": "2",
+              "title": "Algebra",
+              "topics": [
+                {
+                  "key": "2-1",
+                  "sourceNumber": "2.1",
+                  "title": "Matrices and determinants, types and properties, inverse of a matrix"
+                },
+                {
+                  "key": "2-2",
+                  "sourceNumber": "2.2",
+                  "title": "Complex numbers and Polynomial equations"
+                },
+                {
+                  "key": "2-3",
+                  "sourceNumber": "2.3",
+                  "title": "Sequence and series, Permutation and Combination"
+                },
+                {
+                  "key": "2-4",
+                  "sourceNumber": "2.4",
+                  "title": "Binomial theorem, exponential and logarithmic series"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "trigonometry",
+          "title": "Trigonometry",
+          "sourceNumber": "3",
+          "chapters": [
+            {
+              "key": "trigonometry",
+              "sourceNumber": "3",
+              "title": "Trigonometry",
+              "topics": [
+                {
+                  "key": "3-1",
+                  "sourceNumber": "3.1",
+                  "title": "Trigonometric equations and general values"
+                },
+                {
+                  "key": "3-2",
+                  "sourceNumber": "3.2",
+                  "title": "Inverse trigonometric functions, principal value"
+                },
+                {
+                  "key": "3-3",
+                  "sourceNumber": "3.3",
+                  "title": "Properties of triangles, in-centre, ortho-centre and circum-centre, solution of triangles"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "coordinate-geometry",
+          "title": "Coordinate Geometry",
+          "sourceNumber": "4",
+          "chapters": [
+            {
+              "key": "coordinate-geometry",
+              "sourceNumber": "4",
+              "title": "Coordinate Geometry",
+              "topics": [
+                {
+                  "key": "4-1",
+                  "sourceNumber": "4.1",
+                  "title": "Straight lines, pair of lines"
+                },
+                {
+                  "key": "4-2",
+                  "sourceNumber": "4.2",
+                  "title": "Circles, equations of circle in different forms, tangent and normal"
+                },
+                {
+                  "key": "4-3",
+                  "sourceNumber": "4.3",
+                  "title": "Conic sections: Parabola, Ellipse and Hyperbola, standard equations and simple properties"
+                },
+                {
+                  "key": "4-4",
+                  "sourceNumber": "4.4",
+                  "title": "Coordinates in space, Plane and its equation"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "calculus",
+          "title": "Calculus",
+          "sourceNumber": "5",
+          "chapters": [
+            {
+              "key": "calculus",
+              "sourceNumber": "5",
+              "title": "Calculus",
+              "topics": [
+                {
+                  "key": "5-1",
+                  "sourceNumber": "5.1",
+                  "title": "Limit and continuity of functions, indeterminate forms, L'Hospital's rule"
+                },
+                {
+                  "key": "5-2",
+                  "sourceNumber": "5.2",
+                  "title": "Derivatives, rules of derivatives, geometrical & physical meanings, higher order derivatives, Applications of derivative: tangent and normal, rate of change, maxima and minima"
+                },
+                {
+                  "key": "5-3",
+                  "sourceNumber": "5.3",
+                  "title": "Integration, linear properties, rules of integration, standard integrals, definite integral, Applications of definite integral: area under a curve and area between two curves"
+                },
+                {
+                  "key": "5-4",
+                  "sourceNumber": "5.4",
+                  "title": "Differential equations: definition, order and degree, differential equation of first order and first degree: variable separable method, homogeneous, linear and exact differential equations, integrating factor"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "vectors-and-their-products",
+          "title": "Vectors and their Products",
+          "sourceNumber": "6",
+          "chapters": [
+            {
+              "key": "vectors-and-their-products",
+              "sourceNumber": "6",
+              "title": "Vectors and their Products",
+              "topics": [
+                {
+                  "key": "6-1",
+                  "sourceNumber": "6.1",
+                  "title": "Vectors in plane and space, algebra of vectors, linear combination of vectors, linearly dependent and independent set of vectors"
+                },
+                {
+                  "key": "6-2",
+                  "sourceNumber": "6.2",
+                  "title": "Product of two vectors, scalar and vector product of two vectors, scalar triple product"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "statistics-and-probability",
+          "title": "Statistics and Probability",
+          "sourceNumber": "7",
+          "chapters": [
+            {
+              "key": "statistics-and-probability",
+              "sourceNumber": "7",
+              "title": "Statistics and Probability",
+              "topics": [
+                {
+                  "key": "7-1",
+                  "sourceNumber": "7.1",
+                  "title": "Measures of location and measures of dispersion"
+                },
+                {
+                  "key": "7-2",
+                  "sourceNumber": "7.2",
+                  "title": "Correlation and regression"
+                },
+                {
+                  "key": "7-3",
+                  "sourceNumber": "7.3",
+                  "title": "Basic terms of probability, conditional and compound probability, additive and multiplicative rules, Bayes' theorem, binomial distribution"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Physics": {
+      "subjectRef": {
+        "level": "Entrance Preparation",
+        "grade": "IOE",
+        "stream": "IOE entrance (B.E./B.Arch.)",
+        "subject": "Physics"
+      },
+      "units": [
+        {
+          "key": "mechanics",
+          "title": "Mechanics",
+          "sourceNumber": "1",
+          "chapters": [
+            {
+              "key": "mechanics",
+              "sourceNumber": "1",
+              "title": "Mechanics",
+              "topics": [
+                {
+                  "key": "1-1",
+                  "sourceNumber": "1.1",
+                  "title": "Physical Quantities, Vector and Kinematics: Dimensions, Resolution and Polygon laws of Vector, Vector Algebra, Equations of Motions, Projectile Motion, Relative Motion"
+                },
+                {
+                  "key": "1-2",
+                  "sourceNumber": "1.2",
+                  "title": "Newton's Laws of Motion and Friction: Conservation of linear momentum, Applications of Newton's Laws in Equilibrium and Non-equilibrium, laws of Solid Friction and verification"
+                },
+                {
+                  "key": "1-3",
+                  "sourceNumber": "1.3",
+                  "title": "Work, Energy and Power: Work-Energy theorem, Kinetic and Potential energy, Conservation of Energy, Conservative and non-conservative forces, Elastic and inelastic collisions"
+                },
+                {
+                  "key": "1-4",
+                  "sourceNumber": "1.4",
+                  "title": "Circular motion, Gravitation and SHM: Centripetal force, Conical Pendulum, Banking of Track, Gravitational Potential, variation of g, Motion of satellite, Rocket launch technology, Energy in SHM, Spring -Mass system, simple Pendulum, Damped and Forced oscillation, resonance"
+                },
+                {
+                  "key": "1-5",
+                  "sourceNumber": "1.5",
+                  "title": "Rotational Dynamics: Moment of Inertia, Radius of Gyration, Rotational KE, Center of gravity and center of mass, Torque, Conservation of Angular momentum"
+                },
+                {
+                  "key": "1-6",
+                  "sourceNumber": "1.6",
+                  "title": "Elasticity: Hook's law, Young modulus, Bulk modulus, modulus of rigidity, Poissons' ratio, elastic energy"
+                },
+                {
+                  "key": "1-7",
+                  "sourceNumber": "1.7",
+                  "title": "Fluid Mechanics: buoyancy, flotation, Archimedes' principle, surface tension, capillarity and applications, viscosity, Newton, Stoke and Poiseuille's formula, Reynold number, continuity equation, Bernoulli's equation"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "heat-and-thermodynamics",
+          "title": "Heat and Thermodynamics",
+          "sourceNumber": "2",
+          "chapters": [
+            {
+              "key": "heat-and-thermodynamics",
+              "sourceNumber": "2",
+              "title": "Heat and Thermodynamics",
+              "topics": [
+                {
+                  "key": "2-1",
+                  "sourceNumber": "2.1",
+                  "title": "Temperature and Quantity of Heat: Thermal Equilibrium, Specific heat, latent heat Method of Mixture, Measurement of specific heat and latent heat, Newton's law of cooling, triple point"
+                },
+                {
+                  "key": "2-2",
+                  "sourceNumber": "2.2",
+                  "title": "Thermal expansion: Expansion of Solid & Liquid, Measurement and Applications of expansions"
+                },
+                {
+                  "key": "2-3",
+                  "sourceNumber": "2.3",
+                  "title": "Transfer of Heat: Conduction, Convection, Radiation, Thermal Conductivity, Black body radiation, Stefan- Boltzmann law"
+                },
+                {
+                  "key": "2-4",
+                  "sourceNumber": "2.4",
+                  "title": "Thermal properties of Matter: Molecular Properties of matter, Kinetic Theory of gases, heat capacities of gases and solids"
+                },
+                {
+                  "key": "2-5",
+                  "sourceNumber": "2.5",
+                  "title": "Laws of Thermodynamics: First law, Heat and Work, relation of specific heat of gas, thermodynamics processes, Second law, Heat engine, efficiency, Carnot Cycle, Otto Cycle, Diesel cycle, Refrigerator, Entropy."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "geometric-and-physical-optics",
+          "title": "Geometric and Physical Optics",
+          "sourceNumber": "3",
+          "chapters": [
+            {
+              "key": "geometric-and-physical-optics",
+              "sourceNumber": "3",
+              "title": "Geometric and Physical Optics",
+              "topics": [
+                {
+                  "key": "3-1",
+                  "sourceNumber": "3.1",
+                  "title": "Reflection: Plane and Curved Mirror, Mirror Formula"
+                },
+                {
+                  "key": "3-2",
+                  "sourceNumber": "3.2",
+                  "title": "Refraction: Plane Surface, Critical Angle, Total Internal Reflection, Lateral shift, Prism, Minimum Deviation, Lenses, Lens Formula, Lens maker's formula, Combination of lenses in contact, Optical Fiber"
+                },
+                {
+                  "key": "3-3",
+                  "sourceNumber": "3.3",
+                  "title": "Dispersion: Spectrum, Dispersive Power, Chromatic Aberration, Achromatism, Spherical Aberration, Scattering of light"
+                },
+                {
+                  "key": "3-4",
+                  "sourceNumber": "3.4",
+                  "title": "Nature and Propagation of Light: Huygen's principle, Velocity of light"
+                },
+                {
+                  "key": "3-5",
+                  "sourceNumber": "3.5",
+                  "title": "Interference: Coherent sources, Young's double slit experiment"
+                },
+                {
+                  "key": "3-6",
+                  "sourceNumber": "3.6",
+                  "title": "Diffraction: Fraunhoffer diffraction, Diffraction grating, Resolving power"
+                },
+                {
+                  "key": "3-7",
+                  "sourceNumber": "3.7",
+                  "title": "Polarization: Brewster's law, Transverse nature of light, Polaroid"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "waves-and-sound",
+          "title": "Waves and Sound",
+          "sourceNumber": "4",
+          "chapters": [
+            {
+              "key": "waves-and-sound",
+              "sourceNumber": "4",
+              "title": "Waves and Sound",
+              "topics": [
+                {
+                  "key": "4-1",
+                  "sourceNumber": "4.1",
+                  "title": "Wave Motion: Travelling and Stationary wave"
+                },
+                {
+                  "key": "4-2",
+                  "sourceNumber": "4.2",
+                  "title": "Mechanical Waves: velocity of sound in solid, gas and liquid, effect of temperature, pressure, humidity"
+                },
+                {
+                  "key": "4-3",
+                  "sourceNumber": "4.3",
+                  "title": "Waves in Pipes and String: closed and Open pipes, Resonance, Resonance Tube, string, laws of vibration of fixed string"
+                },
+                {
+                  "key": "4-4",
+                  "sourceNumber": "4.4",
+                  "title": "Acoustic Phenomena: Pressure amplitude, intensity level, quality and pitch, Ultrasonic and Infrasonic, Doppler's effect"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "electricity-and-magnetism",
+          "title": "Electricity & Magnetism",
+          "sourceNumber": "5",
+          "chapters": [
+            {
+              "key": "electricity-and-magnetism",
+              "sourceNumber": "5",
+              "title": "Electricity & Magnetism",
+              "topics": [
+                {
+                  "key": "5-1",
+                  "sourceNumber": "5.1",
+                  "title": "Electrostatics: Coulomb's law, Electric field and Gauss law, Potential and potential gradient, Capacitors, combination of capacitors, types of capacitors, effect of dielectrics, Energy stored by capacitors, polarization and displacement"
+                },
+                {
+                  "key": "5-2",
+                  "sourceNumber": "5.2",
+                  "title": "DC Circuits: Ohm's law, resistivity and conductivity, work and power, Galvanometer and Ohm meter, internal resistance, Joule's law, Kirchhoff's law and applications"
+                },
+                {
+                  "key": "5-3",
+                  "sourceNumber": "5.3",
+                  "title": "Thermoelectric Effect: Seebeck effect, Thermocouples, Peltier effect, Thermopile, Thomson effect"
+                },
+                {
+                  "key": "5-4",
+                  "sourceNumber": "5.4",
+                  "title": "Magnetic effect: Force on a conductor and charge, Torque, Hall's effect, Biot-Savart's law, Ampere's law, Force between parallel conductors"
+                },
+                {
+                  "key": "5-5",
+                  "sourceNumber": "5.5",
+                  "title": "Magnetic properties of matter: Earth magnetism, magnetic materials, permeability, susceptibility, hysteresis"
+                },
+                {
+                  "key": "5-6",
+                  "sourceNumber": "5.6",
+                  "title": "Electromagnetic Induction: Faraday's law, Induced emf, AC Generators, Self and mutual induction, energy stored by inductor, transformer"
+                },
+                {
+                  "key": "5-7",
+                  "sourceNumber": "5.7",
+                  "title": "Alternating Currents: RMS value, Phasor diagram of capacitance, inductance and resistance, Quality factor, Power factor"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "modern-physics",
+          "title": "Modern Physics",
+          "sourceNumber": "6",
+          "chapters": [
+            {
+              "key": "modern-physics",
+              "sourceNumber": "6",
+              "title": "Modern Physics",
+              "topics": [
+                {
+                  "key": "6-1",
+                  "sourceNumber": "6.1",
+                  "title": "Electrons: Millikons's experiment, Cathode rays, specific charge"
+                },
+                {
+                  "key": "6-2",
+                  "sourceNumber": "6.2",
+                  "title": "Photons & Quantization of Energy: Photoelectric effect, Plank's constant, Bohr's theory, spectral series, De Broglie theory, Uncertainty principle, X-ray and Bragg's law, Laser"
+                },
+                {
+                  "key": "6-3",
+                  "sourceNumber": "6.3",
+                  "title": "Solids & Semiconductor Devices: Intrinsic and extrinsic semiconductors, P-N junction, Rectification, Zener diode, Transistor, Logic gates"
+                },
+                {
+                  "key": "6-4",
+                  "sourceNumber": "6.4",
+                  "title": "Radioactivity & Nuclear Reaction: Atomic mass, Isotopes, Nuclear density, Einstein's mass energy relation, mass defect, fission & fusion, law of radioactive disintegration, carbon dating, health hazard"
+                },
+                {
+                  "key": "6-5",
+                  "sourceNumber": "6.5",
+                  "title": "Recent Trends in Physics"
+                },
+                {
+                  "key": "6-5-1",
+                  "sourceNumber": "6.5.1",
+                  "title": "Particle Physics: Particle and anti-particle, Quarks, Lepton, Baryon, Mesons, Higgs Boson"
+                },
+                {
+                  "key": "6-5-2",
+                  "sourceNumber": "6.5.2",
+                  "title": "Universe: Big Bang and Hubble's Law, Dark Matter, Gravitational Wave, Black Hole"
+                },
+                {
+                  "key": "6-5-3",
+                  "sourceNumber": "6.5.3",
+                  "title": "Seismology: Pressure wave, Surface Wave, Internal wave"
+                },
+                {
+                  "key": "6-5-4",
+                  "sourceNumber": "6.5.4",
+                  "title": "Telecommunication: Radio, TV and Mobile, GPS and Remote sensing"
+                },
+                {
+                  "key": "6-5-5",
+                  "sourceNumber": "6.5.5",
+                  "title": "Environment: Energy Crisis, Environment Pollution, Ozone Layer"
+                },
+                {
+                  "key": "6-5-6",
+                  "sourceNumber": "6.5.6",
+                  "title": "New Technology & Materials: Nano-technology, super conductor & Perfect conductor"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Chemistry": {
+      "subjectRef": {
+        "level": "Entrance Preparation",
+        "grade": "IOE",
+        "stream": "IOE entrance (B.E./B.Arch.)",
+        "subject": "Chemistry"
+      },
+      "units": [
+        {
+          "key": "physical-chemistry",
+          "title": "Physical Chemistry",
+          "sourceNumber": "1",
+          "chapters": [
+            {
+              "key": "physical-chemistry",
+              "sourceNumber": "1",
+              "title": "Physical Chemistry",
+              "topics": [
+                {
+                  "key": "1-1",
+                  "sourceNumber": "1.1",
+                  "title": "Chemical Arithmetic: Dalton's atomic theory and Laws of Stoichiometry, Atomic mass and Molecular mass, Empirical molecular formula and limiting Reactants, Avogadro are Hypothesis and its applications and Equivalent masses."
+                },
+                {
+                  "key": "1-2",
+                  "sourceNumber": "1.2",
+                  "title": "State of Matter: Gaseous state, liquid and solid states."
+                },
+                {
+                  "key": "1-3",
+                  "sourceNumber": "1.3",
+                  "title": "Atomic Structure and Periodic Classification of Elements:"
+                },
+                {
+                  "key": "1-4",
+                  "sourceNumber": "1.4",
+                  "title": "Oxidation, Reduction and Equilibrium"
+                },
+                {
+                  "key": "1-5",
+                  "sourceNumber": "1.5",
+                  "title": "Volumetric Analysis,"
+                },
+                {
+                  "key": "1-6",
+                  "sourceNumber": "1.6",
+                  "title": "Ionic Equilibrium, Acid, Base and Salt"
+                },
+                {
+                  "key": "1-7",
+                  "sourceNumber": "1.7",
+                  "title": "Electrochemistry"
+                },
+                {
+                  "key": "1-8",
+                  "sourceNumber": "1.8",
+                  "title": "Energetic of Chemical Reaction, Chemical Kinetics, Chemical Bonding and Shape of Molecules"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "inorganic-chemistry",
+          "title": "Inorganic Chemistry",
+          "sourceNumber": "2",
+          "chapters": [
+            {
+              "key": "inorganic-chemistry",
+              "sourceNumber": "2",
+              "title": "Inorganic Chemistry",
+              "topics": [
+                {
+                  "key": "2-1",
+                  "sourceNumber": "2.1",
+                  "title": "Non-metal: Hydrogen, Oxygen, Ozone, Water, Nitrogen and its compounds, Halogen, Carbon, Phosphorous, sulphur, Noble gas and Environment pollution."
+                },
+                {
+                  "key": "2-2",
+                  "sourceNumber": "2.2",
+                  "title": "Metals: Metallurgical Principle, Alkali metal, Alkaline Earth metals, Coinage metals: Copper, Silver, Gold"
+                },
+                {
+                  "key": "2-3",
+                  "sourceNumber": "2.3",
+                  "title": "Extraction of Metal: Zinc and Mercury, Iron Compound"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "organic-chemistry",
+          "title": "Organic Chemistry",
+          "sourceNumber": "3",
+          "chapters": [
+            {
+              "key": "organic-chemistry",
+              "sourceNumber": "3",
+              "title": "Organic Chemistry",
+              "topics": [
+                {
+                  "key": "3-1",
+                  "sourceNumber": "3.1",
+                  "title": "Introduction: Fundamental principles, Purification of organic compounds, Nomenclature of Organic compounds, Structure isomerism and idea of reaction mechanism"
+                },
+                {
+                  "key": "3-2",
+                  "sourceNumber": "3.2",
+                  "title": "Hydrocarbons: Alkanes, Alkenes and Alkynes, Aromatic hydrocarbons"
+                },
+                {
+                  "key": "3-3",
+                  "sourceNumber": "3.3",
+                  "title": "Haloalkanes and Haloarenes"
+                },
+                {
+                  "key": "3-4",
+                  "sourceNumber": "3.4",
+                  "title": "Alcohols, Phenols and Ethers"
+                },
+                {
+                  "key": "3-5",
+                  "sourceNumber": "3.5",
+                  "title": "Aldehydes, Ketones , Carboxylic Acid and Derivatives, Aliphatic and Aromatic"
+                },
+                {
+                  "key": "3-6",
+                  "sourceNumber": "3.6",
+                  "title": "Nitro Compounds and Amines: Aromatic and Aliphatic"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "English": {
+      "subjectRef": {
+        "level": "Entrance Preparation",
+        "grade": "IOE",
+        "stream": "IOE entrance (B.E./B.Arch.)",
+        "subject": "English"
+      },
+      "units": [
+        {
+          "key": "grammar-i",
+          "title": "Grammar I",
+          "sourceNumber": "1",
+          "chapters": [
+            {
+              "key": "grammar-i",
+              "sourceNumber": "1",
+              "title": "Grammar I",
+              "topics": [
+                {
+                  "key": "1-1",
+                  "sourceNumber": "1.1",
+                  "title": "Sequence of Tense, Concord /Agreement"
+                },
+                {
+                  "key": "1-2",
+                  "sourceNumber": "1.2",
+                  "title": "Direct and Indirect Speech"
+                },
+                {
+                  "key": "1-3",
+                  "sourceNumber": "1.3",
+                  "title": "Kinds of Sentences and Transformation of Sentences"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "grammar-ii",
+          "title": "Grammar II",
+          "sourceNumber": "2",
+          "chapters": [
+            {
+              "key": "grammar-ii",
+              "sourceNumber": "2",
+              "title": "Grammar II",
+              "topics": [
+                {
+                  "key": "2-1",
+                  "sourceNumber": "2.1",
+                  "title": "Basic Grammatical Patterns/Structures, Conditional Sentences"
+                },
+                {
+                  "key": "2-2",
+                  "sourceNumber": "2.2",
+                  "title": "Parts of Speech, Active and Passive Voice"
+                },
+                {
+                  "key": "2-3",
+                  "sourceNumber": "2.3",
+                  "title": "Verbal: Infinitives, Gerund and Participles"
+                },
+                {
+                  "key": "2-4",
+                  "sourceNumber": "2.4",
+                  "title": "Punctuation and Use of Prepositions"
+                },
+                {
+                  "key": "2-5",
+                  "sourceNumber": "2.5",
+                  "title": "Vocabulary"
+                },
+                {
+                  "key": "2-6",
+                  "sourceNumber": "2.6",
+                  "title": "Idiomatic Expressions"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "phonetics",
+          "title": "Phonetics",
+          "sourceNumber": "3",
+          "chapters": [
+            {
+              "key": "phonetics",
+              "sourceNumber": "3",
+              "title": "Phonetics",
+              "topics": [
+                {
+                  "key": "3-2",
+                  "sourceNumber": "3.2",
+                  "title": "Phonemes (Vowels/Consonants)"
+                },
+                {
+                  "key": "3-3",
+                  "sourceNumber": "3.3",
+                  "title": "Syllables and Stress (Word/Sentence)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "comprehension",
+          "title": "Comprehension",
+          "sourceNumber": "4",
+          "chapters": [
+            {
+              "key": "comprehension",
+              "sourceNumber": "4",
+              "title": "Comprehension",
+              "topics": [
+                {
+                  "key": "4-1",
+                  "sourceNumber": "4.1",
+                  "title": "Comprehensions of reading passages on a variety of topics and style with special references to General English and Technical English"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

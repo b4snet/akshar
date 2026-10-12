@@ -1,0 +1,73 @@
+{
+  "generatedAt": "2026-10-12T06:51:23.011Z",
+  "pathways": [
+    {
+      "name": "cee-entrance",
+      "units": 28,
+      "chapters": 28,
+      "topics": 87,
+      "locator": "Unit/Topic-wise Content tables, pp. 5–12 (MBBS/BDS common entrance)"
+    },
+    {
+      "name": "ioe-entrance",
+      "units": 20,
+      "chapters": 20,
+      "topics": 92,
+      "locator": "Detail Syllabus of B.E./B.Arch. Entrance Examination-2083"
+    },
+    {
+      "name": "neb-biology-2076",
+      "units": 4,
+      "chapters": 20,
+      "topics": 54,
+      "locator": "Grade 11–12 Biology curriculum, Scope and Sequence of Contents (Part A Botany, Part B Zoology)"
+    },
+    {
+      "name": "neb-business-studies-2076",
+      "units": 2,
+      "chapters": 18,
+      "topics": 85,
+      "locator": "Grade 11–12 Business Studies curriculum, Scope and Sequence of Contents"
+    },
+    {
+      "name": "neb-chemistry-2076",
+      "units": 7,
+      "chapters": 32,
+      "topics": 415,
+      "locator": "Grade 11–12 Chemistry curriculum, Scope and Sequence of Contents (Theory)"
+    },
+    {
+      "name": "neb-english-2077",
+      "units": 10,
+      "chapters": 34,
+      "topics": 178,
+      "locator": "Grade 11–12 English curriculum, Scope and Sequence (4.1–4.6)"
+    },
+    {
+      "name": "neb-mathematics-2078",
+      "units": 14,
+      "chapters": 14,
+      "topics": 40,
+      "locator": "Secondary Education Curriculum 2078 (Mathematics), Scope and Sequence of Contents"
+    },
+    {
+      "name": "neb-physics-2076",
+      "units": 10,
+      "chapters": 50,
+      "topics": 231,
+      "locator": "Grade 11–12 Physics curriculum, Scope and Sequence of Contents"
+    }
+  ],
+  "missingSubjects": [
+    "NEB|11|(compulsory)|Nepali",
+    "NEB|12|(compulsory)|Nepali",
+    "NEB|11|Management|Accountancy",
+    "NEB|11|Management|Economics",
+    "NEB|11|Management|Mathematics",
+    "NEB|12|Management|Accountancy",
+    "NEB|12|Management|Economics",
+    "NEB|12|Management|Mathematics",
+    "Entrance Preparation|CEE|CEE entrance (MBBS/BDS/BSc Nursing)|Mental Agility Test"
+  ],
+  "artifacts": []
+}

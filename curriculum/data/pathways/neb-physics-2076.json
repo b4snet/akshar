@@ -1,0 +1,1594 @@
+{
+  "pathway": "neb-physics-2076",
+  "sourceId": "src-cdc-part2",
+  "curriculumVersionId": "cv-neb-opt-2076",
+  "grade": "11 and 12",
+  "locator": "Grade 11–12 Physics curriculum, Scope and Sequence of Contents",
+  "gradeBlocks": {
+    "11": {
+      "subjectRef": {
+        "level": "NEB",
+        "grade": "11",
+        "stream": "Science",
+        "subject": "Physics"
+      },
+      "units": [
+        {
+          "key": "mechanics",
+          "title": "Mechanics",
+          "chapters": [
+            {
+              "key": "physical-quantities",
+              "sourceNumber": "1",
+              "title": "Physical Quantities",
+              "topics": [
+                {
+                  "key": "1-1",
+                  "sourceNumber": "1.1",
+                  "title": "Precision and significant figures. Dimensions and uses of dimensional analysis."
+                }
+              ]
+            },
+            {
+              "key": "vectors",
+              "sourceNumber": "2",
+              "title": "Vectors",
+              "topics": [
+                {
+                  "key": "2-1",
+                  "sourceNumber": "2.1",
+                  "title": "Triangle, parallelogram and polygon laws of vectors"
+                },
+                {
+                  "key": "2-2",
+                  "sourceNumber": "2.2",
+                  "title": "Resolution of vectors; Unit vectors"
+                },
+                {
+                  "key": "2-3",
+                  "sourceNumber": "2.3",
+                  "title": "Scalar and vector products."
+                }
+              ]
+            },
+            {
+              "key": "kinematics",
+              "sourceNumber": "3",
+              "title": "Kinematics",
+              "topics": [
+                {
+                  "key": "3-1",
+                  "sourceNumber": "3.1",
+                  "title": "Instantaneous velocity and acceleration"
+                },
+                {
+                  "key": "3-2",
+                  "sourceNumber": "3.2",
+                  "title": "Relative velocity"
+                },
+                {
+                  "key": "3-3",
+                  "sourceNumber": "3.3",
+                  "title": "Equation of motion (graphical treatment)"
+                },
+                {
+                  "key": "3-4",
+                  "sourceNumber": "3.4",
+                  "title": "Motion of a freely falling body"
+                },
+                {
+                  "key": "3-5",
+                  "sourceNumber": "3.5",
+                  "title": "Projectile motion and its applications."
+                }
+              ]
+            },
+            {
+              "key": "dynamics",
+              "sourceNumber": "4",
+              "title": "Dynamics",
+              "topics": [
+                {
+                  "key": "4-1",
+                  "sourceNumber": "4.1",
+                  "title": "Linear momentum, Impulse"
+                },
+                {
+                  "key": "4-2",
+                  "sourceNumber": "4.2",
+                  "title": "Conservation of linear momentum"
+                },
+                {
+                  "key": "4-3",
+                  "sourceNumber": "4.3",
+                  "title": "Application of Newton's laws"
+                },
+                {
+                  "key": "4-4",
+                  "sourceNumber": "4.4",
+                  "title": "Moment, torque and equilibrium"
+                },
+                {
+                  "key": "4-5",
+                  "sourceNumber": "4.5",
+                  "title": "Solid friction: Laws of solid friction and their verifications."
+                }
+              ]
+            },
+            {
+              "key": "work-energy-and-power",
+              "sourceNumber": "5",
+              "title": "Work, energy and power",
+              "topics": [
+                {
+                  "key": "5-1",
+                  "sourceNumber": "5.1",
+                  "title": "Work done by a constant force and a variable force"
+                },
+                {
+                  "key": "5-2",
+                  "sourceNumber": "5.2",
+                  "title": "Power"
+                },
+                {
+                  "key": "5-3",
+                  "sourceNumber": "5.3",
+                  "title": "Work-energy theorem; Kinetic and potential energy"
+                },
+                {
+                  "key": "5-4",
+                  "sourceNumber": "5.4",
+                  "title": "Conservation of Energy"
+                },
+                {
+                  "key": "5-5",
+                  "sourceNumber": "5.5",
+                  "title": "Conservative and non-conservative forces"
+                },
+                {
+                  "key": "5-6",
+                  "sourceNumber": "5.6",
+                  "title": "Elastic and inelastic collisions."
+                }
+              ]
+            },
+            {
+              "key": "circular-motion",
+              "sourceNumber": "6",
+              "title": "Circular Motion",
+              "topics": [
+                {
+                  "key": "6-1",
+                  "sourceNumber": "6.1",
+                  "title": "Angular displacement, velocity and acceleration"
+                },
+                {
+                  "key": "6-2",
+                  "sourceNumber": "6.2",
+                  "title": "Relation between angular and linear velocity and acceleration"
+                },
+                {
+                  "key": "6-3",
+                  "sourceNumber": "6.3",
+                  "title": "Centripetal acceleration"
+                },
+                {
+                  "key": "6-4",
+                  "sourceNumber": "6.4",
+                  "title": "Centripetal force"
+                },
+                {
+                  "key": "6-7",
+                  "sourceNumber": "6.7",
+                  "title": "Conical pendulum"
+                },
+                {
+                  "key": "6-8",
+                  "sourceNumber": "6.8",
+                  "title": "Motion in a vertical circle"
+                },
+                {
+                  "key": "6-9",
+                  "sourceNumber": "6.9",
+                  "title": "Applications of banking."
+                }
+              ]
+            },
+            {
+              "key": "gravitation",
+              "sourceNumber": "7",
+              "title": "Gravitation",
+              "topics": [
+                {
+                  "key": "7-1",
+                  "sourceNumber": "7.1",
+                  "title": "Newton's law of gravitation"
+                },
+                {
+                  "key": "7-2",
+                  "sourceNumber": "7.2",
+                  "title": "Gravitational field strength"
+                },
+                {
+                  "key": "7-3",
+                  "sourceNumber": "7.3",
+                  "title": "Gravitational potential; Gravitational potential energy"
+                },
+                {
+                  "key": "7-4",
+                  "sourceNumber": "7.4",
+                  "title": "Variation in value of `g' due to altitude and depth"
+                },
+                {
+                  "key": "7-5",
+                  "sourceNumber": "7.5",
+                  "title": "Centre of mass and center of gravity"
+                },
+                {
+                  "key": "7-6",
+                  "sourceNumber": "7.6",
+                  "title": "Motion of a satellite: Orbital velocity and time period of the satellite"
+                },
+                {
+                  "key": "7-7",
+                  "sourceNumber": "7.7",
+                  "title": "Escape velocity"
+                },
+                {
+                  "key": "7-8",
+                  "sourceNumber": "7.8",
+                  "title": "Potential and kinetic energy of the satellite"
+                },
+                {
+                  "key": "7-9",
+                  "sourceNumber": "7.9",
+                  "title": "Geostationary satellite"
+                },
+                {
+                  "key": "7-10",
+                  "sourceNumber": "7.10",
+                  "title": "GPS"
+                }
+              ]
+            },
+            {
+              "key": "elasticity",
+              "sourceNumber": "8",
+              "title": "Elasticity",
+              "topics": [
+                {
+                  "key": "8-1",
+                  "sourceNumber": "8.1",
+                  "title": "Hooke's law: Force constant"
+                },
+                {
+                  "key": "8-2",
+                  "sourceNumber": "8.2",
+                  "title": "Stress; Strain; Elasticity and plasticity"
+                },
+                {
+                  "key": "8-3",
+                  "sourceNumber": "8.3",
+                  "title": "Elastic modulus: Young modulus, bulk modulus, shear modulus"
+                },
+                {
+                  "key": "8-4",
+                  "sourceNumber": "8.4",
+                  "title": "Poisson's ratio"
+                },
+                {
+                  "key": "8-5",
+                  "sourceNumber": "8.5",
+                  "title": "Elastic potential energy."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "heat-and-thermodynamics",
+          "title": "Heat and Thermodynamics",
+          "chapters": [
+            {
+              "key": "heat-and-temperature",
+              "sourceNumber": "9",
+              "title": "Heat and Temperature",
+              "topics": [
+                {
+                  "key": "9-1",
+                  "sourceNumber": "9.1",
+                  "title": "Molecular concept of thermal energy, heat and temperature, and cause and direction of heat flow"
+                },
+                {
+                  "key": "9-2",
+                  "sourceNumber": "9.2",
+                  "title": "Meaning of thermal equilibrium and Zeroth law of thermodynamics."
+                },
+                {
+                  "key": "9-3",
+                  "sourceNumber": "9.3",
+                  "title": "Thermal equilibrium as a working principle of mercury thermometer."
+                }
+              ]
+            },
+            {
+              "key": "thermal-expansion",
+              "sourceNumber": "10",
+              "title": "Thermal Expansion",
+              "topics": [
+                {
+                  "key": "10-1",
+                  "sourceNumber": "10.1",
+                  "title": "Linear expansion and its measurement"
+                },
+                {
+                  "key": "10-2",
+                  "sourceNumber": "10.2",
+                  "title": "Cubical expansion, superficial expansion and its relation with linear expansion"
+                },
+                {
+                  "key": "10-3",
+                  "sourceNumber": "10.3",
+                  "title": "Liquid Expansion: Absolute and apparent"
+                },
+                {
+                  "key": "10-4",
+                  "sourceNumber": "10.4",
+                  "title": "Dulong and Petit method of determining expansivity of liquid"
+                }
+              ]
+            },
+            {
+              "key": "quantity-of-heat",
+              "sourceNumber": "11",
+              "title": "Quantity of Heat",
+              "topics": [
+                {
+                  "key": "11-1",
+                  "sourceNumber": "11.1",
+                  "title": "Newton's law of cooling"
+                },
+                {
+                  "key": "11-2",
+                  "sourceNumber": "11.2",
+                  "title": "Measurement of specific heat capacity of solids and liquids"
+                },
+                {
+                  "key": "11-3",
+                  "sourceNumber": "11.3",
+                  "title": "Change of phases: Latent heat"
+                },
+                {
+                  "key": "11-4",
+                  "sourceNumber": "11.4",
+                  "title": "Specific latent heat of fusion and vaporization"
+                },
+                {
+                  "key": "11-5",
+                  "sourceNumber": "11.5",
+                  "title": "Measurement of specific latent heat of fusion and vaporization"
+                },
+                {
+                  "key": "11-6",
+                  "sourceNumber": "11.6",
+                  "title": "Triple point"
+                }
+              ]
+            },
+            {
+              "key": "rate-of-heat-flow",
+              "sourceNumber": "12",
+              "title": "Rate of heat flow",
+              "topics": [
+                {
+                  "key": "12-1",
+                  "sourceNumber": "12.1",
+                  "title": "Conduction: Thermal conductivity and measurement"
+                },
+                {
+                  "key": "12-2",
+                  "sourceNumber": "12.2",
+                  "title": "Convection"
+                },
+                {
+                  "key": "12-3",
+                  "sourceNumber": "12.3",
+                  "title": "Radiation: Ideal radiator"
+                },
+                {
+                  "key": "12-4",
+                  "sourceNumber": "12.4",
+                  "title": "Black- body radiation"
+                },
+                {
+                  "key": "12-5",
+                  "sourceNumber": "12.5",
+                  "title": "Stefan - Boltzmann law."
+                }
+              ]
+            },
+            {
+              "key": "ideal-gas",
+              "sourceNumber": "13",
+              "title": "Ideal gas",
+              "topics": [
+                {
+                  "key": "13-1",
+                  "sourceNumber": "13.1",
+                  "title": "Ideal gas equation"
+                },
+                {
+                  "key": "13-2",
+                  "sourceNumber": "13.2",
+                  "title": "Molecular properties of matter"
+                },
+                {
+                  "key": "13-3",
+                  "sourceNumber": "13.3",
+                  "title": "Kinetic-molecular model of an ideal gas"
+                },
+                {
+                  "key": "13-4",
+                  "sourceNumber": "13.4",
+                  "title": "Derivation of pressure exerted by gas,"
+                },
+                {
+                  "key": "13-5",
+                  "sourceNumber": "13.5",
+                  "title": "Average translational kinetic energy of gas molecule"
+                },
+                {
+                  "key": "13-6",
+                  "sourceNumber": "13.6",
+                  "title": "Boltzmann constant, root mean square speed"
+                },
+                {
+                  "key": "13-7",
+                  "sourceNumber": "13.7",
+                  "title": "Heat capacities: gases and solids."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "waves-and-optics",
+          "title": "Waves & Optics",
+          "chapters": [
+            {
+              "key": "reflection-at-curved-mirror",
+              "sourceNumber": "14",
+              "title": "Reflection at curved mirror",
+              "topics": [
+                {
+                  "key": "14-1",
+                  "sourceNumber": "14.1",
+                  "title": "Real and Virtual images."
+                },
+                {
+                  "key": "14-2",
+                  "sourceNumber": "14.2",
+                  "title": "Mirror formula"
+                }
+              ]
+            },
+            {
+              "key": "refraction-at-plane-surfaces",
+              "sourceNumber": "15",
+              "title": "Refraction at plane surfaces",
+              "topics": [
+                {
+                  "key": "15-1",
+                  "sourceNumber": "15.1",
+                  "title": "Laws of refraction: Refractive index"
+                },
+                {
+                  "key": "15-2",
+                  "sourceNumber": "15.2",
+                  "title": "Relation between refractive indices"
+                },
+                {
+                  "key": "15-3",
+                  "sourceNumber": "15.3",
+                  "title": "Lateral shift"
+                },
+                {
+                  "key": "15-4",
+                  "sourceNumber": "15.4",
+                  "title": "Total internal reflection."
+                }
+              ]
+            },
+            {
+              "key": "refraction-through-prisms",
+              "sourceNumber": "16",
+              "title": "Refraction through prisms",
+              "topics": [
+                {
+                  "key": "16-1",
+                  "sourceNumber": "16.1",
+                  "title": "Minimum deviation condition"
+                },
+                {
+                  "key": "16-2",
+                  "sourceNumber": "16.2",
+                  "title": "Relation between Angle of prism, minimum deviation and refractive index"
+                },
+                {
+                  "key": "16-3",
+                  "sourceNumber": "16.3",
+                  "title": "Deviation in small angle prism."
+                }
+              ]
+            },
+            {
+              "key": "lenses",
+              "sourceNumber": "17",
+              "title": "Lenses",
+              "topics": [
+                {
+                  "key": "17-1",
+                  "sourceNumber": "17.1",
+                  "title": "Spherical lenses, angular magnification"
+                },
+                {
+                  "key": "17-2",
+                  "sourceNumber": "17.2",
+                  "title": "Lens maker's formula"
+                },
+                {
+                  "key": "17-3",
+                  "sourceNumber": "17.3",
+                  "title": "Power of a lens"
+                }
+              ]
+            },
+            {
+              "key": "dispersion",
+              "sourceNumber": "18",
+              "title": "Dispersion",
+              "topics": [
+                {
+                  "key": "18-1",
+                  "sourceNumber": "18.1",
+                  "title": "Pure spectrum and dispersive power"
+                },
+                {
+                  "key": "18-2",
+                  "sourceNumber": "18.2",
+                  "title": "Chromatic and spherical aberration"
+                },
+                {
+                  "key": "18-3",
+                  "sourceNumber": "18.3",
+                  "title": "Achromatism and its applications"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "electricity-and-magnetism",
+          "title": "Electricity & Magnetism",
+          "chapters": [
+            {
+              "key": "electric-charges",
+              "sourceNumber": "19",
+              "title": "Electric Charges",
+              "topics": [
+                {
+                  "key": "19-1",
+                  "sourceNumber": "19.1",
+                  "title": "Electric charges"
+                },
+                {
+                  "key": "19-2",
+                  "sourceNumber": "19.2",
+                  "title": "Charging by induction"
+                },
+                {
+                  "key": "19-3",
+                  "sourceNumber": "19.3",
+                  "title": "Coulomb's law- Force between two point charges"
+                },
+                {
+                  "key": "19-4",
+                  "sourceNumber": "19.4",
+                  "title": "Force between multiple electric charges."
+                }
+              ]
+            },
+            {
+              "key": "electric-field",
+              "sourceNumber": "20",
+              "title": "Electric field",
+              "topics": [
+                {
+                  "key": "20-1",
+                  "sourceNumber": "20.1",
+                  "title": "Electric field due to point charges; Field lines"
+                },
+                {
+                  "key": "20-2",
+                  "sourceNumber": "20.2",
+                  "title": "Gauss Law: Electric Flux"
+                },
+                {
+                  "key": "20-3",
+                  "sourceNumber": "20.3",
+                  "title": "Application of Gauss law: Field of a charge sphere, line charge, charged plane conductor"
+                }
+              ]
+            },
+            {
+              "key": "potential-potential-difference",
+              "sourceNumber": "21",
+              "title": "Potential, potential difference and potential energy",
+              "topics": [
+                {
+                  "key": "21-1",
+                  "sourceNumber": "21.1",
+                  "title": "Potential difference, Potential due to a point, Charge, potential energy, electron volt"
+                },
+                {
+                  "key": "21-2",
+                  "sourceNumber": "21.2",
+                  "title": "Equipotential lines and surfaces"
+                },
+                {
+                  "key": "21-3",
+                  "sourceNumber": "21.3",
+                  "title": "Potential gradient"
+                }
+              ]
+            },
+            {
+              "key": "capacitor",
+              "sourceNumber": "22",
+              "title": "Capacitor",
+              "topics": [
+                {
+                  "key": "22-1",
+                  "sourceNumber": "22.1",
+                  "title": "Capacitance and capacitor"
+                },
+                {
+                  "key": "22-2",
+                  "sourceNumber": "22.2",
+                  "title": "Parallel plate capacitor"
+                },
+                {
+                  "key": "22-3",
+                  "sourceNumber": "22.3",
+                  "title": "Combination of capacitors"
+                },
+                {
+                  "key": "22-4",
+                  "sourceNumber": "22.4",
+                  "title": "Energy of charged capacitor"
+                },
+                {
+                  "key": "22-5",
+                  "sourceNumber": "22.5",
+                  "title": "Effect of a dielectric Polarization and displacement."
+                }
+              ]
+            },
+            {
+              "key": "dc-circuits",
+              "sourceNumber": "23",
+              "title": "DC Circuits",
+              "topics": [
+                {
+                  "key": "23-1",
+                  "sourceNumber": "23.1",
+                  "title": "Electric Currents; Drift velocity and its relation with current"
+                },
+                {
+                  "key": "23-2",
+                  "sourceNumber": "23.2",
+                  "title": "Ohm's law; Electrical Resistance; Resistivity; Conductivity"
+                },
+                {
+                  "key": "23-3",
+                  "sourceNumber": "23.3",
+                  "title": "Current-voltage relations; Ohmic and Non-Ohmic resistance"
+                },
+                {
+                  "key": "23-4",
+                  "sourceNumber": "23.4",
+                  "title": "Resistances in series and parallel,"
+                },
+                {
+                  "key": "23-5",
+                  "sourceNumber": "23.5",
+                  "title": "Potential divider"
+                },
+                {
+                  "key": "23-6",
+                  "sourceNumber": "23.6",
+                  "title": "Electromotive force of a source, internal resistance"
+                },
+                {
+                  "key": "23-7",
+                  "sourceNumber": "23.7",
+                  "title": "Work and power in electrical circuits -"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "modern-physics",
+          "title": "Modern Physics",
+          "chapters": [
+            {
+              "key": "nuclear-physics",
+              "sourceNumber": "24",
+              "title": "Nuclear physics",
+              "topics": [
+                {
+                  "key": "24-1",
+                  "sourceNumber": "24.1",
+                  "title": "Nucleus: Discovery of nucleus"
+                },
+                {
+                  "key": "24-2",
+                  "sourceNumber": "24.2",
+                  "title": "Nuclear density; Mass number; Atomic number"
+                },
+                {
+                  "key": "24-3",
+                  "sourceNumber": "24.3",
+                  "title": "Atomic mass; Isotopes"
+                },
+                {
+                  "key": "24-4",
+                  "sourceNumber": "24.4",
+                  "title": "Einstein's mass-energy relation"
+                },
+                {
+                  "key": "24-5",
+                  "sourceNumber": "24.5",
+                  "title": "Mass Defect, packing fraction, BE per nucleon"
+                },
+                {
+                  "key": "24-6",
+                  "sourceNumber": "24.6",
+                  "title": "Creation and annihilation  2076 (Physics"
+                },
+                {
+                  "key": "24-7",
+                  "sourceNumber": "24.7",
+                  "title": "Nuclear fission and fusion, energy released"
+                }
+              ]
+            },
+            {
+              "key": "solids",
+              "sourceNumber": "25",
+              "title": "Solids",
+              "topics": [
+                {
+                  "key": "25-1",
+                  "sourceNumber": "25.1",
+                  "title": "Energy bands in solids (qualitative ideas)"
+                },
+                {
+                  "key": "25-2",
+                  "sourceNumber": "25.2",
+                  "title": "Difference between metals, insulators and semi-conductors using band theory"
+                },
+                {
+                  "key": "25-3",
+                  "sourceNumber": "25.3",
+                  "title": "Intrinsic and extrinsic semiconductors"
+                }
+              ]
+            },
+            {
+              "key": "recent-trends-in-physics",
+              "sourceNumber": "26",
+              "title": "Recent Trends in physics",
+              "topics": [
+                {
+                  "key": "26-1",
+                  "sourceNumber": "26.1",
+                  "title": "Particle physics: Particles and antiparticles, Quarks (baryons and meson) and leptons (neutrinos)"
+                },
+                {
+                  "key": "26-2",
+                  "sourceNumber": "26.2",
+                  "title": "Universe: Big Bang and Hubble law: expansion of the Universe, Dark matter, Black Hole and gravitational wave - - 2 - S I W E N H 128"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "12": {
+      "subjectRef": {
+        "level": "NEB",
+        "grade": "12",
+        "stream": "Science",
+        "subject": "Physics"
+      },
+      "units": [
+        {
+          "key": "mechanics",
+          "title": "Mechanics",
+          "chapters": [
+            {
+              "key": "rotational-dynamics",
+              "sourceNumber": "1",
+              "title": "Rotational dynamics",
+              "topics": [
+                {
+                  "key": "1-1",
+                  "sourceNumber": "1.1",
+                  "title": "Equation of angular motion, Relation between linear and angular kinematics"
+                },
+                {
+                  "key": "1-2",
+                  "sourceNumber": "1.2",
+                  "title": "Kinetic energy of rotation of rigid body"
+                },
+                {
+                  "key": "1-3",
+                  "sourceNumber": "1.3",
+                  "title": "Moment of inertia; Radius of gyration"
+                },
+                {
+                  "key": "1-4",
+                  "sourceNumber": "1.4",
+                  "title": "Moment of inertia of a uniform rod"
+                },
+                {
+                  "key": "1-5",
+                  "sourceNumber": "1.5",
+                  "title": "Torque and angular acceleration for a rigid body"
+                },
+                {
+                  "key": "1-6",
+                  "sourceNumber": "1.6",
+                  "title": "Work and power in rotational motion"
+                },
+                {
+                  "key": "1-7",
+                  "sourceNumber": "1.7",
+                  "title": "Angular momentum, conservation of angular momentum."
+                }
+              ]
+            },
+            {
+              "key": "periodic-motion",
+              "sourceNumber": "2",
+              "title": "Periodic motion",
+              "topics": [
+                {
+                  "key": "2-1",
+                  "sourceNumber": "2.1",
+                  "title": "Equation of simple harmonic motion (SHM)"
+                },
+                {
+                  "key": "2-2",
+                  "sourceNumber": "2.2",
+                  "title": "Energy in SHM"
+                },
+                {
+                  "key": "2-3",
+                  "sourceNumber": "2.3",
+                  "title": "Application of SHM: vertical oscillation of mass suspended from coiled spring"
+                },
+                {
+                  "key": "2-4",
+                  "sourceNumber": "2.4",
+                  "title": "Angular SHM, simple pendulum"
+                },
+                {
+                  "key": "2-5",
+                  "sourceNumber": "2.5",
+                  "title": "Oscillatory motion: Damped oscillation, Forced oscillation and resonance."
+                }
+              ]
+            },
+            {
+              "key": "fluid-statics",
+              "sourceNumber": "3",
+              "title": "Fluid statics",
+              "topics": [
+                {
+                  "key": "3-1",
+                  "sourceNumber": "3.1",
+                  "title": "Fluid statics: Pressure in a fluid; Buoyancy"
+                },
+                {
+                  "key": "3-2",
+                  "sourceNumber": "3.2",
+                  "title": "Surface tension: Theory of surface tension; Surface energy"
+                },
+                {
+                  "key": "3-3",
+                  "sourceNumber": "3.3",
+                  "title": "Angle of contact, capillarity and its applications"
+                },
+                {
+                  "key": "3-4",
+                  "sourceNumber": "3.4",
+                  "title": "Fluid Dynamics: Newton's formula for viscosity in a liquid; Coefficient of viscosity"
+                },
+                {
+                  "key": "3-5",
+                  "sourceNumber": "3.5",
+                  "title": "Poiseuille's formula and its application"
+                },
+                {
+                  "key": "3-6",
+                  "sourceNumber": "3.6",
+                  "title": "Stokes law and its applications"
+                },
+                {
+                  "key": "3-7",
+                  "sourceNumber": "3.7",
+                  "title": "Equation of continuity and its applications"
+                },
+                {
+                  "key": "3-8",
+                  "sourceNumber": "3.8",
+                  "title": "Bernoulli's equation and its applications."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "heat-and-thermodynamics",
+          "title": "Heat and Thermodynamics",
+          "chapters": [
+            {
+              "key": "first-law-of-thermodynamics",
+              "sourceNumber": "4",
+              "title": "First Law of Thermodynamics",
+              "topics": [
+                {
+                  "key": "4-1",
+                  "sourceNumber": "4.1",
+                  "title": "Thermodynamic systems"
+                },
+                {
+                  "key": "4-2",
+                  "sourceNumber": "4.2",
+                  "title": "Work done during volume change"
+                },
+                {
+                  "key": "4-3",
+                  "sourceNumber": "4.3",
+                  "title": "Heat and work; Internal energy and First law of thermodynamics"
+                },
+                {
+                  "key": "4-4",
+                  "sourceNumber": "4.4",
+                  "title": "Thermodynamic processes: Adiabatic, isochoric, isothermal and isobaric"
+                },
+                {
+                  "key": "4-4-2",
+                  "sourceNumber": "4.4",
+                  "title": "Geiger-Muller Tube"
+                },
+                {
+                  "key": "4-5",
+                  "sourceNumber": "4.5",
+                  "title": "Heat capacities of an ideal gas at constant pressure and volume and relation between them"
+                },
+                {
+                  "key": "4-5-2",
+                  "sourceNumber": "4.5",
+                  "title": "Carbon dating"
+                },
+                {
+                  "key": "4-6",
+                  "sourceNumber": "4.6",
+                  "title": "Isothermal and Adiabatic processes for an ideal gas."
+                },
+                {
+                  "key": "4-6-2",
+                  "sourceNumber": "4.6",
+                  "title": "Medical use of nuclear radiation and possible health hazard."
+                }
+              ]
+            },
+            {
+              "key": "second-law-of-thermodynamics",
+              "sourceNumber": "5",
+              "title": "Second Law of Thermodynamics",
+              "topics": [
+                {
+                  "key": "5-1",
+                  "sourceNumber": "5.1",
+                  "title": "Thermodynamic systems and direction of thermodynamic processes"
+                },
+                {
+                  "key": "5-1-2",
+                  "sourceNumber": "5.1",
+                  "title": "Surface waves: Rayleigh and Love waves nternal waves: S and P-waves ave patterns of Gorkha arthquake"
+                },
+                {
+                  "key": "5-2",
+                  "sourceNumber": "5.2",
+                  "title": "Second law of thermodynamics"
+                },
+                {
+                  "key": "5-2-2",
+                  "sourceNumber": "5.2",
+                  "title": "Gravitational Wave anotechnology iggs Boson 128"
+                },
+                {
+                  "key": "5-3",
+                  "sourceNumber": "5.3",
+                  "title": "Heat engines"
+                },
+                {
+                  "key": "5-4",
+                  "sourceNumber": "5.4",
+                  "title": "Internal combustion engines: Otto cycle, Diesel cycle; Carnot cycle"
+                },
+                {
+                  "key": "5-5",
+                  "sourceNumber": "5.5",
+                  "title": "Refrigerator"
+                },
+                {
+                  "key": "5-6",
+                  "sourceNumber": "5.6",
+                  "title": "Entropy and disorder (introduction only)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "waves-and-optics",
+          "title": "Waves & Optics",
+          "chapters": [
+            {
+              "key": "wave-motion",
+              "sourceNumber": "6",
+              "title": "Wave motion",
+              "topics": [
+                {
+                  "key": "6-1",
+                  "sourceNumber": "6.1",
+                  "title": "Progressive waves"
+                },
+                {
+                  "key": "6-2",
+                  "sourceNumber": "6.2",
+                  "title": "Mathematical description of a wave"
+                },
+                {
+                  "key": "6-3",
+                  "sourceNumber": "6.3",
+                  "title": "Stationary waves"
+                }
+              ]
+            },
+            {
+              "key": "mechanical-waves",
+              "sourceNumber": "7",
+              "title": "Mechanical waves",
+              "topics": [
+                {
+                  "key": "7-1",
+                  "sourceNumber": "7.1",
+                  "title": "Speed of wave motion; Velocity of sound in solid and liquid"
+                },
+                {
+                  "key": "7-2",
+                  "sourceNumber": "7.2",
+                  "title": "Velocity of sound in gas"
+                },
+                {
+                  "key": "7-3",
+                  "sourceNumber": "7.3",
+                  "title": "Laplace's correction"
+                },
+                {
+                  "key": "7-4",
+                  "sourceNumber": "7.4",
+                  "title": "Effect of temperature, pressure, humidity on velocity of sound."
+                }
+              ]
+            },
+            {
+              "key": "wave-in-pipes-and-strings",
+              "sourceNumber": "8",
+              "title": "Wave in pipes and strings",
+              "topics": [
+                {
+                  "key": "8-1",
+                  "sourceNumber": "8.1",
+                  "title": "Stationary waves in closed and open pipes"
+                },
+                {
+                  "key": "8-2",
+                  "sourceNumber": "8.2",
+                  "title": "Harmonics and overtones in closed and open organ pipes"
+                },
+                {
+                  "key": "8-3",
+                  "sourceNumber": "8.3",
+                  "title": "End correction in pipes"
+                },
+                {
+                  "key": "8-4",
+                  "sourceNumber": "8.4",
+                  "title": "Velocity of transverse waves along a stretched string"
+                },
+                {
+                  "key": "8-5",
+                  "sourceNumber": "8.5",
+                  "title": "Vibration of string and overtones"
+                },
+                {
+                  "key": "8-6",
+                  "sourceNumber": "8.6",
+                  "title": "Laws of vibration of fixed string."
+                }
+              ]
+            },
+            {
+              "key": "acoustic-phenomena",
+              "sourceNumber": "9",
+              "title": "Acoustic phenomena",
+              "topics": [
+                {
+                  "key": "9-1",
+                  "sourceNumber": "9.1",
+                  "title": "Sound waves: Pressure amplitude"
+                },
+                {
+                  "key": "9-2",
+                  "sourceNumber": "9.2",
+                  "title": "Characteristics of sound: Intensity; loudness, quality and pitch"
+                },
+                {
+                  "key": "9-3",
+                  "sourceNumber": "9.3",
+                  "title": "Doppler's effect."
+                }
+              ]
+            },
+            {
+              "key": "nature-and-propagation-of",
+              "sourceNumber": "10",
+              "title": "Nature and propagation of light",
+              "topics": [
+                {
+                  "key": "10-1",
+                  "sourceNumber": "10.1",
+                  "title": "Huygen's principle"
+                },
+                {
+                  "key": "10-2",
+                  "sourceNumber": "10.2",
+                  "title": "Reflection and Refraction according to wave theory"
+                }
+              ]
+            },
+            {
+              "key": "interference",
+              "sourceNumber": "11",
+              "title": "Interference",
+              "topics": [
+                {
+                  "key": "11-1",
+                  "sourceNumber": "11.1",
+                  "title": "Phenomenon of Interferences: Coherent sources"
+                },
+                {
+                  "key": "11-2",
+                  "sourceNumber": "11.2",
+                  "title": "Young's double slit experiment."
+                }
+              ]
+            },
+            {
+              "key": "diffraction",
+              "sourceNumber": "12",
+              "title": "Diffraction",
+              "topics": [
+                {
+                  "key": "12-1",
+                  "sourceNumber": "12.1",
+                  "title": "Diffraction from a single slit"
+                },
+                {
+                  "key": "12-2",
+                  "sourceNumber": "12.2",
+                  "title": "Diffraction pattern of image; Diffraction grating"
+                },
+                {
+                  "key": "12-3",
+                  "sourceNumber": "12.3",
+                  "title": "Resolving power of optical instruments."
+                }
+              ]
+            },
+            {
+              "key": "polarization",
+              "sourceNumber": "13",
+              "title": "Polarization",
+              "topics": [
+                {
+                  "key": "13-1",
+                  "sourceNumber": "13.1",
+                  "title": "Phenomenon of polarization"
+                },
+                {
+                  "key": "13-2",
+                  "sourceNumber": "13.2",
+                  "title": "Brewster's law; transverse nature of light"
+                },
+                {
+                  "key": "13-3",
+                  "sourceNumber": "13.3",
+                  "title": "Polaroid."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "electricity-and-magnetism",
+          "title": "Electricity & Magnetism",
+          "chapters": [
+            {
+              "key": "electrical-circuits",
+              "sourceNumber": "14",
+              "title": "Electrical circuits",
+              "topics": [
+                {
+                  "key": "14-1",
+                  "sourceNumber": "14.1",
+                  "title": "Kirchhoff's law"
+                },
+                {
+                  "key": "14-2",
+                  "sourceNumber": "14.2",
+                  "title": "Wheatstone bridge circuit; Meter bridge"
+                },
+                {
+                  "key": "14-3",
+                  "sourceNumber": "14.3",
+                  "title": "Potentiometer: Comparison of e.m.f., measurement of internal resistances of a cell"
+                },
+                {
+                  "key": "14-4",
+                  "sourceNumber": "14.4",
+                  "title": "Super conductors; Perfect conductors"
+                },
+                {
+                  "key": "14-5",
+                  "sourceNumber": "14.5",
+                  "title": "Conversion of galvanometer into voltmeter and ammeter; Ohmmeter"
+                },
+                {
+                  "key": "14-6",
+                  "sourceNumber": "14.6",
+                  "title": "Joule's law"
+                }
+              ]
+            },
+            {
+              "key": "thermoelectric-effects",
+              "sourceNumber": "15",
+              "title": "Thermoelectric effects:",
+              "topics": [
+                {
+                  "key": "15-1",
+                  "sourceNumber": "15.1",
+                  "title": "Seebeck effect; Thermocouples"
+                },
+                {
+                  "key": "15-2",
+                  "sourceNumber": "15.2",
+                  "title": "Peltier effect: Variation of thermoelectric e.m.f. with temperature; Thermopile"
+                }
+              ]
+            },
+            {
+              "key": "magnetic-field",
+              "sourceNumber": "16",
+              "title": "Magnetic field",
+              "topics": [
+                {
+                  "key": "16-1",
+                  "sourceNumber": "16.1",
+                  "title": "Magnetic field lines and magnetic flux; Oersted's experiment"
+                },
+                {
+                  "key": "16-2",
+                  "sourceNumber": "16.2",
+                  "title": "Force on moving charge; Force on a conductor"
+                },
+                {
+                  "key": "16-3",
+                  "sourceNumber": "16.3",
+                  "title": "Force and Torque on rectangular coil, Moving coil galvanometer"
+                },
+                {
+                  "key": "16-4",
+                  "sourceNumber": "16.4",
+                  "title": "Hall effect"
+                },
+                {
+                  "key": "16-5",
+                  "sourceNumber": "16.5",
+                  "title": "Magnetic field of a moving charge"
+                },
+                {
+                  "key": "16-6",
+                  "sourceNumber": "16.6",
+                  "title": "Biot and Savart law and its application to (i) a circular coil (ii) a long straight conductor (iii) a long solenoid"
+                },
+                {
+                  "key": "16-7",
+                  "sourceNumber": "16.7",
+                  "title": "Ampere's law and its applications to (i) a long straight conductor (ii) a straight solenoid (ii) a toroidal solenoid"
+                },
+                {
+                  "key": "16-8",
+                  "sourceNumber": "16.8",
+                  "title": "Force between two parallel conductors carrying current- definition of ampere"
+                }
+              ]
+            },
+            {
+              "key": "magnetic-properties-of",
+              "sourceNumber": "17",
+              "title": "Magnetic properties of materials:",
+              "topics": [
+                {
+                  "key": "17-1",
+                  "sourceNumber": "17.1",
+                  "title": "Magnetic field lines and magnetic flux"
+                },
+                {
+                  "key": "17-2",
+                  "sourceNumber": "17.2",
+                  "title": "Flux density in magnetic material; Relative permeability; Susceptibility"
+                },
+                {
+                  "key": "17-3",
+                  "sourceNumber": "17.3",
+                  "title": "Hysteresis"
+                },
+                {
+                  "key": "17-4",
+                  "sourceNumber": "17.4",
+                  "title": "Dia,-para- and ferro-magnetic materials."
+                }
+              ]
+            },
+            {
+              "key": "electromagnetic-induction",
+              "sourceNumber": "18",
+              "title": "Electromagnetic Induction:",
+              "topics": [
+                {
+                  "key": "18-1",
+                  "sourceNumber": "18.1",
+                  "title": "Faraday's laws; Induced electric fields"
+                },
+                {
+                  "key": "18-2",
+                  "sourceNumber": "18.2",
+                  "title": "Lenz's law, Motional electromotive force"
+                },
+                {
+                  "key": "18-3",
+                  "sourceNumber": "18.3",
+                  "title": "A.C. generators; Eddy currents"
+                },
+                {
+                  "key": "18-4",
+                  "sourceNumber": "18.4",
+                  "title": "Self-inductance and mutual inductance"
+                },
+                {
+                  "key": "18-5",
+                  "sourceNumber": "18.5",
+                  "title": "Energy stored in an inductor"
+                },
+                {
+                  "key": "18-6",
+                  "sourceNumber": "18.6",
+                  "title": "Transformer."
+                }
+              ]
+            },
+            {
+              "key": "alternating-currents",
+              "sourceNumber": "19",
+              "title": "Alternating Currents",
+              "topics": [
+                {
+                  "key": "19-1",
+                  "sourceNumber": "19.1",
+                  "title": "Peak and rms value of AC current and voltage"
+                },
+                {
+                  "key": "19-2",
+                  "sourceNumber": "19.2",
+                  "title": "AC through a resistor, a capacitor and an inductor"
+                },
+                {
+                  "key": "19-3",
+                  "sourceNumber": "19.3",
+                  "title": "Phasor diagram"
+                },
+                {
+                  "key": "19-4",
+                  "sourceNumber": "19.4",
+                  "title": "Series circuits containing combination of resistance, capacitance and inductance"
+                },
+                {
+                  "key": "19-5",
+                  "sourceNumber": "19.5",
+                  "title": "Series resonance, quality factor"
+                },
+                {
+                  "key": "19-6",
+                  "sourceNumber": "19.6",
+                  "title": "Power in AC circuits: power factor"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "modern-physics",
+          "title": "Modern Physics",
+          "chapters": [
+            {
+              "key": "electrons",
+              "sourceNumber": "20",
+              "title": "Electrons",
+              "topics": [
+                {
+                  "key": "20-1",
+                  "sourceNumber": "20.1",
+                  "title": "Milikan's oil drop experiment,"
+                },
+                {
+                  "key": "20-2",
+                  "sourceNumber": "20.2",
+                  "title": "Motion of electron beam in electric and magnetic fields"
+                },
+                {
+                  "key": "20-3",
+                  "sourceNumber": "20.3",
+                  "title": "Thomson's experiment to determine specific charge of electrons )"
+                }
+              ]
+            },
+            {
+              "key": "photons",
+              "sourceNumber": "21",
+              "title": "Photons",
+              "topics": [
+                {
+                  "key": "21-1",
+                  "sourceNumber": "21.1",
+                  "title": "Quantum nature of radiation"
+                },
+                {
+                  "key": "21-2",
+                  "sourceNumber": "21.2",
+                  "title": "Einstein's photoelectric equation; Stopping potential"
+                },
+                {
+                  "key": "21-3",
+                  "sourceNumber": "21.3",
+                  "title": "Measurement of Plank's constant"
+                }
+              ]
+            },
+            {
+              "key": "semiconductor-devices",
+              "sourceNumber": "22",
+              "title": "Semiconductor devices",
+              "topics": [
+                {
+                  "key": "22-1",
+                  "sourceNumber": "22.1",
+                  "title": "P-N Junction"
+                },
+                {
+                  "key": "22-2",
+                  "sourceNumber": "22.2",
+                  "title": "Semiconductor diode: Characteristics in forward and reverse bias"
+                },
+                {
+                  "key": "22-3",
+                  "sourceNumber": "22.3",
+                  "title": "Full wave rectification"
+                },
+                {
+                  "key": "22-4",
+                  "sourceNumber": "22.4",
+                  "title": "Logic gates; NOT, OR, AND, NAND and NOR."
+                }
+              ]
+            },
+            {
+              "key": "quantization-of-energy",
+              "sourceNumber": "23",
+              "title": "Quantization of energy",
+              "topics": [
+                {
+                  "key": "23-1",
+                  "sourceNumber": "23.1",
+                  "title": "Bohr's theory of hydrogen atom"
+                },
+                {
+                  "key": "23-2",
+                  "sourceNumber": "23.2",
+                  "title": "Spectral series; Excitation and ionization potentials"
+                },
+                {
+                  "key": "23-3",
+                  "sourceNumber": "23.3",
+                  "title": "Energy level; Emission and absorption spectra"
+                },
+                {
+                  "key": "23-4",
+                  "sourceNumber": "23.4",
+                  "title": "De Broglie Theory; Duality"
+                },
+                {
+                  "key": "23-5",
+                  "sourceNumber": "23.5",
+                  "title": "Uncertainly principle"
+                },
+                {
+                  "key": "23-6",
+                  "sourceNumber": "23.6",
+                  "title": "X-rays: Nature and production; uses"
+                },
+                {
+                  "key": "23-7",
+                  "sourceNumber": "23.7",
+                  "title": "X-rays diffraction, Bragg's law."
+                }
+              ]
+            },
+            {
+              "key": "radioactivity-and-nuclear",
+              "sourceNumber": "24",
+              "title": "Radioactivity and nuclear reaction",
+              "topics": [
+                {
+                  "key": "24-1",
+                  "sourceNumber": "24.1",
+                  "title": "Alpha-particles; Beta-particles, Gamma rays"
+                },
+                {
+                  "key": "24-2",
+                  "sourceNumber": "24.2",
+                  "title": "Laws of radioactive disintegration"
+                },
+                {
+                  "key": "24-3",
+                  "sourceNumber": "24.3",
+                  "title": "Half-life, mean-life and decay constant"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

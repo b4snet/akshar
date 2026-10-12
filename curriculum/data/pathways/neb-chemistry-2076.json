@@ -1,0 +1,2370 @@
+{
+  "pathway": "neb-chemistry-2076",
+  "sourceId": "src-cdc-part4",
+  "curriculumVersionId": "cv-neb-opt-2076",
+  "grade": "11 and 12",
+  "locator": "Grade 11–12 Chemistry curriculum, Scope and Sequence of Contents (Theory)",
+  "gradeBlocks": {
+    "11": {
+      "subjectRef": {
+        "level": "NEB",
+        "grade": "11",
+        "stream": "Science",
+        "subject": "Chemistry"
+      },
+      "units": [
+        {
+          "key": "general-and-physical-chemistry",
+          "title": "General and Physical Chemistry",
+          "chapters": [
+            {
+              "key": "foundation-and-fundamentals",
+              "sourceNumber": "1",
+              "title": "Foundation and Fundamentals",
+              "topics": [
+                {
+                  "key": "1-1",
+                  "sourceNumber": "1.1",
+                  "title": "General introduction of chemistry"
+                },
+                {
+                  "key": "1-2",
+                  "sourceNumber": "1.2",
+                  "title": "Importance and scope of chemistry"
+                },
+                {
+                  "key": "1-3",
+                  "sourceNumber": "1.3",
+                  "title": "Basic concepts of chemistry (atoms, molecules, relative masses of atoms and molecules, atomic mass unit ( amu), radicals, molecular formula, empirical formula )"
+                },
+                {
+                  "key": "1-4",
+                  "sourceNumber": "1.4",
+                  "title": "Percentage composition from molecular formula"
+                }
+              ]
+            },
+            {
+              "key": "stoichiometry",
+              "sourceNumber": "2",
+              "title": "Stoichiometry",
+              "topics": [
+                {
+                  "key": "2-1",
+                  "sourceNumber": "2.1",
+                  "title": "Dalton's atomic theory and its postulates"
+                },
+                {
+                  "key": "2-2",
+                  "sourceNumber": "2.2",
+                  "title": "Laws of stoichiometry"
+                },
+                {
+                  "key": "2-3",
+                  "sourceNumber": "2.3",
+                  "title": "Avogadro's law and some deductions"
+                },
+                {
+                  "key": "2-3-1",
+                  "sourceNumber": "2.3.1",
+                  "title": "Molecular mass and vapour density"
+                },
+                {
+                  "key": "2-3-2",
+                  "sourceNumber": "2.3.2",
+                  "title": "Molecular mass and volume of gas"
+                },
+                {
+                  "key": "2-3-3",
+                  "sourceNumber": "2.3.3",
+                  "title": "Molecular mass and no. of particles"
+                },
+                {
+                  "key": "2-4",
+                  "sourceNumber": "2.4",
+                  "title": "Mole and its relation with mass, volume and number of particles"
+                },
+                {
+                  "key": "2-5",
+                  "sourceNumber": "2.5",
+                  "title": "Calculations based on mole concept"
+                },
+                {
+                  "key": "2-6",
+                  "sourceNumber": "2.6",
+                  "title": "Limiting reactant and excess reactant"
+                },
+                {
+                  "key": "2-7",
+                  "sourceNumber": "2.7",
+                  "title": "Theoretical yield, experimental yield and % yield"
+                },
+                {
+                  "key": "2-8",
+                  "sourceNumber": "2.8",
+                  "title": "Calculation of empirical and molecular formula from % composition (Solving related numerical problems) , 2076 (Chemist"
+                }
+              ]
+            },
+            {
+              "key": "atomic-structure",
+              "sourceNumber": "3",
+              "title": "Atomic Structure",
+              "topics": [
+                {
+                  "key": "3-1",
+                  "sourceNumber": "3.1",
+                  "title": "Rutherford's atomic model"
+                },
+                {
+                  "key": "3-2",
+                  "sourceNumber": "3.2",
+                  "title": "Limitations of Rutherford's atomic model"
+                },
+                {
+                  "key": "3-3",
+                  "sourceNumber": "3.3",
+                  "title": "Postulates of Bohr's atomic model and its application"
+                },
+                {
+                  "key": "3-4",
+                  "sourceNumber": "3.4",
+                  "title": "Spectrum of hydrogen atom"
+                },
+                {
+                  "key": "3-5",
+                  "sourceNumber": "3.5",
+                  "title": "Defects of Bohr's theory"
+                },
+                {
+                  "key": "3-6",
+                  "sourceNumber": "3.6",
+                  "title": "Elementary idea of quantum mechanical model: de Broglie's wave equation"
+                },
+                {
+                  "key": "3-7",
+                  "sourceNumber": "3.7",
+                  "title": "Heisenberg's Uncertainty Principle"
+                },
+                {
+                  "key": "3-8",
+                  "sourceNumber": "3.8",
+                  "title": "Concept of probability"
+                },
+                {
+                  "key": "3-9",
+                  "sourceNumber": "3.9",
+                  "title": "Quantum Numbers"
+                },
+                {
+                  "key": "3-10",
+                  "sourceNumber": "3.10",
+                  "title": "Orbitals and shape of s and p orbitals only"
+                },
+                {
+                  "key": "3-11",
+                  "sourceNumber": "3.11",
+                  "title": "Aufbau Principle"
+                },
+                {
+                  "key": "3-12",
+                  "sourceNumber": "3.12",
+                  "title": "Pauli's exclusion principle"
+                },
+                {
+                  "key": "3-13",
+                  "sourceNumber": "3.13",
+                  "title": "Hund's rule and electronic configurations of atoms and ions (up to atomic no. 30)"
+                }
+              ]
+            },
+            {
+              "key": "classification-of-elements-and",
+              "sourceNumber": "4",
+              "title": "Classification of elements",
+              "topics": [
+                {
+                  "key": "4-1",
+                  "sourceNumber": "4.1",
+                  "title": "Modern periodic law and modern periodic table"
+                },
+                {
+                  "key": "4-1-1",
+                  "sourceNumber": "4.1.1",
+                  "title": "Classification of elements into different groups, periods and blocks"
+                },
+                {
+                  "key": "4-2",
+                  "sourceNumber": "4.2",
+                  "title": "IUPAC classification of elements"
+                },
+                {
+                  "key": "4-3",
+                  "sourceNumber": "4.3",
+                  "title": "Nuclear charge and effective nuclear charge"
+                },
+                {
+                  "key": "4-4",
+                  "sourceNumber": "4.4",
+                  "title": "Periodic trend and periodicity"
+                },
+                {
+                  "key": "4-4-1",
+                  "sourceNumber": "4.4.1",
+                  "title": "Atomic radii"
+                },
+                {
+                  "key": "4-4-2",
+                  "sourceNumber": "4.4.2",
+                  "title": "Ionic radii"
+                },
+                {
+                  "key": "4-4-3",
+                  "sourceNumber": "4.4.3",
+                  "title": "Ionization energy"
+                },
+                {
+                  "key": "4-4-4",
+                  "sourceNumber": "4.4.4",
+                  "title": "Electron affinity"
+                },
+                {
+                  "key": "4-4-5",
+                  "sourceNumber": "4.4.5",
+                  "title": "Electronegativity"
+                },
+                {
+                  "key": "4-4-6",
+                  "sourceNumber": "4.4.6",
+                  "title": "Metallic characters (General trend and explanation only)"
+                }
+              ]
+            },
+            {
+              "key": "chemical-bonding-and-shapes-of",
+              "sourceNumber": "5",
+              "title": "Chemical Bonding and Shapes of Molecules",
+              "topics": [
+                {
+                  "key": "5-1",
+                  "sourceNumber": "5.1",
+                  "title": "Valence shell, valence electron and octet theory"
+                },
+                {
+                  "key": "5-2",
+                  "sourceNumber": "5.2",
+                  "title": "Ionic bond and its properties"
+                },
+                {
+                  "key": "5-3",
+                  "sourceNumber": "5.3",
+                  "title": "Covalent bond and coordinate covalent bond"
+                },
+                {
+                  "key": "5-4",
+                  "sourceNumber": "5.4",
+                  "title": "Properties of covalent compounds"
+                },
+                {
+                  "key": "5-5",
+                  "sourceNumber": "5.5",
+                  "title": "Lewis dot structure of some common compounds of s and p block elements"
+                },
+                {
+                  "key": "5-6",
+                  "sourceNumber": "5.6",
+                  "title": "Resonance"
+                },
+                {
+                  "key": "5-7",
+                  "sourceNumber": "5.7",
+                  "title": "VSEPR theory and shapes of some simple molecules (BeF2, BF3, CH4, CH3Cl, PCl5, SF6, H2O,NH3,CO2,H2S, PH3)"
+                },
+                {
+                  "key": "5-8",
+                  "sourceNumber": "5.8",
+                  "title": "Elementary idea of Valence Bond Theory"
+                },
+                {
+                  "key": "5-9",
+                  "sourceNumber": "5.9",
+                  "title": "Hybridization involving s and p orbitals only"
+                },
+                {
+                  "key": "5-10",
+                  "sourceNumber": "5.10",
+                  "title": "Bond characteristics:"
+                },
+                {
+                  "key": "5-10-1",
+                  "sourceNumber": "5.10.1",
+                  "title": "Bond length"
+                },
+                {
+                  "key": "5-10-2",
+                  "sourceNumber": "5.10.2",
+                  "title": "Ionic character"
+                },
+                {
+                  "key": "5-10-3",
+                  "sourceNumber": "5.10.3",
+                  "title": "Dipole moment"
+                },
+                {
+                  "key": "5-11",
+                  "sourceNumber": "5.11",
+                  "title": "Vander Waal's force and molecular solids , 2076 (Chemistry"
+                },
+                {
+                  "key": "5-12",
+                  "sourceNumber": "5.12",
+                  "title": "Hydrogen bonding and its application"
+                },
+                {
+                  "key": "5-13",
+                  "sourceNumber": "5.13",
+                  "title": "Metallic bonding and properties of metallic solids"
+                }
+              ]
+            },
+            {
+              "key": "oxidation-and",
+              "sourceNumber": "6",
+              "title": "Oxidation",
+              "topics": [
+                {
+                  "key": "6-1",
+                  "sourceNumber": "6.1",
+                  "title": "General and electronic concept of oxidation and reduction"
+                },
+                {
+                  "key": "6-2",
+                  "sourceNumber": "6.2",
+                  "title": "Oxidation number and rules for assigning oxidation number"
+                },
+                {
+                  "key": "6-3",
+                  "sourceNumber": "6.3",
+                  "title": "Balancing redox reactions by oxidation number and ion-electron (half reaction) method"
+                },
+                {
+                  "key": "6-4",
+                  "sourceNumber": "6.4",
+                  "title": "Electrolysis"
+                },
+                {
+                  "key": "6-4-1",
+                  "sourceNumber": "6.4.1",
+                  "title": "Qualitative aspect"
+                },
+                {
+                  "key": "6-4-2",
+                  "sourceNumber": "6.4.2",
+                  "title": "Quantitative aspect(Faradays laws of electrolysis) States of Matter -"
+                }
+              ]
+            },
+            {
+              "key": "gaseous-state",
+              "sourceNumber": "7",
+              "title": "Gaseous state",
+              "topics": [
+                {
+                  "key": "7-1",
+                  "sourceNumber": "7.1",
+                  "title": "Gaseous state"
+                },
+                {
+                  "key": "7-1-1",
+                  "sourceNumber": "7.1.1",
+                  "title": "Kinetic theory of gas and its postulates"
+                },
+                {
+                  "key": "7-1-2",
+                  "sourceNumber": "7.1.2",
+                  "title": "Gas laws"
+                },
+                {
+                  "key": "7-1-2-1",
+                  "sourceNumber": "7.1.2.1",
+                  "title": "Boyle's law and Charles' law"
+                },
+                {
+                  "key": "7-1-2-2",
+                  "sourceNumber": "7.1.2.2",
+                  "title": "Avogadro's law"
+                },
+                {
+                  "key": "7-1-2-3",
+                  "sourceNumber": "7.1.2.3",
+                  "title": "Combined gas equation"
+                },
+                {
+                  "key": "7-1-2-4",
+                  "sourceNumber": "7.1.2.4",
+                  "title": "Dalton's law of partial pressure"
+                },
+                {
+                  "key": "7-1-2-5",
+                  "sourceNumber": "7.1.2.5",
+                  "title": "Graham's law of diffusion"
+                },
+                {
+                  "key": "7-1-3",
+                  "sourceNumber": "7.1.3",
+                  "title": "Ideal gas and ideal gas equation"
+                },
+                {
+                  "key": "7-1-4",
+                  "sourceNumber": "7.1.4",
+                  "title": "Universal gas constant and its significance"
+                },
+                {
+                  "key": "7-1-5",
+                  "sourceNumber": "7.1.5",
+                  "title": "Deviation of real gas from ideality (Solving related numerical problems based on gas laws)"
+                },
+                {
+                  "key": "7-2",
+                  "sourceNumber": "7.2",
+                  "title": "Liquid state"
+                },
+                {
+                  "key": "7-2-1",
+                  "sourceNumber": "7.2.1",
+                  "title": "Physical properties of liquids"
+                },
+                {
+                  "key": "7-2-1-1",
+                  "sourceNumber": "7.2.1.1",
+                  "title": "Evaporation and condensation"
+                },
+                {
+                  "key": "7-2-1-2",
+                  "sourceNumber": "7.2.1.2",
+                  "title": "Vapour pressure and boiling point"
+                },
+                {
+                  "key": "7-2-1-3",
+                  "sourceNumber": "7.2.1.3",
+                  "title": "Surface tension and viscosity (qualitative idea only)"
+                },
+                {
+                  "key": "7-2-2",
+                  "sourceNumber": "7.2.2",
+                  "title": "Liquid crystals and their applications"
+                },
+                {
+                  "key": "7-3",
+                  "sourceNumber": "7.3",
+                  "title": "Solid state"
+                },
+                {
+                  "key": "7-3-1",
+                  "sourceNumber": "7.3.1",
+                  "title": "Types of solids"
+                },
+                {
+                  "key": "7-3-2",
+                  "sourceNumber": "7.3.2",
+                  "title": "Amorphous and crystalline solids"
+                },
+                {
+                  "key": "7-3-3",
+                  "sourceNumber": "7.3.3",
+                  "title": "Efflorescent, Deliquescent and Hygroscopic solids"
+                },
+                {
+                  "key": "7-3-4",
+                  "sourceNumber": "7.3.4",
+                  "title": "Crystallization and crystal growth"
+                },
+                {
+                  "key": "7-3-5",
+                  "sourceNumber": "7.3.5",
+                  "title": "Water of crystallization"
+                },
+                {
+                  "key": "7-3-6",
+                  "sourceNumber": "7.3.6",
+                  "title": "Introduction to unit crystal lattice and unit cell"
+                }
+              ]
+            },
+            {
+              "key": "chemical-equilibrium",
+              "sourceNumber": "8",
+              "title": "Chemical equilibrium",
+              "topics": [
+                {
+                  "key": "8-1",
+                  "sourceNumber": "8.1",
+                  "title": "Physical and chemical equilibrium"
+                },
+                {
+                  "key": "8-2",
+                  "sourceNumber": "8.2",
+                  "title": "Dynamic nature of chemical equilibrium"
+                },
+                {
+                  "key": "8-3",
+                  "sourceNumber": "8.3",
+                  "title": "Law of mass action"
+                },
+                {
+                  "key": "8-4",
+                  "sourceNumber": "8.4",
+                  "title": "Expression for equilibrium constant and its importance"
+                },
+                {
+                  "key": "8-5",
+                  "sourceNumber": "8.5",
+                  "title": "Relationship between Kp and Kc"
+                },
+                {
+                  "key": "8-6",
+                  "sourceNumber": "8.6",
+                  "title": "Le Chatelier's Principle (Numericals not required)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "inorganic-chemistry",
+          "title": "Inorganic Chemistry",
+          "chapters": [
+            {
+              "key": "chemistry-of-non-metals",
+              "sourceNumber": "9",
+              "title": "Chemistry of Non-metals",
+              "topics": [
+                {
+                  "key": "9-1",
+                  "sourceNumber": "9.1",
+                  "title": "Hydrogen"
+                },
+                {
+                  "key": "9-1-1",
+                  "sourceNumber": "9.1.1",
+                  "title": "Chemistry of atomic and nascent hydrogen , 2076 (Chemist"
+                },
+                {
+                  "key": "9-1-2",
+                  "sourceNumber": "9.1.2",
+                  "title": "Isotopes of hydrogen and their uses"
+                },
+                {
+                  "key": "9-1-3",
+                  "sourceNumber": "9.1.3",
+                  "title": "Application of hydrogen as fuel"
+                },
+                {
+                  "key": "9-1-4",
+                  "sourceNumber": "9.1.4",
+                  "title": "Heavy water and its applications"
+                },
+                {
+                  "key": "9-2",
+                  "sourceNumber": "9.2",
+                  "title": "Allotropes of Oxygen"
+                },
+                {
+                  "key": "9-2-1",
+                  "sourceNumber": "9.2.1",
+                  "title": "Definition of allotropy and examples"
+                },
+                {
+                  "key": "9-2-2",
+                  "sourceNumber": "9.2.2",
+                  "title": "Oxygen: Types of oxides (acidic, basic, neutral, amphoteric, peroxide and mixed oxides)"
+                },
+                {
+                  "key": "9-2-3",
+                  "sourceNumber": "9.2.3",
+                  "title": "Applications of hydrogen peroxide"
+                },
+                {
+                  "key": "9-2-4",
+                  "sourceNumber": "9.2.4",
+                  "title": "Medical and industrial application of oxygen"
+                },
+                {
+                  "key": "9-3",
+                  "sourceNumber": "9.3",
+                  "title": "Ozone"
+                },
+                {
+                  "key": "9-3-1",
+                  "sourceNumber": "9.3.1",
+                  "title": "Occurrence"
+                },
+                {
+                  "key": "9-3-2",
+                  "sourceNumber": "9.3.2",
+                  "title": "Preparation of ozone from oxygen"
+                },
+                {
+                  "key": "9-3-3",
+                  "sourceNumber": "9.3.3",
+                  "title": "Structure of ozone"
+                },
+                {
+                  "key": "9-3-4",
+                  "sourceNumber": "9.3.4",
+                  "title": "Test for ozone"
+                },
+                {
+                  "key": "9-3-5",
+                  "sourceNumber": "9.3.5",
+                  "title": "Ozone layer depletion (causes, effects and control measures)"
+                },
+                {
+                  "key": "9-3-6",
+                  "sourceNumber": "9.3.6",
+                  "title": "Uses of ozone"
+                },
+                {
+                  "key": "9-4",
+                  "sourceNumber": "9.4",
+                  "title": "Nitrogen"
+                },
+                {
+                  "key": "9-4-1",
+                  "sourceNumber": "9.4.1",
+                  "title": "Reason for inertness of nitrogen and active nitrogen"
+                },
+                {
+                  "key": "9-4-2",
+                  "sourceNumber": "9.4.2",
+                  "title": "Chemical properties of ammonia [ Action with CuSO4 solution, water, FeCl3 solution, Conc. HCl, Mercurous nitrate paper, O2 ]"
+                },
+                {
+                  "key": "9-4-3",
+                  "sourceNumber": "9.4.3",
+                  "title": "Applications of ammonia"
+                },
+                {
+                  "key": "9-4-4",
+                  "sourceNumber": "9.4.4",
+                  "title": "Harmful effects of ammonia"
+                },
+                {
+                  "key": "9-4-5",
+                  "sourceNumber": "9.4.5",
+                  "title": "Oxy-acids of nitrogen (name and formula)"
+                },
+                {
+                  "key": "9-4-6",
+                  "sourceNumber": "9.4.6",
+                  "title": "Chemical properties of nitric acid [HNO3 as an acid and oxidizing agent (action with zinc, magnesium, iron, copper, sulphur, carbon, SO2 and H2S)"
+                },
+                {
+                  "key": "9-4-7",
+                  "sourceNumber": "9.4.7",
+                  "title": "Ring test for nitrate ion"
+                },
+                {
+                  "key": "9-5",
+                  "sourceNumber": "9.5",
+                  "title": "Halogens"
+                },
+                {
+                  "key": "9-5-1",
+                  "sourceNumber": "9.5.1",
+                  "title": "General characteristics of halogens"
+                },
+                {
+                  "key": "9-5-2",
+                  "sourceNumber": "9.5.2",
+                  "title": "Comparative study on preparation (no diagram and description is required),"
+                },
+                {
+                  "key": "9-5-2-1",
+                  "sourceNumber": "9.5.2.1",
+                  "title": "Chemical properties [with water, alkali, ammonia, oxidizing character, bleaching action] and uses of halogens (Cl2, Br2 and I2)"
+                },
+                {
+                  "key": "9-5-3",
+                  "sourceNumber": "9.5.3",
+                  "title": "Test for Cl2, Br2 and I2"
+                },
+                {
+                  "key": "9-5-4",
+                  "sourceNumber": "9.5.4",
+                  "title": "Comparative study on preparation (no diagram and description is required), properties ( reducing strength, acidic nature and solubility) and uses of haloacids (HCl, HBr and HI)"
+                },
+                {
+                  "key": "9-6",
+                  "sourceNumber": "9.6",
+                  "title": "Carbon"
+                },
+                {
+                  "key": "9-6-1",
+                  "sourceNumber": "9.6.1",
+                  "title": "Allotropes of carbon (crystalline and amorphous) including fullerenes (structure, general properties and uses only)"
+                },
+                {
+                  "key": "9-6-2",
+                  "sourceNumber": "9.6.2",
+                  "title": "Properties (reducing action, reaction with metals and nonmetals) and uses of carbon monoxide"
+                },
+                {
+                  "key": "9-7",
+                  "sourceNumber": "9.7",
+                  "title": "Phosphorus"
+                },
+                {
+                  "key": "9-7-1",
+                  "sourceNumber": "9.7.1",
+                  "title": "Allotropes of phosphorus (name only)"
+                },
+                {
+                  "key": "9-7-2",
+                  "sourceNumber": "9.7.2",
+                  "title": "Preparation (no diagram and description is required), properties ( basic nature ,reducing nature , action with halogens and oxygen) and uses of phosphine"
+                },
+                {
+                  "key": "9-8",
+                  "sourceNumber": "9.8",
+                  "title": "Sulphur"
+                },
+                {
+                  "key": "9-8-1",
+                  "sourceNumber": "9.8.1",
+                  "title": "Allotropes of sulphur (name only) and uses of sulphur"
+                },
+                {
+                  "key": "9-8-2",
+                  "sourceNumber": "9.8.2",
+                  "title": "Hydrogen sulphide (preparation from Kipp's apparatus with diagram,) properties (Acidic nature, reducing nature, analytical reagent) and uses"
+                },
+                {
+                  "key": "9-8-3",
+                  "sourceNumber": "9.8.3",
+                  "title": "Sulphur dioxide its properties (acidic nature, reducing nature, and uses"
+                },
+                {
+                  "key": "9-8-4",
+                  "sourceNumber": "9.8.4",
+                  "title": "Sulphuric acid and its properties (acidic nature, oxidising nature, dehydrating nature) and uses"
+                },
+                {
+                  "key": "9-8-5",
+                  "sourceNumber": "9.8.5",
+                  "title": "Sodium thiosulphate (formula and uses) Chemistry of Metals"
+                }
+              ]
+            },
+            {
+              "key": "metals-and-metallurgical-principles",
+              "sourceNumber": "10",
+              "title": "Metals and Metallurgical Principles",
+              "topics": [
+                {
+                  "key": "10-1",
+                  "sourceNumber": "10.1",
+                  "title": "Metals and Metallurgical Principles"
+                },
+                {
+                  "key": "10-1-1",
+                  "sourceNumber": "10.1.1",
+                  "title": "Definition of metallurgy and its types (hydrometallurgy, pyrometallurgy, electrometallurgy)"
+                },
+                {
+                  "key": "10-1-2",
+                  "sourceNumber": "10.1.2",
+                  "title": "Introduction of ores"
+                },
+                {
+                  "key": "10-1-3",
+                  "sourceNumber": "10.1.3",
+                  "title": "Gangue or matrix, flux and slag, alloy and amalgam"
+                },
+                {
+                  "key": "10-1-4",
+                  "sourceNumber": "10.1.4",
+                  "title": "General principles of extraction of metals (different processes involved in metallurgy) concentration, calcination and roasting, smelting, carbon reduction, thermite and electrochemical reduction"
+                },
+                {
+                  "key": "10-1-5",
+                  "sourceNumber": "10.1.5",
+                  "title": "Refining of metals (poling and electro-refinement)"
+                },
+                {
+                  "key": "10-2",
+                  "sourceNumber": "10.2",
+                  "title": "Alkali Metals"
+                },
+                {
+                  "key": "10-2-1",
+                  "sourceNumber": "10.2.1",
+                  "title": "General characteristics of alkali metals"
+                },
+                {
+                  "key": "10-2-2",
+                  "sourceNumber": "10.2.2",
+                  "title": "Sodium [extraction from Down's process, properties (action with Oxygen, water, acids nonmetals and ammonia) and uses]"
+                },
+                {
+                  "key": "10-2-3",
+                  "sourceNumber": "10.2.3",
+                  "title": "Properties (precipitation reaction and action with carbon monooxide) and uses of sodium hydroxide"
+                },
+                {
+                  "key": "10-2-4",
+                  "sourceNumber": "10.2.4",
+                  "title": "Properties (action with CO2, SO2, water, precipitation reactions) and uses of sodium carbonate"
+                },
+                {
+                  "key": "10-3",
+                  "sourceNumber": "10.3",
+                  "title": "Alkaline Earth Metals"
+                },
+                {
+                  "key": "10-3-1",
+                  "sourceNumber": "10.3.1",
+                  "title": "General characteristics of alkaline earth metals"
+                },
+                {
+                  "key": "10-3-2",
+                  "sourceNumber": "10.3.2",
+                  "title": "Molecular formula and uses of (quick lime, bleaching powder, magnesia, plaster of paris and epsom salt)"
+                },
+                {
+                  "key": "10-3-3",
+                  "sourceNumber": "10.3.3",
+                  "title": "Solubility of hydroxides, carbonates and sulphates of alkaline earth metals (general trend with explanation)"
+                },
+                {
+                  "key": "10-3-4",
+                  "sourceNumber": "10.3.4",
+                  "title": "Stability of carbonate and nitrate of alkaline earth metals (general trend with explanation)"
+                }
+              ]
+            },
+            {
+              "key": "bio-inorganic-chemistry",
+              "sourceNumber": "11",
+              "title": "Bio-inorganic Chemistry",
+              "topics": [
+                {
+                  "key": "bio-inorganic-chemistry",
+                  "sourceNumber": "11",
+                  "title": "Bio-inorganic Chemistry"
+                },
+                {
+                  "key": "11-1",
+                  "sourceNumber": "11.1",
+                  "title": "Introduction"
+                },
+                {
+                  "key": "11-2",
+                  "sourceNumber": "11.2",
+                  "title": "Micro and macro nutrients"
+                },
+                {
+                  "key": "11-3",
+                  "sourceNumber": "11.3",
+                  "title": "Importance of metal ions in biological systems (ions of Na, K, Mg, Ca, Fe, Cu, Zn, Ni, Co, Cr)"
+                },
+                {
+                  "key": "11-4",
+                  "sourceNumber": "11.4",
+                  "title": "Ion pumps (sodium-potassium and sodium-glucose pump)"
+                },
+                {
+                  "key": "11-5",
+                  "sourceNumber": "11.5",
+                  "title": "Metal toxicity (toxicity due to iron, arsenic, mercury, lead and cadmium)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "organic-chemistry",
+          "title": "Organic Chemistry",
+          "chapters": [
+            {
+              "key": "hydrocarbons",
+              "sourceNumber": "14",
+              "title": "Hydrocarbons",
+              "topics": [
+                {
+                  "key": "14-1",
+                  "sourceNumber": "14.1",
+                  "title": "Saturated Hydrocarbons (Alkanes)"
+                },
+                {
+                  "key": "14-1-1",
+                  "sourceNumber": "14.1.1",
+                  "title": "Alkanes: Preparation from haloalkanes (Reduction and Wurtz reaction), Decarboxylation, Catalytic hydrogenation of alkene and alkyne"
+                },
+                {
+                  "key": "14-1-1-2",
+                  "sourceNumber": "14.1.1",
+                  "title": "Introduction, nomenclature and isomerism"
+                },
+                {
+                  "key": "14-1-2",
+                  "sourceNumber": "14.1.2",
+                  "title": "Chemical properties: Substitution reactions (halogenation, nitration & sulphonation only), oxidation of ethane"
+                },
+                {
+                  "key": "14-1-2-2",
+                  "sourceNumber": "14.1.2",
+                  "title": "Preparation of monocarboxylic acids from: aldehydes, nitriles, dicarboxylic acid, sodium alkoxide and trihaloalkanes"
+                },
+                {
+                  "key": "14-1-3",
+                  "sourceNumber": "14.1.3",
+                  "title": "Preparation of benzoic acid from alkyl benzene"
+                },
+                {
+                  "key": "14-1-4",
+                  "sourceNumber": "14.1.4",
+                  "title": "Physical properties of monocarboxylic acids"
+                },
+                {
+                  "key": "14-1-5",
+                  "sourceNumber": "14.1.5",
+                  "title": "Chemical properties: Action with alkalies, metal oxides, metal carbonates, metal bicarbonates, PCl3, LiAlH4 and dehydration of carboxylic acid"
+                },
+                {
+                  "key": "14-1-6",
+                  "sourceNumber": "14.1.6",
+                  "title": "Hell-Volhard-Zelinsky reaction"
+                },
+                {
+                  "key": "14-1-7",
+                  "sourceNumber": "14.1.7",
+                  "title": "Electrophilic substitution reaction of benzoic acid bromination, nitration and sulphonation)"
+                },
+                {
+                  "key": "14-1-8",
+                  "sourceNumber": "14.1.8",
+                  "title": "Effect of constituents on the acidic strength of carboxylic acid"
+                },
+                {
+                  "key": "14-1-9",
+                  "sourceNumber": "14.1.9",
+                  "title": "Abnormal behaviour of methanoic acid"
+                },
+                {
+                  "key": "14-2",
+                  "sourceNumber": "14.2",
+                  "title": "Unsaturated hydrocarbons (Alkenes & Alkynes)"
+                },
+                {
+                  "key": "14-2-2",
+                  "sourceNumber": "14.2",
+                  "title": "Derivatives of Carboxylic acids (acid halides, amides, esters and anhydrides)"
+                },
+                {
+                  "key": "14-2-1",
+                  "sourceNumber": "14.2.1",
+                  "title": "Alkenes: Preparation by Dehydration of alcohol, Dehydrohalogenation, Catalytic hydrogenation of alkyne"
+                },
+                {
+                  "key": "14-2-1-2",
+                  "sourceNumber": "14.2.1",
+                  "title": "Preparation of acid derivatives from carboxylic acid"
+                },
+                {
+                  "key": "14-2-1-1",
+                  "sourceNumber": "14.2.1.1",
+                  "title": "Chemical properties: Addition reaction with HX (Markovnikov's addition and peroxide effect), H2O, O3, H2SO4 only"
+                },
+                {
+                  "key": "14-2-2-2",
+                  "sourceNumber": "14.2.2",
+                  "title": "Comparative physical properties of acid derivatives"
+                },
+                {
+                  "key": "14-2-3",
+                  "sourceNumber": "14.2.3",
+                  "title": "Comparative chemical properties of acid derivatives (hydrolysis, ammonolysis, amines (RNH2), alcoholysis, and reduction only)"
+                },
+                {
+                  "key": "14-2-4",
+                  "sourceNumber": "14.2.4",
+                  "title": "Claisen condensation"
+                },
+                {
+                  "key": "14-2-5",
+                  "sourceNumber": "14.2.5",
+                  "title": "Hofmann bromamide reaction"
+                },
+                {
+                  "key": "14-2-6",
+                  "sourceNumber": "14.2.6",
+                  "title": "Amphoteric nature of amide"
+                },
+                {
+                  "key": "14-2-7",
+                  "sourceNumber": "14.2.7",
+                  "title": "Relative reactivity of acid derivatives - - , 2076 (Chemist 1 1 - 1 1"
+                },
+                {
+                  "key": "14-3",
+                  "sourceNumber": "14.3",
+                  "title": "Alkynes: Preparation from carbon and hydrogen, 1,2 dibromoethane, chloroform/iodoform only"
+                },
+                {
+                  "key": "14-3-1",
+                  "sourceNumber": "14.3.1",
+                  "title": "Chemical properties: Addition reaction with (H2, HX, H2O), Acidic nature (action with Sodium, ammoniacal AgNO3 and ammoniacal Cu2Cl2)"
+                },
+                {
+                  "key": "14-4",
+                  "sourceNumber": "14.4",
+                  "title": "Test of unsaturation (ethene & ethyne): bromine water test and Baeyer's test"
+                },
+                {
+                  "key": "14-5",
+                  "sourceNumber": "14.5",
+                  "title": "Comparative studies of physical properties of alkane, alkene and alkyne"
+                },
+                {
+                  "key": "14-6",
+                  "sourceNumber": "14.6",
+                  "title": "Kolbe's electrolysis methods for the preparation of alkane, alkene and alkynes"
+                }
+              ]
+            },
+            {
+              "key": "aromatic-hydrocarbons",
+              "sourceNumber": "15",
+              "title": "Aromatic Hydrocarbons",
+              "topics": [
+                {
+                  "key": "15-1",
+                  "sourceNumber": "15.1",
+                  "title": "Introduction and characteristics of aromatic compounds"
+                },
+                {
+                  "key": "15-2",
+                  "sourceNumber": "15.2",
+                  "title": "Huckel's rule of aromaticity , 2076 (Chemist"
+                },
+                {
+                  "key": "15-3",
+                  "sourceNumber": "15.3",
+                  "title": "Kekule structure of benzene"
+                },
+                {
+                  "key": "15-4",
+                  "sourceNumber": "15.4",
+                  "title": "Resonance and isomerism"
+                },
+                {
+                  "key": "15-5",
+                  "sourceNumber": "15.5",
+                  "title": "Preparation of benzene from decarboxylation of sodium benzoate, phenol, and ethyne only"
+                },
+                {
+                  "key": "15-6",
+                  "sourceNumber": "15.6",
+                  "title": "Physical properties of benzene"
+                },
+                {
+                  "key": "15-7",
+                  "sourceNumber": "15.7",
+                  "title": "Chemical properties of benzene: Addition reaction: hydrogen, halogen, Electrophilic substitution reactions: orientation of benzene derivatives (o, m & p), nitration, sulphonation, halogenations, Friedal-Craft's reaction (alkylation and acylation), combustion of benzene ( free combustion only) and uses - - 50 1 1 1 1 1 1 S - , 2076 (Chemist"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "12": {
+      "subjectRef": {
+        "level": "NEB",
+        "grade": "12",
+        "stream": "Science",
+        "subject": "Chemistry"
+      },
+      "units": [
+        {
+          "key": "general-and-physical-chemistry",
+          "title": "General and Physical Chemistry",
+          "chapters": [
+            {
+              "key": "volumetric-analysis",
+              "sourceNumber": "1",
+              "title": "Volumetric Analysis",
+              "topics": [
+                {
+                  "key": "1-1",
+                  "sourceNumber": "1.1",
+                  "title": "Introduction to gravimetric analysis, volumetric analysis and equivalent weight"
+                },
+                {
+                  "key": "1-1-2",
+                  "sourceNumber": "1.1",
+                  "title": "Natural and artificial radioactivity"
+                },
+                {
+                  "key": "1-2",
+                  "sourceNumber": "1.2",
+                  "title": "Relationship between equivalent weight, atomic weight and valency"
+                },
+                {
+                  "key": "1-2-2",
+                  "sourceNumber": "1.2",
+                  "title": "Units of radioactivity"
+                },
+                {
+                  "key": "1-3",
+                  "sourceNumber": "1.3",
+                  "title": "Equivalent weight of compounds (acid, base, salt, oxidizing and reducing agents)"
+                },
+                {
+                  "key": "1-3-2",
+                  "sourceNumber": "1.3",
+                  "title": "Physical properties of phenol"
+                },
+                {
+                  "key": "1-3-2-2",
+                  "sourceNumber": "1.3",
+                  "title": "Nuclear reactions"
+                },
+                {
+                  "key": "1-4",
+                  "sourceNumber": "1.4",
+                  "title": "Concentration of solution and its units in terms of : Percentage, g/L , molarity, molality, normality and formality, ppm and ppb"
+                },
+                {
+                  "key": "1-4-2",
+                  "sourceNumber": "1.4",
+                  "title": "Chemical properties"
+                },
+                {
+                  "key": "1-4-2-2",
+                  "sourceNumber": "1.4",
+                  "title": "Nuclear fission and fusion reactions"
+                },
+                {
+                  "key": "1-4-1",
+                  "sourceNumber": "1.4.1",
+                  "title": "Acidic nature of phenol (comparison with alcohol and water)"
+                },
+                {
+                  "key": "1-4-2-2-2",
+                  "sourceNumber": "1.4.2",
+                  "title": "Action with NH3, Zn, Na, benzene diazonium chloride and phthalic anhydride"
+                },
+                {
+                  "key": "1-4-3",
+                  "sourceNumber": "1.4.3",
+                  "title": "Acylation reaction, Kolbe's reaction, Reimer-Tiemann's reaction"
+                },
+                {
+                  "key": "1-4-4",
+                  "sourceNumber": "1.4.4",
+                  "title": "Electrophilic substitution: nitration, sulphonation, brominaiton and Friedal-Craft's alkylation"
+                },
+                {
+                  "key": "1-5",
+                  "sourceNumber": "1.5",
+                  "title": "Primary and secondary standard substances"
+                },
+                {
+                  "key": "1-5-2",
+                  "sourceNumber": "1.5",
+                  "title": "Test of phenol: (FeCl3 test, aq. Bromine test & Libermann test)"
+                },
+                {
+                  "key": "1-5-2-2",
+                  "sourceNumber": "1.5",
+                  "title": "Nuclear power and nuclear weapons"
+                },
+                {
+                  "key": "1-6",
+                  "sourceNumber": "1.6",
+                  "title": "Law of equivalence and normality equation"
+                },
+                {
+                  "key": "1-6-2",
+                  "sourceNumber": "1.6",
+                  "title": "Uses of phenol"
+                },
+                {
+                  "key": "1-6-2-2",
+                  "sourceNumber": "1.6",
+                  "title": "Industrial uses of radioactivity"
+                },
+                {
+                  "key": "1-7",
+                  "sourceNumber": "1.7",
+                  "title": "Titration and its types: Acid-base titration, redox titration ( related numerical problems)"
+                },
+                {
+                  "key": "1-7-2",
+                  "sourceNumber": "1.7",
+                  "title": "Medical uses of radioactivity"
+                },
+                {
+                  "key": "1-8",
+                  "sourceNumber": "1.8",
+                  "title": "Radiocarbon dating"
+                },
+                {
+                  "key": "1-9",
+                  "sourceNumber": "1.9",
+                  "title": "Harmful effects of nuclear radiations 128"
+                }
+              ]
+            },
+            {
+              "key": "ionic-equilibrium",
+              "sourceNumber": "2",
+              "title": "Ionic Equilibrium",
+              "topics": [
+                {
+                  "key": "2-1",
+                  "sourceNumber": "2.1",
+                  "title": "Limitation of Arrhenius concepts of acids and bases"
+                },
+                {
+                  "key": "2-1-2",
+                  "sourceNumber": "2.1",
+                  "title": "Introduction"
+                },
+                {
+                  "key": "2-2",
+                  "sourceNumber": "2.2",
+                  "title": "Bronsted -Lowry definition of acids and bases"
+                },
+                {
+                  "key": "2-2-2",
+                  "sourceNumber": "2.2",
+                  "title": "Nomenclature, classification and isomerism of ethers"
+                },
+                {
+                  "key": "2-3",
+                  "sourceNumber": "2.3",
+                  "title": "Relative strength of acids and bases"
+                },
+                {
+                  "key": "2-3-2",
+                  "sourceNumber": "2.3",
+                  "title": "Preparation of aliphatic and aromatic ethers from Williamson's synthesis"
+                },
+                {
+                  "key": "2-4",
+                  "sourceNumber": "2.4",
+                  "title": "Conjugate acid -base pairs"
+                },
+                {
+                  "key": "2-4-2",
+                  "sourceNumber": "2.4",
+                  "title": "Physical properties of ether"
+                },
+                {
+                  "key": "2-5",
+                  "sourceNumber": "2.5",
+                  "title": "Lewis definition of acids and bases"
+                },
+                {
+                  "key": "2-5-2",
+                  "sourceNumber": "2.5",
+                  "title": "Chemical properties of ethoxyethane: action with HI , Conc. HCl, Conc. H2SO4, air and Cl2"
+                },
+                {
+                  "key": "2-6",
+                  "sourceNumber": "2.6",
+                  "title": "Ionization of weak electrolyte (Ostwald's dilution law)"
+                },
+                {
+                  "key": "2-6-2",
+                  "sourceNumber": "2.6",
+                  "title": "Uses of ethers"
+                },
+                {
+                  "key": "2-7",
+                  "sourceNumber": "2.7",
+                  "title": "Ionic product of water(Kw)"
+                },
+                {
+                  "key": "2-8",
+                  "sourceNumber": "2.8",
+                  "title": "Dissociation constant of acid and base, (Ka& Kb)"
+                },
+                {
+                  "key": "2-9",
+                  "sourceNumber": "2.9",
+                  "title": "Concept of pKa and pKb"
+                },
+                {
+                  "key": "2-10",
+                  "sourceNumber": "2.10",
+                  "title": "pH value: pH of strong and weak acids, pH of strong and weak bases"
+                },
+                {
+                  "key": "2-11",
+                  "sourceNumber": "2.11",
+                  "title": "Solubility and solubility product principle"
+                },
+                {
+                  "key": "2-12",
+                  "sourceNumber": "2.12",
+                  "title": "Common Ion effect"
+                },
+                {
+                  "key": "2-13",
+                  "sourceNumber": "2.13",
+                  "title": "Application of solubility product principle and common ion effect in precipitation reactions"
+                },
+                {
+                  "key": "2-14",
+                  "sourceNumber": "2.14",
+                  "title": "Buffer solution and its application"
+                },
+                {
+                  "key": "2-15",
+                  "sourceNumber": "2.15",
+                  "title": "Indicators and selection of indicators in acid base titration"
+                },
+                {
+                  "key": "2-16",
+                  "sourceNumber": "2.16",
+                  "title": "Types of salts: Acidic salts, basic salts, simple salts, complex salts (introduction and examples)"
+                },
+                {
+                  "key": "2-17",
+                  "sourceNumber": "2.17",
+                  "title": "Hydrolysis of salts ry)"
+                },
+                {
+                  "key": "2-17-1",
+                  "sourceNumber": "2.17.1",
+                  "title": "Salts of strong acid and strong base"
+                },
+                {
+                  "key": "2-17-2",
+                  "sourceNumber": "2.17.2",
+                  "title": "Salts of weak acid and strong base"
+                },
+                {
+                  "key": "2-17-3",
+                  "sourceNumber": "2.17.3",
+                  "title": "Salts of weak base and strong acid (solving related numerical problems)"
+                }
+              ]
+            },
+            {
+              "key": "chemical-kinetics",
+              "sourceNumber": "3",
+              "title": "Chemical Kinetics",
+              "topics": [
+                {
+                  "key": "3-1",
+                  "sourceNumber": "3.1",
+                  "title": "Introduction"
+                },
+                {
+                  "key": "3-1-2",
+                  "sourceNumber": "3.1",
+                  "title": "Aliphatic aldehydes and ketones"
+                },
+                {
+                  "key": "3-1-1",
+                  "sourceNumber": "3.1.1",
+                  "title": "Introduction, nomenclature and isomerism"
+                },
+                {
+                  "key": "3-1-2-2",
+                  "sourceNumber": "3.1.2",
+                  "title": "Preparation of aldehydes and ketones from: Dehydrogenation and oxidation of alcohol, Ozonolysis of alkenes, Acid chloride, Gem dihaloalkane, econdary Education  Catalytic hydration of alkynes"
+                },
+                {
+                  "key": "3-2",
+                  "sourceNumber": "3.2",
+                  "title": "Rate of reactions: Average and instantaneous rate of reactions"
+                },
+                {
+                  "key": "3-3",
+                  "sourceNumber": "3.3",
+                  "title": "Rate law and its expressions"
+                },
+                {
+                  "key": "3-4",
+                  "sourceNumber": "3.4",
+                  "title": "Rate constant and its unit and significance"
+                },
+                {
+                  "key": "3-5",
+                  "sourceNumber": "3.5",
+                  "title": "Order and molecularity"
+                },
+                {
+                  "key": "3-6",
+                  "sourceNumber": "3.6",
+                  "title": "Integrated rate equation for zero and first order reaction"
+                },
+                {
+                  "key": "3-7",
+                  "sourceNumber": "3.7",
+                  "title": "Half-life of zero and first order reactions"
+                },
+                {
+                  "key": "3-8",
+                  "sourceNumber": "3.8",
+                  "title": "Collision theory, concept of activation energy and activated complex"
+                },
+                {
+                  "key": "3-9",
+                  "sourceNumber": "3.9",
+                  "title": "Factors affecting rate of reactions: Effect of concentration, temperature (Arrhenius Equation) and effect of catalyst (energy profile diagram)"
+                },
+                {
+                  "key": "3-10",
+                  "sourceNumber": "3.10",
+                  "title": "Catalysis and types of catalysis: homogeneous, heterogeneous and enzyme catalysis (solving related numerical problems based on rate, rate constant and order of zero and first order reactions)"
+                }
+              ]
+            },
+            {
+              "key": "thermodynamics",
+              "sourceNumber": "4",
+              "title": "Thermodynamics",
+              "topics": [
+                {
+                  "key": "4-1",
+                  "sourceNumber": "4.1",
+                  "title": "Introduction"
+                },
+                {
+                  "key": "4-2",
+                  "sourceNumber": "4.2",
+                  "title": "Energy in chemical reactions"
+                },
+                {
+                  "key": "4-3",
+                  "sourceNumber": "4.3",
+                  "title": "Internal energy"
+                },
+                {
+                  "key": "4-4",
+                  "sourceNumber": "4.4",
+                  "title": "First law of thermodynamics"
+                },
+                {
+                  "key": "4-5",
+                  "sourceNumber": "4.5",
+                  "title": "Enthalpy and enthalpy changes: Endothermic and exothermic processes)"
+                },
+                {
+                  "key": "4-6",
+                  "sourceNumber": "4.6",
+                  "title": "Enthalpy of reaction, enthalpy of solution, enthalpy of formation, enthalpy of combustion"
+                },
+                {
+                  "key": "4-7",
+                  "sourceNumber": "4.7",
+                  "title": "Laws of thermochemistry (Laplace Law and Hess's law)"
+                },
+                {
+                  "key": "4-8",
+                  "sourceNumber": "4.8",
+                  "title": "Entropy and spontaneity"
+                },
+                {
+                  "key": "4-9",
+                  "sourceNumber": "4.9",
+                  "title": "Second law of thermodynamics"
+                },
+                {
+                  "key": "4-10",
+                  "sourceNumber": "4.10",
+                  "title": "Gibbs' free energy and prediction of spontaneity"
+                },
+                {
+                  "key": "4-11",
+                  "sourceNumber": "4.11",
+                  "title": "Relationship between G and equilibrium constant (Solving related numerical problems)"
+                }
+              ]
+            },
+            {
+              "key": "electrochemistry",
+              "sourceNumber": "5",
+              "title": "Electrochemistry",
+              "topics": [
+                {
+                  "key": "5-1",
+                  "sourceNumber": "5.1",
+                  "title": "Electrode potential and standard electrode potential"
+                },
+                {
+                  "key": "5-2",
+                  "sourceNumber": "5.2",
+                  "title": "Types of electrodes: Standard hydrogen electrode and calomel electrodes"
+                },
+                {
+                  "key": "5-3",
+                  "sourceNumber": "5.3",
+                  "title": "Electrochemical series and its applications"
+                },
+                {
+                  "key": "5-4",
+                  "sourceNumber": "5.4",
+                  "title": "Voltaic cell: Zn-Cu cell, Ag- Cu cell"
+                },
+                {
+                  "key": "5-5",
+                  "sourceNumber": "5.5",
+                  "title": "Cell potential and standard cell potential"
+                },
+                {
+                  "key": "5-6",
+                  "sourceNumber": "5.6",
+                  "title": "Relationship between cell potential and free energy"
+                },
+                {
+                  "key": "5-7",
+                  "sourceNumber": "5.7",
+                  "title": "Commercial batteries and fuel cells (hydrogen/oxygen) ) -"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "inorganic-chemistry",
+          "title": "Inorganic Chemistry",
+          "chapters": [
+            {
+              "key": "transition-metals",
+              "sourceNumber": "6",
+              "title": "Transition Metals",
+              "topics": [
+                {
+                  "key": "6-1",
+                  "sourceNumber": "6.1",
+                  "title": "Introduction"
+                },
+                {
+                  "key": "6-1-1",
+                  "sourceNumber": "6.1.1",
+                  "title": "Characteristics of transition metals"
+                },
+                {
+                  "key": "6-1-2",
+                  "sourceNumber": "6.1.2",
+                  "title": "Oxidation states of transition ry) metals"
+                },
+                {
+                  "key": "6-1-3",
+                  "sourceNumber": "6.1.3",
+                  "title": "Complex ions and metal complexes"
+                },
+                {
+                  "key": "6-1-4",
+                  "sourceNumber": "6.1.4",
+                  "title": "Shapes of complex ions"
+                },
+                {
+                  "key": "6-1-5",
+                  "sourceNumber": "6.1.5",
+                  "title": "d-orbitals in complex ions (simple explanation by crystal field theory) for octahedral complex"
+                },
+                {
+                  "key": "6-1-6",
+                  "sourceNumber": "6.1.6",
+                  "title": "Reasons for the colour of transition metal compounds"
+                },
+                {
+                  "key": "6-1-7",
+                  "sourceNumber": "6.1.7",
+                  "title": "Catalytic properties of transition metals"
+                },
+                {
+                  "key": "6-2-1",
+                  "sourceNumber": "6.2.1",
+                  "title": "Preparation of aniline from nitrobenzene, phenol"
+                },
+                {
+                  "key": "6-2-2",
+                  "sourceNumber": "6.2.2",
+                  "title": "Physical properties"
+                },
+                {
+                  "key": "6-2-3",
+                  "sourceNumber": "6.2.3",
+                  "title": "Chemical properties: basicity of aniline, comparison of basic nature of aniline with aliphatic amines and ammonia, alkylation, acylation, diazotization, carbylamine and coupling reaction, electrophilic substitution: Nitration sulphonation and bromination"
+                },
+                {
+                  "key": "6-2-4",
+                  "sourceNumber": "6.2.4",
+                  "title": "Uses of aniline"
+                }
+              ]
+            },
+            {
+              "key": "studies-of-heavy-metals",
+              "sourceNumber": "7",
+              "title": "Studies of Heavy Metals",
+              "topics": [
+                {
+                  "key": "7-1",
+                  "sourceNumber": "7.1",
+                  "title": "Copper"
+                },
+                {
+                  "key": "7-1-2",
+                  "sourceNumber": "7.1",
+                  "title": "Introduction, general formula and examples of organolithium, organocopper and organocadmium compounds"
+                },
+                {
+                  "key": "7-1-1",
+                  "sourceNumber": "7.1.1",
+                  "title": "Occurrence and extraction of copper from copper pyrite"
+                },
+                {
+                  "key": "7-1-2-2",
+                  "sourceNumber": "7.1.2",
+                  "title": "Properties (with air, acids, aqueous ammonia and metal ions) and uses of copper"
+                },
+                {
+                  "key": "7-1-3",
+                  "sourceNumber": "7.1.3",
+                  "title": "Chemistry (preparation, properties and uses) of blue vitriol"
+                },
+                {
+                  "key": "7-1-4",
+                  "sourceNumber": "7.1.4",
+                  "title": "Other compounds of copper (red oxide and black oxide of copper) formula and uses only"
+                },
+                {
+                  "key": "7-2",
+                  "sourceNumber": "7.2",
+                  "title": "Zinc"
+                },
+                {
+                  "key": "7-2-2",
+                  "sourceNumber": "7.2",
+                  "title": "Nature of Metal-Carbon bond"
+                },
+                {
+                  "key": "7-2-1",
+                  "sourceNumber": "7.2.1",
+                  "title": "Occurrence and extraction of zinc from zinc blende"
+                },
+                {
+                  "key": "7-2-2-2",
+                  "sourceNumber": "7.2.2",
+                  "title": "Properties (with air, acid, alkali, displacement reaction) and uses of zinc"
+                },
+                {
+                  "key": "7-2-3",
+                  "sourceNumber": "7.2.3",
+                  "title": "Chemistry (preparation, properties and uses) of white vitriol"
+                },
+                {
+                  "key": "7-3",
+                  "sourceNumber": "7.3",
+                  "title": "Mercury"
+                },
+                {
+                  "key": "7-3-2",
+                  "sourceNumber": "7.3",
+                  "title": "Grignard reagent"
+                },
+                {
+                  "key": "7-3-1",
+                  "sourceNumber": "7.3.1",
+                  "title": "Occurrence and extraction of mercury from cinnabar"
+                },
+                {
+                  "key": "7-3-1-2",
+                  "sourceNumber": "7.3.1",
+                  "title": "Preparation (using haloalkane and haloarene)"
+                },
+                {
+                  "key": "7-3-2-2",
+                  "sourceNumber": "7.3.2",
+                  "title": "Properties of mercury"
+                },
+                {
+                  "key": "7-3-2-2-2",
+                  "sourceNumber": "7.3.2",
+                  "title": "Reaction of Grignard reagent with water, aldehydes and ketones ( preparation of primary, secondary and tertiary alcohols), carbon dioxide, HCN, RCN, ester and acid chloride"
+                },
+                {
+                  "key": "7-3-3",
+                  "sourceNumber": "7.3.3",
+                  "title": "Chemistry (preparation, properties and uses) of calomel and corrosive sublimate"
+                },
+                {
+                  "key": "7-4",
+                  "sourceNumber": "7.4",
+                  "title": "Iron"
+                },
+                {
+                  "key": "7-4-1",
+                  "sourceNumber": "7.4.1",
+                  "title": "Occurrence and extraction of iron"
+                },
+                {
+                  "key": "7-4-2",
+                  "sourceNumber": "7.4.2",
+                  "title": "Properties and uses of iron"
+                },
+                {
+                  "key": "7-4-3",
+                  "sourceNumber": "7.4.3",
+                  "title": "Manufacture of steel by Basic Oxygen Method and Open Hearth Process"
+                },
+                {
+                  "key": "7-4-4",
+                  "sourceNumber": "7.4.4",
+                  "title": "Corrosion of iron and its prevention"
+                },
+                {
+                  "key": "7-5",
+                  "sourceNumber": "7.5",
+                  "title": "Silver"
+                },
+                {
+                  "key": "7-5-1",
+                  "sourceNumber": "7.5.1",
+                  "title": "Occurrence and extraction of silver by cyanide process"
+                },
+                {
+                  "key": "7-5-2",
+                  "sourceNumber": "7.5.2",
+                  "title": "Preparation and uses of silver chloride and silver nitrate y)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "organic-chemistry",
+          "title": "Organic Chemistry",
+          "chapters": [
+            {
+              "key": "haloalkanes",
+              "sourceNumber": "8",
+              "title": "Haloalkanes",
+              "topics": [
+                {
+                  "key": "8-1",
+                  "sourceNumber": "8.1",
+                  "title": "Introduction"
+                },
+                {
+                  "key": "8-1-2",
+                  "sourceNumber": "8.1",
+                  "title": "Polymers"
+                },
+                {
+                  "key": "8-1-1",
+                  "sourceNumber": "8.1.1",
+                  "title": "Addition and condensation polymers"
+                },
+                {
+                  "key": "8-1-2-2",
+                  "sourceNumber": "8.1.2",
+                  "title": "Elastomers and fibres"
+                },
+                {
+                  "key": "8-1-3",
+                  "sourceNumber": "8.1.3",
+                  "title": "Natural and synthetic polymers"
+                },
+                {
+                  "key": "8-1-4",
+                  "sourceNumber": "8.1.4",
+                  "title": "Some synthetic polymers (polythene, PVC, Teflon, polystyrene, nylon and bakelite"
+                },
+                {
+                  "key": "8-2",
+                  "sourceNumber": "8.2",
+                  "title": "Nomenclature, isomerism and classification of monohaloalkanes"
+                },
+                {
+                  "key": "8-2-2",
+                  "sourceNumber": "8.2",
+                  "title": "Dyes"
+                },
+                {
+                  "key": "8-3",
+                  "sourceNumber": "8.3",
+                  "title": "Preparation of monohaloalkanes from alkanes, alkenes and alcohols"
+                },
+                {
+                  "key": "8-4",
+                  "sourceNumber": "8.4",
+                  "title": "Physical properties of monohaloalkanes"
+                },
+                {
+                  "key": "8-5",
+                  "sourceNumber": "8.5",
+                  "title": "Chemical properties, substitution reactions SN1 and SN2 reactions (basic concept only)"
+                },
+                {
+                  "key": "8-6",
+                  "sourceNumber": "8.6",
+                  "title": "Formation of alcohol, nitrile, amine, ether, thioether, carbylamines, nitrite and nitro alkane using haloalkanes"
+                },
+                {
+                  "key": "8-7",
+                  "sourceNumber": "8.7",
+                  "title": "Elimination reaction (dehydrohalogenation- Saytzeff's rule), Reduction reactions, Wurtz reaction"
+                },
+                {
+                  "key": "8-8",
+                  "sourceNumber": "8.8",
+                  "title": "Preparation of trichloromethane from ethanol and propanone"
+                },
+                {
+                  "key": "8-9",
+                  "sourceNumber": "8.9",
+                  "title": "Chemical properties of trichloromethane: oxidation, reduction, action on silver powder, conc. nitric acid, propanone, and aqueous alkali Haloarenes"
+                }
+              ]
+            },
+            {
+              "key": "introduction",
+              "sourceNumber": "9",
+              "title": "Introduction",
+              "topics": [
+                {
+                  "key": "9-1",
+                  "sourceNumber": "9.1",
+                  "title": "Introduction"
+                },
+                {
+                  "key": "9-2",
+                  "sourceNumber": "9.2",
+                  "title": "Nomenclature and isomerism of haloarenes"
+                },
+                {
+                  "key": "9-3",
+                  "sourceNumber": "9.3",
+                  "title": "Preparation of chlorobenzene from benzene and benzene diazonium chloride"
+                },
+                {
+                  "key": "9-4",
+                  "sourceNumber": "9.4",
+                  "title": "Physical properties"
+                },
+                {
+                  "key": "9-5",
+                  "sourceNumber": "9.5",
+                  "title": "Chemical properties"
+                },
+                {
+                  "key": "9-5-1",
+                  "sourceNumber": "9.5.1",
+                  "title": "Low reactivity of haloarenes as compared to haloalkanes in term of nucleophilic substitution reaction"
+                },
+                {
+                  "key": "9-5-2",
+                  "sourceNumber": "9.5.2",
+                  "title": "Reduction of chlorobenzene"
+                },
+                {
+                  "key": "9-5-3",
+                  "sourceNumber": "9.5.3",
+                  "title": "Electrophilic substitution reactions"
+                },
+                {
+                  "key": "9-5-4",
+                  "sourceNumber": "9.5.4",
+                  "title": "Action with Na (Fittig and Wurtz- Fittig reaction)"
+                },
+                {
+                  "key": "9-5-5",
+                  "sourceNumber": "9.5.5",
+                  "title": "Action with chloral"
+                },
+                {
+                  "key": "9-6",
+                  "sourceNumber": "9.6",
+                  "title": "Uses of haloarenes"
+                }
+              ]
+            },
+            {
+              "key": "alcohols",
+              "sourceNumber": "10",
+              "title": "Alcohols",
+              "topics": [
+                {
+                  "key": "10-1",
+                  "sourceNumber": "10.1",
+                  "title": "Introduction"
+                },
+                {
+                  "key": "10-2",
+                  "sourceNumber": "10.2",
+                  "title": "Nomenclature, isomerism and classification of monohydric alcohol"
+                },
+                {
+                  "key": "10-3",
+                  "sourceNumber": "10.3",
+                  "title": "Distinction of primary, secondary and tertiary alcohols by Victor Meyer's Method"
+                },
+                {
+                  "key": "10-4",
+                  "sourceNumber": "10.4",
+                  "title": "Preparation of monohydric alcohols from Haloalkane, primary amines, and esters"
+                },
+                {
+                  "key": "10-5",
+                  "sourceNumber": "10.5",
+                  "title": "Industrial preparation alcohol from: oxo process, hydroboration-oxidation of ethene & fermentation of sugar"
+                },
+                {
+                  "key": "10-6",
+                  "sourceNumber": "10.6",
+                  "title": "Definition of common terms: Absolute alcohol, power alcohol, denatured alcohol (methylated spirit), rectified spirit; alcoholic beverage"
+                },
+                {
+                  "key": "10-7",
+                  "sourceNumber": "10.7",
+                  "title": "Physical properties monohydric alcohols"
+                },
+                {
+                  "key": "10-8",
+                  "sourceNumber": "10.8",
+                  "title": "Chemical properties of monohydric alcohols"
+                },
+                {
+                  "key": "10-8-1",
+                  "sourceNumber": "10.8.1",
+                  "title": "Reaction with HX, PX3, PCl5, SOCl2"
+                },
+                {
+                  "key": "10-8-2",
+                  "sourceNumber": "10.8.2",
+                  "title": "Action with reactive metals like Na, K, Li"
+                },
+                {
+                  "key": "10-8-3",
+                  "sourceNumber": "10.8.3",
+                  "title": "Dehydration of alcohols"
+                },
+                {
+                  "key": "10-8-4",
+                  "sourceNumber": "10.8.4",
+                  "title": "Oxidation of primary, secondary and tertiary alcohol with mild oxidizing agents like acidified KMnO4 or K2Cr2O7"
+                },
+                {
+                  "key": "10-8-5",
+                  "sourceNumber": "10.8.5",
+                  "title": "Catalyic dehydrogenation of and alcohol and dehydration of alcohol"
+                },
+                {
+                  "key": "10-8-6",
+                  "sourceNumber": "10.8.6",
+                  "title": "Esterification reaction"
+                },
+                {
+                  "key": "10-8-7",
+                  "sourceNumber": "10.8.7",
+                  "title": "Test of ethanol"
+                }
+              ]
+            },
+            {
+              "key": "phenols",
+              "sourceNumber": "11",
+              "title": "Phenols",
+              "topics": [
+                {
+                  "key": "11-1",
+                  "sourceNumber": "11.1",
+                  "title": "Introduction and nomenclature"
+                },
+                {
+                  "key": "11-2",
+                  "sourceNumber": "11.2",
+                  "title": "Preparation of phenol from i. chlorobenzene ii. Diazonium salt and iii. benzene sulphonic acid ry)"
+                }
+              ]
+            },
+            {
+              "key": "aldehydes-and-ketones",
+              "sourceNumber": "13",
+              "title": "Aldehydes and Ketones",
+              "topics": [
+                {
+                  "key": "13-1-3",
+                  "sourceNumber": "13.1.3",
+                  "title": "Physical properties of aldehydes and ketones"
+                },
+                {
+                  "key": "13-1-4",
+                  "sourceNumber": "13.1.4",
+                  "title": "Chemical properties"
+                },
+                {
+                  "key": "13-1-4-1",
+                  "sourceNumber": "13.1.4.1",
+                  "title": "Structure and nature of carbonyl group"
+                },
+                {
+                  "key": "13-1-4-2",
+                  "sourceNumber": "13.1.4.2",
+                  "title": "Distinction between aldehyde and ketones by using 2,4- DNP reagent, Tollen's reagent, Fehling's solution Addition reaction: addition of H2, HCN and NaHSO3"
+                },
+                {
+                  "key": "13-1-4-4",
+                  "sourceNumber": "13.1.4.4",
+                  "title": "Action of aldehyde and ketone with ammonia derivatives; NH2OH, NH2-NH2, phenyl hydrazine, semicarbazide,"
+                },
+                {
+                  "key": "13-1-4-5",
+                  "sourceNumber": "13.1.4.5",
+                  "title": "Aldol condensation"
+                },
+                {
+                  "key": "13-1-4-6",
+                  "sourceNumber": "13.1.4.6",
+                  "title": "Cannizzaro's reaction"
+                },
+                {
+                  "key": "13-1-4-7",
+                  "sourceNumber": "13.1.4.7",
+                  "title": "Clemmensen's reduction"
+                },
+                {
+                  "key": "13-1-4-8",
+                  "sourceNumber": "13.1.4.8",
+                  "title": "Wolf-Kishner reduction"
+                },
+                {
+                  "key": "13-1-4-9",
+                  "sourceNumber": "13.1.4.9",
+                  "title": "Action with PCl5 and action with LiAlH4"
+                },
+                {
+                  "key": "13-1-4-10",
+                  "sourceNumber": "13.1.4.10",
+                  "title": "Action of methanal with ammonia and phenol"
+                },
+                {
+                  "key": "13-1-5",
+                  "sourceNumber": "13.1.5",
+                  "title": "Formalin and its uses"
+                },
+                {
+                  "key": "13-2",
+                  "sourceNumber": "13.2",
+                  "title": "Aromatic aldehydes and Ketones"
+                },
+                {
+                  "key": "13-2-1",
+                  "sourceNumber": "13.2.1",
+                  "title": "Preparation of benzaldehyde from toluene and acetophenone from benzene"
+                },
+                {
+                  "key": "13-2-2",
+                  "sourceNumber": "13.2.2",
+                  "title": "Properties of benzaldehyde"
+                },
+                {
+                  "key": "13-2-2-1",
+                  "sourceNumber": "13.2.2.1",
+                  "title": "Perkin condensation"
+                },
+                {
+                  "key": "13-2-2-2",
+                  "sourceNumber": "13.2.2.2",
+                  "title": "Benzoin condensation"
+                },
+                {
+                  "key": "13-2-2-3",
+                  "sourceNumber": "13.2.2.3",
+                  "title": "Cannizzaro's reaction"
+                },
+                {
+                  "key": "13-2-2-4",
+                  "sourceNumber": "13.2.2.4",
+                  "title": "Electrophilic substitution reaction"
+                }
+              ]
+            },
+            {
+              "key": "carboxylic-acid-and-its",
+              "sourceNumber": "14",
+              "title": "Carboxylic Acid and its Derivaties",
+              "topics": [
+                {
+                  "key": "14-1",
+                  "sourceNumber": "14.1",
+                  "title": "Aliphatic and aromatic carboxylic acids ry)"
+                }
+              ]
+            },
+            {
+              "key": "nitro-compounds",
+              "sourceNumber": "15",
+              "title": "Nitro Compounds",
+              "topics": [
+                {
+                  "key": "15-1",
+                  "sourceNumber": "15.1",
+                  "title": "Nitroalkanes"
+                },
+                {
+                  "key": "15-1-1",
+                  "sourceNumber": "15.1.1",
+                  "title": "Introduction, nomenclature and isomerism"
+                },
+                {
+                  "key": "15-1-2",
+                  "sourceNumber": "15.1.2",
+                  "title": "Preparation from haloalkane and alkane"
+                },
+                {
+                  "key": "15-1-3",
+                  "sourceNumber": "15.1.3",
+                  "title": "Physical properties"
+                },
+                {
+                  "key": "15-1-4",
+                  "sourceNumber": "15.1.4",
+                  "title": "Chemical properties: Reduction"
+                },
+                {
+                  "key": "15-2",
+                  "sourceNumber": "15.2",
+                  "title": "Nitrobenzene"
+                },
+                {
+                  "key": "15-2-1",
+                  "sourceNumber": "15.2.1",
+                  "title": "Preparation from benzene"
+                },
+                {
+                  "key": "15-2-2",
+                  "sourceNumber": "15.2.2",
+                  "title": "Physical properties"
+                },
+                {
+                  "key": "15-2-3",
+                  "sourceNumber": "15.2.3",
+                  "title": "Chemical properties"
+                },
+                {
+                  "key": "15-2-4",
+                  "sourceNumber": "15.2.4",
+                  "title": "Reduction in different media"
+                },
+                {
+                  "key": "15-2-5",
+                  "sourceNumber": "15.2.5",
+                  "title": "Electrophilic substitution reactions (nitration, sulphonation & bromination)"
+                },
+                {
+                  "key": "15-2-6",
+                  "sourceNumber": "15.2.6",
+                  "title": "Uses of nitro-compounds"
+                }
+              ]
+            },
+            {
+              "key": "amines",
+              "sourceNumber": "16",
+              "title": "Amines",
+              "topics": [
+                {
+                  "key": "16-1",
+                  "sourceNumber": "16.1",
+                  "title": "Aliphatic amines"
+                },
+                {
+                  "key": "16-1-1",
+                  "sourceNumber": "16.1.1",
+                  "title": "Introduction, nomenclature, classification and isomerism"
+                },
+                {
+                  "key": "16-1-2",
+                  "sourceNumber": "16.1.2",
+                  "title": "Separation of primary, secondary and tertiary amines by Hoffmann's method"
+                },
+                {
+                  "key": "16-1-3",
+                  "sourceNumber": "16.1.3",
+                  "title": "Preparation of primary amines from haloalkane, nitriles, nitroalkanes and amides"
+                },
+                {
+                  "key": "16-1-4",
+                  "sourceNumber": "16.1.4",
+                  "title": "Physical properties"
+                },
+                {
+                  "key": "16-1-5",
+                  "sourceNumber": "16.1.5",
+                  "title": "Chemical properties: basicity of amines, comparative study of basic nature of 10, and amines"
+                },
+                {
+                  "key": "16-1-6",
+                  "sourceNumber": "16.1.6",
+                  "title": "Reaction of primary amines with chloroform, conc. HCl, R-X, RCOX and nitrous acid (NaNO2 / HCl)"
+                },
+                {
+                  "key": "16-1-7",
+                  "sourceNumber": "16.1.7",
+                  "title": "Test of 10, and amines (nitrous acid test)"
+                },
+                {
+                  "key": "16-2",
+                  "sourceNumber": "16.2",
+                  "title": "Aromatic amine (Aniline) ry)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "applied-chemistry",
+          "title": "Applied Chemistry",
+          "chapters": [
+            {
+              "key": "flow-sheet-diagram-for-paper-production",
+              "sourceNumber": "0",
+              "title": "Flow-sheet diagram for paper production",
+              "topics": [
+                {
+                  "key": "0-5",
+                  "sourceNumber": "0.5",
+                  "title": "Flow-sheet diagram for paper production"
+                },
+                {
+                  "key": "0-6",
+                  "sourceNumber": "0.6",
+                  "title": "Quality of paper Nuclear Chemistry and Applications of Radioactivity"
+                }
+              ]
+            },
+            {
+              "key": "chemistry-in-the-service-of",
+              "sourceNumber": "18",
+              "title": "Chemistry in the service of ankind",
+              "topics": [
+                {
+                  "key": "18-2-1",
+                  "sourceNumber": "18.2.1",
+                  "title": "Introduction"
+                },
+                {
+                  "key": "18-2-2",
+                  "sourceNumber": "18.2.2",
+                  "title": "Types of dyes on the basis of structure and method of application"
+                },
+                {
+                  "key": "18-3",
+                  "sourceNumber": "18.3",
+                  "title": "Drugs"
+                },
+                {
+                  "key": "18-3-1",
+                  "sourceNumber": "18.3.1",
+                  "title": "Characteristics of drugs"
+                },
+                {
+                  "key": "18-3-2",
+                  "sourceNumber": "18.3.2",
+                  "title": "Natural and synthetic drugs"
+                },
+                {
+                  "key": "18-3-3",
+                  "sourceNumber": "18.3.3",
+                  "title": "Classification of some common drugs"
+                },
+                {
+                  "key": "18-3-4",
+                  "sourceNumber": "18.3.4",
+                  "title": "Habit forming drugs and drug addiction"
+                },
+                {
+                  "key": "18-4",
+                  "sourceNumber": "18.4",
+                  "title": "Pesticides"
+                },
+                {
+                  "key": "18-4-1",
+                  "sourceNumber": "18.4.1",
+                  "title": "Introduction to insecticides, herbicides and fungicides"
+                }
+              ]
+            },
+            {
+              "key": "cement",
+              "sourceNumber": "19",
+              "title": "Cement",
+              "topics": [
+                {
+                  "key": "19-1",
+                  "sourceNumber": "19.1",
+                  "title": "Introduction"
+                },
+                {
+                  "key": "19-2",
+                  "sourceNumber": "19.2",
+                  "title": "Raw materials for cement production"
+                },
+                {
+                  "key": "19-3",
+                  "sourceNumber": "19.3",
+                  "title": "Main steps in cement production (crushing and grinding, strong heating and final grinding)"
+                },
+                {
+                  "key": "19-4",
+                  "sourceNumber": "19.4",
+                  "title": "Types of cement- OPC and PPC"
+                },
+                {
+                  "key": "19-5",
+                  "sourceNumber": "19.5",
+                  "title": "Portland cement process with flow-sheet diagram"
+                },
+                {
+                  "key": "19-6",
+                  "sourceNumber": "19.6",
+                  "title": "Cement Industry in Nepal"
+                }
+              ]
+            },
+            {
+              "key": "paper-and-pulp",
+              "sourceNumber": "20",
+              "title": "Paper and Pulp",
+              "topics": [
+                {
+                  "key": "20-1",
+                  "sourceNumber": "20.1",
+                  "title": "Introduction"
+                },
+                {
+                  "key": "20-2",
+                  "sourceNumber": "20.2",
+                  "title": "Raw materials"
+                },
+                {
+                  "key": "20-3",
+                  "sourceNumber": "20.3",
+                  "title": "Sources of raw materials"
+                },
+                {
+                  "key": "20-4",
+                  "sourceNumber": "20.4",
+                  "title": "Stages in production of paper try)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

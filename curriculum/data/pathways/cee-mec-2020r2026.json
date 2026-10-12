@@ -1,0 +1,866 @@
+{
+  "pathway": "cee-entrance",
+  "sourceId": "src-mec-cee-2020r2026",
+  "curriculumVersionId": "cv-mec-cee-2020r2026",
+  "grade": "CEE",
+  "locator": "Unit/Topic-wise Content tables, pp. 5–12 (MBBS/BDS common entrance)",
+  "gradeBlocks": {
+    "Chemistry": {
+      "subjectRef": {
+        "level": "Entrance Preparation",
+        "grade": "CEE",
+        "stream": "CEE entrance (MBBS/BDS/BSc Nursing)",
+        "subject": "Chemistry"
+      },
+      "units": [
+        {
+          "key": "1-physical-chemistry",
+          "title": "Physical Chemistry",
+          "sourceNumber": "1",
+          "chapters": [
+            {
+              "key": "1-physical-chemistry",
+              "sourceNumber": "1",
+              "title": "Physical Chemistry",
+              "topics": [
+                {
+                  "key": "1-basic-concepts-in-chemistry",
+                  "sourceNumber": "1",
+                  "title": "Basic Concepts in Chemistry"
+                },
+                {
+                  "key": "1-stoichiometry",
+                  "sourceNumber": "1",
+                  "title": "Stoichiometry"
+                },
+                {
+                  "key": "1-atomic-structure",
+                  "sourceNumber": "1",
+                  "title": "Atomic Structure"
+                },
+                {
+                  "key": "1-classification-of-elements-and-periodicity",
+                  "sourceNumber": "1",
+                  "title": "Classification of Elements and Periodicity"
+                },
+                {
+                  "key": "1-chemical-bonding-and-shape-of-molecules",
+                  "sourceNumber": "1",
+                  "title": "Chemical Bonding and Shape of Molecules"
+                },
+                {
+                  "key": "1-redox-reaction",
+                  "sourceNumber": "1",
+                  "title": "Redox Reaction"
+                },
+                {
+                  "key": "1-states-of-matter",
+                  "sourceNumber": "1",
+                  "title": "States of Matter"
+                },
+                {
+                  "key": "1-chemical-equilibrium",
+                  "sourceNumber": "1",
+                  "title": "Chemical Equilibrium"
+                },
+                {
+                  "key": "1-volumetric-analysis",
+                  "sourceNumber": "1",
+                  "title": "Volumetric Analysis"
+                },
+                {
+                  "key": "1-ionic-equilibrium",
+                  "sourceNumber": "1",
+                  "title": "Ionic Equilibrium"
+                },
+                {
+                  "key": "1-chemical-kinetics",
+                  "sourceNumber": "1",
+                  "title": "Chemical Kinetics"
+                },
+                {
+                  "key": "1-electrochemistry",
+                  "sourceNumber": "1",
+                  "title": "Electrochemistry"
+                },
+                {
+                  "key": "1-chemical-thermodynamics",
+                  "sourceNumber": "1",
+                  "title": "Chemical Thermodynamics"
+                },
+                {
+                  "key": "1-nuclear-chemistry",
+                  "sourceNumber": "1",
+                  "title": "Nuclear Chemistry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "2-inorganic-chemistry",
+          "title": "Inorganic Chemistry",
+          "sourceNumber": "2",
+          "chapters": [
+            {
+              "key": "2-inorganic-chemistry",
+              "sourceNumber": "2",
+              "title": "Inorganic Chemistry",
+              "topics": [
+                {
+                  "key": "2-chemistry-of-non-metals",
+                  "sourceNumber": "2",
+                  "title": "Chemistry of Non-metals"
+                },
+                {
+                  "key": "2-chemistry-of-metals",
+                  "sourceNumber": "2",
+                  "title": "Chemistry of Metals"
+                },
+                {
+                  "key": "2-bio-inorganic-chemistry",
+                  "sourceNumber": "2",
+                  "title": "Bio-inorganic Chemistry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "3-organic-chemistry",
+          "title": "Organic Chemistry",
+          "sourceNumber": "3",
+          "chapters": [
+            {
+              "key": "3-organic-chemistry",
+              "sourceNumber": "3",
+              "title": "Organic Chemistry",
+              "topics": [
+                {
+                  "key": "3-general-organic-chemistry",
+                  "sourceNumber": "3",
+                  "title": "General Organic Chemistry"
+                },
+                {
+                  "key": "3-hydrocarbons",
+                  "sourceNumber": "3",
+                  "title": "Hydrocarbons"
+                },
+                {
+                  "key": "3-aromatic-hydrocarbons",
+                  "sourceNumber": "3",
+                  "title": "Aromatic Hydrocarbons"
+                },
+                {
+                  "key": "3-haloalkanes-and-haloarenes",
+                  "sourceNumber": "3",
+                  "title": "Haloalkanes and Haloarenes"
+                },
+                {
+                  "key": "3-alcohols-and-phenols",
+                  "sourceNumber": "3",
+                  "title": "Alcohols and Phenols"
+                },
+                {
+                  "key": "3-ethers",
+                  "sourceNumber": "3",
+                  "title": "Ethers"
+                },
+                {
+                  "key": "3-aldehydes-and-ketones",
+                  "sourceNumber": "3",
+                  "title": "Aldehydes and Ketones"
+                },
+                {
+                  "key": "3-carboxylic-acid-and-its-derivatives",
+                  "sourceNumber": "3",
+                  "title": "Carboxylic Acid and its Derivatives"
+                },
+                {
+                  "key": "3-nitro-compounds",
+                  "sourceNumber": "3",
+                  "title": "Nitro-compounds"
+                },
+                {
+                  "key": "3-amine",
+                  "sourceNumber": "3",
+                  "title": "Amine"
+                },
+                {
+                  "key": "3-organometallic-compounds",
+                  "sourceNumber": "3",
+                  "title": "Organometallic Compounds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "4-applied-chemistry",
+          "title": "Applied Chemistry",
+          "sourceNumber": "4",
+          "chapters": [
+            {
+              "key": "4-applied-chemistry",
+              "sourceNumber": "4",
+              "title": "Applied Chemistry",
+              "topics": [
+                {
+                  "key": "4-fundamentals-of-applied-chemistry-and-manufacturing-proces",
+                  "sourceNumber": "4",
+                  "title": "Fundamentals of Applied Chemistry and Manufacturing Processes"
+                },
+                {
+                  "key": "4-applications-of-non-metals-metals-and-compounds",
+                  "sourceNumber": "4",
+                  "title": "Applications of Non-metals, Metals and Compounds"
+                },
+                {
+                  "key": "4-chemistry-in-service-to-mankind",
+                  "sourceNumber": "4",
+                  "title": "Chemistry in Service to Mankind"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "5-analytical-chemistry",
+          "title": "Analytical Chemistry",
+          "sourceNumber": "5",
+          "chapters": [
+            {
+              "key": "5-analytical-chemistry",
+              "sourceNumber": "5",
+              "title": "Analytical Chemistry",
+              "topics": [
+                {
+                  "key": "5-chemical-tests",
+                  "sourceNumber": "5",
+                  "title": "Chemical Tests"
+                },
+                {
+                  "key": "5-separation-techniques",
+                  "sourceNumber": "5",
+                  "title": "Separation Techniques"
+                },
+                {
+                  "key": "5-types-of-titration",
+                  "sourceNumber": "5",
+                  "title": "Types of Titration"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Physics": {
+      "subjectRef": {
+        "level": "Entrance Preparation",
+        "grade": "CEE",
+        "stream": "CEE entrance (MBBS/BDS/BSc Nursing)",
+        "subject": "Physics"
+      },
+      "units": [
+        {
+          "key": "1-mechanics",
+          "title": "Mechanics",
+          "sourceNumber": "1",
+          "chapters": [
+            {
+              "key": "1-mechanics",
+              "sourceNumber": "1",
+              "title": "Mechanics",
+              "topics": [
+                {
+                  "key": "1-physical-quantities-vectors-and-scalars",
+                  "sourceNumber": "1",
+                  "title": "Physical quantities, vectors and scalars"
+                },
+                {
+                  "key": "1-kinematics",
+                  "sourceNumber": "1",
+                  "title": "Kinematics"
+                },
+                {
+                  "key": "1-dynamics",
+                  "sourceNumber": "1",
+                  "title": "Dynamics"
+                },
+                {
+                  "key": "1-rotational-dynamics",
+                  "sourceNumber": "1",
+                  "title": "Rotational dynamics"
+                },
+                {
+                  "key": "1-fluid-statics-and-dynamics",
+                  "sourceNumber": "1",
+                  "title": "Fluid statics and dynamics"
+                },
+                {
+                  "key": "1-circular-and-periodic-motion",
+                  "sourceNumber": "1",
+                  "title": "Circular and Periodic motion"
+                },
+                {
+                  "key": "1-gravity",
+                  "sourceNumber": "1",
+                  "title": "Gravity"
+                },
+                {
+                  "key": "1-elasticity",
+                  "sourceNumber": "1",
+                  "title": "Elasticity"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "2-heat-and-thermodynamics",
+          "title": "Heat and thermodynamics",
+          "sourceNumber": "2",
+          "chapters": [
+            {
+              "key": "2-heat-and-thermodynamics",
+              "sourceNumber": "2",
+              "title": "Heat and thermodynamics",
+              "topics": [
+                {
+                  "key": "2-thermal-energy-heat-temperature-heat-flow-and-thermometers",
+                  "sourceNumber": "2",
+                  "title": "Thermal energy, heat, temperature, heat flow and thermometers"
+                },
+                {
+                  "key": "2-thermal-expansion",
+                  "sourceNumber": "2",
+                  "title": "Thermal expansion"
+                },
+                {
+                  "key": "2-quantity-of-heat",
+                  "sourceNumber": "2",
+                  "title": "Quantity of heat"
+                },
+                {
+                  "key": "2-ideal-gas",
+                  "sourceNumber": "2",
+                  "title": "Ideal gas"
+                },
+                {
+                  "key": "2-first-law-of-thermodynamics",
+                  "sourceNumber": "2",
+                  "title": "First law of thermodynamics"
+                },
+                {
+                  "key": "2-second-law-of-thermodynamics",
+                  "sourceNumber": "2",
+                  "title": "Second law of thermodynamics"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "3-waves-and-optics",
+          "title": "Waves and optics",
+          "sourceNumber": "3",
+          "chapters": [
+            {
+              "key": "3-waves-and-optics",
+              "sourceNumber": "3",
+              "title": "Waves and optics",
+              "topics": [
+                {
+                  "key": "3-wave-motion",
+                  "sourceNumber": "3",
+                  "title": "Wave motion"
+                },
+                {
+                  "key": "3-stationary-waves",
+                  "sourceNumber": "3",
+                  "title": "Stationary waves"
+                },
+                {
+                  "key": "3-acoustic-phenomena",
+                  "sourceNumber": "3",
+                  "title": "Acoustic phenomena"
+                },
+                {
+                  "key": "3-interference",
+                  "sourceNumber": "3",
+                  "title": "Interference"
+                },
+                {
+                  "key": "3-diffraction-and-polarization",
+                  "sourceNumber": "3",
+                  "title": "Diffraction and polarization"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "4-current-electricity-and-magnetism",
+          "title": "Current electricity and magnetism",
+          "sourceNumber": "4",
+          "chapters": [
+            {
+              "key": "4-current-electricity-and-magnetism",
+              "sourceNumber": "4",
+              "title": "Current electricity and magnetism",
+              "topics": [
+                {
+                  "key": "4-electrical-quantities",
+                  "sourceNumber": "4",
+                  "title": "Electrical quantities"
+                },
+                {
+                  "key": "4-electrical-circuits",
+                  "sourceNumber": "4",
+                  "title": "Electrical circuits"
+                },
+                {
+                  "key": "4-thermoelectric-effect",
+                  "sourceNumber": "4",
+                  "title": "Thermoelectric effect"
+                },
+                {
+                  "key": "4-alternating-currents",
+                  "sourceNumber": "4",
+                  "title": "Alternating currents"
+                },
+                {
+                  "key": "4-magnetic-properties-of-materials",
+                  "sourceNumber": "4",
+                  "title": "Magnetic properties of materials"
+                },
+                {
+                  "key": "4-magnetic-field",
+                  "sourceNumber": "4",
+                  "title": "Magnetic field"
+                },
+                {
+                  "key": "4-electromagnetic-induction",
+                  "sourceNumber": "4",
+                  "title": "Electromagnetic induction"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "5-electrostatics-and-capacitors",
+          "title": "Electrostatics and capacitors",
+          "sourceNumber": "5",
+          "chapters": [
+            {
+              "key": "5-electrostatics-and-capacitors",
+              "sourceNumber": "5",
+              "title": "Electrostatics and capacitors",
+              "topics": [
+                {
+                  "key": "5-electric-charge-and-electric-field",
+                  "sourceNumber": "5",
+                  "title": "Electric charge and electric field"
+                },
+                {
+                  "key": "5-electric-field-strength-potential-and-potential-energy",
+                  "sourceNumber": "5",
+                  "title": "Electric field strength, potential and potential energy"
+                },
+                {
+                  "key": "5-capacitors",
+                  "sourceNumber": "5",
+                  "title": "Capacitors"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "6-modern-physics",
+          "title": "Modern physics",
+          "sourceNumber": "6",
+          "chapters": [
+            {
+              "key": "6-modern-physics",
+              "sourceNumber": "6",
+              "title": "Modern physics",
+              "topics": [
+                {
+                  "key": "6-nuclear-physics",
+                  "sourceNumber": "6",
+                  "title": "Nuclear physics"
+                },
+                {
+                  "key": "6-electron",
+                  "sourceNumber": "6",
+                  "title": "Electron"
+                },
+                {
+                  "key": "6-wave-particle-duality",
+                  "sourceNumber": "6",
+                  "title": "Wave particle duality"
+                },
+                {
+                  "key": "6-radioactivity",
+                  "sourceNumber": "6",
+                  "title": "Radioactivity"
+                },
+                {
+                  "key": "6-solid-and-semiconductor-device",
+                  "sourceNumber": "6",
+                  "title": "Solid and semiconductor device"
+                },
+                {
+                  "key": "6-particle-physics-and-recent-trends",
+                  "sourceNumber": "6",
+                  "title": "Particle physics and recent trends"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Biology (Zoology + Botany)": {
+      "subjectRef": {
+        "level": "Entrance Preparation",
+        "grade": "CEE",
+        "stream": "CEE entrance (MBBS/BDS/BSc Nursing)",
+        "subject": "Biology (Zoology + Botany)"
+      },
+      "units": [
+        {
+          "key": "1-evolutionary-biology",
+          "title": "Evolutionary Biology",
+          "sourceNumber": "1",
+          "chapters": [
+            {
+              "key": "1-evolutionary-biology",
+              "sourceNumber": "1",
+              "title": "Evolutionary Biology",
+              "topics": [
+                {
+                  "key": "1-evidences-of-evolution",
+                  "sourceNumber": "1",
+                  "title": "Evidences of evolution"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "2-animal-diversity-and-classification",
+          "title": "Animal Diversity and Classification",
+          "sourceNumber": "2",
+          "chapters": [
+            {
+              "key": "2-animal-diversity-and-classification",
+              "sourceNumber": "2",
+              "title": "Animal Diversity and Classification",
+              "topics": [
+                {
+                  "key": "2-animal-diversity-and-classification",
+                  "sourceNumber": "2",
+                  "title": "Animal Diversity and Classification"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "3-animal-tissues-and-histology",
+          "title": "Animal Tissues and Histology",
+          "sourceNumber": "3",
+          "chapters": [
+            {
+              "key": "3-animal-tissues-and-histology",
+              "sourceNumber": "3",
+              "title": "Animal Tissues and Histology",
+              "topics": [
+                {
+                  "key": "3-animal-tissues-and-histology",
+                  "sourceNumber": "3",
+                  "title": "Animal Tissues and Histology"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "4-study-of-selected-animals",
+          "title": "Study of Selected Animals",
+          "sourceNumber": "4",
+          "chapters": [
+            {
+              "key": "4-study-of-selected-animals",
+              "sourceNumber": "4",
+              "title": "Study of Selected Animals",
+              "topics": [
+                {
+                  "key": "4-study-of-selected-animals",
+                  "sourceNumber": "4",
+                  "title": "Study of Selected Animals"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "5-human-biology-and-physiology",
+          "title": "Human Biology and Physiology",
+          "sourceNumber": "5",
+          "chapters": [
+            {
+              "key": "5-human-biology-and-physiology",
+              "sourceNumber": "5",
+              "title": "Human Biology and Physiology",
+              "topics": [
+                {
+                  "key": "5-reproductive-system",
+                  "sourceNumber": "5",
+                  "title": "Reproductive System"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "6-microbial-diseases-and-immunology",
+          "title": "Microbial diseases and Immunology",
+          "sourceNumber": "6",
+          "chapters": [
+            {
+              "key": "6-microbial-diseases-and-immunology",
+              "sourceNumber": "6",
+              "title": "Microbial diseases and Immunology",
+              "topics": [
+                {
+                  "key": "6-microbial-diseases-and-immunology",
+                  "sourceNumber": "6",
+                  "title": "Microbial diseases and Immunology"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "7-medical-technology-and-applied-biology",
+          "title": "Medical Technology and Applied Biology",
+          "sourceNumber": "7",
+          "chapters": [
+            {
+              "key": "7-medical-technology-and-applied-biology",
+              "sourceNumber": "7",
+              "title": "Medical Technology and Applied Biology",
+              "topics": [
+                {
+                  "key": "7-medical-technology-and-applied-biology",
+                  "sourceNumber": "7",
+                  "title": "Medical Technology and Applied Biology"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "8-biota-environment-and-conservation",
+          "title": "Biota, Environment and Conservation",
+          "sourceNumber": "8",
+          "chapters": [
+            {
+              "key": "8-biota-environment-and-conservation",
+              "sourceNumber": "8",
+              "title": "Biota, Environment and Conservation",
+              "topics": [
+                {
+                  "key": "8-biota-environment-and-conservation",
+                  "sourceNumber": "8",
+                  "title": "Biota, Environment and Conservation"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "1-basic-components-of-life",
+          "title": "Basic Components of Life",
+          "sourceNumber": "1",
+          "chapters": [
+            {
+              "key": "1-basic-components-of-life",
+              "sourceNumber": "1",
+              "title": "Basic Components of Life",
+              "topics": [
+                {
+                  "key": "1-basic-components-of-life",
+                  "sourceNumber": "1",
+                  "title": "Basic Components of Life"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "2-biodiversity",
+          "title": "Biodiversity",
+          "sourceNumber": "2",
+          "chapters": [
+            {
+              "key": "2-biodiversity",
+              "sourceNumber": "2",
+              "title": "Biodiversity",
+              "topics": [
+                {
+                  "key": "2-monera-and-virus",
+                  "sourceNumber": "2",
+                  "title": "Monera & Virus"
+                },
+                {
+                  "key": "2-gymnosperms",
+                  "sourceNumber": "2",
+                  "title": "Gymnosperms"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "3-ecology-and-vegetation",
+          "title": "Ecology & Vegetation",
+          "sourceNumber": "3",
+          "chapters": [
+            {
+              "key": "3-ecology-and-vegetation",
+              "sourceNumber": "3",
+              "title": "Ecology & Vegetation",
+              "topics": [
+                {
+                  "key": "3-ecology-and-vegetation",
+                  "sourceNumber": "3",
+                  "title": "Ecology & Vegetation"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "4-cell-biology",
+          "title": "Cell Biology",
+          "sourceNumber": "4",
+          "chapters": [
+            {
+              "key": "4-cell-biology",
+              "sourceNumber": "4",
+              "title": "Cell Biology",
+              "topics": [
+                {
+                  "key": "4-cell-biology",
+                  "sourceNumber": "4",
+                  "title": "Cell Biology"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "5-genetics",
+          "title": "Genetics",
+          "sourceNumber": "5",
+          "chapters": [
+            {
+              "key": "5-genetics",
+              "sourceNumber": "5",
+              "title": "Genetics",
+              "topics": [
+                {
+                  "key": "5-genetics",
+                  "sourceNumber": "5",
+                  "title": "Genetics"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "6-plant-anatomy",
+          "title": "Plant Anatomy",
+          "sourceNumber": "6",
+          "chapters": [
+            {
+              "key": "6-plant-anatomy",
+              "sourceNumber": "6",
+              "title": "Plant Anatomy",
+              "topics": [
+                {
+                  "key": "6-plant-anatomy",
+                  "sourceNumber": "6",
+                  "title": "Plant Anatomy"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "7-plant-physiology",
+          "title": "Plant Physiology",
+          "sourceNumber": "7",
+          "chapters": [
+            {
+              "key": "7-plant-physiology",
+              "sourceNumber": "7",
+              "title": "Plant Physiology",
+              "topics": [
+                {
+                  "key": "7-plant-physiology",
+                  "sourceNumber": "7",
+                  "title": "Plant Physiology"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "8-developmental-botany",
+          "title": "Developmental Botany",
+          "sourceNumber": "8",
+          "chapters": [
+            {
+              "key": "8-developmental-botany",
+              "sourceNumber": "8",
+              "title": "Developmental Botany",
+              "topics": [
+                {
+                  "key": "8-developmental-botany",
+                  "sourceNumber": "8",
+                  "title": "Developmental Botany"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "9-applied-botany",
+          "title": "Applied Botany",
+          "sourceNumber": "9",
+          "chapters": [
+            {
+              "key": "9-applied-botany",
+              "sourceNumber": "9",
+              "title": "Applied Botany",
+              "topics": [
+                {
+                  "key": "9-applied-botany",
+                  "sourceNumber": "9",
+                  "title": "Applied Botany"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,387 @@
+{
+  "lessons": [
+    {
+      "idKey": "neb-g11-physics-vector-laws",
+      "pathwayFile": "neb-physics-2076",
+      "grade": "11",
+      "unitSourceNumber": "1",
+      "chapterSourceNumber": "2",
+      "topicSourceNumber": "2.1",
+      "subjectRef": { "level": "NEB", "grade": "11", "stream": "Science", "subject": "Physics" },
+      "title": "Adding vectors: triangle, parallelogram and polygon laws",
+      "description": "An original lesson on the Grade 11 Physics topic \"Triangle, parallelogram and polygon laws of vectors\" (CDC 2076, Mechanics).",
+      "reviewStatus": "original-reviewed",
+      "content": {
+        "introduction": "Two displacements of the same size in different directions do not combine the way two distances do. Vectors add by geometry, and the three classical laws — triangle, parallelogram and polygon — are three views of the same idea. This lesson explains each law, shows when each is convenient, and works through a solved example you can reproduce in the exam.",
+        "sections": [
+          {
+            "heading": "The triangle law",
+            "body": "To add two vectors, draw the first vector to scale and direction. From its tip, draw the second vector. The resultant is the single arrow drawn from the tail of the first to the tip of the second. Because the second vector starts where the first ends, the two sides plus the resultant form a triangle — this is the triangle law. The order of drawing does not change the resultant's length, which is why addition of vectors is commutative."
+          },
+          {
+            "heading": "The parallelogram law",
+            "body": "Place both vectors so that their tails meet at one point. Complete the parallelogram using these two vectors as adjacent sides. The diagonal through the shared tail is the resultant. This view makes the magnitude of the resultant easy to estimate: when the vectors point along the same line the diagonal is their sum; when they point opposite ways it is their difference; and when they are perpendicular the magnitude follows from the Pythagorean theorem."
+          },
+          {
+            "heading": "The polygon law",
+            "body": "For more than two vectors, keep applying the triangle law: draw the first vector, then the second from the first one's tip, the third from the second one's tip, and so on. Joining the very start to the very end gives the resultant, and the open chain of vectors plus the resultant closes into a polygon. If the vectors already form a closed polygon, the resultant is zero — the body returns to its starting point."
+          },
+          {
+            "heading": "Worked example",
+            "body": "A boat travels 3.0 km due east, then 4.0 km due north. By the triangle law the resultant is the hypotenuse of a right triangle with legs 3.0 km and 4.0 km, so its magnitude is the square root of (3.0² + 4.0²) = 5.0 km. The direction is found from tan θ = 4.0/3.0, giving θ ≈ 53° north of east. In an exam answer, state the scale, show the construction, and quote both magnitude and direction — a vector answer without direction is incomplete."
+          },
+          {
+            "heading": "Common mistakes to avoid",
+            "body": "Do not add vectors as plain numbers unless they point along the same line. Do not mix up which angle enters the resultant formula: the parallelogram formula uses the angle between the vectors when they are placed tail-to-tail, not the interior angle of the triangle. When a question gives a scale (for example, 1 cm = 1 km), keep every drawn length on that same scale."
+          }
+        ],
+        "keyIdea": "Vectors add head to tail: the resultant closes the chain, and the triangle, parallelogram and polygon laws are three ways of drawing that same closing arrow."
+      },
+      "practice": [
+        {
+          "question": "A particle moves 5 m east and then 12 m north. What is the magnitude of its resultant displacement?",
+          "options": ["7 m", "13 m", "17 m", "60 m"],
+          "answerIndex": 1,
+          "explanation": "The two displacements are perpendicular, so the resultant is the hypotenuse: √(5² + 12²) = √169 = 13 m.",
+          "difficulty": 2
+        },
+        {
+          "question": "Two forces of equal magnitude act on a point with an angle of 120° between them. The magnitude of the resultant is:",
+          "options": ["Zero", "Equal to either force", "Twice either force", "Half either force"],
+          "answerIndex": 1,
+          "explanation": "For two equal forces F with 120° between them, the parallelogram is two equilateral triangles, so the resultant magnitude equals F itself.",
+          "difficulty": 3
+        },
+        {
+          "question": "In the triangle law of vector addition, the resultant is drawn:",
+          "options": [
+            "From the tip of the first vector to the tail of the second",
+            "From the tail of the first vector to the tip of the second",
+            "Along the common side of the two vectors",
+            "From the midpoint of the first vector to the tip of the second"
+          ],
+          "answerIndex": 1,
+          "explanation": "The second vector is placed at the tip of the first, and the resultant closes the triangle from the first vector's tail to the second vector's tip.",
+          "difficulty": 1
+        },
+        {
+          "question": "Three displacements form a closed triangle when added head to tail. Their resultant is:",
+          "options": ["Equal to the longest side", "Zero", "Equal to the perimeter", "Cannot be determined"],
+          "answerIndex": 1,
+          "explanation": "A closed chain means the end point coincides with the start point, so the net displacement (the closing vector) has zero magnitude.",
+          "difficulty": 2
+        },
+        {
+          "question": "Two vectors of magnitudes 6 and 8 act at right angles. The direction of the resultant makes an angle θ with the 6-unit vector where tan θ is:",
+          "options": ["3/4", "4/3", "6/8", "8/14"],
+          "answerIndex": 1,
+          "explanation": "tan θ = (component opposite to θ)/(component adjacent to θ) = 8/6 = 4/3, so θ ≈ 53° from the 6-unit vector.",
+          "difficulty": 2
+        }
+      ]
+    },
+    {
+      "idKey": "neb-g11-chemistry-stoichiometry",
+      "pathwayFile": "neb-chemistry-2076",
+      "grade": "11",
+      "unitSourceNumber": "1",
+      "chapterSourceNumber": "2",
+      "topicSourceNumber": "2.2",
+      "subjectRef": { "level": "NEB", "grade": "11", "stream": "Science", "subject": "Chemistry" },
+      "title": "Laws of stoichiometry and the mole bridge",
+      "description": "An original lesson on the Grade 11 Chemistry topic \"Laws of stoichiometry\" (CDC 2076, General and Physical Chemistry).",
+      "reviewStatus": "original-reviewed",
+      "content": {
+        "introduction": "Stoichiometry is the bookkeeping of chemical reactions: how much reactant turns into how much product. The laws behind it — conservation of mass, definite and multiple proportions — all trace back to atoms coming in fixed whole-number ratios. This lesson states each law, connects them to the mole, and walks through a typical NEB calculation.",
+        "sections": [
+          {
+            "heading": "The laws you must know",
+            "body": "The law of conservation of mass says mass is neither created nor destroyed in a chemical reaction: the total mass of reactants equals the total mass of products. The law of definite proportions says a pure compound always contains the same elements in the same fixed mass ratio, no matter how it was made. The law of multiple proportions applies when two elements form more than one compound: the masses of one element that combine with a fixed mass of the other are in a ratio of small whole numbers."
+          },
+          {
+            "heading": "From ratios to moles",
+            "body": "A balanced equation is a ratio statement in particles, which we scale to moles because one mole always contains the same number of particles (Avogadro's number, about 6.022 × 10²³). The molar mass in grams numerically equals the relative formula mass. Once masses are converted to moles, the coefficients of the balanced equation tell you exactly how many moles of each substance react or form."
+          },
+          {
+            "heading": "A worked calculation",
+            "body": "For the reaction N₂ + 3H₂ → 2NH₃, ask how many grams of ammonia form from 5.6 g of nitrogen. Convert: molar mass of N₂ is 28 g/mol, so 5.6 g is 0.2 mol. The equation says 1 mol N₂ yields 2 mol NH₃, so 0.2 mol yields 0.4 mol NH₃. Molar mass of NH₃ is 17 g/mol, so the product mass is 0.4 × 17 = 6.8 g. Every step is a conversion — mass to moles, moles across the equation, moles back to mass."
+          },
+          {
+            "heading": "Limiting reagent in exam questions",
+            "body": "When quantities of both reactants are given, compute the mole ratio each would need and compare it with the available amounts. The reactant that runs out first limits the yield; all yield calculations then follow from it. NEB and entrance questions often disguise this by giving masses of both reactants — convert both to moles before comparing."
+          }
+        ],
+        "keyIdea": "Balance the equation, convert masses to moles, then use the coefficients as the reaction's recipe — almost every stoichiometry problem is these three steps in order."
+      },
+      "practice": [
+        {
+          "question": "How many moles are present in 8.0 g of oxygen atoms?",
+          "options": ["0.25 mol", "0.5 mol", "2.0 mol", "8.0 mol"],
+          "answerIndex": 1,
+          "explanation": "Molar mass of O is 16 g/mol, so 8.0 g ÷ 16 g/mol = 0.5 mol.",
+          "difficulty": 1
+        },
+        {
+          "question": "In the reaction 2H₂ + O₂ → 2H₂O, the mass of water formed from 4 g of H₂ is:",
+          "options": ["4 g", "18 g", "36 g", "9 g"],
+          "answerIndex": 2,
+          "explanation": "4 g H₂ is 2 mol; the equation yields 2 mol H₂O per 2 mol H₂, so 2 mol × 18 g/mol = 36 g.",
+          "difficulty": 2
+        },
+        {
+          "question": "Two different samples of a pure compound always contain the same elements in the same mass ratio. This statement is:",
+          "options": [
+            "The law of conservation of mass",
+            "The law of definite proportions",
+            "The law of multiple proportions",
+            "Avogadro's law"
+          ],
+          "answerIndex": 1,
+          "explanation": "Fixed composition by mass for a pure compound, regardless of source, is the law of definite proportions.",
+          "difficulty": 1
+        },
+        {
+          "question": "Carbon forms CO and CO₂. For a fixed mass of carbon, the masses of oxygen combining are in the ratio:",
+          "options": ["1:1", "1:2", "2:1", "12:16"],
+          "answerIndex": 1,
+          "explanation": "CO has one oxygen atom per carbon, CO₂ two, so the oxygen masses are in the simple whole-number ratio 1:2 — the law of multiple proportions.",
+          "difficulty": 3
+        },
+        {
+          "question": "The number of particles in one mole of any substance is:",
+          "options": ["6.022 × 10²³", "3.00 × 10⁸", "1.602 × 10⁻¹⁹", "9.81"],
+          "answerIndex": 0,
+          "explanation": "Avogadro's number, 6.022 × 10²³ particles per mole, is the bridge between the particle scale and the laboratory scale.",
+          "difficulty": 1
+        }
+      ]
+    },
+    {
+      "idKey": "neb-g11-biology-cell-structure",
+      "pathwayFile": "neb-biology-2076",
+      "grade": "11",
+      "chapterSourceNumber": "1",
+      "topicSourceNumber": "1.2",
+      "subjectRef": { "level": "NEB", "grade": "11", "stream": "Science", "subject": "Biology" },
+      "title": "Prokaryotic and eukaryotic cells: structure and function",
+      "description": "An original lesson on the Grade 11 Biology topic \"Cell\" (CDC 2076, Biomolecules and Cell Biology).",
+      "reviewStatus": "original-reviewed",
+      "content": {
+        "introduction": "Every living organism is built from cells, and the single biggest division in cell biology is between prokaryotic and eukaryotic cells. This lesson compares the two, then tours the organelles of the eukaryotic cell and pairs each structure with the job it does — the pattern the NEB exam rewards.",
+        "sections": [
+          {
+            "heading": "Prokaryotic vs eukaryotic",
+            "body": "Prokaryotic cells (bacteria and archaea) are smaller and simpler: their genetic material floats in the cytoplasm without a surrounding nuclear membrane, and they lack membrane-bound organelles. Eukaryotic cells (plants, animals, fungi, protists) keep their DNA inside a nucleus and contain membrane-bound organelles such as mitochondria and plastids. Almost all the differences in cell size, compartmentalisation and complexity follow from this one distinction."
+          },
+          {
+            "heading": "The boundary and the interior",
+            "body": "The cell membrane is a selectively permeable phospholipid barrier that controls what enters and leaves. Cytoplasm is the aqueous interior where many metabolic reactions occur. In plant cells a cellulose wall outside the membrane provides shape and support, and a large central vacuole stores water and maintains turgor pressure."
+          },
+          {
+            "heading": "Information and energy organelles",
+            "body": "The nucleus stores most of the genetic material as chromosomes and directs cell activity through RNA. Ribosomes build proteins from mRNA instructions. Mitochondria release usable energy from food molecules through cellular respiration. In plant cells, chloroplasts capture light energy to make food, and both mitochondria and chloroplasts carry their own small genomes — a remnant of their independent evolutionary origins."
+          },
+          {
+            "heading": "Matching structure to function",
+            "body": "Exam questions rarely ask for a bare list; they describe a job and ask which structure performs it. Practice the pairings: transport across a boundary — cell membrane; protein assembly — ribosomes; ATP release — mitochondria; photosynthesis — chloroplasts; waste water and storage — vacuoles; instruction storage — nucleus. When you revise, cover one column of the pairing and recall the other."
+          }
+        ],
+        "keyIdea": "Prokaryotes lack a nucleus and membrane-bound organelles; eukaryotes compartmentalise — and every organelle's exam answer is a structure-to-function pairing."
+      },
+      "practice": [
+        {
+          "question": "Which structure is present in eukaryotic cells but absent in prokaryotic cells?",
+          "options": ["Cell membrane", "Ribosomes", "A membrane-bound nucleus", "Cytoplasm"],
+          "answerIndex": 2,
+          "explanation": "Both groups have cell membranes, ribosomes and cytoplasm; the defining eukaryotic feature — a membrane-bound nucleus enclosing the DNA — is what prokaryotes lack.",
+          "difficulty": 2
+        },
+        {
+          "question": "The organelle mainly responsible for releasing usable energy from food is:",
+          "options": ["Mitochondrion", "Chloroplast", "Ribosome", "Golgi apparatus"],
+          "answerIndex": 0,
+          "explanation": "Mitochondria carry out cellular respiration, converting energy in food molecules into ATP the cell can use.",
+          "difficulty": 1
+        },
+        {
+          "question": "Which cell structure contains most of a eukaryotic cell's genetic material?",
+          "options": ["Nucleus", "Vacuole", "Lysosome", "Cell wall"],
+          "answerIndex": 0,
+          "explanation": "In eukaryotes the chromosomes are enclosed within the nucleus, which holds most of the cell's DNA.",
+          "difficulty": 1
+        },
+        {
+          "question": "The selectively permeable boundary that controls entry and exit of substances is the:",
+          "options": ["Cell wall", "Cell membrane", "Endoplasmic reticulum", "Nuclear envelope"],
+          "answerIndex": 1,
+          "explanation": "The phospholipid cell membrane is selectively permeable; a cell wall (where present) is fully permeable and mainly structural.",
+          "difficulty": 2
+        },
+        {
+          "question": "Chloroplasts are found in:",
+          "options": ["Animal cells only", "Plant cells only", "Both plant and animal cells", "Prokaryotic cells"],
+          "answerIndex": 1,
+          "explanation": "Chloroplasts, the sites of photosynthesis, occur in plant cells (and algae); animal cells do not have them.",
+          "difficulty": 1
+        }
+      ]
+    },
+    {
+      "idKey": "ioe-physics-newtons-laws",
+      "pathwayFile": "ioe-entrance",
+      "grade": "Physics",
+      "unitSourceNumber": "1",
+      "chapterSourceNumber": "1",
+      "topicSourceNumber": "1.2",
+      "subjectRef": {
+        "level": "Entrance Preparation",
+        "grade": "IOE",
+        "stream": "IOE entrance (B.E./B.Arch.)",
+        "subject": "Physics"
+      },
+      "title": "Newton's laws, friction and linear momentum for the IOE entrance",
+      "description": "An original lesson on the IOE B.E./B.Arch. entrance topic \"Newton's Laws of Motion and Friction\" (IOE syllabus 2083, Physics 1.2).",
+      "reviewStatus": "original-reviewed",
+      "content": {
+        "introduction": "Newton's three laws are the backbone of the IOE Physics entrance; almost every mechanics question can be traced back to one of them. This lesson states each law precisely, develops the friction and momentum ideas the syllabus lists with them, and shows the standard solution pattern for entrance-style problems.",
+        "sections": [
+          {
+            "heading": "The three laws, precisely",
+            "body": "A body remains at rest or in uniform motion in a straight line unless an external resultant force acts on it (first law). The acceleration of a body is proportional to the resultant force and inversely proportional to its mass, in the direction of that force — F = ma (second law). To every action there is an equal and opposite reaction, acting on different bodies (third law). The first law defines inertia and the idea of a resultant; the second law quantifies it; the third explains where forces come from."
+          },
+          {
+            "heading": "Friction: solid and limiting cases",
+            "body": "Solid friction opposes relative motion between surfaces in contact. Its limiting (maximum) value is proportional to the normal reaction, f ≤ μN, where μ is the coefficient of friction. Kinetic friction acts while surfaces slide; static friction adjusts up to its limit before sliding begins. Because friction always opposes slipping, its direction must be decided from the relative motion — a classic entrance trap is choosing it incorrectly on an accelerating vehicle."
+          },
+          {
+            "heading": "Linear momentum and its conservation",
+            "body": "Linear momentum is p = mv. A resultant force changes momentum at the rate F = dp/dt; when the resultant force on a system is zero, total momentum is conserved. Collisions, rocket ejection and recoil problems are all solved the same way: identify the isolated system, equate total momentum before and after, and solve. Conservation of momentum holds even when kinetic energy is not conserved (inelastic collisions)."
+          },
+          {
+            "heading": "The standard solution pattern",
+            "body": "For entrance problems: (1) draw a free-body diagram showing every force on the body of interest; (2) choose axes along and perpendicular to the acceleration; (3) write ΣF = ma along the acceleration direction and ΣF = 0 in the perpendicular direction; (4) solve the equations. Practise this sequence until it is automatic — the numbers change, the sequence never does."
+          }
+        ],
+        "keyIdea": "Forces cause momentum change, not motion itself: draw the free-body diagram, resolve along the acceleration, and apply F = ma — friction and collisions are variations on that same pattern."
+      },
+      "practice": [
+        {
+          "question": "A body of mass 5 kg is pulled with a resultant force of 20 N. Its acceleration is:",
+          "options": ["0.25 m/s²", "4 m/s²", "25 m/s²", "100 m/s²"],
+          "answerIndex": 1,
+          "explanation": "From F = ma, a = F/m = 20/5 = 4 m/s².",
+          "difficulty": 1
+        },
+        {
+          "question": "A 10 kg block rests on a horizontal surface with μ = 0.3 and g = 10 m/s². The minimum horizontal force to start it sliding is:",
+          "options": ["3 N", "30 N", "33 N", "100 N"],
+          "answerIndex": 1,
+          "explanation": "Normal reaction N = mg = 100 N; limiting friction = μN = 0.3 × 100 = 30 N.",
+          "difficulty": 2
+        },
+        {
+          "question": "A rifle of mass 4 kg fires a bullet of mass 0.01 kg at 400 m/s. The recoil velocity of the rifle is:",
+          "options": ["1 m/s", "0.1 m/s", "10 m/s", "0.001 m/s"],
+          "answerIndex": 0,
+          "explanation": "Momentum conservation: 4 × v = 0.01 × 400 → v = 4/4 = 1 m/s opposite to the bullet.",
+          "difficulty": 3
+        },
+        {
+          "question": "Which statement best expresses Newton's first law?",
+          "options": [
+            "Force equals mass times acceleration",
+            "A body keeps its state of rest or uniform motion unless a resultant force acts",
+            "Every action has an equal and opposite reaction",
+            "Momentum is always conserved"
+          ],
+          "answerIndex": 1,
+          "explanation": "The first law is the law of inertia: no resultant force means no change of state of motion.",
+          "difficulty": 1
+        },
+        {
+          "question": "In a perfectly inelastic collision between two bodies, which quantity is conserved?",
+          "options": ["Kinetic energy only", "Linear momentum only", "Both kinetic energy and momentum", "Neither"],
+          "answerIndex": 1,
+          "explanation": "Momentum is conserved in all collisions (zero net external force); kinetic energy is lost to deformation and heat in inelastic collisions.",
+          "difficulty": 2
+        }
+      ]
+    },
+    {
+      "idKey": "cee-physics-kinematics",
+      "pathwayFile": "cee-entrance",
+      "grade": "Physics",
+      "unitSourceNumber": "1",
+      "chapterSourceNumber": "1",
+      "topicTitle": "Kinematics",
+      "subjectRef": {
+        "level": "Entrance Preparation",
+        "grade": "CEE",
+        "stream": "CEE entrance (MBBS/BDS/BSc Nursing)",
+        "subject": "Physics"
+      },
+      "title": "Linear and projectile motion for the medical CEE",
+      "description": "An original lesson on the MEC CEE Physics topic \"Kinematics\" (MEC syllabus 2020, revised 2026, Physics unit 1).",
+      "reviewStatus": "original-reviewed",
+      "content": {
+        "introduction": "Kinematics describes motion without asking what causes it, and it carries a steady share of the medical entrance Physics questions. This lesson organises the equations of uniformly accelerated motion, then treats projectile motion as two independent one-dimensional motions happening at once — the idea that solves most numericals quickly.",
+        "sections": [
+          {
+            "heading": "Equations of uniformly accelerated motion",
+            "body": "For constant acceleration a, initial velocity u and time t: v = u + at, s = ut + ½at², and v² = u² + 2as. Choose the equation that links the three quantities you know and the one you need; memorising all three as a family saves decision time in the exam. Sign convention is part of the method: fix a positive direction before substituting, and keep signs consistent throughout."
+          },
+          {
+            "heading": "Graphs as evidence",
+            "body": "On a displacement–time graph the gradient is velocity; on a velocity–time graph the gradient is acceleration and the area under the curve is displacement. Questions that describe a graph in words are usually testing exactly these two readings. A straight line on a velocity–time graph means constant acceleration; a horizontal line means zero acceleration, not zero velocity."
+          },
+          {
+            "heading": "Free fall and vertical motion",
+            "body": "Near the Earth's surface, a body in free fall accelerates downward at g ≈ 9.8 m/s² regardless of mass (air resistance neglected). Symmetry helps: a ball thrown upward takes the same time to rise as to fall back to its launch height, and its speed at every height on the way down equals its speed at that height on the way up. Questions about maximum height and time of flight reduce to these symmetries plus v = u + at."
+          },
+          {
+            "heading": "Projectile motion: split it in two",
+            "body": "A projectile launched with speed v at angle θ has horizontal velocity component v cos θ (constant, no acceleration) and vertical component v sin θ (accelerating downward at g). Time of flight T = 2v sin θ / g, maximum height H = v² sin²θ / (2g), and range R = v² sin 2θ / g. Solve the two directions separately and combine only at the end — that single habit prevents most projectile errors."
+          }
+        ],
+        "keyIdea": "Constant acceleration gives three linked equations; a projectile is one horizontal motion with zero acceleration plus one vertical free fall — solve them separately and combine at the end."
+      },
+      "practice": [
+        {
+          "question": "A car starting from rest accelerates uniformly at 2 m/s² for 10 s. The distance covered is:",
+          "options": ["20 m", "100 m", "200 m", "400 m"],
+          "answerIndex": 1,
+          "explanation": "s = ut + ½at² = 0 + ½ × 2 × 10² = 100 m.",
+          "difficulty": 1
+        },
+        {
+          "question": "A stone is thrown vertically up with 20 m/s (g = 10 m/s²). Its maximum height is:",
+          "options": ["10 m", "20 m", "40 m", "5 m"],
+          "answerIndex": 1,
+          "explanation": "At the top v = 0, so 0 = 20² − 2 × 10 × H gives H = 400/20 = 20 m.",
+          "difficulty": 2
+        },
+        {
+          "question": "The horizontal component of a projectile's velocity, neglecting air resistance:",
+          "options": ["Increases with height", "Decreases with height", "Stays constant", "Is zero at launch"],
+          "answerIndex": 2,
+          "explanation": "No horizontal force acts on the projectile, so its horizontal velocity component never changes.",
+          "difficulty": 1
+        },
+        {
+          "question": "On a velocity–time graph, the area under the curve represents:",
+          "options": ["Acceleration", "Displacement", "Force", "Momentum"],
+          "answerIndex": 1,
+          "explanation": "Velocity multiplied by time integrates to displacement, so the area under a v–t graph is the displacement.",
+          "difficulty": 2
+        },
+        {
+          "question": "A ball is thrown at 45° for maximum range (same speed). If instead it is thrown at 30°, its range:",
+          "options": ["Increases", "Stays the same", "Decreases", "Becomes zero"],
+          "answerIndex": 2,
+          "explanation": "Range ∝ sin 2θ; sin 90° = 1 is the maximum, so sin 60° < 1 and the range at 30° is smaller.",
+          "difficulty": 3
+        }
+      ]
+    }
+  ]
+}

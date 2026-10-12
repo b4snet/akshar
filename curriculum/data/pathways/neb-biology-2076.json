@@ -1,0 +1,483 @@
+{
+  "pathway": "neb-biology-2076",
+  "sourceId": "src-cdc-part3",
+  "curriculumVersionId": "cv-neb-opt-2076",
+  "grade": "11 and 12",
+  "locator": "Grade 11–12 Biology curriculum, Scope and Sequence of Contents (Part A Botany, Part B Zoology)",
+  "gradeBlocks": {
+    "11": {
+      "subjectRef": {
+        "level": "NEB",
+        "grade": "11",
+        "stream": "Science",
+        "subject": "Biology"
+      },
+      "units": [
+        {
+          "key": "botany",
+          "title": "Botany",
+          "chapters": [
+            {
+              "key": "biomolecules-and-cell-biology",
+              "sourceNumber": "1",
+              "title": "Biomolecules & Cell Biology",
+              "part": "Botany",
+              "topics": [
+                {
+                  "key": "1-1",
+                  "sourceNumber": "1.1",
+                  "title": "Biomolecules: Introduction and functions of: carbohydrates, proteins, lipids, nucleic acids, minerals, enzymes and water."
+                },
+                {
+                  "key": "1-2",
+                  "sourceNumber": "1.2",
+                  "title": "Cell: Introduction of cell, concepts of prokaryotic and eukaryotic cells, detail structure of eukaryotic cells (composition, structure and functions of cell wall, cell membrane, mitochondria, plastids, endoplasmic reticulum, golgi bodies, lysosomes, ribosomes, nucleus, chromosomes, cilia, flagella and cell inclusions."
+                },
+                {
+                  "key": "1-3",
+                  "sourceNumber": "1.3",
+                  "title": "Cell division : Concept of cell cycle, types of cell division (amitosis, mitosis and meiosis) and significances"
+                }
+              ]
+            },
+            {
+              "key": "floral-diversity",
+              "sourceNumber": "2",
+              "title": "Floral Diversity",
+              "part": "Botany",
+              "topics": [
+                {
+                  "key": "2-1",
+                  "sourceNumber": "2.1",
+                  "title": "Introduction: Three domains of life, binomial nomenclature, five kingdom classification system (Monera, Protista, Fungi, Plantae and Animalia); status of flora in Nepal and world representation"
+                },
+                {
+                  "key": "2-2",
+                  "sourceNumber": "2.2",
+                  "title": "Fungi: General introduction and characteristic features of phycomycetes, ascomycetes, basidiomycetes and deuteromycetes; structure and Reproduction of Mucor and Yeast, introduction of Mushrooms, poisonous and non-poisonous mushrooms, economic importance of fungi."
+                },
+                {
+                  "key": "2-3",
+                  "sourceNumber": "2.3",
+                  "title": "Lichen: General introduction, characteristic features and economic importance of lichen"
+                },
+                {
+                  "key": "2-4",
+                  "sourceNumber": "2.4",
+                  "title": "Algae: General introduction and characteristic feature of green, brown and red algae; structure and reproduction of Spirogyra. Economic importance of algae"
+                },
+                {
+                  "key": "2-5",
+                  "sourceNumber": "2.5",
+                  "title": "Bryophyta: General introduction and characteristic features of liverworts, hornworts and moss; morphological structure and reproduction of Marchantia. Economic importance of bryophytes"
+                },
+                {
+                  "key": "2-6",
+                  "sourceNumber": "2.6",
+                  "title": "Pteridophyta: General introduction and characteristic features of pteridophytes; morphological structure and reproduction of Dryopteris. Economic importance of pteridophytes"
+                },
+                {
+                  "key": "2-7",
+                  "sourceNumber": "2.7",
+                  "title": "Gymnosperm: General introduction and characteristic features of Gymnosperms; morphology and reproduction of Pinus. Economic importance of gymnosperm"
+                },
+                {
+                  "key": "2-8",
+                  "sourceNumber": "2.8",
+                  "title": "Angiosperm: Morphology (root, stem, leaves, inflorescences, flowers and fruit); Taxonomic study: Definition, taxonomic hierarchy, classification systems (artificial, natural and phylogenetic) of angiosperms, taxonomic description of the families - Brassicaceae, Fabaceae, Solanaceae, and Liliaceae with economic importance"
+                }
+              ]
+            },
+            {
+              "key": "introductory-microbiology",
+              "sourceNumber": "3",
+              "title": "Introductory Microbiology",
+              "part": "Botany",
+              "topics": [
+                {
+                  "key": "3-1",
+                  "sourceNumber": "3.1",
+                  "title": "Monera: General introduction, structure of bacterial cell, mode of nutrition, bacterial growth; cyanobacteria (blue green algae)."
+                },
+                {
+                  "key": "3-2",
+                  "sourceNumber": "3.2",
+                  "title": "Virus: General introduction, structure and importance of virus, bacteriophage"
+                },
+                {
+                  "key": "3-3",
+                  "sourceNumber": "3.3",
+                  "title": "Impacts of biotechnology in the field of microbiology."
+                }
+              ]
+            },
+            {
+              "key": "ecology",
+              "sourceNumber": "4",
+              "title": "Ecology",
+              "part": "Botany",
+              "topics": [
+                {
+                  "key": "4-1",
+                  "sourceNumber": "4.1",
+                  "title": "Ecosystem ecology: Concept of ecology, biotic and abiotic factors, species interactions; concept of ecosystem, structural and functional aspects of pond and forest ecosystem, food chain, food web, trophic level, ecological pyramids, productivity, biogeochemical cycle carbon and nitrogen cycles, concept of succession."
+                },
+                {
+                  "key": "4-2",
+                  "sourceNumber": "4.2",
+                  "title": "Ecological Adaptation: Concept of adaptation, hydrophytes and xerophytes."
+                },
+                {
+                  "key": "4-3",
+                  "sourceNumber": "4.3",
+                  "title": "Ecological Imbalances: Green house effects and climate change, depletion of ozone layer, acid rain and biological invasion."
+                }
+              ]
+            },
+            {
+              "key": "vegetation",
+              "sourceNumber": "5",
+              "title": "Vegetation vegetation in Nepal, concept of In-situ garden, seed bank) conservation. human activities",
+              "part": "Botany",
+              "topics": [
+                {
+                  "key": "vegetation",
+                  "sourceNumber": "5",
+                  "title": "Vegetation vegetation in Nepal, concept of In-situ garden, seed bank) conservation. human activities"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "zoology",
+          "title": "Zoology",
+          "chapters": [
+            {
+              "key": "introduction-to-biology",
+              "sourceNumber": "6",
+              "title": "Introduction to Biology",
+              "part": "Zoology",
+              "topics": [
+                {
+                  "key": "6-1",
+                  "sourceNumber": "6.1",
+                  "title": "Introduction to Biology: Scope and fields of biology. Relation with other science."
+                }
+              ]
+            },
+            {
+              "key": "evolutionary-biology",
+              "sourceNumber": "7",
+              "title": "Evolutionary Biology",
+              "part": "Zoology",
+              "topics": [
+                {
+                  "key": "7-1",
+                  "sourceNumber": "7.1",
+                  "title": "Life and its Origin: Oparin-Haldane theory, Miller and Urey's experiment."
+                },
+                {
+                  "key": "7-2",
+                  "sourceNumber": "7.2",
+                  "title": "Evidences of evolution: Morphological, Oogenes Anatomical, Paleontological, Embryological and Biochemical."
+                },
+                {
+                  "key": "7-3",
+                  "sourceNumber": "7.3",
+                  "title": "Theories of evolution: Lamarckism, Darwinism & concept of Neo Darwinism."
+                },
+                {
+                  "key": "7-4",
+                  "sourceNumber": "7.4",
+                  "title": "Human evolution: Position of man in animal kingdom. Differences between new world monkeys & old world monkeys, apes & man. Evolution of modern man starting from anthropoid ancestor."
+                }
+              ]
+            },
+            {
+              "key": "faunal-diversity",
+              "sourceNumber": "8",
+              "title": "Faunal Diversity",
+              "part": "Zoology",
+              "topics": [
+                {
+                  "key": "8-1",
+                  "sourceNumber": "8.1",
+                  "title": "Protista: Outline classification. Protozoa: diagnostic features and classification up to class with examples; Paramecium caudatum, Plasmodium vivax - habits and habitat, structure, reproduction, life-cycle and economic importance of P. falciparum."
+                },
+                {
+                  "key": "8-2",
+                  "sourceNumber": "8.2",
+                  "title": "Animalia: Level of organization, body plan, body symmetry, body cavity and segmentation in animals. Diagnostic features and classification of the following phyla (up to class) with examples:Porifera, Coelenterata (Cnidaria), Platyhelminthes, Aschelminthes (Nemathelminthes), Annelida, Arthropoda, Mollusca, Echinodermata and Chordata. Earthworm (Pheretima posthuma): Habit and habitat, External features; Digestive system (alimentary canal & physiology of digestion), Excretory system (types of nephridia, structure and arrangement of septal nephridia), Nervous system (central & peripheral nervous system, working mechanism) & Reproductive systems (male & female reproductive organs), Copulation, Cocoon formation and Economic importance. Frog (Rana tigrina): Habit and habitat, External features, Digestive system (alimentary canal, digestive glands & physiology of digestion), Blood vascular system (structure & working mechanism of heart), Respiratory system (respiratory organs & physiology of respiration) and Reproductive system (male & female reproductive organs)."
+                }
+              ]
+            },
+            {
+              "key": "biota-and-environment",
+              "sourceNumber": "9",
+              "title": "Biota and Environment",
+              "part": "Zoology",
+              "topics": [
+                {
+                  "key": "9-1",
+                  "sourceNumber": "9.1",
+                  "title": "Animal adaptation: Aquatic (Primary & Secondary), Terrestrial (Cursorial, Fossorial & Arboreal) and Volant adaptation."
+                },
+                {
+                  "key": "9-2",
+                  "sourceNumber": "9.2",
+                  "title": "Animal behavior: Reflex action, taxes, dominance and leadership. Fish and bird Migration."
+                },
+                {
+                  "key": "9-3",
+                  "sourceNumber": "9.3",
+                  "title": "Environmental Pollution: Sources, effects and control measures of air, water and soil pollution. Pesticides & their effects."
+                }
+              ]
+            },
+            {
+              "key": "conservation-biology",
+              "sourceNumber": "10",
+              "title": "Conservation Biology",
+              "part": "Zoology",
+              "topics": [
+                {
+                  "key": "10-1",
+                  "sourceNumber": "10.1",
+                  "title": "Conservation Biology: Concept of biodiversity, biodiversity conservation, natio conservation areas, biodiversity hotspots, wetland & Ramsar sites. Wildlife-Importance, causes of extinction and conservation strategies. IUCN categories of threatened species- meaning of extinct, endangered, vulnerable, rare, and threatened species. Endangered species in Nepal."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "12": {
+      "subjectRef": {
+        "level": "NEB",
+        "grade": "12",
+        "stream": "Science",
+        "subject": "Biology"
+      },
+      "units": [
+        {
+          "key": "botany",
+          "title": "Botany",
+          "chapters": [
+            {
+              "key": "plant-anatomy",
+              "sourceNumber": "1",
+              "title": "Plant Anatomy of tissues, types of plant tissues (meristems and permanent tissues), monocot root, stem and leaf Secondary growth of dicot stem.",
+              "part": "Botany",
+              "topics": [
+                {
+                  "key": "plant-anatomy",
+                  "sourceNumber": "1",
+                  "title": "Plant Anatomy of tissues, types of plant tissues (meristems and permanent tissues), monocot root, stem and leaf Secondary growth of dicot stem."
+                }
+              ]
+            },
+            {
+              "key": "plant-physiology",
+              "sourceNumber": "2",
+              "title": "Plant Physiology",
+              "part": "Botany",
+              "topics": [
+                {
+                  "key": "2-1",
+                  "sourceNumber": "2.1",
+                  "title": "Water relation: Introduction and significance of - diffusion, osmosis, and plasmolysis, ascent of sap, transpiration and guttation."
+                },
+                {
+                  "key": "2-2",
+                  "sourceNumber": "2.2",
+                  "title": "Photosynthesis: Introduction and significance of photosynthesis, photosynthetic pigments, mechanism of photosynthesis (photochemical phase and Calvin-Benson cycle), C3 and C4 plants, photorespiration, factors affecting photosynthesis."
+                },
+                {
+                  "key": "2-3",
+                  "sourceNumber": "2.3",
+                  "title": "Respiration: Introduction and significance of respiration, types of respiration, mechanism of respiration (glycolysis, Kreb cycle, electron transport system), factors affecting respiration."
+                },
+                {
+                  "key": "2-4",
+                  "sourceNumber": "2.4",
+                  "title": "Plant hormones: Introduction, physiological effects of auxins, gibberellins and Cytokinins."
+                },
+                {
+                  "key": "2-5",
+                  "sourceNumber": "2.5",
+                  "title": "Plant growth and movement: Concept on seed germination, dormancy, photoperiodism, vernalization, senescence; plant movements (tropic and nastic)."
+                }
+              ]
+            },
+            {
+              "key": "genetics",
+              "sourceNumber": "3",
+              "title": "Genetics and genetic materials, composition, structure and introduction of genetic",
+              "part": "Botany",
+              "topics": [
+                {
+                  "key": "3-2",
+                  "sourceNumber": "3.2",
+                  "title": "Mendelian genetics: General terminology, Mendel's experiment and laws of inheritance, gene interactions (incomplete dominance, codominance)."
+                },
+                {
+                  "key": "3-3",
+                  "sourceNumber": "3.3",
+                  "title": "Linkage and crossing over: Concept and types of linkage (complete and incomplete), sex-linked inheritance (colour blindness in man and eye colour of Drosophila), concept and significances of crossing over."
+                },
+                {
+                  "key": "3-4",
+                  "sourceNumber": "3.4",
+                  "title": "Mutation and polyploidy: Concept, type (gene and chromosomal mutation), importance of mutation (positive and negative), polyploidy (origin and significance)."
+                }
+              ]
+            },
+            {
+              "key": "embryology-asexual-and",
+              "sourceNumber": "4",
+              "title": "Embryology: Asexual and fertilization, development of male and female gametophytes, development of dicot and monocot embryos, concept of endosperm",
+              "part": "Botany",
+              "topics": [
+                {
+                  "key": "embryology-asexual-and",
+                  "sourceNumber": "4",
+                  "title": "Embryology: Asexual and fertilization, development of male and female gametophytes, development of dicot and monocot embryos, concept of endosperm"
+                }
+              ]
+            },
+            {
+              "key": "biotechnology",
+              "sourceNumber": "5",
+              "title": "Biotechnology: disease resistance plants, green manure and biogenetic engineering and modified organisms) and application, bioengineering, food safety and food security.",
+              "part": "Botany",
+              "topics": [
+                {
+                  "key": "biotechnology",
+                  "sourceNumber": "5",
+                  "title": "Biotechnology: disease resistance plants, green manure and biogenetic engineering and modified organisms) and application, bioengineering, food safety and food security."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "zoology",
+          "title": "Zoology",
+          "chapters": [
+            {
+              "key": "animal-tissues",
+              "sourceNumber": "6",
+              "title": "Animal Tissues",
+              "part": "Zoology",
+              "topics": [
+                {
+                  "key": "6-1",
+                  "sourceNumber": "6.1",
+                  "title": "Animal Tissues: Introduction; Types of animal tissues: epithelial, connective, muscular and nervous (structure, functions & location of different sub-types)."
+                }
+              ]
+            },
+            {
+              "key": "developmental-biology",
+              "sourceNumber": "7",
+              "title": "Developmental Biology",
+              "part": "Zoology",
+              "topics": [
+                {
+                  "key": "7-1",
+                  "sourceNumber": "7.1",
+                  "title": "Gametogenesis: Spermatogenesis & is."
+                },
+                {
+                  "key": "7-2",
+                  "sourceNumber": "7.2",
+                  "title": "Development of frog: Fertilization & its effects, cleavage, morulation, blastulation, gastrulation, organogenesis - formation of notochord, nerve cord & coelom."
+                }
+              ]
+            },
+            {
+              "key": "human-biology",
+              "sourceNumber": "8",
+              "title": "Human Biology digestive glands, physiology of digestion.",
+              "part": "Zoology",
+              "topics": [
+                {
+                  "key": "8-2",
+                  "sourceNumber": "8.2",
+                  "title": "Respiratory System: Respiratory organs, respiratory mechanism exchange of gases, transport of gases and regulation of respiration."
+                },
+                {
+                  "key": "8-3",
+                  "sourceNumber": "8.3",
+                  "title": "Circulatory System: Double circulation (concept), heart (structure and working mechanism), origin and conduction of heart beat, cardiac cycle, cardiac output, arterial and venous systems (major arteries and veins), blood grouping, blood pressure."
+                },
+                {
+                  "key": "8-4",
+                  "sourceNumber": "8.4",
+                  "title": "Excretory System: Concept of modes of excretion (ammonotelism, ureotelism, uricotelism), organs, Excretory mechanism of urine formation."
+                },
+                {
+                  "key": "8-5",
+                  "sourceNumber": "8.5",
+                  "title": "Nervous system: Types of nervous system (central, peripheral & autonomous), structure and function of brain, Origin and conduction of nerve impulse."
+                },
+                {
+                  "key": "8-6",
+                  "sourceNumber": "8.6",
+                  "title": "Sense organs: Structure and functions of eye and ear."
+                },
+                {
+                  "key": "8-7",
+                  "sourceNumber": "8.7",
+                  "title": "Endocrinology: Endocrine glands and hormones structure & functions of hypothalamus, pituitary, pineal, thyroid, parathyroid, adrenal, pancreas, gonads; hypo- and hyper-activity and related disorders."
+                },
+                {
+                  "key": "8-8",
+                  "sourceNumber": "8.8",
+                  "title": "Reproductive System: Male and female reproductive organs, ovarian & menstrual cycle."
+                }
+              ]
+            },
+            {
+              "key": "human-population-and",
+              "sourceNumber": "9",
+              "title": "Human Population",
+              "part": "Zoology",
+              "topics": [
+                {
+                  "key": "9-1",
+                  "sourceNumber": "9.1",
+                  "title": "Human Population: Growth problem and control strategies, Concept of demographic cycle."
+                },
+                {
+                  "key": "9-2",
+                  "sourceNumber": "9.2",
+                  "title": "Health disorders: Concept of cardiovascular, respiratory & renal disorders; Substance abuse: Drug, alcohol and smoking abuse."
+                }
+              ]
+            },
+            {
+              "key": "applied-biology",
+              "sourceNumber": "10",
+              "title": "Applied Biology",
+              "part": "Zoology",
+              "topics": [
+                {
+                  "key": "10-1",
+                  "sourceNumber": "10.1",
+                  "title": "Application of Zoology: nal parks, wildlife reserves, Tissue and organs transplantation, in-vitro fertilization (IVF), amniocentesis, concept of genetically modified organisms (transgenic animals). Poultry farming and fish farming."
+                },
+                {
+                  "key": "10-2",
+                  "sourceNumber": "10.2",
+                  "title": "Microbial diseases and application of microbiology: Risk and hazard group of microorganisms. Introduction, causative agents, symptoms, prevention and control measures of selected human diseases: Typhoid, Tuberculosis and HIV infection, cholera, influenza, hepatitis, candidiasis. Basic concepts of immunology-vaccines. Application of microorganisms in dairy and beverage industries, microbial contamination of water, sewage and drinking water treatment, bio-control agents and bio-fertilizers."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
