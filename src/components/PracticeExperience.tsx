@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import type { PublicQuizTrack, QuizId } from "@/lib/quizTypes";
 import { submitQuizAttempt } from "@/app/actions/learning";
+import { RetryIcon } from "@/components/Icon";
 
 type QuizAttemptResult = Awaited<ReturnType<typeof submitQuizAttempt>>;
 
@@ -85,7 +86,7 @@ export default function PracticeExperience({ tracks }: { tracks: PublicQuizTrack
             {quizResult?.status === "saved" ? quizResult.activitySaved ? "Attempt and study activity saved to your account." : "Attempt saved. The activity timeline could not be updated." : quizResult?.status === "unconfigured" ? <>Score checked, not saved. <Link href="/login">Set up Supabase</Link> to enable account progress.</> : quizResult?.status === "signed-out" ? <>Score checked, not saved. <Link href="/login">Log in</Link> to save attempts to your account.</> : quizResult?.status === "database-error" ? "Score checked, but the database rejected the save. Verify the migration and RLS policies; nothing is reported as saved." : quizResult?.status === "auth-error" ? "Score checked, but the session could not be verified. No attempt was saved." : "Quiz result is not available."}
           </div>
           <p>Answers were checked against the server-side sample key. Results are not official exam scores.</p>
-          <div className="quiz-controls result-controls"><button type="button" className="button button-secondary" onClick={chooseAnotherQuiz}>Choose another quiz</button><button type="button" className="button button-primary" onClick={() => startQuiz(activeTrack)}>Restart quiz <span aria-hidden="true">↻</span></button></div>
+          <div className="quiz-controls result-controls"><button type="button" className="button button-secondary" onClick={chooseAnotherQuiz}>Choose another quiz</button><button type="button" className="button button-primary" onClick={() => startQuiz(activeTrack)}>Restart quiz <span aria-hidden="true"><RetryIcon width={13} height={13} /></span></button></div>
         </div>}
       </div>}
     </section>

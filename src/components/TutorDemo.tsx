@@ -2,6 +2,7 @@
 
 import { useRef, useState, type FormEvent } from "react";
 import { askTutor } from "@/app/actions/studyAids";
+import { TutorIcon } from "@/components/Icon";
 
 // Tutor UI. Questions go to the server-side AI service (never a client-side
 // key). When AI is not configured, the built-in sample answers are shown with
@@ -61,7 +62,7 @@ export default function TutorDemo() {
   return (
     <section className="tutor-page-layout" aria-label="Tutor">
       <div className="tutor-page-intro">
-        <div className="tutor-kicker"><span aria-hidden="true">✳</span> AI TUTOR</div>
+        <div className="tutor-kicker"><span className="tutor-callout-mark" aria-hidden="true"><TutorIcon /></span> AI TUTOR</div>
         <h2>Big question?<br />Start somewhere.</h2>
         <p>Ask a question and get a simple starting point. Answers are generated server-side by a configured AI provider — your question never carries an API key.</p>
         <div className="provider-note">
@@ -124,7 +125,7 @@ export default function TutorDemo() {
 
         {!isAsking && !answer && (
           <div className="tutor-empty-answer">
-            <span className="empty-answer-mark" aria-hidden="true">✳</span>
+            <span className="empty-answer-mark" aria-hidden="true"><TutorIcon width={22} height={22} /></span>
             <strong>Your answer will appear here</strong>
             <span>Ask a question or choose an example prompt.</span>
           </div>

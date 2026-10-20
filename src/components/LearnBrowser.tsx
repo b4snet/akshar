@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { loadCurriculumView, setCurriculumSelection, type CurriculumView } from "@/app/actions/curriculum";
 import LessonLibrary from "@/components/LessonLibrary";
+import { SearchIcon } from "@/components/Icon";
 
 // The learning workspace. Every subject shown here was filtered server-side
 // by eligibleSubjects() for the student's selection — the client only ever
@@ -208,7 +209,7 @@ export default function LearnBrowser({ initialGrade, initialLevel }: { initialGr
         )}
 
         <label className="subject-search">
-          <span aria-hidden="true">⌕</span>
+          <span aria-hidden="true"><SearchIcon /></span>
           <span className="visually-hidden">Search subjects</span>
           <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search your subjects" />
         </label>

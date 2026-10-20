@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { MenuIcon, CloseIcon } from "@/components/Icon";
 
 const navLinks = [
   { label: "Learn", href: "/learn" },
@@ -63,7 +64,7 @@ export default function Header() {
           aria-controls="site-mobile-menu"
           onClick={() => setOpen((value) => !value)}
         >
-          <span aria-hidden="true">{open ? "✕" : "☰"}</span>
+          <span aria-hidden="true">{open ? <CloseIcon /> : <MenuIcon />}</span>
           <span className="site-visually-hidden">{open ? "Close menu" : "Open menu"}</span>
         </button>
       </div>
