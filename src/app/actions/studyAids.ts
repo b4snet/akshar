@@ -347,24 +347,34 @@ export async function generatePracticeQuestions(lessonId: string, questionCount:
 // ---------------------------------------------------------------------------
 // Tutor (stateless; the answer is not stored, only the usage is logged)
 // ---------------------------------------------------------------------------
-export async function askTutor(question: string, lessonId?: string): Promise<
+export interface TutorContext {
+  grade?: string;
+  subject?: string;
+  topic?: string;
+  lessonId?: string;
+}
+
+export async function askTutor(question: string, context?: TutorContext): Promise<
   { status: StudyAidFailureStatus; message?: string; aiCode?: AiFailureCode } | { status: "ready"; answer: string; provider: string; model: string }
 > {
   const cleaned = typeof question === "string" ? question.trim() : "";
   if (cleaned.length < 2 || cleaned.length > 600) return failure("invalid", "Ask a question between 2 and 600 characters.");
-  if (lessonId !== undefined && !UUID_PATTERN.test(lessonId)) return failure("invalid", "That lesson ID is not valid.");
 
-  const context = await getAuthenticatedContext();
-  if (context.status !== "ready") return authFailure(context.status);
+  const ctx = await getAuthenticatedContext();
+  if (ctx.status !== "ready") return authFailure(ctx.status);
 
-  let lessonText = "";
-  if (lessonId) {
-    const lesson = await loadPublishedLessonForAi(context.supabase, lessonId);
+  let contextText = "";
+  if (context?.lessonId) {
+    if (!UUID_PATTERN.test(context.lessonId)) return failure("invalid", "That lesson ID is not valid.");
+    const lesson = await loadPublishedLessonForAi(ctx.supabase, context.lessonId);
     if (!lesson) return failure("lesson-unavailable", "The selected lesson is not available for context.");
-    lessonText = `\n\nLesson context (use it when relevant):\n${lessonContentForPrompt(lesson, 4_000)}`;
+    contextText = `\n\nLesson context (use it when relevant):\n${lessonContentForPrompt(lesson, 4_000)}`;
+  } else if (context?.grade && context?.subject && context?.topic) {
+    // Build context from grade/subject/topic without a specific lesson
+    contextText = `\n\nStudent context: Grade ${context.grade}, Subject: ${context.subject}, Topic: ${context.topic}. Answer appropriately for this level.`;
   }
 
-  const limit = await checkRateLimit(context.supabase, context.user.id);
+  const limit = await checkRateLimit(ctx.supabase, ctx.user.id);
   if (limit.status !== "ok") {
     return limit.status === "rate-limited"
       ? failure("rate-limited", "You have reached the generation limit for now. Try again in a few minutes.")
@@ -373,8 +383,8 @@ export async function askTutor(question: string, lessonId?: string): Promise<
 
   const generated = await generateStructured(
     {
-      systemInstruction: "You are a patient tutor for Nepali secondary students. Answer in clear, simple English under 600 words. Return ONLY JSON {\"answer\":\"...\"}. Stick to well-established facts; if the question is outside the lesson context and you are unsure, say so plainly instead of guessing.",
-      prompt: `Question: ${cleaned}${lessonText}`,
+      systemInstruction: "You are a patient tutor for Nepali secondary students. Answer in clear, simple English under 600 words. Return ONLY JSON {\"answer\":\"...\"}. Stick to well-established facts; if the question is outside the provided context and you are unsure, say so plainly instead of guessing.",
+      prompt: `Question: ${cleaned}${contextText}`,
       maxOutputTokens: 1_200,
       temperature: 0.4,
     },
@@ -383,6 +393,6 @@ export async function askTutor(question: string, lessonId?: string): Promise<
 
   if (!generated.ok) return aiFailure(generated.code, generated.message);
 
-  await logGeneration(context.supabase, context.user.id, "tutor", generated.provider, generated.model);
+  await logGeneration(ctx.supabase, ctx.user.id, "tutor", generated.provider, generated.model);
   return { status: "ready", answer: generated.data, provider: generated.provider, model: generated.model };
 }

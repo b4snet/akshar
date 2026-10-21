@@ -4,11 +4,6 @@ import { useRef, useState, type FormEvent } from "react";
 import { askTutor } from "@/app/actions/studyAids";
 import { TutorIcon } from "@/components/Icon";
 
-// Tutor UI. Questions go to the server-side AI service (never a client-side
-// key). When AI is not configured, the built-in sample answers are shown with
-// an explicit note — a fallback, not a fake AI claim. Provider errors surface
-// their friendly message instead of silently pretending to answer.
-
 const prompts = ["How do vectors work?", "What is a chemical bond?", "Can you explain cell division simply?"];
 
 function getDemoResponse(question: string) {
@@ -23,11 +18,31 @@ type AnswerState =
   | { source: "demo"; text: string; note: string }
   | { source: "error"; message: string };
 
+interface TutorContext {
+  grade?: string;
+  subject?: string;
+  topic?: string;
+}
+
+const GRADE_OPTIONS = ["11", "12", "IOE", "CEE"];
+const SUBJECT_OPTIONS = [
+  { value: "physics", label: "Physics" },
+  { value: "chemistry", label: "Chemistry" },
+  { value: "biology", label: "Biology" },
+  { value: "mathematics", label: "Mathematics" },
+  { value: "english", label: "English" },
+  { value: "nepali", label: "Nepali" },
+  { value: "accountancy", label: "Accountancy" },
+  { value: "economics", label: "Economics" },
+  { value: "business-studies", label: "Business Studies" },
+];
+
 export default function TutorDemo() {
   const [question, setQuestion] = useState("");
   const [submittedQuestion, setSubmittedQuestion] = useState("");
   const [answer, setAnswer] = useState<AnswerState | null>(null);
   const [isAsking, setIsAsking] = useState(false);
+  const [context, setContext] = useState<TutorContext>({});
   const busyRef = useRef(false);
 
   async function submitQuestion(event: FormEvent<HTMLFormElement>) {
@@ -41,7 +56,7 @@ export default function TutorDemo() {
     setAnswer(null);
 
     try {
-      const result = await askTutor(cleanedQuestion);
+      const result = await askTutor(cleanedQuestion, Object.keys(context).length > 0 ? context : undefined);
       if (result.status === "ready") {
         setAnswer({ source: "ai", text: result.answer, provider: result.provider, model: result.model });
       } else if (result.status === "ai-error" && result.aiCode === "not-configured") {
@@ -67,10 +82,79 @@ export default function TutorDemo() {
         <p>Ask a question and get a simple starting point. Answers are generated server-side by a configured AI provider — your question never carries an API key.</p>
         <div className="provider-note">
           <strong>How answers are produced</strong>
-          <span>When an AI provider is configured on the server, answers are generated from your question and labelled with the model that produced them. When it is not, a small set of built-in sample answers is used and clearly marked as such.</span>
+          <span>When an AI provider is configured on the server, answers are generated from your question and labelled with the model that produced them. When it is not, a small set of built-in sample answers is used and clearly marked as such. You can also provide your current learning context (grade, subject, topic) for more relevant answers.</span>
         </div>
       </div>
       <div className="tutor-panel tutor-page-panel">
+        <div className="tutor-context-selector" style={{ marginBottom: "1.5rem", padding: "1rem", border: "1px solid var(--border)", borderRadius: "8px", background: "var(--secondary-bg)" }}>
+          <div className="tutor-context-label" style={{ fontSize: "0.85rem", fontWeight: 600, marginBottom: "0.75rem", color: "var(--secondary)" }}>
+            LEARNING CONTEXT (optional)
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", alignItems: "flex-end" }}>
+            <div style={{ flex: "1 1 120px", minWidth: "120px" }}>
+              <label htmlFor="tutor-grade" style={{ display: "block", fontSize: "0.75rem", fontWeight: 600, marginBottom: "0.25rem", color: "var(--secondary)", textTransform: "uppercase", letterSpacing: ".05em" }}>
+                Grade
+              </label>
+              <select
+                id="tutor-grade"
+                value={context.grade || ""}
+                onChange={(e) => setContext({ ...context, grade: e.target.value || undefined })}
+                style={{
+                  width: "100%", padding: "0.5rem 0.75rem", border: "1px solid var(--border)", borderRadius: "6px",
+                  background: "var(--background)", color: "var(--foreground)", fontSize: "0.9rem"
+                }}
+              >
+                <option value="">Select grade</option>
+                {GRADE_OPTIONS.map((g) => <option key={g} value={g}>{g === "11" || g === "12" ? `Grade ${g}` : g}</option>)}
+              </select>
+            </div>
+            <div style={{ flex: "1 1 160px", minWidth: "160px" }}>
+              <label htmlFor="tutor-subject" style={{ display: "block", fontSize: "0.75rem", fontWeight: 600, marginBottom: "0.25rem", color: "var(--secondary)", textTransform: "uppercase", letterSpacing: ".05em" }}>
+                Subject
+              </label>
+              <select
+                id="tutor-subject"
+                value={context.subject || ""}
+                onChange={(e) => setContext({ ...context, subject: e.target.value || undefined })}
+                style={{
+                  width: "100%", padding: "0.5rem 0.75rem", border: "1px solid var(--border)", borderRadius: "6px",
+                  background: "var(--background)", color: "var(--foreground)", fontSize: "0.9rem"
+                }}
+              >
+                <option value="">Select subject</option>
+                {SUBJECT_OPTIONS.map((s) => <option key={s.value} value={s.value}>{s.label}</option>)}
+              </select>
+            </div>
+            <div style={{ flex: "1 1 200px", minWidth: "200px" }}>
+              <label htmlFor="tutor-topic" style={{ display: "block", fontSize: "0.75rem", fontWeight: 600, marginBottom: "0.25rem", color: "var(--secondary)", textTransform: "uppercase", letterSpacing: ".05em" }}>
+                Topic (optional)
+              </label>
+              <input
+                id="tutor-topic"
+                type="text"
+                value={context.topic || ""}
+                onChange={(e) => setContext({ ...context, topic: e.target.value || undefined })}
+                placeholder="e.g. Vectors, Chemical bonds, Cell division"
+                style={{
+                  width: "100%", padding: "0.5rem 0.75rem", border: "1px solid var(--border)", borderRadius: "6px",
+                  background: "var(--background)", color: "var(--foreground)", fontSize: "0.9rem"
+                }}
+              />
+            </div>
+            <button
+              type="button"
+              onClick={() => setContext({})}
+              disabled={!context.grade && !context.subject && !context.topic}
+              style={{
+                padding: "0.5rem 1rem", border: "1px solid var(--border)", borderRadius: "6px",
+                background: "transparent", color: "var(--secondary)", fontSize: "0.8rem", cursor: "pointer"
+              }}
+            >
+              Clear context
+            </button>
+          </div>
+        </div>
+
         <form className="tutor-form" onSubmit={submitQuestion}>
           <label htmlFor="tutor-question">What are you curious about?</label>
           <div className="tutor-input-row">
