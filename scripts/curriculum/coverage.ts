@@ -10,7 +10,10 @@
 
 import fs from "node:fs";
 import path from "node:path";
-import { loadAndValidate, refKey } from "./validate";
+import { loadAndValidate, refKey, CoverageStats } from "./validate";
+
+export { loadAndValidate } from "./validate";
+export type { CoverageStats } from "./validate";
 
 // Titles ending in a conjunction/preposition were clipped by the source's
 // table-cell edge; the wrapped continuation was lost in extraction.

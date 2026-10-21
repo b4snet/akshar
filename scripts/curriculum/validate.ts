@@ -17,6 +17,7 @@ import {
   curriculumSourceSchema,
   curriculumVersionSchema,
   pathwayFileSchema,
+  lessonsFileSchema,
   type CurriculumSource,
   type CurriculumVersion,
   type PathwayFile,
@@ -75,6 +76,7 @@ export type ValidationResult = {
   versions: CurriculumVersion[];
   pathways: PathwayFile[];
   coverage: CoverageStats[];
+  lessons: any[]; // lessons.json data
   errors: string[];
   warnings: string[];
 };
@@ -242,5 +244,13 @@ export function loadAndValidate(): ValidationResult {
     }
   }
 
-  return { sources, versions, pathways, coverage, errors, warnings };
+  // Load lessons data
+  const lessonsFile = JSON.parse(fs.readFileSync(path.join(DATA_DIR, "lessons.json"), "utf8"));
+  const lessons = lessonsFileSchema.safeParse(lessonsFile);
+  if (!lessons.success) {
+    errors.push(`lessons.json: ${lessons.error.issues.map((issue: any) => `${issue.path.join(".")}: ${issue.message}`).join("; ")}`);
+    return { sources, versions, pathways, coverage, lessons: [], errors, warnings };
+  }
+
+  return { sources, versions, pathways, coverage, lessons: lessons.data.lessons, errors, warnings };
 }

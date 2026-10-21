@@ -317,15 +317,93 @@ function main(): void {
   out.push("end $$;");
   out.push("commit;");
 
-  fs.mkdirSync(path.dirname(OUT), { recursive: true });
-  fs.writeFileSync(OUT, `${out.join("\n")}\n`);
-  const totals = coverage.reduce(
-    (sum, entry) => ({ units: sum.units + entry.units, chapters: sum.chapters + entry.chapters, topics: sum.topics + entry.topics }),
-    { units: 0, chapters: 0, topics: 0 },
-  );
   console.log(
-    `wrote ${path.relative(process.cwd(), OUT)}: ${unitRows.length} units, ${chapterRows.length} chapters, ${topicRows.length} topics, ${lessonRows.length} lessons, ${practiceRows.length} practice questions (coverage totals ${totals.units}/${totals.chapters}/${totals.topics})`,
+    `wrote ${path.relative(process.cwd(), OUT)}: ${unitRows.length} units, ${chapterRows.length} chapters, ${topicRows.length} topics, ${lessonRows.length} lessons, ${practiceRows.length} practice questions (coverage totals ${unitRows.length}/${chapterRows.length}/${topicRows.length})`,
   );
+}
+
+export interface MigrationPreview {
+  versions: Array<{ id: string; name: string }>;
+  pathways: Array<{ pathway: string; version: string; units: number; chapters: number; topics: number }>;
+  unitCount: number;
+  chapterCount: number;
+  topicCount: number;
+  lessonCount: number;
+  practiceCount: number;
+}
+
+export function buildMigrationPreview(
+  validation: ReturnType<typeof loadAndValidate>,
+  versionFilter?: string
+): MigrationPreview {
+  const { sources, versions, pathways, coverage, lessons } = validation;
+  
+  let pathwaysFiltered = pathways;
+  if (versionFilter) {
+    pathwaysFiltered = pathways.filter(p => p.curriculumVersionId === versionFilter);
+  }
+  
+  const versionsFiltered = versions.filter(v => 
+    pathwaysFiltered.some(p => p.curriculumVersionId === v.id)
+  );
+  
+  let unitCount = 0;
+  let chapterCount = 0;
+  let topicCount = 0;
+  let lessonCount = 0;
+  let practiceCount = 0;
+  
+  const pathwaysPreview = pathwaysFiltered.map(pathway => {
+    let units = 0, chapters = 0, topics = 0;
+    for (const [grade, block] of Object.entries(pathway.gradeBlocks)) {
+      units += block.units.length;
+      for (const unit of block.units) {
+        chapters += unit.chapters.length;
+        for (const chapter of unit.chapters) {
+          topics += chapter.topics.length;
+        }
+      }
+    }
+    return {
+      pathway: pathway.pathway,
+      version: pathway.curriculumVersionId,
+      units,
+      chapters,
+      topics,
+    };
+  });
+  
+  for (const pathway of pathwaysFiltered) {
+    for (const [grade, block] of Object.entries(pathway.gradeBlocks)) {
+      for (const unit of block.units) {
+        unitCount++;
+        for (const chapter of unit.chapters) {
+          chapterCount++;
+          topicCount += chapter.topics.length;
+        }
+      }
+    }
+  }
+  
+  // Count lessons and practice questions
+  const lessonsFile = JSON.parse(fs.readFileSync(LESSONS_FILE, "utf8"));
+  lessonCount = lessonsFile.lessons.filter((l: any) => 
+    pathwaysFiltered.some(p => p.pathway === l.pathwayFile)
+  ).length;
+  
+  practiceCount = lessonsFile.lessons
+    .filter((l: any) => pathwaysFiltered.some(p => p.pathway === l.pathwayFile))
+    .reduce((sum: number, l: any) => sum + l.practice.length, 0);
+  
+  return {
+    versions: versionsFiltered.map(v => ({ id: v.id, name: v.name })),
+    pathways: pathwaysPreview,
+    unitCount,
+    chapterCount,
+    topicCount,
+    lessonCount,
+    practiceCount,
+  };
 }
 
 if (require.main === module) main();
