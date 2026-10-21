@@ -5,6 +5,9 @@ import AppShell from "@/components/AppShell";
 import SettingsForm from "@/components/SettingsForm";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
+// Session-gated: renders per request after the proxy + requireUser() verify it.
+export const instant = false;
+
 async function SettingsContent() {
   const supabase = await createSupabaseServerClient();
   if (!supabase) {
