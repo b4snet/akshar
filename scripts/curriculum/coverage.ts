@@ -53,10 +53,14 @@ function scanTitles(pathways: ReturnType<typeof loadAndValidate>["pathways"]): A
 }
 
 function main(): void {
-  const { sources, pathways, coverage, issues } = loadAndValidate();
-  if (issues.length > 0) {
-    console.error("validation issues (run the tests for details):");
-    for (const issue of issues) console.error(`  - ${issue}`);
+  const { sources, pathways, coverage, errors, warnings } = loadAndValidate();
+  if (errors.length > 0) {
+    console.error("validation errors (run the tests for details):");
+    for (const issue of errors) console.error(`  - ${issue}`);
+  }
+  if (warnings.length > 0) {
+    console.warn("validation warnings:");
+    for (const issue of warnings) console.warn(`  - ${issue}`);
   }
 
   console.log("=== Curriculum coverage report ===\n");

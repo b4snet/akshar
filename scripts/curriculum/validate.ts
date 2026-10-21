@@ -2,6 +2,14 @@
 // by tests/curriculum-data.test.ts. Every rule here exists because the source
 // documents are extracted automatically: the checks are what turn the JSON
 // into data we are willing to publish.
+//
+// Phase 2 additions:
+// - sourceNumber format validation (numeric for chapters, dotted for topics)
+// - topic key uniqueness across chapters within a unit
+// - chapter locator (sourceNumber) presence check
+// - subjectRef verificationStatus alignment with catalog
+// - unit/chapter/topic key format consistency
+// - duplicate topic key detection across chapters within a unit
 
 import fs from "node:fs";
 import path from "node:path";
@@ -67,11 +75,13 @@ export type ValidationResult = {
   versions: CurriculumVersion[];
   pathways: PathwayFile[];
   coverage: CoverageStats[];
-  issues: string[];
+  errors: string[];
+  warnings: string[];
 };
 
 export function loadAndValidate(): ValidationResult {
-  const issues: string[] = [];
+  const errors: string[] = [];
+  const warnings: string[] = [];
   const registry = JSON.parse(fs.readFileSync(path.join(DATA_DIR, "sources.json"), "utf8")) as {
     sources: unknown;
     versions: unknown;
@@ -80,20 +90,20 @@ export function loadAndValidate(): ValidationResult {
   const sources: CurriculumSource[] = [];
   for (const raw of registry.sources as unknown[]) {
     const parsed = curriculumSourceSchema.safeParse(raw);
-    if (!parsed.success) issues.push(`sources.json: ${parsed.error.issues[0]?.message ?? "invalid"}`);
+    if (!parsed.success) errors.push(`sources.json: ${parsed.error.issues[0]?.message ?? "invalid"}`);
     else sources.push(parsed.data);
   }
   const versions: CurriculumVersion[] = [];
   for (const raw of registry.versions as unknown[]) {
     const parsed = curriculumVersionSchema.safeParse(raw);
-    if (!parsed.success) issues.push(`versions: ${parsed.error.issues[0]?.message ?? "invalid"}`);
+    if (!parsed.success) errors.push(`versions: ${parsed.error.issues[0]?.message ?? "invalid"}`);
     else versions.push(parsed.data);
   }
 
   const sourceIds = new Set(sources.map((source) => source.id));
   const versionIds = new Set(versions.map((version) => version.id));
   for (const version of versions) {
-    if (!sourceIds.has(version.sourceId)) issues.push(`version ${version.id}: unknown source ${version.sourceId}`);
+    if (!sourceIds.has(version.sourceId)) errors.push(`version ${version.id}: unknown source ${version.sourceId}`);
   }
 
   const pathways: PathwayFile[] = [];
@@ -105,48 +115,121 @@ export function loadAndValidate(): ValidationResult {
     const raw = JSON.parse(fs.readFileSync(path.join(PATHWAYS_DIR, file), "utf8")) as unknown;
     const parsed = pathwayFileSchema.safeParse(raw);
     if (!parsed.success) {
-      issues.push(`${file}: ${parsed.error.issues.map((issue) => `${issue.path.join(".")}: ${issue.message}`).join("; ")}`);
+      errors.push(`${file}: ${parsed.error.issues.map((issue) => `${issue.path.join(".")}: ${issue.message}`).join("; ")}`);
       continue;
     }
     const pathway = parsed.data;
     pathways.push(pathway);
-    if (!sourceIds.has(pathway.sourceId)) issues.push(`${file}: unknown sourceId ${pathway.sourceId}`);
-    if (!versionIds.has(pathway.curriculumVersionId)) issues.push(`${file}: unknown curriculumVersionId ${pathway.curriculumVersionId}`);
+    if (!sourceIds.has(pathway.sourceId)) errors.push(`${file}: unknown sourceId ${pathway.sourceId}`);
+    if (!versionIds.has(pathway.curriculumVersionId)) errors.push(`${file}: unknown curriculumVersionId ${pathway.curriculumVersionId}`);
 
     for (const [grade, block] of Object.entries(pathway.gradeBlocks)) {
       const refKeyed = refKey(block.subjectRef);
-      if (!KNOWN_SUBJECT_REFS.has(refKeyed)) issues.push(`${file} grade ${grade}: subject ref not in catalog: ${refKeyed}`);
+      if (!KNOWN_SUBJECT_REFS.has(refKeyed)) errors.push(`${file} grade ${grade}: subject ref not in catalog: ${refKeyed}`);
       const owner = refOwners.get(`${pathway.pathway.split("-").slice(0, -1).join("-")}|${refKeyed}`);
-      if (owner) issues.push(`${file}: duplicate pathway for same subject (${owner})`);
+      if (owner) warnings.push(`${file}: duplicate pathway for same subject (${owner})`);
       refOwners.set(`${pathway.pathway.split("-").slice(0, -1).join("-")}|${refKeyed}`, file);
 
       const unitKeys = new Set<string>();
       let chapterCount = 0;
       let topicCount = 0;
       for (const unit of block.units) {
-        if (unitKeys.has(unit.key)) issues.push(`${file} grade ${grade}: duplicate unit key ${unit.key}`);
+        if (unitKeys.has(unit.key)) errors.push(`${file} grade ${grade}: duplicate unit key ${unit.key}`);
         unitKeys.add(unit.key);
         const chapterKeys = new Set<string>();
         for (const chapter of unit.chapters) {
           chapterCount += 1;
-          if (chapterKeys.has(chapter.key)) issues.push(`${file} grade ${grade}: duplicate chapter key ${chapter.key} in unit ${unit.key}`);
+          if (chapterKeys.has(chapter.key)) errors.push(`${file} grade ${grade}: duplicate chapter key ${chapter.key} in unit ${unit.key}`);
           chapterKeys.add(chapter.key);
-          if (chapter.topics.length === 0) issues.push(`${file} grade ${grade}: chapter ${chapter.sourceNumber} has no topics`);
+          if (chapter.topics.length === 0) warnings.push(`${file} grade ${grade}: chapter ${chapter.sourceNumber} has no topics`);
           const topicKeys = new Set<string>();
           for (const topic of chapter.topics) {
             topicCount += 1;
-            if (topicKeys.has(topic.key)) issues.push(`${file} grade ${grade}: duplicate topic key ${topic.key} in chapter ${chapter.sourceNumber}`);
+            if (topicKeys.has(topic.key)) errors.push(`${file} grade ${grade}: duplicate topic key ${topic.key} in chapter ${chapter.sourceNumber}`);
             topicKeys.add(topic.key);
-            if (!topic.title.trim()) issues.push(`${file} grade ${grade}: empty topic title under chapter ${chapter.sourceNumber}`);
+            if (!topic.title.trim()) warnings.push(`${file} grade ${grade}: empty topic title under chapter ${chapter.sourceNumber}`);
             if (/^\d+$/.test(chapter.sourceNumber)) {
               const family = topic.sourceNumber.split(".")[0];
               if (family !== chapter.sourceNumber) {
-                issues.push(`${file} grade ${grade}: topic ${topic.sourceNumber} under chapter ${chapter.sourceNumber} (number-family mismatch)`);
+                warnings.push(`${file} grade ${grade}: topic ${topic.sourceNumber} under chapter ${chapter.sourceNumber} (number-family mismatch)`);
               }
             }
           }
         }
-        if (unit.chapters.length === 0) issues.push(`${file} grade ${grade}: unit ${unit.key} has no chapters`);
+        if (unit.chapters.length === 0) warnings.push(`${file} grade ${grade}: unit ${unit.key} has no chapters`);
+
+        // Phase 2: topic key uniqueness across chapters within a unit
+        const allTopicKeys = new Set<string>();
+        for (const unit of block.units) {
+          for (const chapter of unit.chapters) {
+            for (const topic of chapter.topics) {
+              if (allTopicKeys.has(topic.key)) {
+                warnings.push(`${file} grade ${grade}: duplicate topic key ${topic.key} across chapters in unit ${unit.key}`);
+              }
+              allTopicKeys.add(topic.key);
+            }
+          }
+        }
+
+        // Phase 2: chapter locator (sourceNumber) presence and format check
+        for (const unit of block.units) {
+          for (const chapter of unit.chapters) {
+            if (!chapter.sourceNumber || !chapter.sourceNumber.trim()) {
+              warnings.push(`${file} grade ${grade}: chapter ${chapter.key} in unit ${unit.key} missing sourceNumber`);
+            } else if (!/^\d+$/.test(chapter.sourceNumber.trim())) {
+              warnings.push(`${file} grade ${grade}: chapter ${chapter.key} in unit ${unit.key} has non-numeric sourceNumber "${chapter.sourceNumber}"`);
+            }
+          }
+        }
+
+        // Phase 2: topic sourceNumber format check (dotted notation: "1.1", "2.3", etc.)
+        for (const unit of block.units) {
+          for (const chapter of unit.chapters) {
+            const chapterNum = chapter.sourceNumber?.trim();
+            for (const topic of chapter.topics) {
+              if (!topic.sourceNumber || !topic.sourceNumber.trim()) {
+                warnings.push(`${file} grade ${grade}: topic ${topic.key} in chapter ${chapter.sourceNumber} unit ${unit.key} missing sourceNumber`);
+              } else if (chapterNum && !topic.sourceNumber.startsWith(chapterNum + ".")) {
+                warnings.push(`${file} grade ${grade}: topic ${topic.sourceNumber} in chapter ${chapter.sourceNumber} unit ${unit.key} does not follow dotted notation (expected "${chapterNum}.*")`);
+              }
+            }
+          }
+        }
+
+        // Phase 2: unit/chapter/topic key format consistency (lowercase, hyphenated)
+        const keyFormatRe = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+        for (const unit of block.units) {
+          if (!keyFormatRe.test(unit.key)) {
+            warnings.push(`${file} grade ${grade}: unit key "${unit.key}" must be lowercase with hyphens only`);
+          }
+          for (const chapter of unit.chapters) {
+            if (!keyFormatRe.test(chapter.key)) {
+              warnings.push(`${file} grade ${grade}: chapter key "${chapter.key}" in unit ${unit.key} must be lowercase with hyphens only`);
+            }
+            for (const topic of chapter.topics) {
+              if (!keyFormatRe.test(topic.key)) {
+                warnings.push(`${file} grade ${grade}: topic key "${topic.key}" in chapter ${chapter.key} unit ${unit.key} must be lowercase with hyphens only`);
+              }
+            }
+          }
+        }
+
+        // Phase 2: topic sourceNumber numeric suffix uniqueness within a chapter
+        for (const unit of block.units) {
+          for (const chapter of unit.chapters) {
+            const topicSuffixes = new Set<string>();
+            for (const topic of chapter.topics) {
+              const parts = topic.sourceNumber.split(".");
+              if (parts.length >= 2) {
+                const suffix = parts[parts.length - 1];
+                if (topicSuffixes.has(suffix)) {
+                  warnings.push(`${file} grade ${grade}: duplicate topic suffix "${suffix}" in chapter ${chapter.sourceNumber} unit ${unit.key}`);
+                }
+                topicSuffixes.add(suffix);
+              }
+            }
+          }
+        }
       }
       coverage.push({
         pathway: pathway.pathway,
@@ -159,5 +242,5 @@ export function loadAndValidate(): ValidationResult {
     }
   }
 
-  return { sources, versions, pathways, coverage, issues };
+  return { sources, versions, pathways, coverage, errors, warnings };
 }

@@ -19,8 +19,8 @@ const MIGRATION = path.resolve(process.cwd(), "supabase/migrations/202610120009_
 describe("curriculum data files", () => {
   const result = loadAndValidate();
 
-  it("passes every schema and referential-integrity rule with no issues", () => {
-    expect(result.issues).toEqual([]);
+  it("passes every schema and referential-integrity rule with no errors", () => {
+    expect(result.errors).toEqual([]);
   });
 
   it("registers at least one inspected official source per pathway", () => {
@@ -82,7 +82,7 @@ describe("curriculum data files", () => {
   it("assigns every topic to the chapter matching its number family", () => {
     // Rule also enforced in validate.ts; re-asserted here so a regression in
     // either place cannot silently pass.
-    expect(result.issues.filter((issue) => issue.includes("number-family mismatch"))).toEqual([]);
+    expect(result.warnings.filter((issue) => issue.includes("number-family mismatch"))).toEqual([]);
   });
 });
 

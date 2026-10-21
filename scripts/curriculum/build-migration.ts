@@ -50,11 +50,15 @@ function subjectLookup(ref: { level: string; grade: string; stream: string; subj
 }
 
 function main(): void {
-  const { sources, versions, pathways, coverage, issues } = loadAndValidate();
-  if (issues.length > 0) {
-    console.error("validation issues:");
-    for (const issue of issues) console.error(`  - ${issue}`);
+  const { sources, versions, pathways, coverage, errors, warnings } = loadAndValidate();
+  if (errors.length > 0) {
+    console.error("validation errors:");
+    for (const issue of errors) console.error(`  - ${issue}`);
     process.exit(1);
+  }
+  if (warnings.length > 0) {
+    console.warn("validation warnings:");
+    for (const issue of warnings) console.warn(`  - ${issue}`);
   }
 
   // Map curriculum version ID -> source URL for lessons source_url column.
