@@ -3,21 +3,21 @@
 import Link from "next/link";
 import { useState } from "react";
 import Header from "@/components/Header";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Badge, Card, Progress } from "@/components/ui/Primitives";
+import { ArchFrame, Bunting, Mandala, PatternStrip, Skyline } from "@/components/ui/nepali/NepaliMotifs";
 
 const filters = ["All", "NEB 11", "NEB 12", "CEE", "IOE"] as const;
 type Filter = (typeof filters)[number];
 
 const subjects = [
-  { name: "Physics", nepali: "भौतिकशास्त्र", token: "physics", category: "Science", lessons: "18 lessons", progress: 42, paths: ["All", "NEB 11", "NEB 12"] as Filter[] },
-  { name: "Chemistry", nepali: "रसायनशास्त्र", token: "chemistry", category: "Science", lessons: "16 lessons", progress: 36, paths: ["All", "NEB 11", "NEB 12"] as Filter[] },
-  { name: "Mathematics", nepali: "गणित", token: "mathematics", category: "Mathematics", lessons: "24 lessons", progress: 58, paths: ["All", "NEB 11", "NEB 12", "CEE", "IOE"] as Filter[] },
-  { name: "Biology", nepali: "जीवशास्त्र", token: "biology", category: "Science", lessons: "21 lessons", progress: 31, paths: ["All", "NEB 11", "NEB 12", "CEE"] as Filter[] },
-  { name: "English", nepali: "अङ्ग्रेजी", token: "english", category: "Language", lessons: "14 lessons", progress: 64, paths: ["All", "NEB 11", "NEB 12"] as Filter[] },
-  { name: "Nepali", nepali: "नेपाली", token: "nepali", category: "Language", lessons: "15 lessons", progress: 48, paths: ["All", "NEB 11", "NEB 12"] as Filter[] },
-  { name: "CEE preparation", nepali: "CEE तयारी", token: "cee", category: "Entrance", lessons: "Practice track", progress: 22, paths: ["All", "CEE"] as Filter[] },
-  { name: "IOE preparation", nepali: "IOE तयारी", token: "ioe", category: "Entrance", lessons: "Practice track", progress: 19, paths: ["All", "IOE"] as Filter[] },
+  { name: "Physics", token: "physics", category: "Science", lessons: "18 lessons", progress: 42, paths: ["All", "NEB 11", "NEB 12"] as Filter[] },
+  { name: "Chemistry", token: "chemistry", category: "Science", lessons: "16 lessons", progress: 36, paths: ["All", "NEB 11", "NEB 12"] as Filter[] },
+  { name: "Mathematics", token: "mathematics", category: "Mathematics", lessons: "24 lessons", progress: 58, paths: ["All", "NEB 11", "NEB 12", "CEE", "IOE"] as Filter[] },
+  { name: "Biology", token: "biology", category: "Science", lessons: "21 lessons", progress: 31, paths: ["All", "NEB 11", "NEB 12", "CEE"] as Filter[] },
+  { name: "English", token: "english", category: "Language", lessons: "14 lessons", progress: 64, paths: ["All", "NEB 11", "NEB 12"] as Filter[] },
+  { name: "Nepali", token: "nepali", category: "Language", lessons: "15 lessons", progress: 48, paths: ["All", "NEB 11", "NEB 12"] as Filter[] },
+  { name: "CEE preparation", token: "cee", category: "Entrance", lessons: "Practice track", progress: 22, paths: ["All", "CEE"] as Filter[] },
+  { name: "IOE preparation", token: "ioe", category: "Entrance", lessons: "Practice track", progress: 19, paths: ["All", "IOE"] as Filter[] },
 ];
 
 const heroSubjects = subjects.slice(0, 4);
@@ -29,19 +29,21 @@ export default function LandingPage() {
   return (
     <div className="site-root">
       <Header />
+      <PatternStrip />
       <main>
         <section className="landing-hero site-container" aria-labelledby="hero-title">
+          <Mandala className="landing-mandala" watermark />
           <div className="landing-hero-copy">
             <p className="site-eyebrow">LEARN WITHOUT LIMITS</p>
             <h1 id="hero-title">Beyond memorising, <span>you build your future.</span></h1>
-            <p className="landing-devanagari">अक्षर — जसको कहिल्यै नाश हुँदैन</p>
+            <p className="landing-devanagari">Akshar — a learning space with lasting purpose</p>
             <p className="landing-hero-sub">Structured lessons, revision resources, practice questions, and exam preparation for students ready to learn with purpose.</p>
             <div className="landing-actions">
               <Link href="/signup" className="site-btn">Start Learning</Link>
               <Link href="/curriculum" className="site-btn site-btn-ghost">Explore Curriculum</Link>
             </div>
           </div>
-          <div className="landing-preview" aria-label="Akshar study preview">
+          <ArchFrame className="landing-preview" aria-label="Akshar study preview">
             <div className="landing-preview-grid">
               {heroSubjects.map((subject, index) => (
                 <Card key={subject.name} className="landing-mini-course" style={{ "--course-token": `var(--${subject.token})`, "--float-delay": `${index * 90}ms` } as React.CSSProperties}>
@@ -58,9 +60,11 @@ export default function LandingPage() {
                 {[42, 68, 54, 82, 61, 76].map((height, index) => <span key={index} style={{ height: `${height}%`, "--bar-color": `var(--${heroSubjects[index % heroSubjects.length].token})` } as React.CSSProperties} />)}
               </div>
             </Card>
-          </div>
+          </ArchFrame>
+          <Skyline />
         </section>
 
+        <Bunting />
         <section className="landing-section site-container" id="curriculum" aria-labelledby="subjects-title">
           <div className="landing-filter-wrap">
             <div className="landing-filters" role="group" aria-label="Study programme">
@@ -79,7 +83,7 @@ export default function LandingPage() {
             {visibleSubjects.map((subject) => (
               <Link href="/curriculum" key={subject.name} className="landing-course-card" style={{ "--course-token": `var(--${subject.token})` } as React.CSSProperties}>
                 <div className="landing-course-top"><span className="landing-course-icon" aria-hidden="true">{subject.name.charAt(0)}</span><span className="landing-course-category">{subject.category}</span><Badge>{subject.progress}%</Badge></div>
-                <h3>{subject.name}<span>{subject.nepali}</span></h3>
+                <h3>{subject.name}</h3>
                 <div className="landing-course-meta"><span>{subject.lessons}</span><Progress value={subject.progress} label={`${subject.name} progress`} /></div>
               </Link>
             ))}
@@ -109,9 +113,9 @@ export default function LandingPage() {
           <div><p className="site-eyebrow">STUDENT VOICES</p><h2 id="proof-title">Built for real study days.</h2></div><div className="landing-proof-placeholder"><span>Student quote</span><p>Placeholder — student stories can be added after verified testimonials are collected.</p></div><p className="landing-nepal-note"><strong>Built in Nepal by Nepluro</strong><br />Thoughtful tools for Nepal&apos;s next generation of learners.</p>
         </section>
 
-        <section className="landing-final site-container" aria-labelledby="final-title"><p className="site-eyebrow">YOUR NEXT LESSON IS WAITING</p><h2 id="final-title">Start learning today.</h2><Link href="/signup" className="site-btn">Create your free account</Link></section>
+        <section className="landing-final site-container" aria-labelledby="final-title"><Mandala watermark /><p className="site-eyebrow">YOUR NEXT LESSON IS WAITING</p><h2 id="final-title">Start learning today.</h2><Link href="/signup" className="site-btn">Create your free account</Link></section>
       </main>
-      <footer className="site-footer"><div className="site-footer-top"><div className="site-footer-brand"><span className="site-mark" aria-hidden="true">अ</span><div><strong>akshar.</strong><p>A learning platform by Nepluro Private Limited.</p></div></div><nav className="site-footer-links" aria-label="Footer"><Link href="/learn">Learn</Link><Link href="/curriculum">Curriculum</Link><Link href="/practice">Entrance prep</Link><Link href="/privacy">Privacy</Link><ThemeToggle /></nav></div><div className="site-footer-bottom"><span>© 2026 Nepluro Private Limited. Akshar. All rights reserved.</span></div></footer>
+      <footer className="site-footer"><PatternStrip /><Skyline /><div className="site-footer-top"><div className="site-footer-brand"><span className="site-mark" aria-hidden="true">अ</span><div><strong>akshar.</strong><p>A learning platform by Nepluro Private Limited.</p></div></div><nav className="site-footer-links" aria-label="Footer"><Link href="/learn">Learn</Link><Link href="/curriculum">Curriculum</Link><Link href="/practice">Entrance prep</Link><Link href="/privacy">Privacy</Link></nav></div><div className="site-footer-bottom"><span>© 2026 Nepluro Private Limited. Akshar. All rights reserved.</span></div></footer>
     </div>
   );
 }

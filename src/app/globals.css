@@ -1022,31 +1022,16 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
   --cee: #E4CADB;
   --ioe: #D6DEC0;
   --shadow-soft: 0 12px 28px rgba(36, 34, 29, 0.06);
+  --lokta-paper: #F7F5EF;
+  --gurans-crimson: #A52A3A;
+  --himalayan-blue: #263F73;
+  --marigold: #E8A846;
+  --prayer-white: #FFFDF8;
+  --prayer-green: #557B63;
+  color-scheme: light;
 }
 
-:root[data-theme="dark"] {
-  --bg: #1C1B19;
-  --surface: #252421;
-  --surface-2: #302E29;
-  --panel: #292823;
-  --rail: #24231F;
-  --border: #403D36;
-  --ink: #F4F1E8;
-  --ink-muted: #BCB7AA;
-  --accent: #F4F1E8;
-  --accent-soft: #37352F;
-  --physics: #75505B;
-  --chemistry: #775B49;
-  --mathematics: #625B77;
-  --biology: #506B59;
-  --english: #746B45;
-  --nepali: #526879;
-  --cee: #705A6A;
-  --ioe: #626B4F;
-  --shadow-soft: 0 18px 44px rgba(0, 0, 0, 0.24);
-}
 
-html[data-theme="dark"] { color-scheme: dark; }
 html, body { max-width: 100%; overflow-x: hidden; }
 body { background: var(--bg) !important; color: var(--ink) !important; font-family: var(--font-akshar-sans), var(--font-akshar-devanagari), -apple-system, BlinkMacSystemFont, sans-serif; font-size: 16px; }
 h1, h2, h3 { font-family: var(--font-akshar-display), var(--font-akshar-devanagari), Georgia, serif; }
@@ -1256,7 +1241,6 @@ input, textarea, select { border-color: var(--border) !important; }
 .auth-shell .auth-submit { border-color: #171717 !important; background: #171717 !important; color: #FFFFFF !important; }
 .auth-shell .auth-back-link { color: #686861 !important; }
 .auth-shell .auth-brand-footnote { color: #C9C6BC !important; }
-html[data-theme="dark"] .auth-shell .auth-card { box-shadow: 0 18px 44px rgba(0, 0, 0, .28); }
 
 /* Reference dashboard shell */
 .app-shell .sidebar-reference { position: fixed; left: 18px; top: 18px; bottom: 18px; width: 84px; height: calc(100vh - 36px); display: flex; flex-direction: column; align-items: center; padding: 14px 10px 12px; border: 0; border-radius: 32px; background: var(--rail); }
@@ -1339,3 +1323,27 @@ html[data-theme="dark"] .auth-shell .auth-card { box-shadow: 0 18px 44px rgba(0,
   .mobile-nav { position: fixed; z-index: 40; inset: auto 10px 10px; display: grid; grid-template-columns: repeat(5, 1fr); min-height: 68px; padding: 7px; border: 0; border-radius: 28px; background: var(--rail); box-shadow: var(--shadow-soft); }.mobile-nav a { display: flex; min-height: 54px; align-items: center; justify-content: center; flex-direction: column; gap: 2px; border-radius: 22px; color: var(--ink-muted); font-size: 9px; }.mobile-nav a svg { width: 20px; height: 20px; }.mobile-nav a.active { background: transparent; color: var(--ink); }.mobile-nav a.active svg { width: 44px; height: 44px; padding: 12px; border-radius: 50%; background: var(--accent); color: var(--bg); }
 }
 @media (max-width: 420px) { .subject-card-grid { grid-template-columns: 1fr; }.subject-card { min-height: 180px; }.dashboard-hero h1 { font-size: 42px; }.breadcrumb { font-size: 12px; }.app-search { display: none; }.lesson-card { grid-template-columns: 48px minmax(0, 1fr) auto; }.lesson-progress-ring { width: 40px; height: 40px; } }
+/* Shared Nepali visual language */
+.nepali-pattern-strip { min-height: 12px; background: url('/patterns/dhaka.svg') repeat-x center / 96px 24px, var(--prayer-white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); opacity: .72; }
+.nepali-mandala { width: 320px; height: 320px; color: var(--gurans-crimson); opacity: .075; animation: nepali-mandala-spin 48s linear infinite; pointer-events: none; }
+.nepali-mandala.is-watermark { position: absolute; }
+.nepali-skyline { display: block; width: 100%; height: 72px; color: var(--himalayan-blue); opacity: .42; }
+.nepali-bunting { height: 18px; margin: 18px 0; background: linear-gradient(155deg, transparent 48%, var(--himalayan-blue) 49% 53%, transparent 54%) 0 0 / 28px 18px repeat-x, linear-gradient(155deg, transparent 48%, var(--gurans-crimson) 49% 53%, transparent 54%) 7px 1px / 28px 18px repeat-x; opacity: .7; }
+.nepali-arch-frame { border-radius: 999px 999px 24px 24px; overflow: hidden; }
+.nepali-illustration { width: 120px; max-width: 100%; color: var(--himalayan-blue); }
+.app-shell .topbar::after, .site-header::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: url('/patterns/dhaka.svg') repeat-x left center / 96px 24px; opacity: .28; }
+.site-header, .topbar { position: relative; }
+.landing-hero { position: relative; }
+.landing-hero::before { content: ''; position: absolute; inset: 0 auto auto 0; width: 100%; height: 7px; background: url('/patterns/dhaka.svg') repeat-x left center / 96px 24px; opacity: .72; }
+.landing-preview { border-radius: 120px 120px 32px 32px; overflow: hidden; }
+.landing-hero > .nepali-skyline { position: absolute; bottom: 0; left: 0; }
+.dashboard-hero { position: relative; }
+.dashboard-hero .nepali-skyline, .landing-hero .nepali-skyline { position: absolute; bottom: 0; right: 0; left: auto; width: 44%; height: 58px; }
+.auth-brand { position: relative; overflow: hidden; }
+.auth-brand::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 7px; background: url('/patterns/dhaka.svg') repeat-x / 96px 24px; opacity: .8; }
+.auth-card::before { content: ''; display: block; height: 7px; margin: -32px -32px 24px; background: url('/patterns/dhaka.svg') repeat-x / 96px 24px; }
+@keyframes nepali-mandala-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .nepali-mandala { animation: none; } }
+@media (max-width: 767px) { .nepali-mandala { width: 220px; height: 220px; } .nepali-skyline { height: 48px; } }
+.rail-link.active, .mobile-nav a.active, .filter-pill.active, .landing-filter.is-active { background: var(--gurans-crimson) !important; color: var(--prayer-white) !important; }
+.streak-pill span:first-child { color: var(--marigold); }

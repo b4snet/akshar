@@ -4,8 +4,8 @@ import type { ReactNode } from "react";
 import SessionControls from '@/components/SessionControls';
 import { getSupabaseConfig } from "@/lib/supabase/config";
 import { DashboardIcon, LearnIcon, PracticeIcon, ExamIcon, TutorIcon, ProgressIcon, SettingsIcon } from "@/components/Icon";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { SearchIcon } from "@/components/Icon";
+import { PatternStrip } from "@/components/ui/nepali/NepaliMotifs";
 
 const navigation = [
   { label: "Dashboard", Icon: DashboardIcon, href: "/dashboard", key: "dashboard" },
@@ -42,18 +42,17 @@ export default function AppShell({ active, children, rightPanel }: AppShellProps
         </nav>
         <div className="rail-bottom">
           <Link className="rail-link" href="/settings" aria-label="Settings" title="Settings"><SettingsIcon /></Link>
-          <div className="rail-avatar" aria-label="Profile">अ</div>
+          <div className="rail-avatar" aria-label="Profile">A</div>
         </div>
       </aside>
       <main className="main-content" id="main-content">
-        <header className="topbar">
+        <header className="topbar"><PatternStrip />
           <div className="breadcrumb"><span>Workspace</span><span className="crumb-separator">/</span><strong>{navigation.find((item) => item.key === active)?.label ?? "Account"}</strong></div>
           <div className="topbar-actions">
             <label className="app-search" aria-label="Search Akshar">
               <SearchIcon />
               <input type="search" placeholder="Search lessons" />
             </label>
-            <ThemeToggle />
             <SessionControls config={supabaseConfig} />
           </div>
         </header>

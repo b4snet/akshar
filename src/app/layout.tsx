@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Lora, Manrope, Noto_Sans_Devanagari } from "next/font/google";
 import "./globals.css";
 
@@ -28,17 +28,18 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  colorScheme: "light",
+  themeColor: "#F7F5EF",
+};
+
 export default function RootLayout({ children }: LayoutProps) {
   return (
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      suppressHydrationWarning
       className={`h-full antialiased ${manrope.variable} ${lora.variable} ${devanagari.variable}`}
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem('akshar-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}})();` }} />
-      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

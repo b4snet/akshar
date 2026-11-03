@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { Mandala, PatternStrip, Skyline } from "@/components/ui/nepali/NepaliMotifs";
 
 type AuthPanelProps = {
   mode: "login" | "signup";
@@ -10,7 +10,7 @@ type AuthPanelProps = {
 export default function AuthPanel({ mode, children }: AuthPanelProps) {
   return (
     <div className="auth-shell">
-      <aside className="auth-brand" aria-label="Akshar">
+      <aside className="auth-brand" aria-label="Akshar"><PatternStrip /><Mandala watermark /><Skyline />
         <Link href="/" className="auth-brand-mark" aria-label="Back to the Akshar website">
           <span className="site-mark" aria-hidden="true">अ</span>
           <span>akshar<span className="site-mark-period">.</span></span>
@@ -31,7 +31,6 @@ export default function AuthPanel({ mode, children }: AuthPanelProps) {
       <main className="auth-main">
         <div className="auth-top">
           <Link href="/" className="auth-back-link">← Back to website</Link>
-          <ThemeToggle />
         </div>
         <div className="auth-card-wrap">{children}</div>
       </main>

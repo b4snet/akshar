@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { CSSProperties } from 'react';
 import { BookOpenIcon } from '@/components/Icon';
 import { requireUser } from '@/lib/supabase/server';
+import { ArchFrame, Bunting, PatternStrip, Skyline } from '@/components/ui/nepali/NepaliMotifs';
 
 export const instant = false;
 
@@ -12,7 +13,7 @@ const subjects = [
   { name: 'Mathematics', short: 'MA', count: '18 lessons', progress: 35, tone: 'mathematics' },
   { name: 'Biology', short: 'BI', count: '15 lessons', progress: 20, tone: 'biology' },
   { name: 'English', short: 'EN', count: '12 lessons', progress: 50, tone: 'english' },
-  { name: 'Nepali', short: 'ने', count: '12 lessons', progress: 18, tone: 'nepali' },
+  { name: 'Nepali', short: 'NP', count: '12 lessons', progress: 18, tone: 'nepali' },
   { name: 'CEE', short: 'CEE', count: 'Entrance track', progress: 0, tone: 'cee' },
   { name: 'IOE', short: 'IOE', count: 'Entrance track', progress: 0, tone: 'ioe' },
 ];
@@ -26,12 +27,13 @@ const lessons = [
 export default async function DashboardPage() {
   await requireUser('/dashboard');
   const hour = new Date().getHours();
-  const greeting = hour < 12 ? 'आजको शुभ प्रभात' : hour < 17 ? 'आजको शुभ दिउँसो' : 'आजको शुभ साँझ';
+  const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
 
   const rightPanel = (
     <>
-      <div className="insight-actions"><button className="icon-button" type="button" aria-label="Notifications">◌</button><span className="avatar-mini" aria-hidden="true">अ</span></div>
-      <div className="profile-card"><div className="profile-avatar" aria-hidden="true">अ</div><strong>Akshar learner</strong><span>NEB • Grade 11</span></div>
+      <PatternStrip />
+      <div className="insight-actions"><button className="icon-button" type="button" aria-label="Notifications">◌</button><span className="avatar-mini" aria-hidden="true">A</span></div>
+      <div className="profile-card"><ArchFrame className="profile-avatar" aria-label="Profile avatar"><span aria-hidden="true">A</span></ArchFrame><strong>Akshar learner</strong><span>NEB • Grade 11</span></div>
       <div className="streak-pill"><span>🔥</span><strong>7 day streak</strong><span>Keep going</span></div>
       <section className="activity-card" aria-labelledby="activity-title">
         <div className="activity-heading"><div><span>Study time</span><strong>3.5h</strong></div><span className="great-result">Great result!</span></div>
@@ -48,7 +50,8 @@ export default async function DashboardPage() {
 
   return (
     <AppShell active="dashboard" rightPanel={rightPanel}>
-      <header className="dashboard-hero"><p>{greeting} <span>• Student workspace</span></p><h1 id="welcome-title">आज के सिक्ने?<br /><em>What will you learn today?</em></h1></header>
+      <header className="dashboard-hero"><p>{greeting} <span>• Student workspace</span></p><h1 id="welcome-title">What will you learn today?</h1><Skyline /></header>
+      <Bunting />
       <nav className="subject-filters" aria-label="Programme filters">
         {['All', 'NEB 11', 'NEB 12', 'CEE', 'IOE'].map((label, index) => <button key={label} className={`filter-pill${index === 0 ? ' active' : ''}`} type="button"><span>{index === 0 ? '✦' : index === 1 || index === 2 ? String(index) : label}</span>{label}</button>)}
       </nav>

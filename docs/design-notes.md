@@ -12,7 +12,7 @@ The screenshot described by the current brief is the Pinterest-style three-colum
 - `--border`: `#DDD8CC` — warm hairline.
 - `--ink`: `#171717` — primary text and active black.
 - `--ink-muted`: `#686861` — quiet secondary text.
-- Physics: `#F4C9D5` (dark: `#75505B`)
+- Physics: `#F4C9D5`
 - Chemistry: `#F3D4BE` (dark: `#775B49`)
 - Mathematics: `#D9D1F3` (dark: `#625B77`)
 - Biology: `#CDE8D8` (dark: `#506B59`)
@@ -57,6 +57,19 @@ Default density is medium on mobile and compact but calm on desktop. Motion last
 ## Overall mood
 
 Warm paper, botanical green, clear typography, and low-noise layouts. The visual language should feel culturally familiar and focused rather than childish or corporate.
+
+## Nepali identity — light theme only, English copy only
+
+- Lokta paper `--lokta-paper`: `#F7F5EF`, the page background.
+- Gurans crimson `--gurans-crimson`: `#A52A3A`, active accents and key highlights.
+- Himalayan blue `--himalayan-blue`: `#263F73`, secondary links and line art.
+- Marigold `--marigold`: `#E8A846`, streaks, badges, and celebration accents.
+- Prayer green `--prayer-green`: `#557B63`, restrained success and flag accents.
+- Prayer white: `#FFFDF8`.
+
+Shared motifs live in `src/components/ui/nepali/NepaliMotifs.tsx`, with the tileable Dhaka strip in `public/patterns/dhaka.svg`. `PatternStrip` appears at the top of marketing, app, auth, dashboard, and footer surfaces. `Mandala` is restricted to hero and final-CTA watermarks. `Skyline` marks page headers and footers. `Bunting` divides major landing/dashboard sections. `ArchFrame` frames the product preview, profile avatars, and selected feature illustrations. `NepaliIllustration` supplies mountain, lotus, pagoda, and lamp empty/loading states.
+
+Patterns remain 4–10% visual strength, never sit behind body copy, scale down on mobile, and stop animating under reduced-motion settings. This version is **light theme only** and all visible copy is English. Devanagari is limited to the existing `अ` logo mark.
 
 ## Route and shared-component audit
 
