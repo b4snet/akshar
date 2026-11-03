@@ -12,6 +12,14 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Development/build-time utility scripts (not part of production bundle):
+    "*.js",
+    "scripts/**",
+    "check-subjects.js",
+    "debug-lessons.js",
+    "fix-clipped.js",
+    "fix-running.js",
+    "run-migration.bat",
   ]),
 ]);
 

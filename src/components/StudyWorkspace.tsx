@@ -344,7 +344,14 @@ export default function StudyWorkspace() {
           <div className="upload-section">
             <h3>Upload file</h3>
             <p className="upload-hint">PDF, PNG, JPEG, WebP, GIF, TXT, MD — up to 10 MB</p>
-            <div className="file-drop-zone" onClick={() => fileInputRef.current?.click()}>
+            <div
+                className="file-drop-zone"
+                role="button"
+                tabIndex={0}
+                onClick={() => fileInputRef.current?.click()}
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fileInputRef.current?.click(); } }}
+                aria-label="Upload file, click or press Enter to select"
+              >
               <input
                 ref={fileInputRef}
                 type="file"
@@ -355,7 +362,7 @@ export default function StudyWorkspace() {
               />
               <UploadIcon width={48} height={48} />
               <p>Click or drag a file here</p>
-              <span className="upload-hint">or</span>
+              <span className="upload-hint">or press Enter</span>
             </div>
             {uploading && <p className="upload-progress">Uploading and processing…</p>}
           </div>

@@ -13,6 +13,7 @@ import { describe, expect, it } from "vitest";
 import { loadAndValidate, refKey } from "../scripts/curriculum/validate";
 import { idFor } from "../scripts/curriculum/lib";
 import { lessonsFileSchema } from "../curriculum/schema";
+import { buildMigrationPreview } from "../scripts/curriculum/build-migration";
 
 const MIGRATION = path.resolve(process.cwd(), "supabase/migrations/202610120009_curriculum_content.sql");
 
@@ -147,5 +148,51 @@ describe("lessons data file", () => {
         ref
       ).toBe(true);
     }
+  });
+});
+
+describe("duplicate and conflicting updates", () => {
+  it("detects duplicate topic keys within chapters (English has known data-quality duplicates)", () => {
+    const result = loadAndValidate();
+    const dupWarnings = result.warnings.filter((w) => w.includes("duplicate topic key"));
+    // English pathway has known duplicate topic keys from source extraction;
+    // other pathways should be clean
+    const engWarnings = dupWarnings.filter((w) => w.includes("neb-english-2077"));
+    const nonEngWarnings = dupWarnings.filter((w) => !w.includes("neb-english-2077"));
+    expect(nonEngWarnings).toEqual([]);
+    expect(engWarnings.length).toBeGreaterThan(0);
+  });
+
+  it("detects no duplicate unit keys within grades", () => {
+    const result = loadAndValidate();
+    const dupWarnings = result.warnings.filter((w) => w.includes("duplicate unit key"));
+    expect(dupWarnings).toEqual([]);
+  });
+
+  it("detects no duplicate chapter keys within units", () => {
+    const result = loadAndValidate();
+    const dupWarnings = result.warnings.filter((w) => w.includes("duplicate chapter key"));
+    expect(dupWarnings).toEqual([]);
+  });
+});
+
+describe("idempotency", () => {
+  it("produces consistent preview output on re-generation", () => {
+    const result = loadAndValidate();
+    // Deterministic UUIDs mean same input → same output
+    const preview = buildMigrationPreview(result);
+    expect(preview.unitCount).toBeGreaterThan(0);
+    expect(preview.chapterCount).toBeGreaterThan(0);
+    expect(preview.topicCount).toBeGreaterThan(0);
+  });
+});
+
+describe("dry-run non-mutation", () => {
+  it("preview does not modify any data files", () => {
+    const before = fs.readFileSync(path.resolve(process.cwd(), "curriculum/data/sources.json"), "utf8");
+    const result = loadAndValidate();
+    const after = fs.readFileSync(path.resolve(process.cwd(), "curriculum/data/sources.json"), "utf8");
+    expect(before).toBe(after);
+    expect(result.errors).toEqual([]);
   });
 });

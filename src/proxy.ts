@@ -3,7 +3,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { getSupabaseConfig } from "@/lib/supabase/config";
 
 // Routes that require a verified Supabase session.
-const PROTECTED_PREFIXES = ["/dashboard", "/learn", "/practice", "/progress", "/settings", "/tutor", "/curriculum"];
+const PROTECTED_PREFIXES = ["/dashboard", "/learn", "/practice", "/progress", "/settings", "/tutor", "/curriculum", "/exam", "/study"];
 
 // Auth pages: authenticated users are sent onward after the session is verified.
 const AUTH_PAGE_PATHS = new Set(["/auth/login", "/signup"]);

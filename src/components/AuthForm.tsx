@@ -165,6 +165,11 @@ export default function AuthForm({ mode, initialNotice, config, redirectTo }: Au
         {isSignup ? "Already have an account?" : "New to Akshar?"}{" "}
         <Link href={isSignup ? "/auth/login" : "/signup"}>{isSignup ? "Log in" : "Create an account"}</Link>
       </p>
+      {!isSignup && (
+        <p className="auth-switch" style={{ marginTop: 12 }}>
+          <Link href="/auth/forgot-password">Forgot password?</Link>
+        </p>
+      )}
     </div>
   );
 }

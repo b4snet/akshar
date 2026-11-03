@@ -76,7 +76,7 @@ export type ValidationResult = {
   versions: CurriculumVersion[];
   pathways: PathwayFile[];
   coverage: CoverageStats[];
-  lessons: any[]; // lessons.json data
+  lessons: unknown[]; // lessons.json data
   errors: string[];
   warnings: string[];
 };
@@ -248,7 +248,7 @@ export function loadAndValidate(): ValidationResult {
   const lessonsFile = JSON.parse(fs.readFileSync(path.join(DATA_DIR, "lessons.json"), "utf8"));
   const lessons = lessonsFileSchema.safeParse(lessonsFile);
   if (!lessons.success) {
-    errors.push(`lessons.json: ${lessons.error.issues.map((issue: any) => `${issue.path.join(".")}: ${issue.message}`).join("; ")}`);
+    errors.push(`lessons.json: ${lessons.error.issues.map((issue: { path: PropertyKey[]; message: string }) => `${issue.path.join(".")}: ${issue.message}`).join("; ")}`);
     return { sources, versions, pathways, coverage, lessons: [], errors, warnings };
   }
 

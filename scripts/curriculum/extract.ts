@@ -304,8 +304,8 @@ function extractTwoColumn(config: TwoColumnSubject): void {
   let area: string | null = null;
   let part: string | null = null;
   let current: { "11": RawUnit | null; "12": RawUnit | null } = { "11": null, "12": null };
-  let topic: { "11": RawTopic | null; "12": RawTopic | null } = { "11": null, "12": null };
-  let chapterStart: { "11": boolean; "12": boolean } = { "11": false, "12": false };
+  const topic: { "11": RawTopic | null; "12": RawTopic | null } = { "11": null, "12": null };
+  const chapterStart: { "11": boolean; "12": boolean } = { "11": false, "12": false };
 
   const ensureUnit = (grade: "11" | "12", title: string, sourceNumber?: string): RawUnit => {
     const key = slug(title);
@@ -674,7 +674,7 @@ export function extractNebMathematics(): void {
   const blocks: Record<string, RawUnit[]> = { "11": [], "12": [] };
   let currentArea: { number: string; title: string } | null = null;
   let current: { "11": RawUnit | null; "12": RawUnit | null } = { "11": null, "12": null };
-  let topic: { "11": RawTopic | null; "12": RawTopic | null } = { "11": null, "12": null };
+  const topic: { "11": RawTopic | null; "12": RawTopic | null } = { "11": null, "12": null };
 
   const flushArea = (): void => {
     current = { "11": null, "12": null };

@@ -317,6 +317,7 @@ function main(): void {
   out.push("end $$;");
   out.push("commit;");
 
+  fs.writeFileSync(OUT, out.join("\n") + "\n", "utf8");
   console.log(
     `wrote ${path.relative(process.cwd(), OUT)}: ${unitRows.length} units, ${chapterRows.length} chapters, ${topicRows.length} topics, ${lessonRows.length} lessons, ${practiceRows.length} practice questions (coverage totals ${unitRows.length}/${chapterRows.length}/${topicRows.length})`,
   );
@@ -387,13 +388,13 @@ export function buildMigrationPreview(
   
   // Count lessons and practice questions
   const lessonsFile = JSON.parse(fs.readFileSync(LESSONS_FILE, "utf8"));
-  lessonCount = lessonsFile.lessons.filter((l: any) => 
+  lessonCount = lessonsFile.lessons.filter((l: { pathwayFile?: unknown; practice?: unknown[] }) =>
     pathwaysFiltered.some(p => p.pathway === l.pathwayFile)
   ).length;
   
   practiceCount = lessonsFile.lessons
-    .filter((l: any) => pathwaysFiltered.some(p => p.pathway === l.pathwayFile))
-    .reduce((sum: number, l: any) => sum + l.practice.length, 0);
+    .filter((l: { pathwayFile?: unknown; practice?: unknown[] }) => pathwaysFiltered.some(p => p.pathway === l.pathwayFile))
+    .reduce((sum: number, l: { pathwayFile?: unknown; practice?: unknown[] }) => sum + (Array.isArray(l.practice) ? l.practice.length : 0), 0);
   
   return {
     versions: versionsFiltered.map(v => ({ id: v.id, name: v.name })),
