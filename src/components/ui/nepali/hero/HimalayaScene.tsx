@@ -5,7 +5,7 @@ import { useEffect, useRef, type ReactNode } from "react";
 import { CloudLayer } from "./CloudLayer";
 import { PrayerFlags } from "./PrayerFlags";
 
-export function HimalayaScene({ compact = false, imageSrc = "/hero/himalaya-prayer-flags-1920.jpg", responsive = true, children }: { compact?: boolean; imageSrc?: string; responsive?: boolean; children?: ReactNode }) {
+export function HimalayaScene({ compact = false, imageSrc = "/hero/himalaya-prayer-flags-1920.jpg", responsive = true, className = "", children }: { compact?: boolean; imageSrc?: string; responsive?: boolean; className?: string; children?: ReactNode }) {
   const sceneRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const scene = sceneRef.current;
@@ -28,7 +28,7 @@ export function HimalayaScene({ compact = false, imageSrc = "/hero/himalaya-pray
     return () => { observer.disconnect(); window.removeEventListener("scroll", parallax); document.removeEventListener("visibilitychange", visibility); };
   }, []);
   return (
-    <div ref={sceneRef} className={`himalaya-scene${compact ? " himalaya-scene--compact" : ""}`}>
+    <div ref={sceneRef} className={`himalaya-scene${compact ? " himalaya-scene--compact" : ""}${className ? ` ${className}` : ""}`}>
       <div className="himalaya-photo" aria-hidden="true">
         {responsive ? (
           <picture>

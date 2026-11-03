@@ -1385,6 +1385,48 @@ input, textarea, select { border-color: var(--border) !important; }
 .dashboard-hero { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 22px 28px !important; margin: 0 !important; border: 0 !important; background: linear-gradient(90deg, rgba(247,245,239,.94) 0%, rgba(247,245,239,.72) 55%, transparent 100%) !important; }
 .dashboard-hero p { margin: 0; color: var(--ink-muted); }
 .dashboard-hero h1 { max-width: 620px; margin-top: 5px !important; font-size: clamp(26px, 4vw, 44px) !important; }
+
+/* Landing hero photographic background and card layout */
+.landing-hero::before, .site-root > .site-header::after { display: none; }
+.landing-hero::before { content: none; }
+.landing-hero { position: relative; isolation: isolate; z-index: 0; width: 100%; max-width: none; min-height: 690px; grid-template-columns: minmax(0, 1.08fr) minmax(420px, .92fr); padding-inline: max(16px, calc((100vw - 1180px) / 2)); overflow: hidden; }
+.landing-hero-background.himalaya-scene { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 0; background: var(--himalaya-sky); }
+.landing-hero-background .himalaya-photo { z-index: 0; }
+.landing-hero-background .himalaya-photo img { object-position: center 58%; }
+.landing-hero-background .himalaya-photo::after { z-index: 1; background: linear-gradient(90deg, rgba(247,245,239,.98) 0%, rgba(247,245,239,.92) 34%, rgba(247,245,239,.42) 52%, rgba(247,245,239,0) 72%), linear-gradient(180deg, rgba(247,245,239,0) 68%, rgba(247,245,239,.96) 100%); }
+.landing-hero-background .himalaya-clouds, .landing-hero-background .prayer-flags { z-index: 2; }
+.landing-hero-copy, .landing-preview { position: relative; z-index: 3; }
+.landing-preview { width: 100%; min-height: 520px; border: 0; border-radius: 0; overflow: visible; background: transparent !important; box-shadow: none !important; }
+.landing-preview-grid { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.landing-preview .landing-mini-course { min-height: 168px; height: auto; padding: 18px; }
+.landing-preview .landing-mini-course:nth-child(2), .landing-preview .landing-mini-course:nth-child(3) { transform: none; }
+.landing-preview .landing-mini-course strong { font-size: 21px; line-height: 1.15; }
+.landing-preview .landing-mini-course > span { font-size: 14px; }
+.landing-preview .landing-activity-preview { position: relative; right: auto; bottom: auto; width: 100%; min-height: 92px; margin-top: 14px; display: grid; grid-template-columns: auto auto auto 1fr; align-items: center; background: rgba(255,255,255,.96) !important; }
+.landing-preview .landing-mini-chart { height: 52px; }
+.landing-mini-course { background: var(--course-token) !important; }
+.landing-preview .landing-mini-course:first-child { background: var(--lavender, #ded7f0) !important; }
+.landing-preview .landing-mini-course:nth-child(2) { background: var(--peach, #f4d2b5) !important; }
+.landing-preview .landing-mini-course:nth-child(3) { background: var(--rose, #efc7ce) !important; }
+.landing-preview .landing-mini-course:nth-child(4) { background: var(--mint, #c9e5d7) !important; }
+.landing-preview .landing-mini-head { min-width: 0; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.landing-preview .landing-course-icon { background: var(--surface); }
+.landing-preview .landing-mini-head .badge, .landing-preview .landing-result-badge { background: white; color: var(--ink); }
+@media (max-width: 900px) {
+  .landing-hero { grid-template-columns: 1fr; grid-template-areas: "copy" "preview"; min-height: 0; padding-block: 54px 70px; }
+  .landing-preview { width: min(560px, 100%); min-height: 0; margin-inline: auto; }
+  .landing-hero-background { height: 100%; }
+  .landing-hero-background .himalaya-photo img { object-position: 62% center; }
+  .landing-hero-background .himalaya-photo::after { background: linear-gradient(180deg, rgba(247,245,239,.92) 0%, rgba(247,245,239,.72) 42%, rgba(247,245,239,.08) 68%, rgba(247,245,239,.96) 100%); }
+}
+@media (max-width: 600px) {
+  .landing-preview-grid { gap: 10px; }
+  .landing-preview .landing-mini-course { min-height: 154px; padding: 14px; }
+  .landing-preview .landing-mini-course strong { font-size: 18px; }
+  .landing-preview .landing-mini-course > span { font-size: 13px; }
+  .landing-preview .landing-activity-preview { grid-template-columns: auto auto 1fr; }
+  .landing-preview .landing-mini-chart { grid-column: 1 / -1; }
+}
 @keyframes prayer-flutter { 0% { transform: skewY(-1deg) rotateY(-4deg); } 100% { transform: skewY(2deg) rotateY(7deg) translateY(2px); } }
 @keyframes himalaya-cloud-drift { from { transform: translateX(-260px); } to { transform: translateX(calc(100vw + 260px)); } }
 @keyframes hero-card-bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -6px; } }
