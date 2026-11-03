@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 type AuthPanelProps = {
   mode: "login" | "signup";
@@ -30,6 +31,7 @@ export default function AuthPanel({ mode, children }: AuthPanelProps) {
       <main className="auth-main">
         <div className="auth-top">
           <Link href="/" className="auth-back-link">← Back to website</Link>
+          <ThemeToggle />
         </div>
         <div className="auth-card-wrap">{children}</div>
       </main>

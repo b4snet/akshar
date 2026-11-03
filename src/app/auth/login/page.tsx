@@ -21,7 +21,7 @@ function LoginForm() {
 export default function LoginPage() {
   return (
     <AuthPanel mode="login">
-      <Suspense fallback={<div className="auth-loading" role="status">Loading account…</div>}>
+      <Suspense fallback={<div className="auth-loading" role="status" aria-label="Loading account"><span className="ui-skeleton" /></div>}>
         <LoginForm />
       </Suspense>
     </AuthPanel>

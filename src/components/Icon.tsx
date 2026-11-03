@@ -44,6 +44,17 @@ export function PracticeIcon(props: IconProps) {
   );
 }
 
+export function ExamIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props} aria-hidden="true">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <polyline points="14 2 14 8 20 8" />
+      <line x1="16" y1="13" x2="8" y2="13" />
+      <line x1="16" y1="17" x2="8" y2="17" />
+    </svg>
+  );
+}
+
 export function TutorIcon(props: IconProps) {
   return (
     <svg {...base} {...props} aria-hidden="true">
@@ -62,6 +73,14 @@ export function ProgressIcon(props: IconProps) {
   );
 }
 
+export function MenuIcon(props: IconProps) {
+  return (
+    <svg {...base} width={18} height={18} {...props} aria-hidden="true">
+      <path d="M4 7h16M4 12h16M4 17h16" />
+    </svg>
+  );
+}
+
 export function SettingsIcon(props: IconProps) {
   return (
     <svg {...base} {...props} aria-hidden="true">
@@ -71,10 +90,43 @@ export function SettingsIcon(props: IconProps) {
   );
 }
 
-export function MenuIcon(props: IconProps) {
+// New icons
+export function CalendarIcon(props: IconProps) {
   return (
-    <svg {...base} width={18} height={18} {...props} aria-hidden="true">
-      <path d="M4 7h16M4 12h16M4 17h16" />
+    <svg {...base} {...props} aria-hidden="true">
+      <path d="M3 4h18v16H3z" />
+      <path d="M3 8h18" />
+      <path d="M8 2v4" />
+      <path d="M16 2v4" />
+    </svg>
+  );
+}
+
+export function BookOpenIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props} aria-hidden="true">
+      <path d="M4 4h12v16H4z" />
+      <path d="M16 4h4v16h-4" />
+      <path d="M4 8h12" />
+    </svg>
+  );
+}
+
+export function UserCheckIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props} aria-hidden="true">
+      <circle cx="12" cy="8" r="4" />
+      <path d="M6 18c1-2 3-3 6-3s5 1 6 3" />
+      <path d="M9 12l2 2 4-4" />
+    </svg>
+  );
+}
+
+export function ClockIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props} aria-hidden="true">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 3" />
     </svg>
   );
 }

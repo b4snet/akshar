@@ -35,7 +35,7 @@ function getStudyStreak(activity: ReadySnapshot["activity"]) {
 function DataNotice({ status }: { status: LearningSnapshot["status"] | "loading" }) {
   if (status === "ready") return null;
   const message = status === "loading"
-    ? "Loading account progress…"
+    ? ""
     : status === "unconfigured"
       ? "Supabase is not configured. Add the project API URL and publishable key to the root .env.local, then restart the app."
       : status === "signed-out"
@@ -44,7 +44,8 @@ function DataNotice({ status }: { status: LearningSnapshot["status"] | "loading"
           ? "The session could not be verified. No account data was loaded."
           : "Saved data could not be loaded. Apply the migration in the Supabase SQL Editor and verify RLS policies. No save is being claimed.";
 
-  return <div className={`learning-data-notice ${status === "loading" ? "loading" : ""}`} role={status === "loading" ? "status" : "alert"}>{message}{status === "signed-out" && <> <Link href="/login">Log in</Link></>}</div>;
+  if (status === "loading") return <div className="learning-data-notice loading" role="status" aria-label="Loading account progress"><span className="ui-skeleton" /></div>;
+  return <div className="learning-data-notice" role="alert">{message}{status === "signed-out" && <> <Link href="/login">Log in</Link></>}</div>;
 }
 
 function LessonCompletionButton({ lessonId, alreadyComplete, onSaved }: { lessonId: string; alreadyComplete: boolean; onSaved: () => void }) {

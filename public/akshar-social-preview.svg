@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F7F5EF"/>
+  <rect x="70" y="70" width="1060" height="490" rx="44" fill="#EAE6DC"/>
+  <rect x="110" y="112" width="76" height="76" rx="24" fill="#171717"/>
+  <text x="148" y="169" text-anchor="middle" fill="#fff" font-size="48" font-family="Noto Sans Devanagari, sans-serif">अ</text>
+  <text x="205" y="167" fill="#171717" font-size="44" font-family="Manrope, sans-serif" font-weight="700">akshar.</text>
+  <text x="110" y="330" fill="#171717" font-size="82" font-family="Manrope, sans-serif" font-weight="400" letter-spacing="-3">Learn with purpose.</text>
+  <text x="110" y="395" fill="#686861" font-size="30" font-family="Manrope, sans-serif">Your calm space for NEB, CEE and IOE preparation.</text>
+  <rect x="110" y="452" width="156" height="58" rx="29" fill="#171717"/>
+  <text x="188" y="490" text-anchor="middle" fill="#fff" font-size="22" font-family="Manrope, sans-serif">Start learning</text>
+  <rect x="790" y="130" width="270" height="160" rx="28" fill="#F4C9D5"/>
+  <rect x="830" y="310" width="270" height="160" rx="28" fill="#D9D1F3"/>
+  <circle cx="864" cy="204" r="30" fill="#fff"/><circle cx="904" cy="384" r="30" fill="#fff"/>
+</svg>
