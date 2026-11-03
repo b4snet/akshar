@@ -5,7 +5,7 @@ import { useEffect, useRef, type ReactNode } from "react";
 import { CloudLayer } from "./CloudLayer";
 import { PrayerFlags } from "./PrayerFlags";
 
-export function HimalayaScene({ compact = false, children }: { compact?: boolean; children?: ReactNode }) {
+export function HimalayaScene({ compact = false, imageSrc = "/hero/himalaya-prayer-flags-1920.jpg", responsive = true, children }: { compact?: boolean; imageSrc?: string; responsive?: boolean; children?: ReactNode }) {
   const sceneRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const scene = sceneRef.current;
@@ -30,12 +30,16 @@ export function HimalayaScene({ compact = false, children }: { compact?: boolean
   return (
     <div ref={sceneRef} className={`himalaya-scene${compact ? " himalaya-scene--compact" : ""}`}>
       <div className="himalaya-photo" aria-hidden="true">
-        <picture>
-          <source media="(max-width: 640px)" srcSet="/hero/himalaya-prayer-flags-640.avif" type="image/avif" />
-          <source media="(max-width: 1280px)" srcSet="/hero/himalaya-prayer-flags-1280.avif" type="image/avif" />
-          <source srcSet="/hero/himalaya-prayer-flags-1920.avif" type="image/avif" />
-          <Image src="/hero/himalaya-prayer-flags-1920.jpg" alt="" fill priority={!compact} sizes={compact ? "100vw" : "(max-width: 768px) 100vw, 50vw"} />
-        </picture>
+        {responsive ? (
+          <picture>
+            <source media="(max-width: 640px)" srcSet="/hero/himalaya-prayer-flags-640.avif" type="image/avif" />
+            <source media="(max-width: 1280px)" srcSet="/hero/himalaya-prayer-flags-1280.avif" type="image/avif" />
+            <source srcSet="/hero/himalaya-prayer-flags-1920.avif" type="image/avif" />
+            <Image src={imageSrc} alt="" fill priority={!compact} sizes={compact ? "100vw" : "(max-width: 768px) 100vw, 50vw"} />
+          </picture>
+        ) : (
+          <Image src={imageSrc} alt="" fill priority={!compact} sizes={compact ? "100vw" : "(max-width: 768px) 100vw, 50vw"} />
+        )}
       </div>
       <CloudLayer />
       <PrayerFlags />

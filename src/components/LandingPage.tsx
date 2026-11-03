@@ -45,10 +45,10 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="landing-preview" role="img" aria-label="Akshar study preview over the Himalayan landscape">
-            <HimalayaScene>
+            <HimalayaScene imageSrc="/landing_hero_placeholder.jpg" responsive={false}>
               <div className="landing-preview-grid">
                 {heroSubjects.map((subject, index) => (
-                  <FloatingCard key={subject.name} className="landing-mini-course" delay={index * 90}>
+                  <FloatingCard key={subject.name} className="landing-mini-course" delay={index * 90} style={{ "--course-token": `var(--${subject.token})` } as React.CSSProperties}>
                     <div className="landing-mini-head"><span className="landing-course-icon" aria-hidden="true">{subject.name.slice(0, 1)}</span><Badge>{subject.progress}%</Badge></div>
                     <strong>{subject.name}</strong><span>{subject.lessons}</span>
                   </FloatingCard>
