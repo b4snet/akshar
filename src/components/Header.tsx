@@ -55,6 +55,7 @@ export default function Header() {
           <Link href="/auth/login" className="site-nav-link site-header-login">Log in</Link>
           <Link href="/signup" className="site-btn site-btn-sm">Sign up</Link>
         </div>
+        <Link href="/signup" className="site-mobile-signup">Sign up</Link>
 
         <button
           ref={toggleRef}
