@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import Header from "@/components/Header";
 import { Badge, Card, Progress } from "@/components/ui/Primitives";
-import { ArchFrame, Bunting, Mandala, PatternStrip, Skyline } from "@/components/ui/nepali/NepaliMotifs";
+import { Bunting, Mandala, PatternStrip, Skyline } from "@/components/ui/nepali/NepaliMotifs";
+import { FloatingCard, HimalayaScene } from "@/components/ui/nepali/hero";
 
 const filters = ["All", "NEB 11", "NEB 12", "CEE", "IOE"] as const;
 type Filter = (typeof filters)[number];
@@ -43,24 +44,24 @@ export default function LandingPage() {
               <Link href="/curriculum" className="site-btn site-btn-ghost">Explore Curriculum</Link>
             </div>
           </div>
-          <ArchFrame className="landing-preview" aria-label="Akshar study preview">
-            <div className="landing-preview-grid">
-              {heroSubjects.map((subject, index) => (
-                <Card key={subject.name} className="landing-mini-course" style={{ "--course-token": `var(--${subject.token})`, "--float-delay": `${index * 90}ms` } as React.CSSProperties}>
-                  <div className="landing-mini-head"><span className="landing-course-icon" aria-hidden="true">{subject.name.slice(0, 1)}</span><Badge>{subject.progress}%</Badge></div>
-                  <strong>{subject.name}</strong>
-                  <span>{subject.lessons}</span>
-                </Card>
-              ))}
-            </div>
-            <Card className="landing-activity-preview">
-              <span className="landing-kicker">THIS WEEK</span>
-              <strong>3.5h</strong><Badge className="landing-result-badge">Great result!</Badge>
-              <div className="landing-mini-chart" aria-label="Stacked subject study time chart">
-                {[42, 68, 54, 82, 61, 76].map((height, index) => <span key={index} style={{ height: `${height}%`, "--bar-color": `var(--${heroSubjects[index % heroSubjects.length].token})` } as React.CSSProperties} />)}
+          <div className="landing-preview" role="img" aria-label="Akshar study preview over the Himalayan landscape">
+            <HimalayaScene>
+              <div className="landing-preview-grid">
+                {heroSubjects.map((subject, index) => (
+                  <FloatingCard key={subject.name} className="landing-mini-course" delay={index * 90}>
+                    <div className="landing-mini-head"><span className="landing-course-icon" aria-hidden="true">{subject.name.slice(0, 1)}</span><Badge>{subject.progress}%</Badge></div>
+                    <strong>{subject.name}</strong><span>{subject.lessons}</span>
+                  </FloatingCard>
+                ))}
               </div>
-            </Card>
-          </ArchFrame>
+              <FloatingCard className="landing-activity-preview" delay={360}>
+                <span className="landing-kicker">THIS WEEK</span><strong>3.5h</strong><Badge className="landing-result-badge">Great result!</Badge>
+                <div className="landing-mini-chart" aria-label="Stacked subject study time chart">
+                  {[42, 68, 54, 82, 61, 76].map((height, index) => <span key={index} style={{ height: `${height}%`, "--bar-color": `var(--${heroSubjects[index % heroSubjects.length].token})` } as React.CSSProperties} />)}
+                </div>
+              </FloatingCard>
+            </HimalayaScene>
+          </div>
           <Skyline />
         </section>
 

@@ -1,0 +1,9 @@
+"use client";
+
+import type { CSSProperties, ReactNode } from "react";
+import { useTilt } from "./useTilt";
+
+export function FloatingCard({ children, className = "", delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
+  const { ref, style, onPointerMove, onPointerLeave } = useTilt();
+  return <div ref={ref} className={`floating-hero-card ${className}`} style={{ ...style, "--float-delay": `${delay}ms` } as CSSProperties} onPointerMove={onPointerMove} onPointerLeave={onPointerLeave}>{children}</div>;
+}

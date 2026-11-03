@@ -1347,3 +1347,54 @@ input, textarea, select { border-color: var(--border) !important; }
 @media (max-width: 767px) { .nepali-mandala { width: 220px; height: 220px; } .nepali-skyline { height: 48px; } }
 .rail-link.active, .mobile-nav a.active, .filter-pill.active, .landing-filter.is-active { background: var(--gurans-crimson) !important; color: var(--prayer-white) !important; }
 .streak-pill span:first-child { color: var(--marigold); }
+
+/* Living Himalayan hero scene */
+:root {
+  --himalaya-sky: #174f9c;
+  --himalaya-snow: #f7fbff;
+  --prayer-red: #b83246;
+  --prayer-green: #557b63;
+  --prayer-yellow: #e8a846;
+}
+.himalaya-scene { position: relative; isolation: isolate; width: 100%; height: 520px; overflow: hidden; border: 1px solid rgba(38,63,115,.16); border-radius: 28px; background: var(--himalaya-sky); transform: translateZ(0); }
+.himalaya-photo { position: absolute; z-index: -3; inset: 0; overflow: hidden; }
+.himalaya-photo picture { position: absolute; inset: 0; display: block; }
+.himalaya-photo img { object-fit: cover; object-position: center 72%; transform: translateY(var(--scroll-shift, 0)) scale(1.04); will-change: transform; }
+.himalaya-scene.himalaya-offscreen *, .himalaya-scene.himalaya-hidden *, .himalaya-scene.himalaya-static * { animation-play-state: paused !important; }
+.himalaya-scene.himalaya-static .floating-hero-card { animation: none !important; transform: none !important; }
+.himalaya-scene.himalaya-static .himalaya-photo img { transform: none; }
+
+.himalaya-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(247,245,239,.05) 50%, var(--lokta-paper) 100%); }
+.himalaya-clouds { position: absolute; z-index: -2; inset: 0; pointer-events: none; opacity: .72; }
+.himalaya-clouds span { position: absolute; width: 160px; height: 32px; border-radius: 999px; background: rgba(255,255,255,.72); filter: blur(5px); animation: himalaya-cloud-drift 90s linear infinite; }
+.himalaya-clouds span:nth-child(1) { top: 32%; left: -18%; }
+.himalaya-clouds span:nth-child(2) { top: 48%; left: 58%; width: 210px; animation-duration: 115s; animation-direction: reverse; }
+.himalaya-clouds span:nth-child(3) { top: 18%; left: 22%; width: 110px; animation-duration: 75s; }
+.prayer-flags { position: absolute; z-index: -1; top: -12px; left: 0; width: 100%; height: 118px; pointer-events: none; filter: drop-shadow(0 8px 10px rgba(31,55,88,.16)); }
+.prayer-flags path:not(:first-child) { transform-box: fill-box; transform-origin: top center; animation: prayer-flutter 3.2s ease-in-out infinite alternate; }
+.himalaya-scene-content { position: relative; height: 100%; }
+.floating-hero-card { position: relative; min-width: 0; background: var(--surface) !important; color: var(--ink) !important; box-shadow: 0 18px 36px rgba(32,45,70,.16) !important; animation: hero-card-bob 4.8s var(--float-delay, 0ms) ease-in-out infinite; transform-style: preserve-3d; transition: transform 220ms ease-out, box-shadow 220ms ease-out; will-change: transform; }
+.himalaya-scene .landing-preview-grid { position: absolute; inset: 58px 18px 92px 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; transform: none; }
+.himalaya-scene .landing-mini-course { min-height: 0; height: auto; }
+.himalaya-scene .landing-activity-preview { position: absolute; right: 18px; bottom: 18px; left: 18px; min-height: 62px; display: grid; grid-template-columns: auto auto 1fr auto; align-items: center; gap: 10px; padding: 12px 16px !important; border-radius: 18px; }
+.himalaya-scene .landing-mini-chart { height: 38px; }
+.himalaya-scene--compact { height: 188px; border-radius: 20px; }
+.himalaya-scene--compact .himalaya-photo img { object-position: center 58%; }
+.dashboard-hero { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 22px 28px !important; margin: 0 !important; border: 0 !important; background: linear-gradient(90deg, rgba(247,245,239,.94) 0%, rgba(247,245,239,.72) 55%, transparent 100%) !important; }
+.dashboard-hero p { margin: 0; color: var(--ink-muted); }
+.dashboard-hero h1 { max-width: 620px; margin-top: 5px !important; font-size: clamp(26px, 4vw, 44px) !important; }
+@keyframes prayer-flutter { 0% { transform: skewY(-1deg) rotateY(-4deg); } 100% { transform: skewY(2deg) rotateY(7deg) translateY(2px); } }
+@keyframes himalaya-cloud-drift { from { transform: translateX(-260px); } to { transform: translateX(calc(100vw + 260px)); } }
+@keyframes hero-card-bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -6px; } }
+@media (max-width: 767px) {
+  .himalaya-scene { height: 390px; border-radius: 22px; }
+  .himalaya-scene--compact { height: 150px; }
+  .himalaya-scene .landing-preview-grid { inset: 74px 10px 78px; gap: 8px; }
+  .himalaya-scene .landing-mini-course { padding: 12px; }
+  .himalaya-scene .landing-activity-preview { right: 10px; bottom: 10px; left: 10px; }
+  .dashboard-hero { padding: 16px 18px !important; }
+  .dashboard-hero h1 { font-size: 28px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .himalaya-clouds span, .prayer-flags path:not(:first-child), .floating-hero-card { animation: none !important; }
+}

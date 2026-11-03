@@ -3,7 +3,8 @@ import Link from 'next/link';
 import type { CSSProperties } from 'react';
 import { BookOpenIcon } from '@/components/Icon';
 import { requireUser } from '@/lib/supabase/server';
-import { ArchFrame, Bunting, PatternStrip, Skyline } from '@/components/ui/nepali/NepaliMotifs';
+import { ArchFrame, Bunting, PatternStrip } from '@/components/ui/nepali/NepaliMotifs';
+import { HimalayaScene } from '@/components/ui/nepali/hero';
 
 export const instant = false;
 
@@ -50,7 +51,9 @@ export default async function DashboardPage() {
 
   return (
     <AppShell active="dashboard" rightPanel={rightPanel}>
-      <header className="dashboard-hero"><p>{greeting} <span>• Student workspace</span></p><h1 id="welcome-title">What will you learn today?</h1><Skyline /></header>
+      <HimalayaScene compact>
+        <header className="dashboard-hero"><p>{greeting} <span>• Student workspace</span></p><h1 id="welcome-title">What will you learn today?</h1></header>
+      </HimalayaScene>
       <Bunting />
       <nav className="subject-filters" aria-label="Programme filters">
         {['All', 'NEB 11', 'NEB 12', 'CEE', 'IOE'].map((label, index) => <button key={label} className={`filter-pill${index === 0 ? ' active' : ''}`} type="button"><span>{index === 0 ? '✦' : index === 1 || index === 2 ? String(index) : label}</span>{label}</button>)}
