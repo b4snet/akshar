@@ -1,6 +1,7 @@
 "use server";
 
 import { getAuthenticatedContext } from "@/lib/supabase/auth-context";
+import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { demoLessons } from "@/lib/demoLessons";
 import { fetchCurriculumCatalog } from "@/lib/curriculum/catalog";
 import { normalizeSelection, eligibleSubjects } from "@/lib/curriculum/eligibility";
@@ -201,4 +202,28 @@ export async function submitQuizAttempt(quizId: QuizId, submittedAnswers: Record
   }
 
   return { status: "saved", score: data.score, totalQuestions: data.total_questions, activitySaved: true } as const;
+}
+
+export async function changePassword(currentPassword: string, newPassword: string): Promise<{ status: "saved" | "invalid" | "database-error" | "signed-out" | "unconfigured" | "auth-error"; message?: string }> {
+  if (!newPassword || newPassword.length < 8) {
+    return { status: "invalid", message: "Password must be at least 8 characters." };
+  }
+
+  const context = await getAuthenticatedContext();
+  if (context.status !== "ready") return { status: context.status };
+
+  const supabase = await createSupabaseServerClient();
+  if (!supabase) return { status: "unconfigured" };
+
+  const { error: signInError } = await supabase.auth.signInWithPassword({
+    email: context.user.email!,
+    password: currentPassword,
+  });
+  if (signInError) return { status: "invalid", message: "Current password is incorrect." };
+
+  const { error } = await supabase.auth.updateUser({ password: newPassword });
+  if (error) return { status: "database-error", message: "Password change failed. Try again." };
+
+  await supabase.auth.signOut();
+  return { status: "saved" };
 }
