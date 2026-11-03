@@ -1,122 +1,38 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import Header from "@/components/Header";
-import { Badge, Card, Progress } from "@/components/ui/Primitives";
-import { Bunting, Mandala, PatternStrip, Skyline } from "@/components/ui/nepali/NepaliMotifs";
-import { FloatingCard, HimalayaScene } from "@/components/ui/nepali/hero";
+import { useEffect, useState } from "react";
 
+const sourceImage = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-f8rh4Cjv8FbnO76CQhYFT8L0k2DPyv.png";
 const filters = ["All", "NEB 11", "NEB 12", "CEE", "IOE"] as const;
 type Filter = (typeof filters)[number];
-
 const subjects = [
-  { name: "Physics", token: "physics", category: "Science", lessons: "18 lessons", progress: 42, paths: ["All", "NEB 11", "NEB 12"] as Filter[] },
-  { name: "Chemistry", token: "chemistry", category: "Science", lessons: "16 lessons", progress: 36, paths: ["All", "NEB 11", "NEB 12"] as Filter[] },
-  { name: "Mathematics", token: "mathematics", category: "Mathematics", lessons: "24 lessons", progress: 58, paths: ["All", "NEB 11", "NEB 12", "CEE", "IOE"] as Filter[] },
-  { name: "Biology", token: "biology", category: "Science", lessons: "21 lessons", progress: 31, paths: ["All", "NEB 11", "NEB 12", "CEE"] as Filter[] },
-  { name: "English", token: "english", category: "Language", lessons: "14 lessons", progress: 64, paths: ["All", "NEB 11", "NEB 12"] as Filter[] },
-  { name: "Nepali", token: "nepali", category: "Language", lessons: "15 lessons", progress: 48, paths: ["All", "NEB 11", "NEB 12"] as Filter[] },
-  { name: "CEE preparation", token: "cee", category: "Entrance", lessons: "Practice track", progress: 22, paths: ["All", "CEE"] as Filter[] },
-  { name: "IOE preparation", token: "ioe", category: "Entrance", lessons: "Practice track", progress: 19, paths: ["All", "IOE"] as Filter[] },
-];
+  ["Physics", "42%", "18 lessons", "physics", "Science"], ["Chemistry", "36%", "16 lessons", "chemistry", "Science"],
+  ["Mathematics", "58%", "24 lessons", "mathematics", "Mathematics"], ["Biology", "31%", "21 lessons", "biology", "Science"],
+  ["English", "64%", "14 lessons", "english", "Language"], ["Computer Science", "48%", "20 lessons", "computer", "Technology"],
+] as const;
 
-const heroSubjects = subjects.slice(0, 4);
+function Logo() { return <Link href="/" className="ak-logo"><span>अ</span><b>akshar.</b></Link>; }
+function Arrow() { return <span aria-hidden="true">↗</span>; }
 
 export default function LandingPage() {
   const [activeFilter, setActiveFilter] = useState<Filter>("All");
-  const visibleSubjects = subjects.filter((subject) => activeFilter === "All" || subject.paths.includes(activeFilter));
-
-  return (
-    <div className="site-root">
-      <Header />
-      <PatternStrip />
-      <main>
-        <section className="landing-hero site-container" aria-labelledby="hero-title">
-          <Mandala className="landing-mandala" watermark />
-          <div className="landing-hero-copy">
-            <p className="site-eyebrow">LEARN WITHOUT LIMITS</p>
-            <h1 id="hero-title">Beyond memorising, <span>you build your future.</span></h1>
-            <p className="landing-devanagari">Akshar — a learning space with lasting purpose</p>
-            <p className="landing-hero-sub">Structured lessons, revision resources, practice questions, and exam preparation for students ready to learn with purpose.</p>
-            <div className="landing-actions">
-              <Link href="/signup" className="site-btn">Start Learning</Link>
-              <Link href="/curriculum" className="site-btn site-btn-ghost">Explore Curriculum</Link>
-            </div>
-          </div>
-          <div className="landing-preview" role="img" aria-label="Akshar study preview over the Himalayan landscape">
-            <HimalayaScene imageSrc="/landing_hero_placeholder.jpg" responsive={false}>
-              <div className="landing-preview-grid">
-                {heroSubjects.map((subject, index) => (
-                  <FloatingCard key={subject.name} className="landing-mini-course" delay={index * 90} style={{ "--course-token": `var(--${subject.token})` } as React.CSSProperties}>
-                    <div className="landing-mini-head"><span className="landing-course-icon" aria-hidden="true">{subject.name.slice(0, 1)}</span><Badge>{subject.progress}%</Badge></div>
-                    <strong>{subject.name}</strong><span>{subject.lessons}</span>
-                  </FloatingCard>
-                ))}
-              </div>
-              <FloatingCard className="landing-activity-preview" delay={360}>
-                <span className="landing-kicker">THIS WEEK</span><strong>3.5h</strong><Badge className="landing-result-badge">Great result!</Badge>
-                <div className="landing-mini-chart" aria-label="Stacked subject study time chart">
-                  {[42, 68, 54, 82, 61, 76].map((height, index) => <span key={index} style={{ height: `${height}%`, "--bar-color": `var(--${heroSubjects[index % heroSubjects.length].token})` } as React.CSSProperties} />)}
-                </div>
-              </FloatingCard>
-            </HimalayaScene>
-          </div>
-          <Skyline />
-        </section>
-
-        <Bunting />
-        <section className="landing-section site-container" id="curriculum" aria-labelledby="subjects-title">
-          <div className="landing-filter-wrap">
-            <div className="landing-filters" role="group" aria-label="Study programme">
-              {filters.map((filter, index) => (
-                <button key={filter} type="button" className={`landing-filter ${activeFilter === filter ? "is-active" : ""}`} aria-pressed={activeFilter === filter} onClick={() => setActiveFilter(filter)}>
-                  <span aria-hidden="true">{index === 0 ? "A" : filter.replace("NEB ", "N")}</span>{filter}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="landing-section-heading">
-            <div><p className="site-eyebrow">YOUR CURRICULUM</p><h2 id="subjects-title">Everything you need, subject by subject.</h2></div>
-            <p>Choose a pathway to see the courses organised around what you are preparing for.</p>
-          </div>
-          <div className="landing-subject-grid">
-            {visibleSubjects.map((subject) => (
-              <Link href="/curriculum" key={subject.name} className="landing-course-card" style={{ "--course-token": `var(--${subject.token})` } as React.CSSProperties}>
-                <div className="landing-course-top"><span className="landing-course-icon" aria-hidden="true">{subject.name.charAt(0)}</span><span className="landing-course-category">{subject.category}</span><Badge>{subject.progress}%</Badge></div>
-                <h3>{subject.name}</h3>
-                <div className="landing-course-meta"><span>{subject.lessons}</span><Progress value={subject.progress} label={`${subject.name} progress`} /></div>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        <section className="landing-section site-container" aria-labelledby="how-title">
-          <div className="landing-section-heading"><div><p className="site-eyebrow">A SIMPLE STUDY RHYTHM</p><h2 id="how-title">Learn it. Remember it. Apply it.</h2></div></div>
-          <div className="landing-how-grid">
-            <Card className="landing-how-card landing-how-learn"><span className="landing-step-number">01</span><h3>Learn</h3><p>Structured lessons and AI notes turn complex chapters into clear next steps.</p><div className="landing-ui-snippet lesson-snippet"><span /><strong>Newton&apos;s laws</strong><i /><i /><i /></div></Card>
-            <Card className="landing-how-card landing-how-revise"><span className="landing-step-number">02</span><h3>Revise</h3><p>Flashcards and audio lectures make useful revision possible anywhere.</p><div className="landing-ui-snippet flash-snippet"><span>What is force?</span><strong>Tap to reveal</strong></div></Card>
-            <Card className="landing-how-card landing-how-practice"><span className="landing-step-number">03</span><h3>Practice</h3><p>Targeted questions and exam prep build confidence before the real test.</p><div className="landing-ui-snippet quiz-snippet"><span>QUESTION 8</span><strong>Choose the correct answer</strong><i /><i /></div></Card>
-          </div>
-        </section>
-
-        <section className="landing-section site-container landing-entrance" aria-labelledby="entrance-title">
-          <div className="landing-entrance-copy"><p className="site-eyebrow">ENTRANCE PREPARATION</p><h2 id="entrance-title">Make the entrance exam feel familiar.</h2><ul><li>CEE and IOE focused practice tracks</li><li>Timed question sets and clear explanations</li><li>Revision organised around weak areas</li></ul><Link href="/practice" className="site-btn landing-light-button">Explore entrance prep</Link></div>
-          <div className="landing-exam-board" aria-label="Entrance exam preparation preview"><div><span>CEE</span><strong>8 chapters ready</strong><Progress value={68} label="CEE preparation progress" /></div><div><span>IOE</span><strong>Physics focus</strong><Progress value={44} label="IOE preparation progress" /></div></div>
-        </section>
-
-        <section className="landing-section site-container landing-progress" aria-labelledby="progress-title">
-          <div className="landing-progress-copy"><p className="site-eyebrow">PROGRESS THAT STAYS VISIBLE</p><h2 id="progress-title">See your progress grow.</h2><p>One focused session at a time: continue lessons, keep your streak, and return to yesterday&apos;s revision.</p><Link href="/progress" className="site-text-link">View progress</Link></div>
-          <div className="landing-progress-panel"><div className="landing-streak"><span aria-hidden="true">✦</span><div><strong>7 day streak</strong><small>Keep going</small></div></div><div className="landing-week"><span className="landing-kicker">WEEKLY ACTIVITY</span><strong>5h 40m</strong><div className="landing-mini-chart" aria-hidden="true">{[35, 58, 46, 82, 68, 54, 74].map((height, index) => <span key={index} style={{ height: `${height}%`, "--bar-color": `var(--${heroSubjects[index % 4].token})` } as React.CSSProperties} />)}</div></div></div>
-        </section>
-
-        <section className="landing-proof site-container" aria-labelledby="proof-title">
-          <div><p className="site-eyebrow">STUDENT VOICES</p><h2 id="proof-title">Built for real study days.</h2></div><div className="landing-proof-placeholder"><span>Student quote</span><p>Placeholder — student stories can be added after verified testimonials are collected.</p></div><p className="landing-nepal-note"><strong>Built in Nepal by Nepluro</strong><br />Thoughtful tools for Nepal&apos;s next generation of learners.</p>
-        </section>
-
-        <section className="landing-final site-container" aria-labelledby="final-title"><Mandala watermark /><p className="site-eyebrow">YOUR NEXT LESSON IS WAITING</p><h2 id="final-title">Start learning today.</h2><Link href="/signup" className="site-btn">Create your free account</Link></section>
-      </main>
-      <footer className="site-footer"><PatternStrip /><Skyline /><div className="site-footer-top"><div className="site-footer-brand"><span className="site-mark" aria-hidden="true">अ</span><div><strong>akshar.</strong><p>A learning platform by Nepluro Private Limited.</p></div></div><nav className="site-footer-links" aria-label="Footer"><Link href="/learn">Learn</Link><Link href="/curriculum">Curriculum</Link><Link href="/practice">Entrance prep</Link><Link href="/privacy">Privacy</Link></nav></div><div className="site-footer-bottom"><span>© 2026 Nepluro Private Limited. Akshar. All rights reserved.</span></div></footer>
-    </div>
-  );
+  const [menuOpen, setMenuOpen] = useState(false);
+  useEffect(() => {
+    const onScroll = () => document.documentElement.classList.toggle("is-scrolled", window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true }); return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return <div className="ak-page">
+    <header className="ak-nav"><Logo /><nav className={menuOpen ? "ak-nav-links is-open" : "ak-nav-links"}><a href="#learn" onClick={() => setMenuOpen(false)}>Learn</a><a href="#curriculum" onClick={() => setMenuOpen(false)}>Curriculum</a><a href="#entrance" onClick={() => setMenuOpen(false)}>Entrance prep</a><a href="#about" onClick={() => setMenuOpen(false)}>About Akshar</a><Link href="/auth/login" className="nav-login">Log in</Link><Link href="/signup" className="ak-pill">Sign up</Link></nav><button className="ak-menu" aria-label="Open menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? "Close" : "Menu"}</button></header>
+    <main>
+      <section className="ak-hero" id="learn"><div className="ak-hero-image"><Image src={sourceImage} alt="Snow-covered Himalayan peak at sunset above a sea of clouds" fill priority sizes="100vw" /></div><div className="ak-hero-scrim" /><div className="ak-cloud cloud-one" /><div className="ak-cloud cloud-two" /><div className="ak-hero-copy"><p className="ak-eyebrow">LEARN WITHOUT LIMITS</p><h1>Beyond memorising,<br /><em>you build your future.</em></h1><p>Structured lessons, revision resources, practice questions, and exam preparation for students ready to learn with purpose.</p><div className="ak-actions"><Link href="/signup" className="ak-pill">Start Learning <Arrow /></Link><Link href="#curriculum" className="ak-outline">Explore Curriculum</Link></div></div><div className="ak-hero-cards">{subjects.slice(0,4).map(([name, progress, lessons, token]) => <div className={`ak-float-card ${token}`} key={name}><span className="ak-icon">{name[0]}</span><small>{progress}</small><strong>{name}</strong><label>{lessons}</label></div>)}</div><div className="ak-hero-fade" /></section>
+      <section className="ak-section" id="curriculum"><div className="ak-section-top"><div><p className="ak-eyebrow">YOUR CURRICULUM</p><h2>Everything you need,<br />subject by subject.</h2></div><p>Choose a pathway and make every study session count.</p></div><div className="ak-filters" role="group" aria-label="Study pathway">{filters.map((filter) => <button key={filter} className={activeFilter === filter ? "active" : ""} aria-pressed={activeFilter === filter} onClick={() => setActiveFilter(filter)}>{filter}</button>)}</div><div className="ak-subject-grid">{subjects.map(([name, progress, lessons, token, category]) => <Link href="/learn" className={`ak-subject ${token}`} key={name}><div className="ak-subject-top"><span className="ak-icon">{name[0]}</span><small>{category}</small><b>{progress}</b></div><h3>{name}</h3><p>{lessons}</p><div className="ak-progress"><i style={{ width: progress }} /></div></Link>)}</div></section>
+      <section className="ak-section ak-how" id="how"><div className="ak-section-top"><div><p className="ak-eyebrow">A SIMPLE STUDY RHYTHM</p><h2>Learn it. Remember it.<br />Apply it.</h2></div><p>Three small steps, designed for the way you actually learn.</p></div><div className="ak-steps">{[["01", "Learn", "Structured lessons and AI notes turn complex chapters into clear next steps."], ["02", "Revise", "Flashcards and audio lectures make useful revision possible anywhere."], ["03", "Practice", "Targeted questions and exam prep build confidence before the real test."]].map(([number, title, copy]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p><div className="ak-device"><b>{title === "Learn" ? "Newton's laws" : title === "Revise" ? "What is force?" : "QUESTION 08"}</b><i /><i /><i /></div></article>)}</div></section>
+      <section className="ak-entrance" id="entrance"><div><p className="ak-eyebrow">ENTRANCE PREPARATION</p><h2>Make the entrance exam feel familiar.</h2><ul><li>Syllabus-aligned lessons</li><li>Timed mock exams</li><li>Practice questions and clear explanations</li><li>Progress tracking that stays visible</li></ul><Link href="/practice" className="ak-light-pill">Start preparing <Arrow /></Link></div><div className="ak-exam-card"><div><span>CEE</span><strong>Mock exam 04</strong><small>48 questions · 60 minutes</small></div><div className="ak-card-line" /><div className="ak-exam-answer"><b>72%</b><span>Ready for review</span></div></div></section>
+      <section className="ak-section ak-progress-section"><div><p className="ak-eyebrow">PROGRESS THAT STAYS VISIBLE</p><h2>See your progress grow.</h2><p>{"One focused session at a time. Keep your streak and return to yesterday's revision."}</p><Link href="/progress" className="ak-text-link">View progress <Arrow /></Link></div><div className="ak-activity"><div><small>THIS WEEK</small><strong>3.5h</strong><span>Great result!</span></div><div className="ak-bars">{[38, 62, 48, 82, 57, 76, 66].map((height, i) => <i key={i} style={{ height: `${height}%` }} />)}</div><div className="ak-streak"><b>14</b><span>day streak</span></div></div></section>
+      <section className="ak-about" id="about"><div className="ak-skyline" aria-hidden="true">⌁　⌁　⌁　⌁　⌁　⌁</div><p className="ak-eyebrow">BUILT IN NEPAL</p><h2>Learning with purpose,<br /><em>made for here.</em></h2><p>Akshar is being built in Nepal for students who want a clearer, more confident way to move forward.</p><div className="ak-quote"><span>Student quote</span><p>Placeholder — student stories will be added after verified testimonials are collected.</p></div><small>Built in Nepal by Nepluro Private Limited</small></section>
+      <section className="ak-final"><Image src={sourceImage} alt="Softly masked Himalayan mountain background" fill sizes="100vw" /><div className="ak-final-overlay" /><div><p className="ak-eyebrow">YOUR NEXT LESSON IS WAITING</p><h2>Start learning today.</h2><div className="ak-actions"><Link href="/signup" className="ak-pill">Sign up <Arrow /></Link><Link href="/auth/login" className="ak-outline">Log in</Link></div></div></section>
+    </main><footer className="ak-footer"><Logo /><div><a href="#learn">Learn</a><a href="#curriculum">Curriculum</a><a href="#entrance">Entrance prep</a><a href="#about">About Akshar</a></div><p>A learning platform by Nepluro Private Limited.</p></footer>
+  </div>;
 }
